@@ -156,9 +156,54 @@ Firefly's PDLP implementation heavily favors matrix-vector multiplications over 
 
 Users are strictly advised to enable the Presolve engine's `Ruiz Equilibration` pass prior to invoking PDLP to guarantee convergence stability.
 
+## Current State: What's Built vs. Planned
+
+### What's Built (Backend & Core)
+- **Core Solver Engine (C++20 & CUDA)**: Original PDLP, Simplex, and MILP Branch & Bound algorithms implemented from mathematical first principles with custom matrix equilibration (Ruiz) and scaling invariance.
+- **Python Extension (`pybind11`)**: Direct, efficient bridging between the Python runtime and the C++ execution environment, rigorously tested against Windows DLL linking quirks.
+- **CLI (`firefly`)**: Command-line tool supporting single problem solving and directory benchmarking.
+- **HTTP API (FastAPI)**: Robust `/inspect` and `/solve` endpoints supporting MPS parsing, detailed narration generation (plain-English traces of solve stages), strict malformed input handling, and thread-safe concurrent solves.
+- **Testing Infrastructure**: Comprehensive sweep tests at the C++, CLI, and HTTP levels against regression MPS files ensuring exact state mappings and zero fabricated fallbacks.
+
+### What's Planned (Frontend)
+- **React & TypeScript Dashboard**: A telemetry web interface built with Vite, Tailwind, shadcn/ui, and Recharts.
+- **Scientific Aesthetic**: Strict visual language mirroring refinery control panels/oscilloscopes with flat surfaces, 1px borders, and IBM Plex fonts.
+- **Real-Time Visualizations**: Dual-objective line charts, solver status motifs (amber pulsing lights, async parallel GPU lane indicators locking into shared rhythm on convergence).
+
 ---
 
 ## Authors
 
 **The Fireflies** 
 *An SIH 2026 Initiative*
+
+---
+
+## Command-Line Interface (CLI)
+
+Installing the Python bindings via `pip install -e core` automatically registers the `firefly` command in your environment.
+
+```bash
+# Solve a single MPS file
+firefly solve path/to/problem.mps
+
+# Solve with specific options
+firefly solve problem.mps --method pdlp --no-gpu --verbose --output solution.csv
+
+# Batch solve all .mps files in a directory
+firefly benchmark ./problems/
+```
+
+---
+
+## Starting the API Server
+
+The FastAPI translation layer requires additional Python dependencies.
+
+```bash
+# 1. Install the API requirements
+pip install -r api/requirements.txt
+
+# 2. Start the FastAPI server using Uvicorn
+uvicorn api.main:app --host 0.0.0.0 --port 8000
+```
