@@ -22,7 +22,7 @@ struct BBNode {
 };
 
 BBSolverResult BranchAndBoundSolver::solve(const Problem& prob, const BBSolverOptions& options) {
-    std::cout << "BBSolver::solve start" << std::endl;
+    // std::cout << "BBSolver::solve start" << std::endl;
     BBSolverResult result;
     auto start_time = std::chrono::high_resolution_clock::now();
     
@@ -83,7 +83,6 @@ BBSolverResult BranchAndBoundSolver::solve(const Problem& prob, const BBSolverOp
         
         if (current.lower_bound >= best_incumbent - options.obj_tol) continue;
         
-        std::cout << "Node " << node_count << " evaluating..." << std::endl;
         Problem node_prob = prob;
         node_prob.col_lower_bounds = current.col_lower_bounds;
         node_prob.col_upper_bounds = current.col_upper_bounds;
@@ -98,7 +97,6 @@ BBSolverResult BranchAndBoundSolver::solve(const Problem& prob, const BBSolverOp
         }
         auto presolve_end = std::chrono::high_resolution_clock::now();
         total_presolve_ms += std::chrono::duration_cast<std::chrono::milliseconds>(presolve_end - presolve_start).count();
-        std::cout << "Presolve done, infeasible=" << infeasible << std::endl;
         
         if (infeasible) continue;
         
@@ -116,7 +114,7 @@ BBSolverResult BranchAndBoundSolver::solve(const Problem& prob, const BBSolverOp
             simp_opt.tolerance = options.obj_tol;
             lp_res = SimplexSolver::solve(pre, simp_opt);
         }
-        std::cout << "LP solve done" << std::endl;
+        // std::cout << "LP solve done" << std::endl;
         
         auto lp_end = std::chrono::high_resolution_clock::now();
         total_lp_ms += std::chrono::duration_cast<std::chrono::milliseconds>(lp_end - presolve_end).count();

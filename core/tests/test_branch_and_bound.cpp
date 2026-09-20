@@ -76,50 +76,65 @@ void test_pruning_infeasible() {
     std::cout << "Infeasible Node Pruning Test Passed\n\n";
 }
 
-void stress_test_miplib() {
-    std::cout << "--- Phase 5.6 large-MIPLIB stress test ---\n";
-    std::vector<std::string> files = {
-        "p0548.mps", "flugpl.mps", "egout.mps"
-    };
+void test_regression_marker_int() {
+    std::cout << "--- test_regression_marker_int ---\n";
+    auto prob = MPSParser::parse("E:/firefly/core/tests/regression/marker_int.mps");
     
-    for (const auto& f : files) {
-        std::string path = "E:/firefly/core/tests/netlib_miplib/" + f;
-        std::cout << "File: " << f << "\n";
-        try {
-            auto prob = MPSParser::parse(path);
-            
-            BBSolverOptions opts;
-            opts.lp_solver = LPSolverChoice::SIMPLEX;
-            opts.time_limit_ms = 5000; // 5 second limit for quick stress test check
-            opts.ordering = NodeOrdering::BEST_FIRST;
-            
-            opts.progress_callback = [](size_t n, double inc, double bnd, double ms) {
-                if (n % 100 == 0) {
-                    std::cout << "  Node: " << n << " | Incumbent: " << inc << " | Bound: " << bnd << " | Time: " << ms << "ms\n";
-                }
-            };
-            
-            auto res = BranchAndBoundSolver::solve(prob, opts);
-            
-            std::cout << "  Solve Status: " << (int)res.status << "\n";
-            std::cout << "  Total Nodes: " << res.node_count << "\n";
-            std::cout << "  Avg Presolve Time per Node: " << res.avg_presolve_ms_per_node << " ms\n";
-            std::cout << "  Avg LP Solve Time per Node: " << res.avg_lp_solve_ms_per_node << " ms\n";
-            std::cout << "  Best Incumbent: " << res.objective_value << "\n";
-            
-        } catch (const std::exception& e) {
-            std::cout << "  FAILED: " << e.what() << "\n";
-        }
-        std::cout << "\n";
-    }
+    // Verify it detected the integer variable correctly
+    assert(prob.is_integer[0] == true);
+    
+    BBSolverOptions opts;
+    opts.lp_solver = LPSolverChoice::SIMPLEX;
+    auto res = BranchAndBoundSolver::solve(prob, opts);
+    
+    std::cout << "marker_int Best Obj: " << res.objective_value << "\n";
+    assert(res.status == SolveStatus::OPTIMAL);
+    assert(std::abs(res.objective_value - (-10.0)) < 1e-5);
+    std::cout << "test_regression_marker_int passed.\n\n";
+}
+
+void test_miplib_flugpl() {
+    std::cout << "--- test_miplib_flugpl (MIPLIB) ---\n";
+    std::string path = "E:/firefly/core/tests/netlib_miplib/flugpl.mps";
+    auto prob = MPSParser::parse(path);
+    
+    BBSolverOptions opts_best;
+    opts_best.lp_solver = LPSolverChoice::SIMPLEX;
+    opts_best.ordering = NodeOrdering::BEST_FIRST;
+    auto res_best = BranchAndBoundSolver::solve(prob, opts_best);
+    
+    std::cout << "Best-First Strategy:\n";
+    std::cout << "  Solve Status: " << (int)res_best.status << "\n";
+    std::cout << "  Total Nodes: " << res_best.node_count << "\n";
+    std::cout << "  Best Incumbent: " << res_best.objective_value << "\n\n";
+    
+    BBSolverOptions opts_depth;
+    opts_depth.lp_solver = LPSolverChoice::SIMPLEX;
+    opts_depth.ordering = NodeOrdering::DEPTH_FIRST;
+    auto res_depth = BranchAndBoundSolver::solve(prob, opts_depth);
+    
+    std::cout << "Depth-First Strategy:\n";
+    std::cout << "  Solve Status: " << (int)res_depth.status << "\n";
+    std::cout << "  Total Nodes: " << res_depth.node_count << "\n";
+    std::cout << "  Best Incumbent: " << res_depth.objective_value << "\n\n";
+    
+    // Assert optimal for both
+    assert(res_best.status == SolveStatus::OPTIMAL);
+    assert(res_depth.status == SolveStatus::OPTIMAL);
+    
+    // Published optimal for flugpl is 1201500
+    double expected_obj = 1201500.0;
+    assert(std::abs(res_best.objective_value - expected_obj) < 1e-1);
+    assert(std::abs(res_depth.objective_value - expected_obj) < 1e-1);
+    
+    std::cout << "test_miplib_flugpl passed.\n\n";
 }
 
 int main() {
     std::cout << std::unitbuf;
     try {
-        test_simple_mip();
-        // test_pruning_infeasible();
-        // stress_test_miplib();
+        test_regression_marker_int();
+        test_miplib_flugpl();
     } catch (const std::exception& e) {
         std::cerr << "Fatal Exception: " << e.what() << std::endl;
         return 1;
