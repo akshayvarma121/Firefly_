@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_boolean_xor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\firefly\core\build_cuda\_deps\eigen-src\doc\snippets\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6CE1925C-EE7E-3ECE-93E8-28E254DA8688}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\firefly\core\build_cuda\_deps\eigen-subbuild\CMakeFiles\86e30392fb1318e8b5afb5a6b576144b\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1A69B31A-A7D8-3003-B9CF-15BFF0D2A23B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

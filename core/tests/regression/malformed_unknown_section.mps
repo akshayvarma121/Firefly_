@@ -1,0 +1,6 @@
+NAME          UNKNOWN_SEC
+ROWS
+ N  OBJ
+FAKE_SECTION
+    X1        OBJ       1.0
+ENDATA

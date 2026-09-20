@@ -1,0 +1,10 @@
+^E:\FIREFLY\CORE\BUILD_CPU\_DEPS\EIGEN-SUBBUILD\CMAKEFILES\AF677520B7AF80595923C1EB66CEE56C\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core/build_cpu/_deps/eigen-subbuild -BE:/firefly/core/build_cpu/_deps/eigen-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/firefly/core/build_cpu/_deps/eigen-subbuild/eigen-populate.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

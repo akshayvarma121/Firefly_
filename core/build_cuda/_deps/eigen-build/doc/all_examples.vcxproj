@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{911E7E10-19D1-32FC-BFFE-7EE921AEEF15}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>all_examples</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 13.2.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_cuda\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_cuda\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_cuda\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_cuda\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\firefly\core\build_cuda\_deps\eigen-src\doc\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/firefly/core/build_cuda/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_cuda --check-stamp-file E:/firefly/core/build_cuda/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\firefly\core\build_cuda\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_cuda\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\firefly\core\build_cuda\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/firefly/core/build_cuda/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_cuda --check-stamp-file E:/firefly/core/build_cuda/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\firefly\core\build_cuda\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_cuda\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\firefly\core\build_cuda\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/firefly/core/build_cuda/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_cuda --check-stamp-file E:/firefly/core/build_cuda/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\firefly\core\build_cuda\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_cuda\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\firefly\core\build_cuda\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/firefly/core/build_cuda/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_cuda --check-stamp-file E:/firefly/core/build_cuda/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\firefly\core\build_cuda\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_cuda\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_cuda\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\firefly\core\build_cuda\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="E:\firefly\core\build_cuda\ZERO_CHECK.vcxproj">
+      <Project>{CB881360-DE12-337F-9B15-217B80178414}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\CustomizingEigen_Inheritance.vcxproj">
+      <Project>{982E3288-B2BB-334D-B9B1-76FF4953EF10}</Project>
+      <Name>CustomizingEigen_Inheritance</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Cwise_erf.vcxproj">
+      <Project>{C90B88D5-56EE-3F82-BA9F-EAF60138FF94}</Project>
+      <Name>Cwise_erf</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Cwise_erfc.vcxproj">
+      <Project>{C9679934-BBC8-3AB9-A7B9-F2E5BBA531AB}</Project>
+      <Name>Cwise_erfc</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Cwise_lgamma.vcxproj">
+      <Project>{0A9DABCD-7A89-3270-B4FE-361E651B766F}</Project>
+      <Name>Cwise_lgamma</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\DenseBase_middleCols_int.vcxproj">
+      <Project>{0EDB3078-4ED9-3606-B48E-BF9726EE1F5B}</Project>
+      <Name>DenseBase_middleCols_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\DenseBase_middleRows_int.vcxproj">
+      <Project>{979ACFFE-C867-3CCB-B3FB-130D4F358794}</Project>
+      <Name>DenseBase_middleRows_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\DenseBase_template_int_middleCols.vcxproj">
+      <Project>{0F264915-9B3C-3B5E-864B-A8112D17831C}</Project>
+      <Name>DenseBase_template_int_middleCols</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\DenseBase_template_int_middleRows.vcxproj">
+      <Project>{F900CF6B-39F4-38E5-9A4D-E301BBA7431C}</Project>
+      <Name>DenseBase_template_int_middleRows</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\QuickStart_example.vcxproj">
+      <Project>{AD5F2073-3F0F-3219-93B5-AE3EFE910D19}</Project>
+      <Name>QuickStart_example</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\QuickStart_example2_dynamic.vcxproj">
+      <Project>{FE61932B-07D6-330B-A20B-1BC347077CC3}</Project>
+      <Name>QuickStart_example2_dynamic</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\QuickStart_example2_fixed.vcxproj">
+      <Project>{9ED13037-1FD2-3E6D-8D4A-15BE7C90FA7C}</Project>
+      <Name>QuickStart_example2_fixed</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TemplateKeyword_flexible.vcxproj">
+      <Project>{96EF4105-5495-3556-B745-99AC5DFBC577}</Project>
+      <Name>TemplateKeyword_flexible</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TemplateKeyword_simple.vcxproj">
+      <Project>{C257859A-4DA5-3BD1-A32A-4ADF95F1FAB4}</Project>
+      <Name>TemplateKeyword_simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TutorialInplaceLU.vcxproj">
+      <Project>{9F8E894F-32C2-3FB5-A022-2E17A60FE088}</Project>
+      <Name>TutorialInplaceLU</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TutorialLinAlgComputeTwice.vcxproj">
+      <Project>{F32E8B10-7591-31F3-97BD-BA34E52CCC70}</Project>
+      <Name>TutorialLinAlgComputeTwice</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TutorialLinAlgExComputeSolveError.vcxproj">
+      <Project>{56F0DEBE-2E13-351D-ACA2-5B660E041C8A}</Project>
+      <Name>TutorialLinAlgExComputeSolveError</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TutorialLinAlgExSolveColPivHouseholderQR.vcxproj">
+      <Project>{2E8D7E65-DF09-37ED-B5E4-E8E8C6725CB5}</Project>
+      <Name>TutorialLinAlgExSolveColPivHouseholderQR</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TutorialLinAlgExSolveLDLT.vcxproj">
+      <Project>{C351B635-0CB8-3B3F-A748-B21A6F75E6B1}</Project>
+      <Name>TutorialLinAlgExSolveLDLT</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TutorialLinAlgInverseDeterminant.vcxproj">
+      <Project>{F93D9E48-A686-3075-82A7-AFD653780125}</Project>
+      <Name>TutorialLinAlgInverseDeterminant</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TutorialLinAlgRankRevealing.vcxproj">
+      <Project>{9E882CF7-85C7-3223-9671-1366EC7F0026}</Project>
+      <Name>TutorialLinAlgRankRevealing</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TutorialLinAlgSVDSolve.vcxproj">
+      <Project>{DBB3CB61-4CE0-373B-9968-E379344A404A}</Project>
+      <Name>TutorialLinAlgSVDSolve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TutorialLinAlgSelfAdjointEigenSolver.vcxproj">
+      <Project>{C4AB116D-7605-3D49-8DA9-CE32B1484FE9}</Project>
+      <Name>TutorialLinAlgSelfAdjointEigenSolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\TutorialLinAlgSetThreshold.vcxproj">
+      <Project>{11620F23-DEF8-375C-AF9E-02AC2C048E3C}</Project>
+      <Name>TutorialLinAlgSetThreshold</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_accessors.vcxproj">
+      <Project>{10DF1DB5-644C-373B-9E1A-CD7C6905F28E}</Project>
+      <Name>Tutorial_ArrayClass_accessors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_addition.vcxproj">
+      <Project>{C8C365B9-6970-343C-BC20-668C0D187303}</Project>
+      <Name>Tutorial_ArrayClass_addition</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_cwise_other.vcxproj">
+      <Project>{7ACFC049-6245-31D6-BD8A-793C5C112104}</Project>
+      <Name>Tutorial_ArrayClass_cwise_other</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_interop.vcxproj">
+      <Project>{128682B8-C89A-37D3-9626-B838167C0751}</Project>
+      <Name>Tutorial_ArrayClass_interop</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_interop_matrix.vcxproj">
+      <Project>{0BB5FF60-8380-31F5-859E-ACF927B21132}</Project>
+      <Name>Tutorial_ArrayClass_interop_matrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_mult.vcxproj">
+      <Project>{34FB71C6-774A-354C-820B-612CC771E81D}</Project>
+      <Name>Tutorial_ArrayClass_mult</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_block_assignment.vcxproj">
+      <Project>{94338D75-3D4D-3768-8FE5-785581C87768}</Project>
+      <Name>Tutorial_BlockOperations_block_assignment</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_colrow.vcxproj">
+      <Project>{77332203-CC4B-32E3-9452-C6A0458AE5C9}</Project>
+      <Name>Tutorial_BlockOperations_colrow</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_corner.vcxproj">
+      <Project>{3CF5DD50-B57B-309A-BA3E-69D8DBED13DE}</Project>
+      <Name>Tutorial_BlockOperations_corner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_print_block.vcxproj">
+      <Project>{7B5CD944-A54D-3FC7-BA09-E0B96A391AFF}</Project>
+      <Name>Tutorial_BlockOperations_print_block</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_vector.vcxproj">
+      <Project>{069E8A2F-12C1-35D9-9D6F-78D7D9EF0824}</Project>
+      <Name>Tutorial_BlockOperations_vector</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_PartialLU_solve.vcxproj">
+      <Project>{070161B2-63F4-3941-B071-0DD8C1786D9E}</Project>
+      <Name>Tutorial_PartialLU_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_broadcast_1nn.vcxproj">
+      <Project>{5450296B-23CF-3809-B538-6412419C7B25}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_broadcast_1nn</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple.vcxproj">
+      <Project>{9CA2A34F-91DD-3E1A-A4C2-BF1813E7F3CC}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple_rowwise.vcxproj">
+      <Project>{BCA4EF7B-4F60-3A16-B7B2-D364BC28810F}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple_rowwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_colwise.vcxproj">
+      <Project>{9CC286FA-5313-3BA5-A64B-70FACC32E243}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_colwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_maxnorm.vcxproj">
+      <Project>{FE48EA34-FEF2-377D-954B-323A7962B30D}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_maxnorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_reductions_bool.vcxproj">
+      <Project>{5E50CCEB-FD9C-34D2-89CA-9D98EDB95CBB}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_reductions_bool</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_reductions_norm.vcxproj">
+      <Project>{6C1F7269-9832-34A4-81A8-99D21331ABA1}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_reductions_norm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_reductions_operatornorm.vcxproj">
+      <Project>{35CBDD14-8B40-355B-9F5C-69FE423B3F0E}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_reductions_operatornorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_rowwise.vcxproj">
+      <Project>{9E3C94E1-432E-3475-9A67-3DD3594C7209}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_rowwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_visitors.vcxproj">
+      <Project>{A624C1AB-8DF8-3CF2-8BF8-994E065B9634}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_visitors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_simple_example_dynamic_size.vcxproj">
+      <Project>{7457DBC7-2EE8-3964-926B-26A835CC4912}</Project>
+      <Name>Tutorial_simple_example_dynamic_size</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\Tutorial_simple_example_fixed_size.vcxproj">
+      <Project>{C156FA95-201D-33D4-ABE0-227E244A93B4}</Project>
+      <Name>Tutorial_simple_example_fixed_size</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\class_Block.vcxproj">
+      <Project>{79DDF177-9615-3E64-B24A-2CF329D37C89}</Project>
+      <Name>class_Block</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\class_CwiseBinaryOp.vcxproj">
+      <Project>{CAF283AC-EFA8-3C61-9145-21910F96F7DB}</Project>
+      <Name>class_CwiseBinaryOp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\class_CwiseUnaryOp.vcxproj">
+      <Project>{17B61D7D-F4FC-37E7-A0F5-7B0FB42D2792}</Project>
+      <Name>class_CwiseUnaryOp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\class_CwiseUnaryOp_ptrfun.vcxproj">
+      <Project>{46DCF4CB-B733-3586-8D65-DD327B695928}</Project>
+      <Name>class_CwiseUnaryOp_ptrfun</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\class_FixedBlock.vcxproj">
+      <Project>{99813800-A205-3C43-8262-CCDBBE68C9AC}</Project>
+      <Name>class_FixedBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\class_FixedReshaped.vcxproj">
+      <Project>{D70583FC-587C-3477-84AB-D5F430CFDCC1}</Project>
+      <Name>class_FixedReshaped</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\class_FixedVectorBlock.vcxproj">
+      <Project>{ED9BC555-B6B5-3375-8638-1DF3C21D26BA}</Project>
+      <Name>class_FixedVectorBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\class_Reshaped.vcxproj">
+      <Project>{27EF644C-2846-3445-863F-7CAB87014EC0}</Project>
+      <Name>class_Reshaped</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\class_VectorBlock.vcxproj">
+      <Project>{A6112F98-FA8C-3BF7-8119-336FB603B5A4}</Project>
+      <Name>class_VectorBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\function_taking_eigenbase.vcxproj">
+      <Project>{E9DFB10F-A94B-367E-BEA4-552777EDFEA2}</Project>
+      <Name>function_taking_eigenbase</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\function_taking_ref.vcxproj">
+      <Project>{9F29A590-76F8-35B1-9D1A-431E50FFC032}</Project>
+      <Name>function_taking_ref</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\make_circulant.vcxproj">
+      <Project>{E711AC98-96FF-30E8-93BE-28610D9B1C26}</Project>
+      <Name>make_circulant</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\make_circulant2.vcxproj">
+      <Project>{C13374C7-65B0-39A9-AE53-4D4F61431687}</Project>
+      <Name>make_circulant2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\matrixfree_cg.vcxproj">
+      <Project>{5BBDA0BC-0102-3A6B-8E95-24C0230B0992}</Project>
+      <Name>matrixfree_cg</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\nullary_indexing.vcxproj">
+      <Project>{6DCB5835-2096-37C2-BF57-ED8226AAFFCF}</Project>
+      <Name>nullary_indexing</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\tut_arithmetic_add_sub.vcxproj">
+      <Project>{DA5CD874-9382-333A-B30F-913D0DE9ACEB}</Project>
+      <Name>tut_arithmetic_add_sub</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\tut_arithmetic_dot_cross.vcxproj">
+      <Project>{13DFD9FA-DE42-3543-8B1C-C30BD6642AA9}</Project>
+      <Name>tut_arithmetic_dot_cross</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\tut_arithmetic_matrix_mul.vcxproj">
+      <Project>{5A3A5A06-3937-3D0A-BA2B-230C5C93CDAA}</Project>
+      <Name>tut_arithmetic_matrix_mul</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\tut_arithmetic_redux_basic.vcxproj">
+      <Project>{079A4331-176B-355E-9357-4762661362EE}</Project>
+      <Name>tut_arithmetic_redux_basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\tut_arithmetic_scalar_mul_div.vcxproj">
+      <Project>{88AE43C6-5ACC-30C2-BF68-06D24ADB7A80}</Project>
+      <Name>tut_arithmetic_scalar_mul_div</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\tut_matrix_coefficient_accessors.vcxproj">
+      <Project>{8C091C13-1D1D-34DF-88A9-DC4B8F13B792}</Project>
+      <Name>tut_matrix_coefficient_accessors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\tut_matrix_resize.vcxproj">
+      <Project>{C49D8224-0596-3618-98BC-C65D97DD5779}</Project>
+      <Name>tut_matrix_resize</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\examples\tut_matrix_resize_fixed_size.vcxproj">
+      <Project>{0C7BE836-C1E6-3B0D-B13D-6BB2EF967DAC}</Project>
+      <Name>tut_matrix_resize_fixed_size</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 13.2.targets" />
+  </ImportGroup>
+</Project>

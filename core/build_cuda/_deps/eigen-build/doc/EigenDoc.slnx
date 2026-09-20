@@ -1,0 +1,1871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug"/>
+		<BuildType Name="Release"/>
+		<BuildType Name="MinSizeRel"/>
+		<BuildType Name="RelWithDebInfo"/>
+		<Platform Name="x64"/>
+	</Configurations>
+	<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3e83bf08-3482-3e5e-b5b1-0731ddeefc76" DefaultStartup="true">
+		<BuildDependency Project="examples/CustomizingEigen_Inheritance.vcxproj"/>
+		<BuildDependency Project="examples/Cwise_erf.vcxproj"/>
+		<BuildDependency Project="examples/Cwise_erfc.vcxproj"/>
+		<BuildDependency Project="examples/Cwise_lgamma.vcxproj"/>
+		<BuildDependency Project="examples/DenseBase_middleCols_int.vcxproj"/>
+		<BuildDependency Project="examples/DenseBase_middleRows_int.vcxproj"/>
+		<BuildDependency Project="examples/DenseBase_template_int_middleCols.vcxproj"/>
+		<BuildDependency Project="examples/DenseBase_template_int_middleRows.vcxproj"/>
+		<BuildDependency Project="examples/QuickStart_example.vcxproj"/>
+		<BuildDependency Project="examples/QuickStart_example2_dynamic.vcxproj"/>
+		<BuildDependency Project="examples/QuickStart_example2_fixed.vcxproj"/>
+		<BuildDependency Project="examples/TemplateKeyword_flexible.vcxproj"/>
+		<BuildDependency Project="examples/TemplateKeyword_simple.vcxproj"/>
+		<BuildDependency Project="examples/TutorialInplaceLU.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgComputeTwice.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgExComputeSolveError.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgExSolveColPivHouseholderQR.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgExSolveLDLT.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgInverseDeterminant.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgRankRevealing.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgSVDSolve.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgSelfAdjointEigenSolver.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgSetThreshold.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_accessors.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_addition.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_cwise_other.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_interop.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_interop_matrix.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_mult.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_BlockOperations_block_assignment.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_BlockOperations_colrow.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_BlockOperations_corner.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_BlockOperations_print_block.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_BlockOperations_vector.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_PartialLU_solve.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_broadcast_1nn.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple_rowwise.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_colwise.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_maxnorm.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_reductions_bool.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_reductions_norm.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_reductions_operatornorm.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_rowwise.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_visitors.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_simple_example_dynamic_size.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_simple_example_fixed_size.vcxproj"/>
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="examples/class_Block.vcxproj"/>
+		<BuildDependency Project="examples/class_CwiseBinaryOp.vcxproj"/>
+		<BuildDependency Project="examples/class_CwiseUnaryOp.vcxproj"/>
+		<BuildDependency Project="examples/class_CwiseUnaryOp_ptrfun.vcxproj"/>
+		<BuildDependency Project="examples/class_FixedBlock.vcxproj"/>
+		<BuildDependency Project="examples/class_FixedReshaped.vcxproj"/>
+		<BuildDependency Project="examples/class_FixedVectorBlock.vcxproj"/>
+		<BuildDependency Project="examples/class_Reshaped.vcxproj"/>
+		<BuildDependency Project="examples/class_VectorBlock.vcxproj"/>
+		<BuildDependency Project="snippets/compile_AngleAxis_mimic_euler.vcxproj"/>
+		<BuildDependency Project="snippets/compile_BiCGSTAB_simple.vcxproj"/>
+		<BuildDependency Project="snippets/compile_BiCGSTAB_step_by_step.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ColPivHouseholderQR_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexEigenSolver_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexEigenSolver_eigenvalues.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexEigenSolver_eigenvectors.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexSchur_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexSchur_matrixT.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexSchur_matrixU.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_abs.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_abs2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_acos.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_arg.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_array_power_array.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_asin.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_atan.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_boolean_and.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_boolean_not.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_boolean_or.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_boolean_xor.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_ceil.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_cos.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_cosh.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_cube.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_equal_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_exp.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_floor.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_greater.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_greater_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_inverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_isFinite.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_isInf.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_isNaN.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_less.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_less_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_log.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_log10.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_max.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_min.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_minus.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_minus_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_not_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_plus.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_plus_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_pow.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_product.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_quotient.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_rint.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_round.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_scalar_power_array.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_sign.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_sin.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_sinh.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_slash_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_sqrt.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_square.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_tan.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_tanh.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_times_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DenseBase_LinSpaced.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DenseBase_LinSpacedInt.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DenseBase_LinSpaced_seq_deprecated.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DenseBase_setLinSpaced.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DirectionWise_hnormalized.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DirectionWise_replicate.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DirectionWise_replicate_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_EigenSolver_EigenSolver_MatrixType.vcxproj"/>
+		<BuildDependency Project="snippets/compile_EigenSolver_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_EigenSolver_eigenvalues.vcxproj"/>
+		<BuildDependency Project="snippets/compile_EigenSolver_eigenvectors.vcxproj"/>
+		<BuildDependency Project="snippets/compile_EigenSolver_pseudoEigenvectors.vcxproj"/>
+		<BuildDependency Project="snippets/compile_FullPivHouseholderQR_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_FullPivLU_image.vcxproj"/>
+		<BuildDependency Project="snippets/compile_FullPivLU_kernel.vcxproj"/>
+		<BuildDependency Project="snippets/compile_FullPivLU_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_GeneralizedEigenSolver.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HessenbergDecomposition_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HessenbergDecomposition_matrixH.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HessenbergDecomposition_packedMatrix.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HouseholderQR_householderQ.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HouseholderQR_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HouseholderSequence_HouseholderSequence.vcxproj"/>
+		<BuildDependency Project="snippets/compile_IOFormat.vcxproj"/>
+		<BuildDependency Project="snippets/compile_JacobiSVD_basic.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Jacobi_makeGivens.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Jacobi_makeJacobi.vcxproj"/>
+		<BuildDependency Project="snippets/compile_LLT_example.vcxproj"/>
+		<BuildDependency Project="snippets/compile_LLT_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_LeastSquaresNormalEquations.vcxproj"/>
+		<BuildDependency Project="snippets/compile_LeastSquaresQR.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Map_general_stride.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Map_inner_stride.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Map_outer_stride.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Map_placement_new.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Map_simple.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_adjoint.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_all.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_applyOnTheLeft.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_applyOnTheRight.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_array.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_array_const.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_asDiagonal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_block_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_block_int_int_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_bottomLeftCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_bottomRightCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_bottomRows_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cast.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_col.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_colwise.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_computeInverseAndDetWithCheck.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_computeInverseWithCheck.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseAbs.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseAbs2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseArg.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseEqual.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseInverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseMax.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseMin.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseNotEqual.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseProduct.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseQuotient.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseSign.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseSqrt.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_diagonal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_diagonal_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_diagonal_template_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_eigenvalues.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_end_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_eval.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_fixedBlock_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_hnormalized.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_homogeneous.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_identity.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_identity_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_inverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isDiagonal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isIdentity.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isOnes.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isOrthogonal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isUnitary.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isZero.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_leftCols_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_noalias.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_ones.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_ones_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_ones_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_operatorNorm.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_prod.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_random.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_random_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_random_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_replicate.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_replicate_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_reshaped_auto.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_reshaped_fixed.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_reshaped_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_reshaped_to_vector.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_reverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_rightCols_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_row.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_rowwise.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_segment_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_select.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_selfadjointView.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_set.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_setIdentity.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_setOnes.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_setRandom.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_setZero.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_start_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_bottomRows.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_end.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_block_int_int_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_bottomLeftCorner.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_bottomLeftCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_bottomRightCorner.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_bottomRightCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_topLeftCorner.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_topLeftCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_topRightCorner.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_topRightCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_leftCols.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_rightCols.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_segment.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_start.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_topRows.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_topLeftCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_topRightCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_topRows_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_transpose.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_triangularView.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_zero.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_zero_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_zero_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_Map_stride.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_resize_NoChange_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_resize_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_resize_int_NoChange.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_resize_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setConstant_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setConstant_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setIdentity_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setOnes_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setOnes_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setRandom_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setRandom_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setZero_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setZero_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialPivLU_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_count.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_maxCoeff.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_minCoeff.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_norm.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_prod.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_squaredNorm.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_sum.vcxproj"/>
+		<BuildDependency Project="snippets/compile_RealQZ_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_RealSchur_RealSchur_MatrixType.vcxproj"/>
+		<BuildDependency Project="snippets/compile_RealSchur_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_compute_MatrixType.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_compute_MatrixType2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_eigenvalues.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_eigenvectors.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_operatorInverseSqrt.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_operatorSqrt.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointView_eigenvalues.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointView_operatorNorm.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Slicing_arrayexpr.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SparseMatrix_coeffs.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_block.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_block_correct.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_cwise.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_mult1.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_mult2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_mult3.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_mult4.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_mult5.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicStorageOrders_example.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Triangular_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_Tridiagonalization_MatrixType.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_decomposeInPlace.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_diagonal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_householderCoefficients.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_packedMatrix.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_Block.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_CommaTemporary.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_Join.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_LinSpaced.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_ThreeWays.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_Zero.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_Map_rowmajor.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_Map_using.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_ReshapeMat2Mat.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_ReshapeMat2Vec.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_SlicingCol.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_SlicingVec.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_commainit_01.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_commainit_01b.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_commainit_02.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_reshaped_vs_resize_1.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_reshaped_vs_resize_2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_matrix_inverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_multiple_rhs.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_reuse_decomposition.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_singular.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_triangular.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_triangular_inplace.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_std_sort.vcxproj"/>
+		<BuildDependency Project="snippets/compile_VectorwiseOp_homogeneous.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Vectorwise_reverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_class_FullPivLU.vcxproj"/>
+		<BuildDependency Project="snippets/compile_tut_arithmetic_redux_minmax.vcxproj"/>
+		<BuildDependency Project="snippets/compile_tut_arithmetic_transpose_aliasing.vcxproj"/>
+		<BuildDependency Project="snippets/compile_tut_arithmetic_transpose_conjugate.vcxproj"/>
+		<BuildDependency Project="snippets/compile_tut_arithmetic_transpose_inplace.vcxproj"/>
+		<BuildDependency Project="snippets/compile_tut_matrix_assignment_resizing.vcxproj"/>
+		<BuildDependency Project="doc.vcxproj"/>
+		<BuildDependency Project="doc-eigen-prerequisites.vcxproj"/>
+		<BuildDependency Project="doc-unsupported-prerequisites.vcxproj"/>
+		<BuildDependency Project="examples/function_taking_eigenbase.vcxproj"/>
+		<BuildDependency Project="examples/function_taking_ref.vcxproj"/>
+		<BuildDependency Project="examples/make_circulant.vcxproj"/>
+		<BuildDependency Project="examples/make_circulant2.vcxproj"/>
+		<BuildDependency Project="examples/matrixfree_cg.vcxproj"/>
+		<BuildDependency Project="examples/nullary_indexing.vcxproj"/>
+		<BuildDependency Project="examples/tut_arithmetic_add_sub.vcxproj"/>
+		<BuildDependency Project="examples/tut_arithmetic_dot_cross.vcxproj"/>
+		<BuildDependency Project="examples/tut_arithmetic_matrix_mul.vcxproj"/>
+		<BuildDependency Project="examples/tut_arithmetic_redux_basic.vcxproj"/>
+		<BuildDependency Project="examples/tut_arithmetic_scalar_mul_div.vcxproj"/>
+		<BuildDependency Project="examples/tut_matrix_coefficient_accessors.vcxproj"/>
+		<BuildDependency Project="examples/tut_matrix_resize.vcxproj"/>
+		<BuildDependency Project="examples/tut_matrix_resize_fixed_size.vcxproj"/>
+	</Project>
+	<Project Path="examples/CustomizingEigen_Inheritance.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="982e3288-b2bb-334d-b9b1-76ff4953ef10">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Cwise_erf.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c90b88d5-56ee-3f82-ba9f-eaf60138ff94">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Cwise_erfc.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c9679934-bbc8-3ab9-a7b9-f2e5bba531ab">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Cwise_lgamma.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0a9dabcd-7a89-3270-b4fe-361e651b766f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/DenseBase_middleCols_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0edb3078-4ed9-3606-b48e-bf9726ee1f5b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/DenseBase_middleRows_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="979acffe-c867-3ccb-b3fb-130d4f358794">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/DenseBase_template_int_middleCols.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0f264915-9b3c-3b5e-864b-a8112d17831c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/DenseBase_template_int_middleRows.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f900cf6b-39f4-38e5-9a4d-e301bba7431c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="187952ba-6b68-31b8-8f96-ef74bc1b0dc7">
+		<BuildDependency Project="ALL_BUILD.vcxproj"/>
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+		<Build Solution="Debug|*" Project="false"/>
+		<Build Solution="Release|*" Project="false"/>
+		<Build Solution="MinSizeRel|*" Project="false"/>
+		<Build Solution="RelWithDebInfo|*" Project="false"/>
+	</Project>
+	<Project Path="examples/QuickStart_example.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ad5f2073-3f0f-3219-93b5-ae3efe910d19">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/QuickStart_example2_dynamic.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fe61932b-07d6-330b-a20b-1bc347077cc3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/QuickStart_example2_fixed.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9ed13037-1fd2-3e6d-8d4a-15be7c90fa7c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="RUN_TESTS.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6397065c-b8d1-3582-bdf0-2c2b8bc67d06">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+		<Build Solution="Debug|*" Project="false"/>
+		<Build Solution="Release|*" Project="false"/>
+		<Build Solution="MinSizeRel|*" Project="false"/>
+		<Build Solution="RelWithDebInfo|*" Project="false"/>
+	</Project>
+	<Project Path="examples/TemplateKeyword_flexible.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="96ef4105-5495-3556-b745-99ac5dfbc577">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TemplateKeyword_simple.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c257859a-4da5-3bd1-a32a-4adf95f1fab4">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TutorialInplaceLU.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9f8e894f-32c2-3fb5-a022-2e17a60fe088">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TutorialLinAlgComputeTwice.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f32e8b10-7591-31f3-97bd-ba34e52ccc70">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TutorialLinAlgExComputeSolveError.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="56f0debe-2e13-351d-aca2-5b660e041c8a">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TutorialLinAlgExSolveColPivHouseholderQR.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2e8d7e65-df09-37ed-b5e4-e8e8c6725cb5">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TutorialLinAlgExSolveLDLT.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c351b635-0cb8-3b3f-a748-b21a6f75e6b1">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TutorialLinAlgInverseDeterminant.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f93d9e48-a686-3075-82a7-afd653780125">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TutorialLinAlgRankRevealing.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9e882cf7-85c7-3223-9671-1366ec7f0026">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TutorialLinAlgSVDSolve.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="dbb3cb61-4ce0-373b-9968-e379344a404a">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TutorialLinAlgSelfAdjointEigenSolver.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c4ab116d-7605-3d49-8da9-ce32b1484fe9">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/TutorialLinAlgSetThreshold.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="11620f23-def8-375c-af9e-02ac2c048e3c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ArrayClass_accessors.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="10df1db5-644c-373b-9e1a-cd7c6905f28e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ArrayClass_addition.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c8c365b9-6970-343c-bc20-668c0d187303">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ArrayClass_cwise_other.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7acfc049-6245-31d6-bd8a-793c5c112104">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ArrayClass_interop.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="128682b8-c89a-37d3-9626-b838167c0751">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ArrayClass_interop_matrix.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0bb5ff60-8380-31f5-859e-acf927b21132">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ArrayClass_mult.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="34fb71c6-774a-354c-820b-612cc771e81d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_BlockOperations_block_assignment.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="94338d75-3d4d-3768-8fe5-785581c87768">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_BlockOperations_colrow.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="77332203-cc4b-32e3-9452-c6a0458ae5c9">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_BlockOperations_corner.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3cf5dd50-b57b-309a-ba3e-69d8dbed13de">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_BlockOperations_print_block.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7b5cd944-a54d-3fc7-ba09-e0b96a391aff">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_BlockOperations_vector.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="069e8a2f-12c1-35d9-9d6f-78d7d9ef0824">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_PartialLU_solve.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="070161b2-63f4-3941-b071-0dd8c1786d9e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ReductionsVisitorsBroadcasting_broadcast_1nn.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5450296b-23cf-3809-b538-6412419c7b25">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9ca2a34f-91dd-3e1a-a4c2-bf1813e7f3cc">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple_rowwise.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="bca4ef7b-4f60-3a16-b7b2-d364bc28810f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ReductionsVisitorsBroadcasting_colwise.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9cc286fa-5313-3ba5-a64b-70facc32e243">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ReductionsVisitorsBroadcasting_maxnorm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fe48ea34-fef2-377d-954b-323a7962b30d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ReductionsVisitorsBroadcasting_reductions_bool.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5e50cceb-fd9c-34d2-89ca-9d98edb95cbb">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ReductionsVisitorsBroadcasting_reductions_norm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6c1f7269-9832-34a4-81a8-99d21331aba1">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ReductionsVisitorsBroadcasting_reductions_operatornorm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="35cbdd14-8b40-355b-9f5c-69fe423b3f0e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ReductionsVisitorsBroadcasting_rowwise.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9e3c94e1-432e-3475-9a67-3dd3594c7209">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_ReductionsVisitorsBroadcasting_visitors.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a624c1ab-8df8-3cf2-8bf8-994e065b9634">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_simple_example_dynamic_size.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7457dbc7-2ee8-3964-926b-26a835cc4912">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/Tutorial_simple_example_fixed_size.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c156fa95-201d-33d4-abe0-227e244a93b4">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../../../ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="cb881360-de12-337f-9b15-217b80178414"/>
+	<Project Path="all_examples.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="911e7e10-19d1-32fc-bffe-7ee921aeef15">
+		<BuildDependency Project="examples/CustomizingEigen_Inheritance.vcxproj"/>
+		<BuildDependency Project="examples/Cwise_erf.vcxproj"/>
+		<BuildDependency Project="examples/Cwise_erfc.vcxproj"/>
+		<BuildDependency Project="examples/Cwise_lgamma.vcxproj"/>
+		<BuildDependency Project="examples/DenseBase_middleCols_int.vcxproj"/>
+		<BuildDependency Project="examples/DenseBase_middleRows_int.vcxproj"/>
+		<BuildDependency Project="examples/DenseBase_template_int_middleCols.vcxproj"/>
+		<BuildDependency Project="examples/DenseBase_template_int_middleRows.vcxproj"/>
+		<BuildDependency Project="examples/QuickStart_example.vcxproj"/>
+		<BuildDependency Project="examples/QuickStart_example2_dynamic.vcxproj"/>
+		<BuildDependency Project="examples/QuickStart_example2_fixed.vcxproj"/>
+		<BuildDependency Project="examples/TemplateKeyword_flexible.vcxproj"/>
+		<BuildDependency Project="examples/TemplateKeyword_simple.vcxproj"/>
+		<BuildDependency Project="examples/TutorialInplaceLU.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgComputeTwice.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgExComputeSolveError.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgExSolveColPivHouseholderQR.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgExSolveLDLT.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgInverseDeterminant.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgRankRevealing.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgSVDSolve.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgSelfAdjointEigenSolver.vcxproj"/>
+		<BuildDependency Project="examples/TutorialLinAlgSetThreshold.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_accessors.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_addition.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_cwise_other.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_interop.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_interop_matrix.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ArrayClass_mult.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_BlockOperations_block_assignment.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_BlockOperations_colrow.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_BlockOperations_corner.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_BlockOperations_print_block.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_BlockOperations_vector.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_PartialLU_solve.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_broadcast_1nn.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple_rowwise.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_colwise.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_maxnorm.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_reductions_bool.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_reductions_norm.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_reductions_operatornorm.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_rowwise.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_ReductionsVisitorsBroadcasting_visitors.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_simple_example_dynamic_size.vcxproj"/>
+		<BuildDependency Project="examples/Tutorial_simple_example_fixed_size.vcxproj"/>
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="examples/class_Block.vcxproj"/>
+		<BuildDependency Project="examples/class_CwiseBinaryOp.vcxproj"/>
+		<BuildDependency Project="examples/class_CwiseUnaryOp.vcxproj"/>
+		<BuildDependency Project="examples/class_CwiseUnaryOp_ptrfun.vcxproj"/>
+		<BuildDependency Project="examples/class_FixedBlock.vcxproj"/>
+		<BuildDependency Project="examples/class_FixedReshaped.vcxproj"/>
+		<BuildDependency Project="examples/class_FixedVectorBlock.vcxproj"/>
+		<BuildDependency Project="examples/class_Reshaped.vcxproj"/>
+		<BuildDependency Project="examples/class_VectorBlock.vcxproj"/>
+		<BuildDependency Project="examples/function_taking_eigenbase.vcxproj"/>
+		<BuildDependency Project="examples/function_taking_ref.vcxproj"/>
+		<BuildDependency Project="examples/make_circulant.vcxproj"/>
+		<BuildDependency Project="examples/make_circulant2.vcxproj"/>
+		<BuildDependency Project="examples/matrixfree_cg.vcxproj"/>
+		<BuildDependency Project="examples/nullary_indexing.vcxproj"/>
+		<BuildDependency Project="examples/tut_arithmetic_add_sub.vcxproj"/>
+		<BuildDependency Project="examples/tut_arithmetic_dot_cross.vcxproj"/>
+		<BuildDependency Project="examples/tut_arithmetic_matrix_mul.vcxproj"/>
+		<BuildDependency Project="examples/tut_arithmetic_redux_basic.vcxproj"/>
+		<BuildDependency Project="examples/tut_arithmetic_scalar_mul_div.vcxproj"/>
+		<BuildDependency Project="examples/tut_matrix_coefficient_accessors.vcxproj"/>
+		<BuildDependency Project="examples/tut_matrix_resize.vcxproj"/>
+		<BuildDependency Project="examples/tut_matrix_resize_fixed_size.vcxproj"/>
+	</Project>
+	<Project Path="snippets/all_snippets.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="06596b44-08ae-3620-b95c-198eb1070c6b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="snippets/compile_AngleAxis_mimic_euler.vcxproj"/>
+		<BuildDependency Project="snippets/compile_BiCGSTAB_simple.vcxproj"/>
+		<BuildDependency Project="snippets/compile_BiCGSTAB_step_by_step.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ColPivHouseholderQR_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexEigenSolver_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexEigenSolver_eigenvalues.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexEigenSolver_eigenvectors.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexSchur_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexSchur_matrixT.vcxproj"/>
+		<BuildDependency Project="snippets/compile_ComplexSchur_matrixU.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_abs.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_abs2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_acos.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_arg.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_array_power_array.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_asin.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_atan.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_boolean_and.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_boolean_not.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_boolean_or.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_boolean_xor.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_ceil.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_cos.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_cosh.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_cube.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_equal_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_exp.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_floor.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_greater.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_greater_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_inverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_isFinite.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_isInf.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_isNaN.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_less.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_less_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_log.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_log10.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_max.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_min.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_minus.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_minus_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_not_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_plus.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_plus_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_pow.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_product.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_quotient.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_rint.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_round.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_scalar_power_array.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_sign.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_sin.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_sinh.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_slash_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_sqrt.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_square.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_tan.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_tanh.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Cwise_times_equal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DenseBase_LinSpaced.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DenseBase_LinSpacedInt.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DenseBase_LinSpaced_seq_deprecated.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DenseBase_setLinSpaced.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DirectionWise_hnormalized.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DirectionWise_replicate.vcxproj"/>
+		<BuildDependency Project="snippets/compile_DirectionWise_replicate_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_EigenSolver_EigenSolver_MatrixType.vcxproj"/>
+		<BuildDependency Project="snippets/compile_EigenSolver_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_EigenSolver_eigenvalues.vcxproj"/>
+		<BuildDependency Project="snippets/compile_EigenSolver_eigenvectors.vcxproj"/>
+		<BuildDependency Project="snippets/compile_EigenSolver_pseudoEigenvectors.vcxproj"/>
+		<BuildDependency Project="snippets/compile_FullPivHouseholderQR_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_FullPivLU_image.vcxproj"/>
+		<BuildDependency Project="snippets/compile_FullPivLU_kernel.vcxproj"/>
+		<BuildDependency Project="snippets/compile_FullPivLU_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_GeneralizedEigenSolver.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HessenbergDecomposition_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HessenbergDecomposition_matrixH.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HessenbergDecomposition_packedMatrix.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HouseholderQR_householderQ.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HouseholderQR_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_HouseholderSequence_HouseholderSequence.vcxproj"/>
+		<BuildDependency Project="snippets/compile_IOFormat.vcxproj"/>
+		<BuildDependency Project="snippets/compile_JacobiSVD_basic.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Jacobi_makeGivens.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Jacobi_makeJacobi.vcxproj"/>
+		<BuildDependency Project="snippets/compile_LLT_example.vcxproj"/>
+		<BuildDependency Project="snippets/compile_LLT_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_LeastSquaresNormalEquations.vcxproj"/>
+		<BuildDependency Project="snippets/compile_LeastSquaresQR.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Map_general_stride.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Map_inner_stride.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Map_outer_stride.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Map_placement_new.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Map_simple.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_adjoint.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_all.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_applyOnTheLeft.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_applyOnTheRight.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_array.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_array_const.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_asDiagonal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_block_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_block_int_int_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_bottomLeftCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_bottomRightCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_bottomRows_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cast.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_col.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_colwise.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_computeInverseAndDetWithCheck.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_computeInverseWithCheck.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseAbs.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseAbs2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseArg.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseEqual.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseInverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseMax.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseMin.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseNotEqual.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseProduct.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseQuotient.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseSign.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_cwiseSqrt.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_diagonal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_diagonal_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_diagonal_template_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_eigenvalues.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_end_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_eval.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_fixedBlock_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_hnormalized.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_homogeneous.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_identity.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_identity_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_inverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isDiagonal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isIdentity.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isOnes.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isOrthogonal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isUnitary.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_isZero.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_leftCols_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_noalias.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_ones.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_ones_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_ones_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_operatorNorm.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_prod.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_random.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_random_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_random_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_replicate.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_replicate_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_reshaped_auto.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_reshaped_fixed.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_reshaped_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_reshaped_to_vector.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_reverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_rightCols_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_row.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_rowwise.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_segment_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_select.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_selfadjointView.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_set.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_setIdentity.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_setOnes.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_setRandom.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_setZero.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_start_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_bottomRows.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_end.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_block_int_int_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_bottomLeftCorner.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_bottomLeftCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_bottomRightCorner.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_bottomRightCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_topLeftCorner.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_topLeftCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_topRightCorner.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_int_topRightCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_leftCols.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_rightCols.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_segment.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_start.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_template_int_topRows.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_topLeftCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_topRightCorner_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_topRows_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_transpose.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_triangularView.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_zero.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_zero_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_MatrixBase_zero_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_Map_stride.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_resize_NoChange_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_resize_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_resize_int_NoChange.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_resize_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setConstant_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setConstant_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setIdentity_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setOnes_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setOnes_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setRandom_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setRandom_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setZero_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Matrix_setZero_int_int.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialPivLU_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_count.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_maxCoeff.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_minCoeff.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_norm.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_prod.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_squaredNorm.vcxproj"/>
+		<BuildDependency Project="snippets/compile_PartialRedux_sum.vcxproj"/>
+		<BuildDependency Project="snippets/compile_RealQZ_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_RealSchur_RealSchur_MatrixType.vcxproj"/>
+		<BuildDependency Project="snippets/compile_RealSchur_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_compute_MatrixType.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_compute_MatrixType2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_eigenvalues.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_eigenvectors.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_operatorInverseSqrt.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointEigenSolver_operatorSqrt.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointView_eigenvalues.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SelfAdjointView_operatorNorm.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Slicing_arrayexpr.vcxproj"/>
+		<BuildDependency Project="snippets/compile_SparseMatrix_coeffs.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_block.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_block_correct.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_cwise.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_mult1.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_mult2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_mult3.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_mult4.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicAliasing_mult5.vcxproj"/>
+		<BuildDependency Project="snippets/compile_TopicStorageOrders_example.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Triangular_solve.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_Tridiagonalization_MatrixType.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_compute.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_decomposeInPlace.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_diagonal.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_householderCoefficients.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tridiagonalization_packedMatrix.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_Block.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_CommaTemporary.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_Join.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_LinSpaced.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_ThreeWays.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_AdvancedInitialization_Zero.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_Map_rowmajor.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_Map_using.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_ReshapeMat2Mat.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_ReshapeMat2Vec.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_SlicingCol.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_SlicingVec.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_commainit_01.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_commainit_01b.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_commainit_02.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_reshaped_vs_resize_1.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_reshaped_vs_resize_2.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_matrix_inverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_multiple_rhs.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_reuse_decomposition.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_singular.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_triangular.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_solve_triangular_inplace.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Tutorial_std_sort.vcxproj"/>
+		<BuildDependency Project="snippets/compile_VectorwiseOp_homogeneous.vcxproj"/>
+		<BuildDependency Project="snippets/compile_Vectorwise_reverse.vcxproj"/>
+		<BuildDependency Project="snippets/compile_class_FullPivLU.vcxproj"/>
+		<BuildDependency Project="snippets/compile_tut_arithmetic_redux_minmax.vcxproj"/>
+		<BuildDependency Project="snippets/compile_tut_arithmetic_transpose_aliasing.vcxproj"/>
+		<BuildDependency Project="snippets/compile_tut_arithmetic_transpose_conjugate.vcxproj"/>
+		<BuildDependency Project="snippets/compile_tut_arithmetic_transpose_inplace.vcxproj"/>
+		<BuildDependency Project="snippets/compile_tut_matrix_assignment_resizing.vcxproj"/>
+	</Project>
+	<Project Path="examples/class_Block.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="79ddf177-9615-3e64-b24a-2cf329d37c89">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/class_CwiseBinaryOp.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="caf283ac-efa8-3c61-9145-21910f96f7db">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/class_CwiseUnaryOp.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="17b61d7d-f4fc-37e7-a0f5-7b0fb42d2792">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/class_CwiseUnaryOp_ptrfun.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="46dcf4cb-b733-3586-8d65-dd327b695928">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/class_FixedBlock.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="99813800-a205-3c43-8262-ccdbbe68c9ac">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/class_FixedReshaped.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d70583fc-587c-3477-84ab-d5f430cfdcc1">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/class_FixedVectorBlock.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ed9bc555-b6b5-3375-8638-1df3c21d26ba">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/class_Reshaped.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="27ef644c-2846-3445-863f-7cab87014ec0">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/class_VectorBlock.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a6112f98-fa8c-3bf7-8119-336fb603b5a4">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_AngleAxis_mimic_euler.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="58a528c2-15fd-3517-a47b-7d55ebd093ea">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_BiCGSTAB_simple.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="64466a9b-3bb4-3cbd-beb3-2e62d70e963d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_BiCGSTAB_step_by_step.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a6118858-fb4a-3623-b7aa-7943d220b825">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_ColPivHouseholderQR_solve.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="eb0cc5e3-1c96-39fb-8df0-bc338b4b84c5">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_ComplexEigenSolver_compute.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="bf9b6b5e-a68a-3d53-9c38-6b99f4bcd068">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_ComplexEigenSolver_eigenvalues.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c24f2c30-0b43-3acc-bd8a-75756bfaa3d6">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_ComplexEigenSolver_eigenvectors.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4480d496-8663-39db-8b7f-8ec81bbe1142">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_ComplexSchur_compute.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="edfab2cb-e017-3ade-97e5-f926bbac4a13">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_ComplexSchur_matrixT.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2dcebcc3-64bb-3b04-95ea-86c3a26e9326">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_ComplexSchur_matrixU.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="62618ee8-1aa0-353c-a94f-5d84ae1486fc">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_abs.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="601dde91-4902-3f40-ba10-98df39bea69c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_abs2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="65d40a91-f1f8-39af-9a10-0bd50f759d6e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_acos.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="40ebf146-2fbe-3eb0-9ad4-75e6bc0cb8a2">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_arg.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0905b3f0-70ac-3f68-a28e-97c9db4e9d8f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_array_power_array.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="dbb349c6-f1b9-3cf0-9770-144ea7001657">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_asin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ae682bfb-e451-374b-ad26-744504f50aeb">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_atan.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7baec9bd-8f91-3c97-a1e3-87dbefc8c5d3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_boolean_and.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="03fe4d11-4c31-3e90-ac90-c80e8560ad66">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_boolean_not.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f5e78fca-21d9-3c83-8665-f237e7c4e685">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_boolean_or.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8f3f1087-9b75-31b8-bdab-f86303243e4f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_boolean_xor.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="80d56661-c974-3714-9ab1-9d4bb98856ab">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_ceil.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="cb309050-6cf0-3007-93dc-db0b0d5d5e7f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_cos.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="11345bfa-337a-3c13-97ea-f787f3083d52">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_cosh.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b5582025-b190-3f0d-a70e-21e050a51d0d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_cube.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d6235a03-dd4d-361a-915c-5cad442e118f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_equal_equal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f3bb02ee-83dd-3740-b1d9-50720811606e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_exp.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="491416ec-0664-3937-8978-95d4560e21b0">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_floor.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8148353e-730a-3e6a-8fb7-cb0dc6367e31">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_greater.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="40aa1cdc-403e-382b-9212-643f879f094e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_greater_equal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f4001413-7042-3b4a-a016-133b2cd6e77c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_inverse.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c17e0b2f-cc6f-34ea-8f2f-04e63d7724ae">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_isFinite.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7fa89773-b2fb-3210-aa0e-32b7adc0f8f3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_isInf.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="200fec73-427a-30c3-8ee4-5f71b6d42af3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_isNaN.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0a00d0bc-1cfb-3be5-942c-622ffaee8060">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_less.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="008a2dd9-63ac-3837-a378-427360a78ac8">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_less_equal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b0c6bec3-b348-352b-a051-40f20970dafa">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_log.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f45139db-343d-30a9-8694-9fa9ac5ebbf6">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_log10.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e5f6afd5-2523-3b18-9f1e-12771f646f0f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_max.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b29bda31-c374-3de2-852a-a34cc16ca23e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_min.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="de69f4e9-1f38-382d-93b7-8179921a4b91">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_minus.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7eec7882-561e-3f59-8193-bd9e418de6f6">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_minus_equal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a78efc7a-f32b-3e47-bc30-f89570e744e9">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_not_equal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="72637a84-62ef-35e9-9dde-70873fa3e865">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_plus.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f9bb06ff-6b07-3b86-a028-92e368cca673">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_plus_equal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6b7fbe00-7865-33de-b86e-0434e632c006">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_pow.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="edbc3448-4f42-3c1f-8175-58035eca0c55">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_product.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="de62bdb1-4d50-3042-b870-02ffa20071e0">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_quotient.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3b5c64a3-9fd4-397a-b8bc-8db2a83ca6c3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_rint.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="70151787-6588-390c-b378-8e0bdfb66f9e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_round.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4e23f3f0-aa98-3d37-af80-6a21d146bef8">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_scalar_power_array.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a22d8f3b-5ce4-3632-9bba-4087f81edb29">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_sign.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fb371076-f6f5-3464-9309-099da4f1c780">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_sin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="79655477-ebd6-33ed-9539-070e1309d73a">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_sinh.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="25ddb0f9-35b5-338c-afb5-d511cd8415bf">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_slash_equal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="db282e06-52be-3807-808c-664be46162c1">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_sqrt.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e0012df6-327b-3c4a-91dc-a28560d7343a">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_square.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="49b38a9d-20e9-3efe-92ba-098eefef008f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_tan.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="158330b9-6f1b-3f5b-9aaf-5ccd26efaa5d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_tanh.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4e1554c2-06cf-35e6-a3b4-b3b1062c5c61">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Cwise_times_equal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0229ceb0-d4d3-3e41-8c39-e451c341d4ec">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_DenseBase_LinSpaced.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b69ad79a-d55e-3664-b045-0cd6f217a3d4">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_DenseBase_LinSpacedInt.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4854a826-c011-3766-902d-bd730aede197">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_DenseBase_LinSpaced_seq_deprecated.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b44d7fa0-b7e3-3be8-9f8e-62ec960fc148">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_DenseBase_setLinSpaced.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="146091bd-378c-37c5-919c-6a6b2cd72fe6">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_DirectionWise_hnormalized.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e97f83c0-652e-332d-93f0-ccd811ed7de7">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_DirectionWise_replicate.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="be7501b8-bacd-399e-b069-babadc06d3e3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_DirectionWise_replicate_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="864e1a10-0cd7-369e-9c53-3e70d6ac9635">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_EigenSolver_EigenSolver_MatrixType.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1b9f5268-5057-3c5e-8db0-8c49cb368cb5">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_EigenSolver_compute.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c6ed2f6e-fc6b-33ae-9b5b-18c1276e5190">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_EigenSolver_eigenvalues.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b60761a6-d07c-3f4f-967a-21f83dcd21af">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_EigenSolver_eigenvectors.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="333ce632-6ebc-33f4-93f9-6c0b40a8a8b4">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_EigenSolver_pseudoEigenvectors.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d1573ac7-b171-3536-aff8-7994544c7b6b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_FullPivHouseholderQR_solve.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="72722092-671c-3cc6-a91a-69b59631d67b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_FullPivLU_image.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f4cc7202-693e-3973-8d43-0f0655b468c9">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_FullPivLU_kernel.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="97c081d8-5f07-3acd-be64-9447eb66f3ea">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_FullPivLU_solve.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="78a0b390-0824-3d96-a312-fbf6d8a2da9f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_GeneralizedEigenSolver.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="47153777-d3b4-362c-9879-b2c4e05490b1">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_HessenbergDecomposition_compute.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5ba651ae-a119-3605-a604-75000078902d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_HessenbergDecomposition_matrixH.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f1187b1b-f610-38f3-86e5-dc2909a68000">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_HessenbergDecomposition_packedMatrix.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="da274e93-7a66-3c39-9838-54893c94bc84">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_HouseholderQR_householderQ.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="df4111af-eaae-3be5-a593-1c060daf7b1f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_HouseholderQR_solve.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b467fb21-7284-3240-95e0-d058e82743d0">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_HouseholderSequence_HouseholderSequence.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="49a53248-6d96-360c-8ff3-a25eebba4a60">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_IOFormat.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="83cfb313-5e66-3ec8-8377-c5adb35f2c2e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_JacobiSVD_basic.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="16d836df-ff46-3916-a3dc-4fc4622aa1c3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Jacobi_makeGivens.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0adf2aa9-a161-37ef-8c72-d8098ca2a96b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Jacobi_makeJacobi.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4e5c971c-9a43-3e67-8374-e498687e6ad6">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_LLT_example.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1485f3bb-6a0c-3cb1-8114-a76e8617fc23">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_LLT_solve.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="218f724c-6cdb-3ee1-a78e-268d25c90be3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_LeastSquaresNormalEquations.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d8b5ce4f-4815-319b-b152-b4f397002662">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_LeastSquaresQR.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8e6c0e58-d9b6-3feb-8bbc-18041b99c9c7">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Map_general_stride.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="cc52ce27-18f1-3e8d-8eda-852b46626984">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Map_inner_stride.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9a6e1398-12ac-3bed-b8cd-6a3fd2f92240">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Map_outer_stride.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="bba2f0f4-bad5-35c8-9a19-1e802bf02f7c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Map_placement_new.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0428b300-64b3-31d0-89d0-6f7cc95d303a">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Map_simple.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7e02af65-861c-37ba-9979-c6056849cdd9">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_adjoint.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="afa8af9d-6188-33ac-8202-bdda1c4f6ff5">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_all.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7cc32ab1-0e6d-3db4-8b54-e6b6c05bfce3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_applyOnTheLeft.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="108a4e36-3160-38fc-bcf2-a110c5e97db9">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_applyOnTheRight.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6163337e-e659-3d46-858e-cd40433a5d85">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_array.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0149cea9-2ac2-30e3-a78a-2d00d9f86349">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_array_const.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f4e9cc76-6230-3420-9389-b7793327e81b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_asDiagonal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8bcf54f5-776e-305b-9978-d1df47bd2942">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_block_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="aae2f39d-12b9-3f77-8598-7f8ce5f4486c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_block_int_int_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7b026751-d554-3859-a50e-165ebd115133">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_bottomLeftCorner_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0223704f-334e-397d-906d-462ce6258347">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_bottomRightCorner_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="db9332f1-2b96-3756-9347-0aaf8eaf5d1d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_bottomRows_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c8fe6990-bc33-3dcf-ad2c-49992fc45da3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cast.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2c3de503-81b3-3888-9879-ff86afe36a1b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_col.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9a6452ef-972d-3485-9fdc-df9c366d501f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_colwise.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e91815d5-85c0-3101-9805-8c15fc33b950">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_computeInverseAndDetWithCheck.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="dcdb5848-502c-3d4d-89b4-21a3044a0f96">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_computeInverseWithCheck.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="971d43cc-1a49-3703-8311-3e128e608fe2">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseAbs.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="de046b8d-cb1d-363d-a74b-e5569d5cb59d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseAbs2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b8168d88-6851-3b58-88b9-c2c740a1f5b6">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseArg.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7078bc60-dd2d-3cb1-859f-eaaea2eacbd0">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseEqual.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c8ef85b1-231d-3106-9520-abafb6724b51">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseInverse.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="eee7a05d-bb68-38da-ab15-d3dbc2951a9f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseMax.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="616cd562-9766-3d9b-a6f4-9df76dd78ff3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseMin.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="dc28858a-925e-3c1a-aece-bdfc1c80a268">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseNotEqual.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d1599280-0e41-32b8-a873-d9b8ed6e66a5">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseProduct.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a9da3122-0be4-3f75-b48f-8f9694146c88">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseQuotient.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3fb69c13-cb16-30ff-97bd-e938307de764">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseSign.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0a7cb994-fa71-3359-96f3-00265163095b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_cwiseSqrt.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9732bad4-9781-3185-bfbc-c03ad1c196c1">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_diagonal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fb38c5e4-351e-3776-a3a2-24038cff3d9b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_diagonal_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1f4d59b3-fd88-3ed2-8e47-af36cddcb1f6">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_diagonal_template_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="124d0e76-8fcc-3af8-8985-93b2ed318d9b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_eigenvalues.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="42fc9d71-3971-3699-bb64-d9999922301b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_end_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b1fe4c98-7671-3cfa-8a0a-94d21de31001">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_eval.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fbdf7d6b-e4b5-3519-bf68-b6622c6b4d59">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_fixedBlock_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b08247c6-62dc-32c7-8f47-b4e75c821a94">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_hnormalized.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="10432140-5f1a-3481-984c-5b6af69b3478">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_homogeneous.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4e1019d7-a4bb-3915-96e8-f95aac5a74b8">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_identity.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="cb9996e0-e453-3555-bb55-bd2c112c3d74">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_identity_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="76b6c2eb-55ba-3d34-9acd-29cd18757015">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_inverse.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ec356760-bce3-3dd1-8fde-44898f532b59">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_isDiagonal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="018f6c35-d96c-31f7-a471-4a8a8a058afa">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_isIdentity.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5eca92e2-a6af-36c1-9d2a-70265ed27114">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_isOnes.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="db224521-0785-3448-b705-49c6c1d74283">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_isOrthogonal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ec612b4a-4cab-39c9-bf5a-7c68e927b32e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_isUnitary.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="08fc8d50-3cc4-36b0-af33-d6a3d0c50280">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_isZero.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ea467f78-2aad-3e09-a2d4-9b5009c85687">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_leftCols_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7b657efd-fba9-3d1e-88cb-8469c0dcaa6c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_noalias.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4eadcc7c-1616-33f5-92d4-f0bc50436d5a">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_ones.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b5318c98-4c1e-359f-8f0e-ef2ed2806f18">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_ones_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d3feb757-dbda-3ebf-9bbf-26145a475b8e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_ones_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3343ca6f-cbe9-3c98-835a-ac8e0cd074d4">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_operatorNorm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="067d5b0e-2625-3efb-9044-afd125fd6336">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_prod.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="62d54ed9-09e0-39f0-be9f-226be2968782">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_random.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="03df185f-1ef7-3ce4-b826-7db67f9653cd">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_random_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b7bd7fa4-0eaf-3e20-853f-5b90a7ae9ee0">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_random_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2389880e-5afd-31db-a15c-5dc993de1d4e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_replicate.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="572e4cdf-c379-3f47-8893-b863807cd6b2">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_replicate_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="09c3b22a-77b7-3ad2-8405-3aeb2d85bb61">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_reshaped_auto.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2495dd3a-5021-344a-a4d7-79e75d287467">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_reshaped_fixed.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="177be4a4-7f4d-3dd9-b89b-343d9a7e8a37">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_reshaped_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8b454907-8ab7-3771-ac9a-17c04ec550c8">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_reshaped_to_vector.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f709d513-037d-37f3-9e7f-dc67a798df6a">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_reverse.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7265c8cb-ed89-3356-9cf3-b4ff66239b93">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_rightCols_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8ab0dcaf-13a4-3ef3-826f-eafc29e52a62">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_row.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3ebf9f56-ff36-36bd-b161-c1dd3d97ab47">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_rowwise.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4130019a-3aee-3ed6-817f-b3c4a9d12df0">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_segment_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e8e00ebf-70f3-392f-ae68-7ea782086ab6">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_select.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8fb10e93-4b4e-34c5-a42b-34695c873322">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_selfadjointView.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f2f32164-4e2c-3337-8db6-997d3ee2a3d7">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_set.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b01cc5ef-88f7-3c10-b92d-5a5971563f2a">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_setIdentity.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="45eb0560-c314-366e-8783-efde7fba1756">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_setOnes.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3d8a41ad-830d-33e2-a54a-7f6c16f70127">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_setRandom.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5e7d205e-d48c-3861-ba91-d3053154e75e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_setZero.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3247651a-d507-3977-97dd-106898bf664f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_start_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="192ff7ec-7d2a-3136-8882-0897f9aa5982">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_bottomRows.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c8cfb116-bcdf-39bb-84ba-22557cb3ae8d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_end.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b66a9a5d-0b70-3cc9-9476-38a89fc8f5c1">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_int_block_int_int_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="87e98fa5-fdcd-3ece-869f-cff55969a934">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_int_bottomLeftCorner.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c009c0a0-f268-3cf3-adb2-e1f4ff212552">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_int_bottomLeftCorner_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b45268e9-3362-338e-99b7-aa3646252d50">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_int_bottomRightCorner.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6356f3ba-9dd2-33a5-be20-3df19715178f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_int_bottomRightCorner_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="dd07f832-53e6-3a5b-b253-14a5dd2375c7">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_int_topLeftCorner.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3e36b2b4-ea70-3043-a616-450c824e5004">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_int_topLeftCorner_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e2fcf518-b961-363e-863b-9ad5cdd0c1a3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_int_topRightCorner.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="df2529d6-abca-36b7-9acc-04a87c3410fc">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_int_topRightCorner_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="45af2d68-6eca-3fa7-ab16-34d5f83ad8dc">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_leftCols.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="36a83baf-ec59-389c-9228-3ea2dc9885d8">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_rightCols.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="76f80ffc-e06b-3bcd-ac47-159018cea3ca">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_segment.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="be39d699-5d2b-321d-ba94-3ab70e68ad25">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_start.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="bae52629-69f7-3a0d-afb6-ac2d71733a68">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_template_int_topRows.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="69f19fdd-8275-3592-b76e-a7a07472062c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_topLeftCorner_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ceff68fc-cd91-3f38-8653-6091920ffc1e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_topRightCorner_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="842aab76-a891-376f-b389-d8ebae656341">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_topRows_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7904b564-5b64-33fb-99c9-4c724732831e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_transpose.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d855ca74-1e70-330a-89aa-aad578595ec1">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_triangularView.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f317df50-4b09-3014-94ef-119ae568f52e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_zero.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="df678b7d-132a-3568-97f7-429e1d9d7d86">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_zero_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6342cd7d-8cb4-39fc-ba9b-e1edd9a4202c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_MatrixBase_zero_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="767e2fde-b453-310c-aba0-f21d4609654c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_Map_stride.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5c7187e7-5d35-3023-aac4-71a08f7fac19">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_resize_NoChange_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="811d25b2-d124-3e1d-9ea6-69c4c09ede20">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_resize_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f01ac9b0-3a8c-39aa-a12a-fdced478d51c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_resize_int_NoChange.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="02304e01-70a8-3d57-ba09-0ff2511db923">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_resize_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d44fd119-3d34-3482-9bdc-9c5408599e29">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_setConstant_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9373f7f9-1acb-3185-b72a-622743cfcc09">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_setConstant_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e786bd98-6d02-3282-b1e8-565ff35c9b41">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_setIdentity_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="12a684df-14a7-3792-8891-12a82a424c48">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_setOnes_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4314de47-92ff-37ec-a2f6-fa4bf3062c74">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_setOnes_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="42f3ccfb-7ff2-33f3-bfc6-ca369cde2384">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_setRandom_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="42530a84-e2aa-362b-bfa9-d3679a98cd36">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_setRandom_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="cd85b36c-e3c6-399d-8f1a-8ad2862b46ca">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_setZero_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fc702cc4-0688-3bd6-90bf-cc8fb69902c3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Matrix_setZero_int_int.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="659122e6-1514-3a31-9dd4-d438796f4489">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_PartialPivLU_solve.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4fa7a0e8-c516-30d4-bc0e-0204aa0a3ff9">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_PartialRedux_count.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="de874af3-4f80-3959-982f-00665d40bd65">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_PartialRedux_maxCoeff.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3ac47654-3d01-3b70-b187-1e145a5fe831">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_PartialRedux_minCoeff.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="29291c17-128a-35f0-b6ea-6956a3515fb6">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_PartialRedux_norm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="442c4802-f5ff-362b-a8ec-9469c0def249">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_PartialRedux_prod.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f949c0c3-5cdd-37be-bbba-3005602ec717">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_PartialRedux_squaredNorm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="24107457-f63f-34d9-b728-196c197ef92d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_PartialRedux_sum.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1d64abd0-5d4d-39d9-9b1d-18db53e481c9">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_RealQZ_compute.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a0b00714-95e6-3fad-b506-96310d2aad5f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_RealSchur_RealSchur_MatrixType.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fc1cc276-a13a-3435-aaa7-c750a17b9cdd">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_RealSchur_compute.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7c70d91a-799a-3b65-844b-29983b766652">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c34d9f3e-3eb4-3d65-9fc9-cccd2d8752a2">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9b6ef04e-135f-3edb-86dc-3d34a2bfd41b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1fd700e5-6678-34f9-bf50-45c7d05c8ba2">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointEigenSolver_compute_MatrixType.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e9318758-f837-31d3-a214-03544c84ce92">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointEigenSolver_compute_MatrixType2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4c5dabbd-6c7d-3842-aa62-dafae68cab80">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointEigenSolver_eigenvalues.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="df2eb60a-5ad7-38d4-9e93-fcd7e42261fe">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointEigenSolver_eigenvectors.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2354056b-2e5e-3bb4-8fc9-b3f58abad4a0">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointEigenSolver_operatorInverseSqrt.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e75cce99-9777-32d8-badb-39d6ef1c4a6d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointEigenSolver_operatorSqrt.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="09f16d05-4df8-3ba9-865f-d17e562d44df">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointView_eigenvalues.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5ff9a395-d073-3f68-b165-9d98b3f00c24">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SelfAdjointView_operatorNorm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="43d735cd-541a-39e0-beb7-57de1256c1fb">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Slicing_arrayexpr.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="73699a87-fae9-39f2-93ff-c06e6a70b2be">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_SparseMatrix_coeffs.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="932f8074-a155-31c4-852d-dbb1182b0e84">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_TopicAliasing_block.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="31fe1680-6a83-3c42-9970-bbe2c4c512a7">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_TopicAliasing_block_correct.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="233c0880-dbed-33a3-9e4f-c89e339b26a2">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_TopicAliasing_cwise.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="505ec470-a5a4-3e5e-9519-1929a0ebed4b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_TopicAliasing_mult1.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="14c9f109-7e77-3334-a80e-f02388d984aa">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_TopicAliasing_mult2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e89ba7cf-f71c-3104-bf21-d4d2d55f9830">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_TopicAliasing_mult3.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1a87d5f8-5c7a-38bd-bf53-824993d1bccb">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_TopicAliasing_mult4.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="eda9e91f-58a2-375c-876c-8adf21c35c2f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_TopicAliasing_mult5.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="dfdc7e13-674d-35ac-b9df-f15988c5eeab">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_TopicStorageOrders_example.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="36cb3f61-2821-3b3d-b9ae-efc502db14ce">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Triangular_solve.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a3bd2423-2a8a-3701-85e3-d6e66c5282d4">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tridiagonalization_Tridiagonalization_MatrixType.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2267f814-950d-326c-9310-54988d81f1a6">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tridiagonalization_compute.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="94b94631-eb03-36d9-abd6-66dbc030c8aa">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tridiagonalization_decomposeInPlace.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8e466b20-c45e-35d6-9a6f-dd61193de34d">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tridiagonalization_diagonal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e767fc6f-9cfd-34a3-8e9d-0c3654be17f7">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tridiagonalization_householderCoefficients.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fed458b2-98f9-3e45-ab47-d7ffd9e5835c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tridiagonalization_packedMatrix.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="20e9e823-abfe-3048-b3e7-0d5860764a5c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_AdvancedInitialization_Block.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f229b457-9bd7-3ba7-af75-8b09e184576f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_AdvancedInitialization_CommaTemporary.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="eff80b59-4040-3f85-b185-4b29c30a78b1">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_AdvancedInitialization_Join.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5643fb33-efe6-39c5-a6e7-688d1645c566">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_AdvancedInitialization_LinSpaced.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="cefa1968-1567-30c3-8a07-33897695e941">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_AdvancedInitialization_ThreeWays.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e7eb6ad8-593f-356e-8212-deb8f7bb15ce">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_AdvancedInitialization_Zero.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="25e229f6-a94e-3b70-b387-51b21319c8a5">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_Map_rowmajor.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="54e1b6e3-e02d-3a6e-baa5-27c09ecb8ffd">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_Map_using.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6892aa82-70a7-3036-a0fc-e81135ebf75b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_ReshapeMat2Mat.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2a188176-e229-3fd5-a66c-17757307fe45">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_ReshapeMat2Vec.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3f28dda8-8fb0-3656-bf4e-3fab325202c3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_SlicingCol.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f3c8c37a-8cca-30f2-9768-bc851c0fb9f8">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_SlicingVec.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="22d03219-1f3e-3688-abf0-13d2f727d01e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_commainit_01.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="47f0d429-789a-3b04-92f3-fa53754d366a">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_commainit_01b.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f3dbff76-0a7f-3268-b7d9-fa689c1ee054">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_commainit_02.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="923b3f2f-e402-304b-bf12-f9c72b2f75aa">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_reshaped_vs_resize_1.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5e56ab08-c43c-335b-afa5-45ec34ea25bf">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_reshaped_vs_resize_2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1a276fd7-9f30-3755-b7e5-7ab9698ff5c1">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_solve_matrix_inverse.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6fbb8345-fa33-3ab8-b249-ac24724e4f0f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_solve_multiple_rhs.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ca877051-b45d-3937-8eb4-14d8b50fd39b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_solve_reuse_decomposition.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d3858300-6b38-3d0f-abbf-fb320412ae18">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_solve_singular.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f763f2ea-61af-3b23-9995-15db3b51b2a9">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_solve_triangular.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="78dee9cc-461f-3524-99e7-784ac5291a9e">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_solve_triangular_inplace.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0ed621b1-72b1-35a3-a7bd-43ffd334b95c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Tutorial_std_sort.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="78da5821-c57b-33ab-9ef0-40fcec4cdbc3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_VectorwiseOp_homogeneous.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="45b64e6d-8342-3e63-a3cc-2f20da2a1e62">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_Vectorwise_reverse.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="38a71e26-e4d1-301d-9de3-51f4ef57eb25">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_class_FullPivLU.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="edbeb3df-d8a6-3901-9ff6-a1e8d5c59a5b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_tut_arithmetic_redux_minmax.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a0ec5ea2-f5f1-31fa-a9ae-ab8f2db42fea">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_tut_arithmetic_transpose_aliasing.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f5073291-b1a7-34af-9ee7-bcb9f32ab736">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_tut_arithmetic_transpose_conjugate.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d64f1889-2d24-3736-a11f-57a7b1f093ac">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_tut_arithmetic_transpose_inplace.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c353fb56-44c2-3087-8646-df640d01aff4">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="snippets/compile_tut_matrix_assignment_resizing.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c18087f8-fa73-3b1a-a11f-ca1be22279de">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="doc.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1885a7dd-ab84-3976-a73e-e5af2438573c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="doc-eigen-prerequisites.vcxproj"/>
+		<BuildDependency Project="doc-unsupported-prerequisites.vcxproj"/>
+	</Project>
+	<Project Path="doc-eigen-prerequisites.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="334d6ac5-3f61-3e9a-ae6a-e482ce7b8d02">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="all_examples.vcxproj"/>
+		<BuildDependency Project="snippets/all_snippets.vcxproj"/>
+	</Project>
+	<Project Path="doc-unsupported-prerequisites.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="24392de0-7389-32e4-91c3-fd8bc6829499">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/unsupported_examples.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/snippets/unsupported_snippets.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_BVH_Example.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="39fcaa07-a1bb-3abc-b787-d5ffe442fb64">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_EulerAngles.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a3e109f1-ecdc-3e5a-8a0b-02ffa289f35f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_FFT.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8074dd52-ff6c-3515-81d6-2c3b32e581a0">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_MatrixExponential.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2879a605-eb25-331a-89c6-a0b1c1098484">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_MatrixFunction.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="30e5efb6-0cf1-3304-8dab-63f63b215c27">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_MatrixLogarithm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="819e6736-b6a4-3709-93d0-999fc52ad1d8">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_MatrixPower.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9d2682db-2c87-328a-971f-2001accf8af3">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_MatrixPower_optimal.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7886de5f-59da-3b4a-a590-26fe8093d8fa">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_MatrixSine.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fa837d29-ab63-33a1-a6d8-bf0dd32ef32c">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_MatrixSinh.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fb41dee7-a864-3d6c-b234-6e0f0d34196f">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_MatrixSquareRoot.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="375b806d-b641-3a45-b462-32a493a5fc48">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_PolynomialSolver1.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e0b64092-6303-346e-a028-81a11bba5160">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/example_PolynomialUtils1.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="db73d86e-40bd-3c93-ae8c-20c3497ed6ae">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/function_taking_eigenbase.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e9dfb10f-a94b-367e-bea4-552777edfea2">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/function_taking_ref.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9f29a590-76f8-35b1-9d1a-431e50ffc032">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/make_circulant.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e711ac98-96ff-30e8-93be-28610d9b1c26">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/make_circulant2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c13374c7-65b0-39a9-ae53-4d4f61431687">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/matrixfree_cg.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5bbda0bc-0102-3a6b-8e95-24c0230b0992">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/nullary_indexing.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6dcb5835-2096-37c2-bf57-ed8226aaffcf">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/tut_arithmetic_add_sub.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="da5cd874-9382-333a-b30f-913d0de9aceb">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/tut_arithmetic_dot_cross.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="13dfd9fa-de42-3543-8b1c-c30bd6642aa9">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/tut_arithmetic_matrix_mul.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5a3a5a06-3937-3d0a-ba2b-230c5c93cdaa">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/tut_arithmetic_redux_basic.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="079a4331-176b-355e-9357-4762661362ee">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/tut_arithmetic_scalar_mul_div.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="88ae43c6-5acc-30c2-bf68-06d24adb7a80">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/tut_matrix_coefficient_accessors.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8c091c13-1d1d-34df-88a9-dc4b8f13b792">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/tut_matrix_resize.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c49d8224-0596-3618-98bc-c65d97dd5779">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="examples/tut_matrix_resize_fixed_size.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0c7be836-c1e6-3b0d-b13d-6bb2ef967dac">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/examples/unsupported_examples.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1612a753-8b44-3b9a-87b7-ce15b5bfc624">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_BVH_Example.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_EulerAngles.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_FFT.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_MatrixExponential.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_MatrixFunction.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_MatrixLogarithm.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_MatrixPower.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_MatrixPower_optimal.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_MatrixSine.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_MatrixSinh.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_MatrixSquareRoot.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_PolynomialSolver1.vcxproj"/>
+		<BuildDependency Project="../unsupported/doc/examples/example_PolynomialUtils1.vcxproj"/>
+	</Project>
+	<Project Path="../unsupported/doc/snippets/unsupported_snippets.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4e68673d-26b6-35e2-906c-9416be4f316b">
+		<BuildDependency Project="../../../ZERO_CHECK.vcxproj"/>
+	</Project>
+</Solution>

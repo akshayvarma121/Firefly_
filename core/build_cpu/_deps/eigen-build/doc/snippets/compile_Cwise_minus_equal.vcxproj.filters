@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\firefly\core\build_cpu\_deps\eigen-build\doc\snippets\compile_Cwise_minus_equal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-src\doc\snippets\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{94FF2169-F9A6-3510-8A19-005E5402E9B9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+^E:\FIREFLY\CORE\BUILD_CUDA\_DEPS\EIGEN-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core/build_cuda/_deps/eigen-subbuild -BE:/firefly/core/build_cuda/_deps/eigen-subbuild --check-stamp-file E:/firefly/core/build_cuda/_deps/eigen-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

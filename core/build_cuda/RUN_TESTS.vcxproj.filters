@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\firefly\core\build_cuda\CMakeFiles\45d1a34331ae834036acaac0cc41657a\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{14FEDAFA-1C21-3453-9B44-4B902CE68C71}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

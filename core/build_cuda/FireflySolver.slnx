@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug"/>
+		<BuildType Name="Release"/>
+		<BuildType Name="MinSizeRel"/>
+		<BuildType Name="RelWithDebInfo"/>
+		<Platform Name="x64"/>
+	</Configurations>
+	<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3e83bf08-3482-3e5e-b5b1-0731ddeefc76" DefaultStartup="true">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+		<BuildDependency Project="tests/firefly_tests.vcxproj"/>
+		<BuildDependency Project="tests/run_real_files.vcxproj"/>
+		<BuildDependency Project="tests/test_gpu_unavailability.vcxproj"/>
+		<BuildDependency Project="tests/test_pdlp.vcxproj"/>
+		<BuildDependency Project="tests/test_pdlp_concurrency.vcxproj"/>
+		<BuildDependency Project="tests/test_pdlp_cross_validation.vcxproj"/>
+		<BuildDependency Project="tests/test_pdlp_stability.vcxproj"/>
+		<BuildDependency Project="tests/test_presolve.vcxproj"/>
+		<BuildDependency Project="tests/test_presolve_rules.vcxproj"/>
+		<BuildDependency Project="tests/test_simplex.vcxproj"/>
+	</Project>
+	<Project Path="INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="187952ba-6b68-31b8-8f96-ef74bc1b0dc7">
+		<BuildDependency Project="ALL_BUILD.vcxproj"/>
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<Build Solution="Debug|*" Project="false"/>
+		<Build Solution="Release|*" Project="false"/>
+		<Build Solution="MinSizeRel|*" Project="false"/>
+		<Build Solution="RelWithDebInfo|*" Project="false"/>
+	</Project>
+	<Project Path="RUN_TESTS.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6397065c-b8d1-3582-bdf0-2c2b8bc67d06">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<Build Solution="Debug|*" Project="false"/>
+		<Build Solution="Release|*" Project="false"/>
+		<Build Solution="MinSizeRel|*" Project="false"/>
+		<Build Solution="RelWithDebInfo|*" Project="false"/>
+	</Project>
+	<Project Path="ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="cb881360-de12-337f-9b15-217b80178414"/>
+	<Project Path="firefly_core.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0dfae2e0-e520-3017-bb48-651a2cb773f5">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="tests/firefly_tests.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="523c4002-423d-3202-8d6b-485024f95993">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/run_real_files.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6b489586-c792-3f5f-909d-c4825cc6c999">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/test_gpu_unavailability.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="73ea2532-d664-395d-ac4e-f110c9f3c1c3">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/test_pdlp.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="90322355-8016-30f5-8959-8d4609c4ee71">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/test_pdlp_concurrency.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ae64b3b4-681c-3a50-b28d-3364b46f213e">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/test_pdlp_cross_validation.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1bb4738c-e8a0-3d44-a7bf-fe45275bd8d5">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/test_pdlp_stability.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="463b9cab-d6d0-3243-9ba7-579a7e6b548a">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/test_presolve.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fa3bce68-8a9e-3238-a564-8dbdcb2ad912">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/test_presolve_rules.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8be87e1c-f72b-37d7-ab59-5c3c32baf7f7">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/test_simplex.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8d75b61b-b266-31fd-b9bd-6567f4214834">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="_deps/eigen-build/uninstall.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="472a3d7a-ca4e-384e-bb56-ed079e042897">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<Build Solution="Debug|*" Project="false"/>
+		<Build Solution="Release|*" Project="false"/>
+		<Build Solution="MinSizeRel|*" Project="false"/>
+		<Build Solution="RelWithDebInfo|*" Project="false"/>
+	</Project>
+</Solution>

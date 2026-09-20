@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Global resets — instrument panel aesthetic
+ * All color, typography, and spacing is controlled by Tailwind tokens.
+ * No default browser styles should bleed through.
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #111310;
+  color: #E8E6DE;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Strip browser default margins from headings and paragraphs */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* Strip border-radius from select elements globally */
+select {
+  border-radius: 0;
+}
+
+/*
+ * Global focus ring — signal amber, 2px, offset 2px.
+ * Uses :focus-visible so mouse clicks don't trigger the ring, only keyboard.
+ * Applied universally; individual elements may override color only, never remove it.
+ */
+:focus-visible {
+  outline: 2px solid #E8A33D;
+  outline-offset: 2px;
+}
+
+/*
+ * Active/pressed state — darken background by layering a semi-transparent dark overlay.
+ * No scale, no shadow. Applied to interactive elements that should feel "clicked."
+ */
+button:active:not(:disabled),
+[role="button"]:active {
+  opacity: 0.75;
+}

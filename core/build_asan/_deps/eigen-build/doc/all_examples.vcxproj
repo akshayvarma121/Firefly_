@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6961BA10-BAA0-358D-A476-8C2F8B8F7F9C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>all_examples</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 13.2.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_asan\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_asan\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_asan\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_asan\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\firefly\core\build_asan\_deps\eigen-src\doc\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/firefly/core/build_asan/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_asan --check-stamp-file E:/firefly/core/build_asan/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\firefly\core\build_asan\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_asan\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\firefly\core\build_asan\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/firefly/core/build_asan/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_asan --check-stamp-file E:/firefly/core/build_asan/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\firefly\core\build_asan\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_asan\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\firefly\core\build_asan\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/firefly/core/build_asan/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_asan --check-stamp-file E:/firefly/core/build_asan/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\firefly\core\build_asan\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_asan\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\firefly\core\build_asan\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/firefly/core/build_asan/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_asan --check-stamp-file E:/firefly/core/build_asan/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\firefly\core\build_asan\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_asan\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\firefly\core\build_asan\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="E:\firefly\core\build_asan\ZERO_CHECK.vcxproj">
+      <Project>{EB497FD8-4EEC-3C45-BC9A-6F75CF6FF11B}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\CustomizingEigen_Inheritance.vcxproj">
+      <Project>{B1B3A94A-6D08-33C2-9EB8-23FF65480114}</Project>
+      <Name>CustomizingEigen_Inheritance</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Cwise_erf.vcxproj">
+      <Project>{0D2E285C-7420-3923-B930-CD079E450AD1}</Project>
+      <Name>Cwise_erf</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Cwise_erfc.vcxproj">
+      <Project>{A9AEFC81-92CF-3ACC-87F3-73DBBC6D61CE}</Project>
+      <Name>Cwise_erfc</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Cwise_lgamma.vcxproj">
+      <Project>{08C06372-668D-331B-BD58-F4C943557647}</Project>
+      <Name>Cwise_lgamma</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\DenseBase_middleCols_int.vcxproj">
+      <Project>{ED8E4C23-4327-3D2E-9B73-11C4A7BFAA24}</Project>
+      <Name>DenseBase_middleCols_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\DenseBase_middleRows_int.vcxproj">
+      <Project>{053D7BAD-A1AC-328A-BF83-B5B9CD9B2A54}</Project>
+      <Name>DenseBase_middleRows_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\DenseBase_template_int_middleCols.vcxproj">
+      <Project>{CA89C802-380A-32CD-85E6-B978C1BB287F}</Project>
+      <Name>DenseBase_template_int_middleCols</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\DenseBase_template_int_middleRows.vcxproj">
+      <Project>{5DE7F807-2322-37C8-B4F8-47D501615F77}</Project>
+      <Name>DenseBase_template_int_middleRows</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\QuickStart_example.vcxproj">
+      <Project>{4205A88C-0B4E-372C-ADB7-F94849E63C0E}</Project>
+      <Name>QuickStart_example</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\QuickStart_example2_dynamic.vcxproj">
+      <Project>{CEB9D7C8-407C-3316-B66F-A4219DCF8485}</Project>
+      <Name>QuickStart_example2_dynamic</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\QuickStart_example2_fixed.vcxproj">
+      <Project>{5F211058-09BE-3C26-9069-4970782DF439}</Project>
+      <Name>QuickStart_example2_fixed</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TemplateKeyword_flexible.vcxproj">
+      <Project>{4874E4E0-198D-3017-9922-465B908EC05E}</Project>
+      <Name>TemplateKeyword_flexible</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TemplateKeyword_simple.vcxproj">
+      <Project>{91ECFA4F-B463-35AA-A025-D244B3205072}</Project>
+      <Name>TemplateKeyword_simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialInplaceLU.vcxproj">
+      <Project>{3E0C032D-3A49-3AEE-9D04-85FD79CBCDA8}</Project>
+      <Name>TutorialInplaceLU</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgComputeTwice.vcxproj">
+      <Project>{FB49DAAF-DCBE-3835-B263-9F9B4DD9D66F}</Project>
+      <Name>TutorialLinAlgComputeTwice</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgExComputeSolveError.vcxproj">
+      <Project>{A5D15D46-4B8D-3A85-AAFD-B5C829CEDB43}</Project>
+      <Name>TutorialLinAlgExComputeSolveError</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgExSolveColPivHouseholderQR.vcxproj">
+      <Project>{95BAF235-9403-3EC4-B7AF-18525714814F}</Project>
+      <Name>TutorialLinAlgExSolveColPivHouseholderQR</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgExSolveLDLT.vcxproj">
+      <Project>{7AD49BB9-695D-3845-A21C-1B6E21D4274D}</Project>
+      <Name>TutorialLinAlgExSolveLDLT</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgInverseDeterminant.vcxproj">
+      <Project>{5392020E-AC10-3062-B2B0-F9728891F841}</Project>
+      <Name>TutorialLinAlgInverseDeterminant</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgRankRevealing.vcxproj">
+      <Project>{6D762D05-6A63-3EF2-B995-CD4468363B21}</Project>
+      <Name>TutorialLinAlgRankRevealing</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgSVDSolve.vcxproj">
+      <Project>{8196EAC8-C28F-3248-8F21-6190A9B072B2}</Project>
+      <Name>TutorialLinAlgSVDSolve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgSelfAdjointEigenSolver.vcxproj">
+      <Project>{829A9DD6-2CBD-3D1C-8B06-24CB193B4795}</Project>
+      <Name>TutorialLinAlgSelfAdjointEigenSolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgSetThreshold.vcxproj">
+      <Project>{BBD3E2CC-87AB-3638-8148-52163C484D95}</Project>
+      <Name>TutorialLinAlgSetThreshold</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_accessors.vcxproj">
+      <Project>{BA819E40-5C44-3134-A52B-E60C2A10868B}</Project>
+      <Name>Tutorial_ArrayClass_accessors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_addition.vcxproj">
+      <Project>{4DF91E9A-7588-3BC6-A184-8A237B14DC47}</Project>
+      <Name>Tutorial_ArrayClass_addition</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_cwise_other.vcxproj">
+      <Project>{F3E343D3-CFA2-3D6D-B285-F174BCD74191}</Project>
+      <Name>Tutorial_ArrayClass_cwise_other</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_interop.vcxproj">
+      <Project>{6ADFE52A-D271-3CBF-BD93-13CDD2CBCE81}</Project>
+      <Name>Tutorial_ArrayClass_interop</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_interop_matrix.vcxproj">
+      <Project>{B6BC0043-476A-312A-8DF8-9EAC4C0F2B58}</Project>
+      <Name>Tutorial_ArrayClass_interop_matrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_mult.vcxproj">
+      <Project>{A3BFD616-6FA2-3165-9817-2456F27CC88D}</Project>
+      <Name>Tutorial_ArrayClass_mult</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_block_assignment.vcxproj">
+      <Project>{A494FF93-0408-320F-BCEA-CB0135E5C964}</Project>
+      <Name>Tutorial_BlockOperations_block_assignment</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_colrow.vcxproj">
+      <Project>{9A2674EC-606D-3857-84DA-2185BCB5E606}</Project>
+      <Name>Tutorial_BlockOperations_colrow</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_corner.vcxproj">
+      <Project>{394D6FBA-4000-3F2E-9E7C-88D2C2508321}</Project>
+      <Name>Tutorial_BlockOperations_corner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_print_block.vcxproj">
+      <Project>{C0A6FFFD-FED0-3EFF-B9B6-B5F10ABEF7CC}</Project>
+      <Name>Tutorial_BlockOperations_print_block</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_vector.vcxproj">
+      <Project>{68E7F407-7E7D-377D-8C78-EB14E7916E09}</Project>
+      <Name>Tutorial_BlockOperations_vector</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_PartialLU_solve.vcxproj">
+      <Project>{5DFA5E12-6936-3E52-927C-BBA0B8CA08CD}</Project>
+      <Name>Tutorial_PartialLU_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_broadcast_1nn.vcxproj">
+      <Project>{283C8EC0-8E71-34F5-AF8A-A342C542514F}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_broadcast_1nn</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple.vcxproj">
+      <Project>{AF5381F9-666E-3507-8124-E06362779947}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple_rowwise.vcxproj">
+      <Project>{B52128B0-4D47-35B4-9CC8-F48B5301AB6A}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple_rowwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_colwise.vcxproj">
+      <Project>{697B83DE-E627-31B2-A99D-2A37DB7E8B7B}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_colwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_maxnorm.vcxproj">
+      <Project>{4A8A7DEC-8C02-3AF0-9FBC-A248F17993EC}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_maxnorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_reductions_bool.vcxproj">
+      <Project>{98FF8C67-FABB-38FA-B26A-3824683C35D3}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_reductions_bool</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_reductions_norm.vcxproj">
+      <Project>{1832981B-6A7D-3E2D-850B-5EA01B8B8DE3}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_reductions_norm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_reductions_operatornorm.vcxproj">
+      <Project>{352253CC-5D89-35CB-9B35-948D1193C42A}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_reductions_operatornorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_rowwise.vcxproj">
+      <Project>{2D2DB00A-94BA-3F45-A217-08FAFFD6B474}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_rowwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_visitors.vcxproj">
+      <Project>{84457E98-AD39-3165-BF38-7E785C8D21A4}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_visitors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_simple_example_dynamic_size.vcxproj">
+      <Project>{312FC141-D11F-3B2D-9C8B-1EA4773F9167}</Project>
+      <Name>Tutorial_simple_example_dynamic_size</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_simple_example_fixed_size.vcxproj">
+      <Project>{D48968CA-C0F6-337E-B8C3-5E6C41C28EBF}</Project>
+      <Name>Tutorial_simple_example_fixed_size</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_Block.vcxproj">
+      <Project>{44628B3D-F10C-3C02-BE5C-E9FB92C9CD50}</Project>
+      <Name>class_Block</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_CwiseBinaryOp.vcxproj">
+      <Project>{EB4239DE-DA2B-3910-BF23-AE9E1800B65A}</Project>
+      <Name>class_CwiseBinaryOp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_CwiseUnaryOp.vcxproj">
+      <Project>{6BABD741-3CA3-3A34-B6B1-F557042919B6}</Project>
+      <Name>class_CwiseUnaryOp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_CwiseUnaryOp_ptrfun.vcxproj">
+      <Project>{2B534C00-1CBE-33BE-8A33-47706075904A}</Project>
+      <Name>class_CwiseUnaryOp_ptrfun</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_FixedBlock.vcxproj">
+      <Project>{803A7F63-B3FE-33E4-A25D-15A5A6360631}</Project>
+      <Name>class_FixedBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_FixedReshaped.vcxproj">
+      <Project>{6C2071CC-0D34-3225-A4A7-8FFCD445D9AE}</Project>
+      <Name>class_FixedReshaped</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_FixedVectorBlock.vcxproj">
+      <Project>{7BCEC14A-1F93-36E5-80CB-71EC3091F3A5}</Project>
+      <Name>class_FixedVectorBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_Reshaped.vcxproj">
+      <Project>{F8C46702-D22D-354D-9202-FA5395D4F9A0}</Project>
+      <Name>class_Reshaped</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_VectorBlock.vcxproj">
+      <Project>{B66E9D54-25C1-3F6F-9260-742E1DD624DF}</Project>
+      <Name>class_VectorBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\function_taking_eigenbase.vcxproj">
+      <Project>{C266E142-F6D8-32D2-98C6-AC9370F2F9DE}</Project>
+      <Name>function_taking_eigenbase</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\function_taking_ref.vcxproj">
+      <Project>{B9C5A958-D954-39A3-8130-1813DCC8A07F}</Project>
+      <Name>function_taking_ref</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\make_circulant.vcxproj">
+      <Project>{2435B1D0-4D74-3514-9F95-5F900BA15874}</Project>
+      <Name>make_circulant</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\make_circulant2.vcxproj">
+      <Project>{F088B920-B814-307B-9ECD-C1148D608762}</Project>
+      <Name>make_circulant2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\matrixfree_cg.vcxproj">
+      <Project>{0D59E0F3-CAD4-3C2D-B0FC-9C89DEE8E9E3}</Project>
+      <Name>matrixfree_cg</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\nullary_indexing.vcxproj">
+      <Project>{8ABA2418-3E91-3203-8426-BC0BC00E1FEF}</Project>
+      <Name>nullary_indexing</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_arithmetic_add_sub.vcxproj">
+      <Project>{832E34DA-B506-3D1C-934F-0F59C4EB6336}</Project>
+      <Name>tut_arithmetic_add_sub</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_arithmetic_dot_cross.vcxproj">
+      <Project>{73975736-9B21-37D7-BABA-72EDBD23BB8F}</Project>
+      <Name>tut_arithmetic_dot_cross</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_arithmetic_matrix_mul.vcxproj">
+      <Project>{3DA2CAC9-4A63-31BC-B23E-BC959CFD3795}</Project>
+      <Name>tut_arithmetic_matrix_mul</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_arithmetic_redux_basic.vcxproj">
+      <Project>{6EB9BB67-3ABA-3ABE-99DA-579F229B6617}</Project>
+      <Name>tut_arithmetic_redux_basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_arithmetic_scalar_mul_div.vcxproj">
+      <Project>{88F3FA40-37DA-3FD4-881D-FE8C31A60AC2}</Project>
+      <Name>tut_arithmetic_scalar_mul_div</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_matrix_coefficient_accessors.vcxproj">
+      <Project>{615EA3A3-585A-3732-BFE5-0516217E73C4}</Project>
+      <Name>tut_matrix_coefficient_accessors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_matrix_resize.vcxproj">
+      <Project>{311FC21F-CDB6-3CBF-8279-30CC0BDAF92E}</Project>
+      <Name>tut_matrix_resize</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_matrix_resize_fixed_size.vcxproj">
+      <Project>{3FE02FB2-A37C-3FF4-9DD4-02EB9DF85900}</Project>
+      <Name>tut_matrix_resize_fixed_size</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 13.2.targets" />
+  </ImportGroup>
+</Project>

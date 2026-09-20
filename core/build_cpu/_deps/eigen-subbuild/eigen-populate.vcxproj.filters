@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\f4600431edf7fef932c6adfc42064ef0\eigen-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\f4600431edf7fef932c6adfc42064ef0\eigen-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\f4600431edf7fef932c6adfc42064ef0\eigen-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\f4600431edf7fef932c6adfc42064ef0\eigen-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\f4600431edf7fef932c6adfc42064ef0\eigen-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\f4600431edf7fef932c6adfc42064ef0\eigen-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\f4600431edf7fef932c6adfc42064ef0\eigen-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\f4600431edf7fef932c6adfc42064ef0\eigen-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\463cc6cd4531c01c89890ca024061155\eigen-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\af677520b7af80595923c1eb66cee56c\eigen-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\firefly\core\build_cpu\_deps\eigen-subbuild\CMakeFiles\eigen-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{5A671D65-E72C-3826-B879-E82BAA62CA9B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

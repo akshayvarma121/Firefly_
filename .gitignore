@@ -1,0 +1,16 @@
+build/
+.vs/
+out/
+.vscode/
+CMakeCache.txt
+CMakeFiles/
+*.dir/
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.lib
+*.dll
+*.pdb
+.cache/
+*.log

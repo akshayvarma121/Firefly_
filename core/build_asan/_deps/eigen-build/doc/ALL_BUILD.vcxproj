@@ -1,0 +1,1609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8911DB4A-2FAF-3A51-B8F4-7951A707BE91}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 13.2.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_asan\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_asan\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_asan\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_asan\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\firefly\core\build_asan\_deps\eigen-src\doc\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/firefly/core/build_asan/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_asan --check-stamp-file E:/firefly/core/build_asan/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\firefly\core\build_asan\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_asan\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\firefly\core\build_asan\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/firefly/core/build_asan/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_asan --check-stamp-file E:/firefly/core/build_asan/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\firefly\core\build_asan\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_asan\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\firefly\core\build_asan\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/firefly/core/build_asan/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_asan --check-stamp-file E:/firefly/core/build_asan/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\firefly\core\build_asan\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_asan\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\firefly\core\build_asan\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/firefly/core/build_asan/_deps/eigen-src/doc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_asan --check-stamp-file E:/firefly/core/build_asan/_deps/eigen-build/doc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\firefly\core\build_asan\_deps\eigen-src\doc\Doxyfile.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_footer.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_header.html.in;E:\firefly\core\build_asan\_deps\eigen-src\doc\eigendoxy_layout.xml.in;E:\firefly\core\build_asan\_deps\eigen-src\unsupported\doc\eigendoxy_layout.xml.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\firefly\core\build_asan\_deps\eigen-build\doc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="E:\firefly\core\build_asan\ZERO_CHECK.vcxproj">
+      <Project>{EB497FD8-4EEC-3C45-BC9A-6F75CF6FF11B}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\CustomizingEigen_Inheritance.vcxproj">
+      <Project>{B1B3A94A-6D08-33C2-9EB8-23FF65480114}</Project>
+      <Name>CustomizingEigen_Inheritance</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Cwise_erf.vcxproj">
+      <Project>{0D2E285C-7420-3923-B930-CD079E450AD1}</Project>
+      <Name>Cwise_erf</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Cwise_erfc.vcxproj">
+      <Project>{A9AEFC81-92CF-3ACC-87F3-73DBBC6D61CE}</Project>
+      <Name>Cwise_erfc</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Cwise_lgamma.vcxproj">
+      <Project>{08C06372-668D-331B-BD58-F4C943557647}</Project>
+      <Name>Cwise_lgamma</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\DenseBase_middleCols_int.vcxproj">
+      <Project>{ED8E4C23-4327-3D2E-9B73-11C4A7BFAA24}</Project>
+      <Name>DenseBase_middleCols_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\DenseBase_middleRows_int.vcxproj">
+      <Project>{053D7BAD-A1AC-328A-BF83-B5B9CD9B2A54}</Project>
+      <Name>DenseBase_middleRows_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\DenseBase_template_int_middleCols.vcxproj">
+      <Project>{CA89C802-380A-32CD-85E6-B978C1BB287F}</Project>
+      <Name>DenseBase_template_int_middleCols</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\DenseBase_template_int_middleRows.vcxproj">
+      <Project>{5DE7F807-2322-37C8-B4F8-47D501615F77}</Project>
+      <Name>DenseBase_template_int_middleRows</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\QuickStart_example.vcxproj">
+      <Project>{4205A88C-0B4E-372C-ADB7-F94849E63C0E}</Project>
+      <Name>QuickStart_example</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\QuickStart_example2_dynamic.vcxproj">
+      <Project>{CEB9D7C8-407C-3316-B66F-A4219DCF8485}</Project>
+      <Name>QuickStart_example2_dynamic</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\QuickStart_example2_fixed.vcxproj">
+      <Project>{5F211058-09BE-3C26-9069-4970782DF439}</Project>
+      <Name>QuickStart_example2_fixed</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TemplateKeyword_flexible.vcxproj">
+      <Project>{4874E4E0-198D-3017-9922-465B908EC05E}</Project>
+      <Name>TemplateKeyword_flexible</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TemplateKeyword_simple.vcxproj">
+      <Project>{91ECFA4F-B463-35AA-A025-D244B3205072}</Project>
+      <Name>TemplateKeyword_simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialInplaceLU.vcxproj">
+      <Project>{3E0C032D-3A49-3AEE-9D04-85FD79CBCDA8}</Project>
+      <Name>TutorialInplaceLU</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgComputeTwice.vcxproj">
+      <Project>{FB49DAAF-DCBE-3835-B263-9F9B4DD9D66F}</Project>
+      <Name>TutorialLinAlgComputeTwice</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgExComputeSolveError.vcxproj">
+      <Project>{A5D15D46-4B8D-3A85-AAFD-B5C829CEDB43}</Project>
+      <Name>TutorialLinAlgExComputeSolveError</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgExSolveColPivHouseholderQR.vcxproj">
+      <Project>{95BAF235-9403-3EC4-B7AF-18525714814F}</Project>
+      <Name>TutorialLinAlgExSolveColPivHouseholderQR</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgExSolveLDLT.vcxproj">
+      <Project>{7AD49BB9-695D-3845-A21C-1B6E21D4274D}</Project>
+      <Name>TutorialLinAlgExSolveLDLT</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgInverseDeterminant.vcxproj">
+      <Project>{5392020E-AC10-3062-B2B0-F9728891F841}</Project>
+      <Name>TutorialLinAlgInverseDeterminant</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgRankRevealing.vcxproj">
+      <Project>{6D762D05-6A63-3EF2-B995-CD4468363B21}</Project>
+      <Name>TutorialLinAlgRankRevealing</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgSVDSolve.vcxproj">
+      <Project>{8196EAC8-C28F-3248-8F21-6190A9B072B2}</Project>
+      <Name>TutorialLinAlgSVDSolve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgSelfAdjointEigenSolver.vcxproj">
+      <Project>{829A9DD6-2CBD-3D1C-8B06-24CB193B4795}</Project>
+      <Name>TutorialLinAlgSelfAdjointEigenSolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\TutorialLinAlgSetThreshold.vcxproj">
+      <Project>{BBD3E2CC-87AB-3638-8148-52163C484D95}</Project>
+      <Name>TutorialLinAlgSetThreshold</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_accessors.vcxproj">
+      <Project>{BA819E40-5C44-3134-A52B-E60C2A10868B}</Project>
+      <Name>Tutorial_ArrayClass_accessors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_addition.vcxproj">
+      <Project>{4DF91E9A-7588-3BC6-A184-8A237B14DC47}</Project>
+      <Name>Tutorial_ArrayClass_addition</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_cwise_other.vcxproj">
+      <Project>{F3E343D3-CFA2-3D6D-B285-F174BCD74191}</Project>
+      <Name>Tutorial_ArrayClass_cwise_other</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_interop.vcxproj">
+      <Project>{6ADFE52A-D271-3CBF-BD93-13CDD2CBCE81}</Project>
+      <Name>Tutorial_ArrayClass_interop</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_interop_matrix.vcxproj">
+      <Project>{B6BC0043-476A-312A-8DF8-9EAC4C0F2B58}</Project>
+      <Name>Tutorial_ArrayClass_interop_matrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ArrayClass_mult.vcxproj">
+      <Project>{A3BFD616-6FA2-3165-9817-2456F27CC88D}</Project>
+      <Name>Tutorial_ArrayClass_mult</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_block_assignment.vcxproj">
+      <Project>{A494FF93-0408-320F-BCEA-CB0135E5C964}</Project>
+      <Name>Tutorial_BlockOperations_block_assignment</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_colrow.vcxproj">
+      <Project>{9A2674EC-606D-3857-84DA-2185BCB5E606}</Project>
+      <Name>Tutorial_BlockOperations_colrow</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_corner.vcxproj">
+      <Project>{394D6FBA-4000-3F2E-9E7C-88D2C2508321}</Project>
+      <Name>Tutorial_BlockOperations_corner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_print_block.vcxproj">
+      <Project>{C0A6FFFD-FED0-3EFF-B9B6-B5F10ABEF7CC}</Project>
+      <Name>Tutorial_BlockOperations_print_block</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_BlockOperations_vector.vcxproj">
+      <Project>{68E7F407-7E7D-377D-8C78-EB14E7916E09}</Project>
+      <Name>Tutorial_BlockOperations_vector</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_PartialLU_solve.vcxproj">
+      <Project>{5DFA5E12-6936-3E52-927C-BBA0B8CA08CD}</Project>
+      <Name>Tutorial_PartialLU_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_broadcast_1nn.vcxproj">
+      <Project>{283C8EC0-8E71-34F5-AF8A-A342C542514F}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_broadcast_1nn</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple.vcxproj">
+      <Project>{AF5381F9-666E-3507-8124-E06362779947}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple_rowwise.vcxproj">
+      <Project>{B52128B0-4D47-35B4-9CC8-F48B5301AB6A}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_broadcast_simple_rowwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_colwise.vcxproj">
+      <Project>{697B83DE-E627-31B2-A99D-2A37DB7E8B7B}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_colwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_maxnorm.vcxproj">
+      <Project>{4A8A7DEC-8C02-3AF0-9FBC-A248F17993EC}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_maxnorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_reductions_bool.vcxproj">
+      <Project>{98FF8C67-FABB-38FA-B26A-3824683C35D3}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_reductions_bool</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_reductions_norm.vcxproj">
+      <Project>{1832981B-6A7D-3E2D-850B-5EA01B8B8DE3}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_reductions_norm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_reductions_operatornorm.vcxproj">
+      <Project>{352253CC-5D89-35CB-9B35-948D1193C42A}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_reductions_operatornorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_rowwise.vcxproj">
+      <Project>{2D2DB00A-94BA-3F45-A217-08FAFFD6B474}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_rowwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_ReductionsVisitorsBroadcasting_visitors.vcxproj">
+      <Project>{84457E98-AD39-3165-BF38-7E785C8D21A4}</Project>
+      <Name>Tutorial_ReductionsVisitorsBroadcasting_visitors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_simple_example_dynamic_size.vcxproj">
+      <Project>{312FC141-D11F-3B2D-9C8B-1EA4773F9167}</Project>
+      <Name>Tutorial_simple_example_dynamic_size</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\Tutorial_simple_example_fixed_size.vcxproj">
+      <Project>{D48968CA-C0F6-337E-B8C3-5E6C41C28EBF}</Project>
+      <Name>Tutorial_simple_example_fixed_size</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_Block.vcxproj">
+      <Project>{44628B3D-F10C-3C02-BE5C-E9FB92C9CD50}</Project>
+      <Name>class_Block</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_CwiseBinaryOp.vcxproj">
+      <Project>{EB4239DE-DA2B-3910-BF23-AE9E1800B65A}</Project>
+      <Name>class_CwiseBinaryOp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_CwiseUnaryOp.vcxproj">
+      <Project>{6BABD741-3CA3-3A34-B6B1-F557042919B6}</Project>
+      <Name>class_CwiseUnaryOp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_CwiseUnaryOp_ptrfun.vcxproj">
+      <Project>{2B534C00-1CBE-33BE-8A33-47706075904A}</Project>
+      <Name>class_CwiseUnaryOp_ptrfun</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_FixedBlock.vcxproj">
+      <Project>{803A7F63-B3FE-33E4-A25D-15A5A6360631}</Project>
+      <Name>class_FixedBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_FixedReshaped.vcxproj">
+      <Project>{6C2071CC-0D34-3225-A4A7-8FFCD445D9AE}</Project>
+      <Name>class_FixedReshaped</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_FixedVectorBlock.vcxproj">
+      <Project>{7BCEC14A-1F93-36E5-80CB-71EC3091F3A5}</Project>
+      <Name>class_FixedVectorBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_Reshaped.vcxproj">
+      <Project>{F8C46702-D22D-354D-9202-FA5395D4F9A0}</Project>
+      <Name>class_Reshaped</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\class_VectorBlock.vcxproj">
+      <Project>{B66E9D54-25C1-3F6F-9260-742E1DD624DF}</Project>
+      <Name>class_VectorBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_AngleAxis_mimic_euler.vcxproj">
+      <Project>{E2B14909-7334-3D26-A646-7D35481ECFEF}</Project>
+      <Name>compile_AngleAxis_mimic_euler</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_BiCGSTAB_simple.vcxproj">
+      <Project>{99E76FBA-A4D4-3431-B41D-329418A51E47}</Project>
+      <Name>compile_BiCGSTAB_simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_BiCGSTAB_step_by_step.vcxproj">
+      <Project>{3B1904A2-7923-303C-A345-24C976A7554D}</Project>
+      <Name>compile_BiCGSTAB_step_by_step</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_ColPivHouseholderQR_solve.vcxproj">
+      <Project>{52CB0A7E-79CB-30AF-A602-88D038102708}</Project>
+      <Name>compile_ColPivHouseholderQR_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_ComplexEigenSolver_compute.vcxproj">
+      <Project>{05F120AF-D805-3C0D-98DC-1C9342C260BA}</Project>
+      <Name>compile_ComplexEigenSolver_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_ComplexEigenSolver_eigenvalues.vcxproj">
+      <Project>{3F44930A-0E11-3B03-B0FC-5AB0BC5D63A6}</Project>
+      <Name>compile_ComplexEigenSolver_eigenvalues</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_ComplexEigenSolver_eigenvectors.vcxproj">
+      <Project>{BAF6F20F-D30B-319F-866F-FD2AC722A820}</Project>
+      <Name>compile_ComplexEigenSolver_eigenvectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_ComplexSchur_compute.vcxproj">
+      <Project>{C1293A5B-066F-3FB0-A547-60133A2B7AA9}</Project>
+      <Name>compile_ComplexSchur_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_ComplexSchur_matrixT.vcxproj">
+      <Project>{C006CCBA-A290-34B1-BF08-9A69445198FE}</Project>
+      <Name>compile_ComplexSchur_matrixT</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_ComplexSchur_matrixU.vcxproj">
+      <Project>{8DF9B933-7BCE-3EC4-B949-1850C0ECA603}</Project>
+      <Name>compile_ComplexSchur_matrixU</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_abs.vcxproj">
+      <Project>{4BFC84E0-3EF6-3865-9E49-8B5D52C97704}</Project>
+      <Name>compile_Cwise_abs</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_abs2.vcxproj">
+      <Project>{464533BA-2B84-36E4-A22E-35A8B47B0DF0}</Project>
+      <Name>compile_Cwise_abs2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_acos.vcxproj">
+      <Project>{DECB8614-CADE-3346-8AFF-DCF08EF410F9}</Project>
+      <Name>compile_Cwise_acos</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_arg.vcxproj">
+      <Project>{C494C0BD-52DF-3377-94BE-F4C63A8DE0C0}</Project>
+      <Name>compile_Cwise_arg</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_array_power_array.vcxproj">
+      <Project>{BA26673A-DC5F-3E8D-876B-665E2A66B439}</Project>
+      <Name>compile_Cwise_array_power_array</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_asin.vcxproj">
+      <Project>{51CAEFAA-00BE-36C5-A72C-4BB82B28DACF}</Project>
+      <Name>compile_Cwise_asin</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_atan.vcxproj">
+      <Project>{922AD1B9-B7F1-31DE-B5BC-E58A84A5E548}</Project>
+      <Name>compile_Cwise_atan</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_boolean_and.vcxproj">
+      <Project>{B00C5D9B-EA40-3410-8041-A57986828770}</Project>
+      <Name>compile_Cwise_boolean_and</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_boolean_not.vcxproj">
+      <Project>{52419B24-98CA-3876-B00A-2782F8486AF6}</Project>
+      <Name>compile_Cwise_boolean_not</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_boolean_or.vcxproj">
+      <Project>{FFEADD86-CC0D-3ADF-99EC-C651E58AC83C}</Project>
+      <Name>compile_Cwise_boolean_or</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_boolean_xor.vcxproj">
+      <Project>{4842EE02-73C8-3BD3-A4F8-8BD49598B712}</Project>
+      <Name>compile_Cwise_boolean_xor</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_ceil.vcxproj">
+      <Project>{6BAE5FAC-8EB2-386C-9FB2-7D93045775A3}</Project>
+      <Name>compile_Cwise_ceil</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_cos.vcxproj">
+      <Project>{B2185ECC-D0C5-3282-9C03-1B74200C424B}</Project>
+      <Name>compile_Cwise_cos</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_cosh.vcxproj">
+      <Project>{69B4858B-4E7C-3B8C-83FD-7848B1D39E8D}</Project>
+      <Name>compile_Cwise_cosh</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_cube.vcxproj">
+      <Project>{7E591624-03A6-3B24-A61D-6746748984D2}</Project>
+      <Name>compile_Cwise_cube</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_equal_equal.vcxproj">
+      <Project>{59C4C647-6E15-35E8-B9C8-EB76183BE484}</Project>
+      <Name>compile_Cwise_equal_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_exp.vcxproj">
+      <Project>{B9A6DC2E-846A-32CD-9C0B-8457ADCC00A0}</Project>
+      <Name>compile_Cwise_exp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_floor.vcxproj">
+      <Project>{45B46528-B6AF-3081-859C-86B29FEBE79D}</Project>
+      <Name>compile_Cwise_floor</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_greater.vcxproj">
+      <Project>{01DE2BB8-8D9C-33A4-8892-B76E01FF4C95}</Project>
+      <Name>compile_Cwise_greater</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_greater_equal.vcxproj">
+      <Project>{F17A5938-A186-32B1-9860-B19A57078467}</Project>
+      <Name>compile_Cwise_greater_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_inverse.vcxproj">
+      <Project>{CCE913F3-DF13-3548-929E-01556CE9FFFA}</Project>
+      <Name>compile_Cwise_inverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_isFinite.vcxproj">
+      <Project>{3CD84BD1-3BAC-3D5F-A366-57CA7D5D86EB}</Project>
+      <Name>compile_Cwise_isFinite</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_isInf.vcxproj">
+      <Project>{830A1BBB-C275-3BDC-AEAB-E99592F9E65A}</Project>
+      <Name>compile_Cwise_isInf</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_isNaN.vcxproj">
+      <Project>{61BF5239-878F-392E-8216-31B91208E043}</Project>
+      <Name>compile_Cwise_isNaN</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_less.vcxproj">
+      <Project>{7A258490-ED23-3059-B43D-59C0BD0FE06E}</Project>
+      <Name>compile_Cwise_less</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_less_equal.vcxproj">
+      <Project>{CA20E582-D696-39CE-8A14-19DA092BC36F}</Project>
+      <Name>compile_Cwise_less_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_log.vcxproj">
+      <Project>{B2245652-DDD4-3D77-BE2A-014854B7A3A9}</Project>
+      <Name>compile_Cwise_log</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_log10.vcxproj">
+      <Project>{01728AFD-9D1D-387F-8286-1FDC87885EEF}</Project>
+      <Name>compile_Cwise_log10</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_max.vcxproj">
+      <Project>{F9225A5E-D5BF-3CAC-8832-C2252045612E}</Project>
+      <Name>compile_Cwise_max</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_min.vcxproj">
+      <Project>{D492A2FE-88F3-30D1-BC9F-E8C1D722A382}</Project>
+      <Name>compile_Cwise_min</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_minus.vcxproj">
+      <Project>{0B0B4644-03CA-31B6-A10B-D5F7A7E8274C}</Project>
+      <Name>compile_Cwise_minus</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_minus_equal.vcxproj">
+      <Project>{A433D37B-4DD4-3087-82D2-3B371D1AE77A}</Project>
+      <Name>compile_Cwise_minus_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_not_equal.vcxproj">
+      <Project>{4A78FC1D-A281-3C05-9F75-71432802E5BE}</Project>
+      <Name>compile_Cwise_not_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_plus.vcxproj">
+      <Project>{CC2FCD12-E53A-3C7D-A569-EFE453C239A9}</Project>
+      <Name>compile_Cwise_plus</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_plus_equal.vcxproj">
+      <Project>{853CE45E-E6D1-394A-8AE7-F80382656376}</Project>
+      <Name>compile_Cwise_plus_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_pow.vcxproj">
+      <Project>{228477A4-2892-30C8-AE91-B12F7EAB699C}</Project>
+      <Name>compile_Cwise_pow</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_product.vcxproj">
+      <Project>{4A4FDF31-480C-326E-988E-0891FD8D9E9A}</Project>
+      <Name>compile_Cwise_product</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_quotient.vcxproj">
+      <Project>{1D6C51AC-1907-3E63-98B3-8B16F073E558}</Project>
+      <Name>compile_Cwise_quotient</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_rint.vcxproj">
+      <Project>{1C919E64-1EFE-3B1F-8665-5FB6144BA7BE}</Project>
+      <Name>compile_Cwise_rint</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_round.vcxproj">
+      <Project>{1AC423E0-6933-362E-92D4-5859069F78E3}</Project>
+      <Name>compile_Cwise_round</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_scalar_power_array.vcxproj">
+      <Project>{3CC11D1E-717C-34AD-ACFB-77FBC2D94BB9}</Project>
+      <Name>compile_Cwise_scalar_power_array</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_sign.vcxproj">
+      <Project>{4D6060F7-E434-3499-8F8E-D3FCDD73C144}</Project>
+      <Name>compile_Cwise_sign</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_sin.vcxproj">
+      <Project>{C6CEF33B-F8AA-3C16-AB67-BB95C5A45798}</Project>
+      <Name>compile_Cwise_sin</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_sinh.vcxproj">
+      <Project>{5F233279-90B1-32AE-976B-78509C1F4849}</Project>
+      <Name>compile_Cwise_sinh</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_slash_equal.vcxproj">
+      <Project>{AD3F9BF8-5C97-31FC-BC45-EE542BA38D65}</Project>
+      <Name>compile_Cwise_slash_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_sqrt.vcxproj">
+      <Project>{014AA79D-56B3-39B0-936A-9B748EED51F8}</Project>
+      <Name>compile_Cwise_sqrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_square.vcxproj">
+      <Project>{E0DE1E6C-5623-3850-85B4-A9B410F10DCD}</Project>
+      <Name>compile_Cwise_square</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_tan.vcxproj">
+      <Project>{B3693F0D-E2E6-386D-B347-F2B03DC108AF}</Project>
+      <Name>compile_Cwise_tan</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_tanh.vcxproj">
+      <Project>{DD3CC277-43EA-3E7E-9DC5-45B58E3B3512}</Project>
+      <Name>compile_Cwise_tanh</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Cwise_times_equal.vcxproj">
+      <Project>{9DC5816E-C830-35C1-B612-DFDBEACFD411}</Project>
+      <Name>compile_Cwise_times_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_DenseBase_LinSpaced.vcxproj">
+      <Project>{60D97D84-F5B2-3DBC-BF12-6DD4D70B8443}</Project>
+      <Name>compile_DenseBase_LinSpaced</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_DenseBase_LinSpacedInt.vcxproj">
+      <Project>{97BFEFBD-28E4-3BBE-8C91-8F8FEBE8DDA7}</Project>
+      <Name>compile_DenseBase_LinSpacedInt</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_DenseBase_LinSpaced_seq_deprecated.vcxproj">
+      <Project>{C1F851B6-60BA-3FE5-AAB9-285E2374C9B5}</Project>
+      <Name>compile_DenseBase_LinSpaced_seq_deprecated</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_DenseBase_setLinSpaced.vcxproj">
+      <Project>{A1A48C47-278D-3081-9F38-9E117D046770}</Project>
+      <Name>compile_DenseBase_setLinSpaced</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_DirectionWise_hnormalized.vcxproj">
+      <Project>{C269C65B-7DEA-3471-B3FA-8676F827CB65}</Project>
+      <Name>compile_DirectionWise_hnormalized</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_DirectionWise_replicate.vcxproj">
+      <Project>{1087B30B-0A2E-302A-A43D-B2D687E8F9EE}</Project>
+      <Name>compile_DirectionWise_replicate</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_DirectionWise_replicate_int.vcxproj">
+      <Project>{0F5B207B-8ECC-3208-B5B6-1A1796D8D44D}</Project>
+      <Name>compile_DirectionWise_replicate_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_EigenSolver_EigenSolver_MatrixType.vcxproj">
+      <Project>{80F93E05-A93D-3403-8666-557377C84964}</Project>
+      <Name>compile_EigenSolver_EigenSolver_MatrixType</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_EigenSolver_compute.vcxproj">
+      <Project>{DA2BADF5-FA23-36D6-BC28-6472C792AE25}</Project>
+      <Name>compile_EigenSolver_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_EigenSolver_eigenvalues.vcxproj">
+      <Project>{9B67BFB2-9496-3D1B-B7AD-135947258CCF}</Project>
+      <Name>compile_EigenSolver_eigenvalues</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_EigenSolver_eigenvectors.vcxproj">
+      <Project>{99B2DCEA-0F94-311F-8F34-75F7FB34ED00}</Project>
+      <Name>compile_EigenSolver_eigenvectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_EigenSolver_pseudoEigenvectors.vcxproj">
+      <Project>{673B1979-AAA9-33FA-9E40-FF80166E5697}</Project>
+      <Name>compile_EigenSolver_pseudoEigenvectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_FullPivHouseholderQR_solve.vcxproj">
+      <Project>{7DBE2379-9716-3F6C-A40B-EDDCF06D7DEB}</Project>
+      <Name>compile_FullPivHouseholderQR_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_FullPivLU_image.vcxproj">
+      <Project>{D1D64F0B-B3E3-3CE2-8439-2F5EA4DC9F44}</Project>
+      <Name>compile_FullPivLU_image</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_FullPivLU_kernel.vcxproj">
+      <Project>{4079C403-B93F-30BD-8ECF-F57F18943CCD}</Project>
+      <Name>compile_FullPivLU_kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_FullPivLU_solve.vcxproj">
+      <Project>{28EFACE9-18F2-386E-AAD2-5F1640F1793C}</Project>
+      <Name>compile_FullPivLU_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_GeneralizedEigenSolver.vcxproj">
+      <Project>{788620E3-907A-372A-930E-22DF90626772}</Project>
+      <Name>compile_GeneralizedEigenSolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_HessenbergDecomposition_compute.vcxproj">
+      <Project>{4112055A-E884-3250-8405-976690A5C1E4}</Project>
+      <Name>compile_HessenbergDecomposition_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_HessenbergDecomposition_matrixH.vcxproj">
+      <Project>{6E715CEE-AA6B-3605-9D22-75D21F7A2A83}</Project>
+      <Name>compile_HessenbergDecomposition_matrixH</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_HessenbergDecomposition_packedMatrix.vcxproj">
+      <Project>{0B0E06D3-57CD-3B87-9677-A48F36F3A79E}</Project>
+      <Name>compile_HessenbergDecomposition_packedMatrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_HouseholderQR_householderQ.vcxproj">
+      <Project>{7691789D-575E-3F38-AA1A-8C91518CE87A}</Project>
+      <Name>compile_HouseholderQR_householderQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_HouseholderQR_solve.vcxproj">
+      <Project>{A7A45A4F-40D4-3EE0-8CEB-108450403274}</Project>
+      <Name>compile_HouseholderQR_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_HouseholderSequence_HouseholderSequence.vcxproj">
+      <Project>{7F07DABE-2345-30BC-BA61-935BA9A21EDA}</Project>
+      <Name>compile_HouseholderSequence_HouseholderSequence</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_IOFormat.vcxproj">
+      <Project>{1CC2BDD5-F896-3F96-A841-8CD4C287358D}</Project>
+      <Name>compile_IOFormat</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_JacobiSVD_basic.vcxproj">
+      <Project>{3D5817AA-0440-3D1C-B67F-BE4882BE28F4}</Project>
+      <Name>compile_JacobiSVD_basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Jacobi_makeGivens.vcxproj">
+      <Project>{F319631E-3255-3FA6-9ACE-978CF163002F}</Project>
+      <Name>compile_Jacobi_makeGivens</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Jacobi_makeJacobi.vcxproj">
+      <Project>{8A04A374-FFDF-3355-857C-04AFFEFA1534}</Project>
+      <Name>compile_Jacobi_makeJacobi</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_LLT_example.vcxproj">
+      <Project>{9C69D279-A6AC-38AC-8F38-06762DCB7AD5}</Project>
+      <Name>compile_LLT_example</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_LLT_solve.vcxproj">
+      <Project>{D6BD1AE3-6ECE-3075-9F30-52B77B314CA3}</Project>
+      <Name>compile_LLT_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_LeastSquaresNormalEquations.vcxproj">
+      <Project>{CB066F98-9C32-3265-9924-940211E1085E}</Project>
+      <Name>compile_LeastSquaresNormalEquations</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_LeastSquaresQR.vcxproj">
+      <Project>{0D1BF41D-6269-3FB4-BBE8-4CB21C593CB8}</Project>
+      <Name>compile_LeastSquaresQR</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Map_general_stride.vcxproj">
+      <Project>{7DE1E09F-AC63-30C2-9A8F-031BEE9F29A9}</Project>
+      <Name>compile_Map_general_stride</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Map_inner_stride.vcxproj">
+      <Project>{03225468-2B6F-35A7-89FC-A611ADDD3449}</Project>
+      <Name>compile_Map_inner_stride</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Map_outer_stride.vcxproj">
+      <Project>{E13E0CF4-3508-37F0-99C2-C36394532CE8}</Project>
+      <Name>compile_Map_outer_stride</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Map_placement_new.vcxproj">
+      <Project>{3DAB427E-3D56-37B8-BF5F-4535800562A0}</Project>
+      <Name>compile_Map_placement_new</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Map_simple.vcxproj">
+      <Project>{4ADBE9AD-19F8-3A06-A608-919FFAADCD23}</Project>
+      <Name>compile_Map_simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_adjoint.vcxproj">
+      <Project>{BDD724E0-CB3B-3CAA-AD46-49249994F6E4}</Project>
+      <Name>compile_MatrixBase_adjoint</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_all.vcxproj">
+      <Project>{F5CBA2DB-0384-390C-AC0A-1218E44285A4}</Project>
+      <Name>compile_MatrixBase_all</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_applyOnTheLeft.vcxproj">
+      <Project>{F7C23939-6AEA-3D02-9040-CE1584505EDD}</Project>
+      <Name>compile_MatrixBase_applyOnTheLeft</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_applyOnTheRight.vcxproj">
+      <Project>{FADF8121-D5A2-3992-92F6-FEF7CCFE3D5D}</Project>
+      <Name>compile_MatrixBase_applyOnTheRight</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_array.vcxproj">
+      <Project>{F4FCCBB9-A04C-3DEC-B891-07B5169F187B}</Project>
+      <Name>compile_MatrixBase_array</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_array_const.vcxproj">
+      <Project>{D20A6D05-FFEA-3D9C-8229-97322E247F80}</Project>
+      <Name>compile_MatrixBase_array_const</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_asDiagonal.vcxproj">
+      <Project>{C8ED7ADE-8BA6-3C13-B910-DB16A4C6384B}</Project>
+      <Name>compile_MatrixBase_asDiagonal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_block_int_int.vcxproj">
+      <Project>{CA082742-4F31-31A0-919F-10094B989399}</Project>
+      <Name>compile_MatrixBase_block_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_block_int_int_int_int.vcxproj">
+      <Project>{0B054B7D-1401-3EBF-8AA6-07EA7E7CD3A1}</Project>
+      <Name>compile_MatrixBase_block_int_int_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_bottomLeftCorner_int_int.vcxproj">
+      <Project>{DE5056F2-F329-3421-A720-8D5B9EAAB7BE}</Project>
+      <Name>compile_MatrixBase_bottomLeftCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_bottomRightCorner_int_int.vcxproj">
+      <Project>{7739970C-B560-329D-84A1-4DBBCC374720}</Project>
+      <Name>compile_MatrixBase_bottomRightCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_bottomRows_int.vcxproj">
+      <Project>{91E949C7-193D-372B-AAA3-720D875E4ADF}</Project>
+      <Name>compile_MatrixBase_bottomRows_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cast.vcxproj">
+      <Project>{405F6C09-B691-3D44-9F55-1CC8C485EE2A}</Project>
+      <Name>compile_MatrixBase_cast</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_col.vcxproj">
+      <Project>{7A348B2A-4900-38FE-990A-3C14EFC1CD71}</Project>
+      <Name>compile_MatrixBase_col</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_colwise.vcxproj">
+      <Project>{D0AD7C65-44E2-336C-AE3C-84638CA361C0}</Project>
+      <Name>compile_MatrixBase_colwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_computeInverseAndDetWithCheck.vcxproj">
+      <Project>{3936F5E2-16B6-363D-9F78-D826093F5912}</Project>
+      <Name>compile_MatrixBase_computeInverseAndDetWithCheck</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_computeInverseWithCheck.vcxproj">
+      <Project>{9F6813BD-2EC5-3C75-B18E-A3153B1398C3}</Project>
+      <Name>compile_MatrixBase_computeInverseWithCheck</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseAbs.vcxproj">
+      <Project>{3D167C23-F508-37B0-AEA8-F5432E881605}</Project>
+      <Name>compile_MatrixBase_cwiseAbs</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseAbs2.vcxproj">
+      <Project>{8558A8C5-4B16-3AE2-9547-CF9636ABFED0}</Project>
+      <Name>compile_MatrixBase_cwiseAbs2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseArg.vcxproj">
+      <Project>{F842046F-3446-3C33-B5F5-F9762BC427E0}</Project>
+      <Name>compile_MatrixBase_cwiseArg</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseEqual.vcxproj">
+      <Project>{8A0D99B7-E049-3500-BA64-D3F0A1623B29}</Project>
+      <Name>compile_MatrixBase_cwiseEqual</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseInverse.vcxproj">
+      <Project>{174AC13E-CFBE-3950-899D-C29FBFA41141}</Project>
+      <Name>compile_MatrixBase_cwiseInverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseMax.vcxproj">
+      <Project>{47B5A25B-4CA0-3197-BA0C-92DD1DEB69B8}</Project>
+      <Name>compile_MatrixBase_cwiseMax</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseMin.vcxproj">
+      <Project>{C6C69614-7B1A-3D17-B1DE-06D8FC9A8BB0}</Project>
+      <Name>compile_MatrixBase_cwiseMin</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseNotEqual.vcxproj">
+      <Project>{C270A3CD-85CE-3CDB-82A8-5A617367070C}</Project>
+      <Name>compile_MatrixBase_cwiseNotEqual</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseProduct.vcxproj">
+      <Project>{8561B71B-6EF0-3AE2-82EE-0FDAB8248453}</Project>
+      <Name>compile_MatrixBase_cwiseProduct</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseQuotient.vcxproj">
+      <Project>{7CDD57E7-DDD9-3A78-9B30-4D939E40897D}</Project>
+      <Name>compile_MatrixBase_cwiseQuotient</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseSign.vcxproj">
+      <Project>{4C7AD032-94C2-3B19-9841-4C32B644B7F0}</Project>
+      <Name>compile_MatrixBase_cwiseSign</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseSqrt.vcxproj">
+      <Project>{E3C08B2E-F831-3754-B815-98A02E67025A}</Project>
+      <Name>compile_MatrixBase_cwiseSqrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_diagonal.vcxproj">
+      <Project>{D29D3AB1-2180-3D79-A33E-DECF928A0F9D}</Project>
+      <Name>compile_MatrixBase_diagonal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_diagonal_int.vcxproj">
+      <Project>{E9D9E48D-3A4A-34B0-AB1E-A5EDF5543E14}</Project>
+      <Name>compile_MatrixBase_diagonal_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_diagonal_template_int.vcxproj">
+      <Project>{0088068F-592B-3A1D-950D-716242663D3A}</Project>
+      <Name>compile_MatrixBase_diagonal_template_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_eigenvalues.vcxproj">
+      <Project>{5C3AFC36-75B4-3547-8EE3-36391336C494}</Project>
+      <Name>compile_MatrixBase_eigenvalues</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_end_int.vcxproj">
+      <Project>{476F06DF-F32C-32EA-9ECD-3DB010BD74F6}</Project>
+      <Name>compile_MatrixBase_end_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_eval.vcxproj">
+      <Project>{C86F0793-1D0D-3B46-82BD-61C3243AB16F}</Project>
+      <Name>compile_MatrixBase_eval</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_fixedBlock_int_int.vcxproj">
+      <Project>{791B2DAB-F9EC-3304-9EF2-C331448036BA}</Project>
+      <Name>compile_MatrixBase_fixedBlock_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_hnormalized.vcxproj">
+      <Project>{93ECA0CB-AC37-3A9E-BD05-003AA7D9A15F}</Project>
+      <Name>compile_MatrixBase_hnormalized</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_homogeneous.vcxproj">
+      <Project>{A43510E4-9BB2-3036-92FC-8A82AD3CFA5B}</Project>
+      <Name>compile_MatrixBase_homogeneous</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_identity.vcxproj">
+      <Project>{4EDA7939-B480-35EC-9C63-08590B7A7915}</Project>
+      <Name>compile_MatrixBase_identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_identity_int_int.vcxproj">
+      <Project>{345D9E66-B527-3E73-A50B-6776F8A72E65}</Project>
+      <Name>compile_MatrixBase_identity_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_inverse.vcxproj">
+      <Project>{0AAE7799-EC64-3BD8-8417-BCCB2502A354}</Project>
+      <Name>compile_MatrixBase_inverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_isDiagonal.vcxproj">
+      <Project>{2736F0D3-8D97-3E71-A118-EC358C592F56}</Project>
+      <Name>compile_MatrixBase_isDiagonal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_isIdentity.vcxproj">
+      <Project>{7C9B81EE-3432-33C3-8C79-2CA6B65B41D6}</Project>
+      <Name>compile_MatrixBase_isIdentity</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_isOnes.vcxproj">
+      <Project>{E150A6BB-A468-337E-92DC-AEAC63523932}</Project>
+      <Name>compile_MatrixBase_isOnes</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_isOrthogonal.vcxproj">
+      <Project>{39573359-88F3-3AB9-8BE4-83D3AFF0338A}</Project>
+      <Name>compile_MatrixBase_isOrthogonal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_isUnitary.vcxproj">
+      <Project>{7D65159F-6334-3CDE-ABBE-21A128D4C8B0}</Project>
+      <Name>compile_MatrixBase_isUnitary</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_isZero.vcxproj">
+      <Project>{2E803E18-C401-3108-BB53-073B9E4ECFFB}</Project>
+      <Name>compile_MatrixBase_isZero</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_leftCols_int.vcxproj">
+      <Project>{525C55D5-6D8B-391E-B897-77013C82238B}</Project>
+      <Name>compile_MatrixBase_leftCols_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_noalias.vcxproj">
+      <Project>{3F8FDA45-2EE1-30D5-A9CC-500FC573C597}</Project>
+      <Name>compile_MatrixBase_noalias</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_ones.vcxproj">
+      <Project>{1CC0B986-BFB1-310B-99EC-925B873CA6B5}</Project>
+      <Name>compile_MatrixBase_ones</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_ones_int.vcxproj">
+      <Project>{7A2BAECE-F044-3D9D-BD94-9D6B6E95B250}</Project>
+      <Name>compile_MatrixBase_ones_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_ones_int_int.vcxproj">
+      <Project>{2EE92F3D-D39C-3065-B8A0-BC1BDD92E470}</Project>
+      <Name>compile_MatrixBase_ones_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_operatorNorm.vcxproj">
+      <Project>{67F46A69-BBB3-3C20-96D3-C35A93E86117}</Project>
+      <Name>compile_MatrixBase_operatorNorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_prod.vcxproj">
+      <Project>{E8154090-01FF-384A-A00F-53B6C7EA3730}</Project>
+      <Name>compile_MatrixBase_prod</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_random.vcxproj">
+      <Project>{F4069C76-9810-3ED0-8BFA-AF28FEB2F41B}</Project>
+      <Name>compile_MatrixBase_random</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_random_int.vcxproj">
+      <Project>{A8826D8D-E03C-31FD-A7AD-08CF658A6DDA}</Project>
+      <Name>compile_MatrixBase_random_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_random_int_int.vcxproj">
+      <Project>{9AAA6978-16D5-3361-B8C0-FDAA1E832A56}</Project>
+      <Name>compile_MatrixBase_random_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_replicate.vcxproj">
+      <Project>{A7BECAB3-B1AE-34A6-8557-2BA50C094338}</Project>
+      <Name>compile_MatrixBase_replicate</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_replicate_int_int.vcxproj">
+      <Project>{2F5AEA11-176B-37B2-A43E-0D0852C992B7}</Project>
+      <Name>compile_MatrixBase_replicate_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_reshaped_auto.vcxproj">
+      <Project>{0E88A07E-DFF0-3CD5-AA31-ECEAB6E91600}</Project>
+      <Name>compile_MatrixBase_reshaped_auto</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_reshaped_fixed.vcxproj">
+      <Project>{05DFD360-4475-343A-BFBC-C137D3F36A92}</Project>
+      <Name>compile_MatrixBase_reshaped_fixed</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_reshaped_int_int.vcxproj">
+      <Project>{FC19D3F9-CF01-38C2-AEF0-C7D950CC3B3D}</Project>
+      <Name>compile_MatrixBase_reshaped_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_reshaped_to_vector.vcxproj">
+      <Project>{F824B126-1453-3BD8-BB62-E644D329CDBD}</Project>
+      <Name>compile_MatrixBase_reshaped_to_vector</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_reverse.vcxproj">
+      <Project>{36EE26E3-58F2-3BFB-9D8C-C2DB17ED3A34}</Project>
+      <Name>compile_MatrixBase_reverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_rightCols_int.vcxproj">
+      <Project>{84E22A3F-197F-3D3E-A2BF-559FAC6DEB97}</Project>
+      <Name>compile_MatrixBase_rightCols_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_row.vcxproj">
+      <Project>{18F4BFCB-BD4B-37DC-9A23-3C7B466C283A}</Project>
+      <Name>compile_MatrixBase_row</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_rowwise.vcxproj">
+      <Project>{6A2B720D-6B2E-333B-8B46-8476CBBC3808}</Project>
+      <Name>compile_MatrixBase_rowwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_segment_int_int.vcxproj">
+      <Project>{403999D1-31CC-3E99-B6E4-CD30EF3EE086}</Project>
+      <Name>compile_MatrixBase_segment_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_select.vcxproj">
+      <Project>{84440D62-6099-3877-92F4-6EFCA327D49D}</Project>
+      <Name>compile_MatrixBase_select</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_selfadjointView.vcxproj">
+      <Project>{1B824141-E52B-36AE-A6AB-14E8C96FECDC}</Project>
+      <Name>compile_MatrixBase_selfadjointView</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_set.vcxproj">
+      <Project>{0F747BAF-14D7-3769-A9B3-5B4DBAB09DEE}</Project>
+      <Name>compile_MatrixBase_set</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_setIdentity.vcxproj">
+      <Project>{0F0E410C-03A3-3B90-BF64-86ED42E6A9C7}</Project>
+      <Name>compile_MatrixBase_setIdentity</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_setOnes.vcxproj">
+      <Project>{F2374791-29ED-3B60-82CB-263AA0DF4A75}</Project>
+      <Name>compile_MatrixBase_setOnes</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_setRandom.vcxproj">
+      <Project>{6B04E473-35BA-3D70-905B-833E85E0BFFB}</Project>
+      <Name>compile_MatrixBase_setRandom</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_setZero.vcxproj">
+      <Project>{93A0223A-E1F9-388D-9CA6-8AA49F43576F}</Project>
+      <Name>compile_MatrixBase_setZero</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_start_int.vcxproj">
+      <Project>{5E67D9E0-7BF7-301C-9651-004B2DB07FDA}</Project>
+      <Name>compile_MatrixBase_start_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_bottomRows.vcxproj">
+      <Project>{C5223499-C738-3904-818C-77127C9BBE86}</Project>
+      <Name>compile_MatrixBase_template_int_bottomRows</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_end.vcxproj">
+      <Project>{B4041533-BE8F-3851-B5E6-97D6F8CE5FA6}</Project>
+      <Name>compile_MatrixBase_template_int_end</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_block_int_int_int_int.vcxproj">
+      <Project>{A547BEAF-5122-3060-9E7E-B4E889160F3F}</Project>
+      <Name>compile_MatrixBase_template_int_int_block_int_int_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_bottomLeftCorner.vcxproj">
+      <Project>{EDD082C8-AB5F-3925-B3F0-D553661C88E5}</Project>
+      <Name>compile_MatrixBase_template_int_int_bottomLeftCorner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_bottomLeftCorner_int_int.vcxproj">
+      <Project>{E9692DDD-452C-3D86-A0C7-7BF359385A76}</Project>
+      <Name>compile_MatrixBase_template_int_int_bottomLeftCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_bottomRightCorner.vcxproj">
+      <Project>{BD07822B-07FF-3BB9-8FA3-DF0CBFF42EBB}</Project>
+      <Name>compile_MatrixBase_template_int_int_bottomRightCorner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_bottomRightCorner_int_int.vcxproj">
+      <Project>{D84C42B9-85A2-3CDD-ADEB-623A7E7E2866}</Project>
+      <Name>compile_MatrixBase_template_int_int_bottomRightCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_topLeftCorner.vcxproj">
+      <Project>{6FAFBD08-93D3-3E93-8D52-B37B15A54E4C}</Project>
+      <Name>compile_MatrixBase_template_int_int_topLeftCorner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_topLeftCorner_int_int.vcxproj">
+      <Project>{79B7795A-9698-316B-ADF0-77479D86FD4C}</Project>
+      <Name>compile_MatrixBase_template_int_int_topLeftCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_topRightCorner.vcxproj">
+      <Project>{120DEC35-A7A1-3FFA-8132-2C34D9EDA678}</Project>
+      <Name>compile_MatrixBase_template_int_int_topRightCorner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_topRightCorner_int_int.vcxproj">
+      <Project>{C0950EC7-1CB4-3DBD-84A3-C423E8720DFF}</Project>
+      <Name>compile_MatrixBase_template_int_int_topRightCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_leftCols.vcxproj">
+      <Project>{0B1B9DB4-7DC4-3D66-AD2B-7449C6A1D515}</Project>
+      <Name>compile_MatrixBase_template_int_leftCols</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_rightCols.vcxproj">
+      <Project>{6D7020BD-A13C-30DF-8DDB-60E9B65F7EF3}</Project>
+      <Name>compile_MatrixBase_template_int_rightCols</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_segment.vcxproj">
+      <Project>{92790AD0-D96A-3EE3-8A99-34D96127B935}</Project>
+      <Name>compile_MatrixBase_template_int_segment</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_start.vcxproj">
+      <Project>{26BDC3A9-4D03-3A37-8EC1-16890F3CE938}</Project>
+      <Name>compile_MatrixBase_template_int_start</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_topRows.vcxproj">
+      <Project>{F1115048-89E7-3E2E-87C2-8DD4DFA3C3B0}</Project>
+      <Name>compile_MatrixBase_template_int_topRows</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_topLeftCorner_int_int.vcxproj">
+      <Project>{0287D4CE-3484-3A48-B334-C327123F7620}</Project>
+      <Name>compile_MatrixBase_topLeftCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_topRightCorner_int_int.vcxproj">
+      <Project>{69E72D4B-64C3-391E-9EDB-6B68B961E051}</Project>
+      <Name>compile_MatrixBase_topRightCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_topRows_int.vcxproj">
+      <Project>{B8A2E7BA-6D93-3DB2-B76E-A059A2DD41B6}</Project>
+      <Name>compile_MatrixBase_topRows_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_transpose.vcxproj">
+      <Project>{825F0FC4-516F-34D2-909F-860BFBBD53F2}</Project>
+      <Name>compile_MatrixBase_transpose</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_triangularView.vcxproj">
+      <Project>{02C4E40A-E3BE-357B-9588-85619B858ED2}</Project>
+      <Name>compile_MatrixBase_triangularView</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_zero.vcxproj">
+      <Project>{E7FA522B-6E1A-3987-ACBA-CB7240A440CE}</Project>
+      <Name>compile_MatrixBase_zero</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_zero_int.vcxproj">
+      <Project>{12FD6973-9EA1-3D6E-962A-911EE96273DB}</Project>
+      <Name>compile_MatrixBase_zero_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_MatrixBase_zero_int_int.vcxproj">
+      <Project>{FEA71777-94CC-3C65-A43D-91EC6012DDC2}</Project>
+      <Name>compile_MatrixBase_zero_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_Map_stride.vcxproj">
+      <Project>{D0250145-E133-3562-81A7-372D2ECC6506}</Project>
+      <Name>compile_Matrix_Map_stride</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_resize_NoChange_int.vcxproj">
+      <Project>{BF9BD931-C427-3F3B-A9D5-8AECE8A54723}</Project>
+      <Name>compile_Matrix_resize_NoChange_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_resize_int.vcxproj">
+      <Project>{935099F9-4A29-321C-AA37-E9159354B4B3}</Project>
+      <Name>compile_Matrix_resize_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_resize_int_NoChange.vcxproj">
+      <Project>{624282D1-7184-3168-8663-1D8572CBC46F}</Project>
+      <Name>compile_Matrix_resize_int_NoChange</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_resize_int_int.vcxproj">
+      <Project>{029A3BE0-3207-39BA-B9BB-673AB07AFAF3}</Project>
+      <Name>compile_Matrix_resize_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_setConstant_int.vcxproj">
+      <Project>{A85C611D-0B56-30FB-B05A-660667A7F44F}</Project>
+      <Name>compile_Matrix_setConstant_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_setConstant_int_int.vcxproj">
+      <Project>{EDC2B821-D364-38F2-A170-DA6B19B03693}</Project>
+      <Name>compile_Matrix_setConstant_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_setIdentity_int_int.vcxproj">
+      <Project>{7DCC11F2-D53F-37C2-99E4-A8D65388CE85}</Project>
+      <Name>compile_Matrix_setIdentity_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_setOnes_int.vcxproj">
+      <Project>{E0CEF605-956E-300C-964F-0961D3A1A23E}</Project>
+      <Name>compile_Matrix_setOnes_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_setOnes_int_int.vcxproj">
+      <Project>{44FB58A3-FBE0-325A-9A8E-B5B0BE075F8A}</Project>
+      <Name>compile_Matrix_setOnes_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_setRandom_int.vcxproj">
+      <Project>{762AC2AA-1946-3022-93A0-6BDD2866CDDE}</Project>
+      <Name>compile_Matrix_setRandom_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_setRandom_int_int.vcxproj">
+      <Project>{39BDD48D-4DCA-3514-87A0-3D1B1161F2F9}</Project>
+      <Name>compile_Matrix_setRandom_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_setZero_int.vcxproj">
+      <Project>{71B21E1A-413D-3DDE-BD10-D397E5D78612}</Project>
+      <Name>compile_Matrix_setZero_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Matrix_setZero_int_int.vcxproj">
+      <Project>{A62DD34C-5783-32B0-B74C-9B632A977CC6}</Project>
+      <Name>compile_Matrix_setZero_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_PartialPivLU_solve.vcxproj">
+      <Project>{01AB797F-2C8E-371A-AA29-770C3513E70A}</Project>
+      <Name>compile_PartialPivLU_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_PartialRedux_count.vcxproj">
+      <Project>{38E2F34A-B464-355D-AC62-27F82FFE9D67}</Project>
+      <Name>compile_PartialRedux_count</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_PartialRedux_maxCoeff.vcxproj">
+      <Project>{7FE150FB-EE70-36E9-BA68-C635C50C22B1}</Project>
+      <Name>compile_PartialRedux_maxCoeff</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_PartialRedux_minCoeff.vcxproj">
+      <Project>{2A831279-C919-3423-9AA3-14FB7A8333F7}</Project>
+      <Name>compile_PartialRedux_minCoeff</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_PartialRedux_norm.vcxproj">
+      <Project>{A1D6A64B-923F-3A3E-9E9C-2F67C80991DE}</Project>
+      <Name>compile_PartialRedux_norm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_PartialRedux_prod.vcxproj">
+      <Project>{01922C7F-B9A1-3D43-9B8B-937458F377E2}</Project>
+      <Name>compile_PartialRedux_prod</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_PartialRedux_squaredNorm.vcxproj">
+      <Project>{5D61EC25-053F-337A-8A33-2224DFCC73FF}</Project>
+      <Name>compile_PartialRedux_squaredNorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_PartialRedux_sum.vcxproj">
+      <Project>{CFE8369A-5EE8-388F-8CC4-70D7E9F88128}</Project>
+      <Name>compile_PartialRedux_sum</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_RealQZ_compute.vcxproj">
+      <Project>{C2433469-CAB8-3DC6-8E0F-F520B45152CA}</Project>
+      <Name>compile_RealQZ_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_RealSchur_RealSchur_MatrixType.vcxproj">
+      <Project>{DFAA4079-87EC-3B98-9F1E-458F33B2CF2C}</Project>
+      <Name>compile_RealSchur_RealSchur_MatrixType</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_RealSchur_compute.vcxproj">
+      <Project>{59E9FBC0-9424-341C-83D4-1F303C9F81B8}</Project>
+      <Name>compile_RealSchur_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver.vcxproj">
+      <Project>{B08E0D32-B753-32F5-97C9-01C9B2ED119D}</Project>
+      <Name>compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType.vcxproj">
+      <Project>{D0ABD88F-5F9F-32A5-92E4-52F5D7E4DF3A}</Project>
+      <Name>compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType2.vcxproj">
+      <Project>{E7988DD3-9DC8-32E2-BE44-D85C55EB2847}</Project>
+      <Name>compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_compute_MatrixType.vcxproj">
+      <Project>{F3F51F23-164F-38DB-A229-031F26A48E47}</Project>
+      <Name>compile_SelfAdjointEigenSolver_compute_MatrixType</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_compute_MatrixType2.vcxproj">
+      <Project>{813E4BC8-43C7-39AB-AE2A-D717186B1775}</Project>
+      <Name>compile_SelfAdjointEigenSolver_compute_MatrixType2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_eigenvalues.vcxproj">
+      <Project>{184BE13B-AEC0-343F-A4CD-AFAD5117C6DE}</Project>
+      <Name>compile_SelfAdjointEigenSolver_eigenvalues</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_eigenvectors.vcxproj">
+      <Project>{1D0B0E49-9A2A-348F-B716-B0DE297315ED}</Project>
+      <Name>compile_SelfAdjointEigenSolver_eigenvectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_operatorInverseSqrt.vcxproj">
+      <Project>{E151C617-EC19-383F-9632-CA2C14463B34}</Project>
+      <Name>compile_SelfAdjointEigenSolver_operatorInverseSqrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_operatorSqrt.vcxproj">
+      <Project>{3EE0C0E0-0DFE-35CC-9D8A-540FDF201043}</Project>
+      <Name>compile_SelfAdjointEigenSolver_operatorSqrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointView_eigenvalues.vcxproj">
+      <Project>{3CE18EA6-1A36-32B9-AEE9-A4C29C407A18}</Project>
+      <Name>compile_SelfAdjointView_eigenvalues</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SelfAdjointView_operatorNorm.vcxproj">
+      <Project>{81B9084F-33CD-3040-B6AB-10B8BA871450}</Project>
+      <Name>compile_SelfAdjointView_operatorNorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Slicing_arrayexpr.vcxproj">
+      <Project>{E33FCB19-9CDF-301E-8462-7920C0431DFC}</Project>
+      <Name>compile_Slicing_arrayexpr</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_SparseMatrix_coeffs.vcxproj">
+      <Project>{EC2E61ED-228D-37FB-8F80-84A89F2C2AC1}</Project>
+      <Name>compile_SparseMatrix_coeffs</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_TopicAliasing_block.vcxproj">
+      <Project>{A0CA51B3-7055-3D9C-8B6E-E9C2DCBA0024}</Project>
+      <Name>compile_TopicAliasing_block</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_TopicAliasing_block_correct.vcxproj">
+      <Project>{D01A6D25-B574-3C88-83D3-BDA09FA7AD7A}</Project>
+      <Name>compile_TopicAliasing_block_correct</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_TopicAliasing_cwise.vcxproj">
+      <Project>{6BC003C7-6195-38E4-ACD0-3F85E9E8244E}</Project>
+      <Name>compile_TopicAliasing_cwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_TopicAliasing_mult1.vcxproj">
+      <Project>{35DF6D93-C7B1-31EA-A543-C2AA60F34CB5}</Project>
+      <Name>compile_TopicAliasing_mult1</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_TopicAliasing_mult2.vcxproj">
+      <Project>{0B195E9D-270A-3A4B-9281-9FA9E015AC6F}</Project>
+      <Name>compile_TopicAliasing_mult2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_TopicAliasing_mult3.vcxproj">
+      <Project>{60483FB1-A83B-3397-98F6-B2006F93D8AA}</Project>
+      <Name>compile_TopicAliasing_mult3</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_TopicAliasing_mult4.vcxproj">
+      <Project>{9E57988C-9945-3AD3-ACD0-BB4F0151BD80}</Project>
+      <Name>compile_TopicAliasing_mult4</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_TopicAliasing_mult5.vcxproj">
+      <Project>{B651A77E-608B-329E-9525-58EE2FF66A2D}</Project>
+      <Name>compile_TopicAliasing_mult5</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_TopicStorageOrders_example.vcxproj">
+      <Project>{0A94A329-7EF0-3E9F-BC1C-ED9A4E6FA8F6}</Project>
+      <Name>compile_TopicStorageOrders_example</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Triangular_solve.vcxproj">
+      <Project>{B5DC0F4F-6B8E-36A1-9366-A663A4E30D24}</Project>
+      <Name>compile_Triangular_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_Tridiagonalization_MatrixType.vcxproj">
+      <Project>{D6F90F1B-6612-341F-8AC3-68767E550B00}</Project>
+      <Name>compile_Tridiagonalization_Tridiagonalization_MatrixType</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_compute.vcxproj">
+      <Project>{5598B376-E33D-3682-8D5F-CF0637BD99C0}</Project>
+      <Name>compile_Tridiagonalization_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_decomposeInPlace.vcxproj">
+      <Project>{81E12D39-0859-3B74-9482-62F748FC12B5}</Project>
+      <Name>compile_Tridiagonalization_decomposeInPlace</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_diagonal.vcxproj">
+      <Project>{A475EE4F-53D2-3D92-83FB-AB6D6E328D05}</Project>
+      <Name>compile_Tridiagonalization_diagonal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_householderCoefficients.vcxproj">
+      <Project>{D412F57B-2EC2-387D-B1C5-98FBF82A503D}</Project>
+      <Name>compile_Tridiagonalization_householderCoefficients</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_packedMatrix.vcxproj">
+      <Project>{C325BFAC-2A1A-3909-8659-38C85A30801A}</Project>
+      <Name>compile_Tridiagonalization_packedMatrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_Block.vcxproj">
+      <Project>{51AEF218-0D5C-3A42-BD2A-3532C9904392}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_Block</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_CommaTemporary.vcxproj">
+      <Project>{9E9099B3-88A3-33DB-A7C0-3668EEE4C4C7}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_CommaTemporary</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_Join.vcxproj">
+      <Project>{9194F9FF-76BE-37BF-9EA5-B417004B3B3B}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_Join</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_LinSpaced.vcxproj">
+      <Project>{BD1E93B8-7F0A-358E-B2ED-95556A7FBE36}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_LinSpaced</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_ThreeWays.vcxproj">
+      <Project>{E3F406A5-2FB5-37F3-9B5A-C847E63FE06D}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_ThreeWays</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_Zero.vcxproj">
+      <Project>{4F69AE95-5114-37D7-852A-8249ED8624A0}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_Zero</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_Map_rowmajor.vcxproj">
+      <Project>{2F6C8BC5-4093-3C65-9722-B0B62AAFAF07}</Project>
+      <Name>compile_Tutorial_Map_rowmajor</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_Map_using.vcxproj">
+      <Project>{22688FAE-F0BD-3898-B59E-86F0F2DFB208}</Project>
+      <Name>compile_Tutorial_Map_using</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_ReshapeMat2Mat.vcxproj">
+      <Project>{1445F605-E326-31C7-9CBA-038A828D35DB}</Project>
+      <Name>compile_Tutorial_ReshapeMat2Mat</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_ReshapeMat2Vec.vcxproj">
+      <Project>{2CB014A8-3E97-3C61-8013-470EE1546EF7}</Project>
+      <Name>compile_Tutorial_ReshapeMat2Vec</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_SlicingCol.vcxproj">
+      <Project>{331882D4-C55D-3E3E-890C-2A8DECB59471}</Project>
+      <Name>compile_Tutorial_SlicingCol</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_SlicingVec.vcxproj">
+      <Project>{42994A47-E0BD-381A-8009-9C1B021ADEAD}</Project>
+      <Name>compile_Tutorial_SlicingVec</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_commainit_01.vcxproj">
+      <Project>{94A5EC87-EA24-3036-A50E-A37A02486518}</Project>
+      <Name>compile_Tutorial_commainit_01</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_commainit_01b.vcxproj">
+      <Project>{99345A6D-F43A-3410-AA9C-7E5DFC44E82C}</Project>
+      <Name>compile_Tutorial_commainit_01b</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_commainit_02.vcxproj">
+      <Project>{F3B10F8B-5DA1-347C-B7BD-5BEEBA6F8CA8}</Project>
+      <Name>compile_Tutorial_commainit_02</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_reshaped_vs_resize_1.vcxproj">
+      <Project>{14861C13-A903-3E8B-87AB-2FACFCEB02FD}</Project>
+      <Name>compile_Tutorial_reshaped_vs_resize_1</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_reshaped_vs_resize_2.vcxproj">
+      <Project>{200A9749-A451-3478-A806-934EF934ED42}</Project>
+      <Name>compile_Tutorial_reshaped_vs_resize_2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_matrix_inverse.vcxproj">
+      <Project>{C7B4A6CB-8F2B-30BA-89BF-A2D26E97A0E4}</Project>
+      <Name>compile_Tutorial_solve_matrix_inverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_multiple_rhs.vcxproj">
+      <Project>{DCBA3E21-FC53-366A-AFEF-AA3FD1310BE4}</Project>
+      <Name>compile_Tutorial_solve_multiple_rhs</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_reuse_decomposition.vcxproj">
+      <Project>{38C09BC8-B943-3A1B-8E83-E5A41B354E99}</Project>
+      <Name>compile_Tutorial_solve_reuse_decomposition</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_singular.vcxproj">
+      <Project>{09FB1D54-4FC4-3878-BC85-37AB92008F57}</Project>
+      <Name>compile_Tutorial_solve_singular</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_triangular.vcxproj">
+      <Project>{0968CA1C-E9E1-32B0-8CA0-1EFEFFAC4694}</Project>
+      <Name>compile_Tutorial_solve_triangular</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_triangular_inplace.vcxproj">
+      <Project>{0B739EF3-D970-310E-8260-4D15DFCF8D4F}</Project>
+      <Name>compile_Tutorial_solve_triangular_inplace</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Tutorial_std_sort.vcxproj">
+      <Project>{CB7474D9-2492-3F89-95B7-924960083EED}</Project>
+      <Name>compile_Tutorial_std_sort</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_VectorwiseOp_homogeneous.vcxproj">
+      <Project>{1EDE872A-D0E7-376F-BD26-21DD145FDF2D}</Project>
+      <Name>compile_VectorwiseOp_homogeneous</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_Vectorwise_reverse.vcxproj">
+      <Project>{05285D1F-84F5-3E18-8AE3-5040815E58BD}</Project>
+      <Name>compile_Vectorwise_reverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_class_FullPivLU.vcxproj">
+      <Project>{E5E89B46-C3AD-34A6-B7C7-69BBAE206313}</Project>
+      <Name>compile_class_FullPivLU</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_tut_arithmetic_redux_minmax.vcxproj">
+      <Project>{414550CA-5AD0-34AD-8BEB-7912290C8ED5}</Project>
+      <Name>compile_tut_arithmetic_redux_minmax</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_tut_arithmetic_transpose_aliasing.vcxproj">
+      <Project>{93FCEF0C-FC56-3018-A75A-66E410DE3DCA}</Project>
+      <Name>compile_tut_arithmetic_transpose_aliasing</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_tut_arithmetic_transpose_conjugate.vcxproj">
+      <Project>{6E553803-2485-390A-96AD-B49E7041321E}</Project>
+      <Name>compile_tut_arithmetic_transpose_conjugate</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_tut_arithmetic_transpose_inplace.vcxproj">
+      <Project>{5E74BF55-C9E0-3C39-81E1-12ECEF5C08CF}</Project>
+      <Name>compile_tut_arithmetic_transpose_inplace</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\snippets\compile_tut_matrix_assignment_resizing.vcxproj">
+      <Project>{D4E9F948-4ABF-3C88-805F-DB97B333F3DE}</Project>
+      <Name>compile_tut_matrix_assignment_resizing</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\doc.vcxproj">
+      <Project>{D1B5BC2B-B866-38C8-8FB2-BD4D9A624CE4}</Project>
+      <Name>doc</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\doc-eigen-prerequisites.vcxproj">
+      <Project>{2C98356D-B6B5-3C16-A746-B646590908A1}</Project>
+      <Name>doc-eigen-prerequisites</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\doc-unsupported-prerequisites.vcxproj">
+      <Project>{2FEB366A-5050-34EA-AA35-5868F9EFB41E}</Project>
+      <Name>doc-unsupported-prerequisites</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\function_taking_eigenbase.vcxproj">
+      <Project>{C266E142-F6D8-32D2-98C6-AC9370F2F9DE}</Project>
+      <Name>function_taking_eigenbase</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\function_taking_ref.vcxproj">
+      <Project>{B9C5A958-D954-39A3-8130-1813DCC8A07F}</Project>
+      <Name>function_taking_ref</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\make_circulant.vcxproj">
+      <Project>{2435B1D0-4D74-3514-9F95-5F900BA15874}</Project>
+      <Name>make_circulant</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\make_circulant2.vcxproj">
+      <Project>{F088B920-B814-307B-9ECD-C1148D608762}</Project>
+      <Name>make_circulant2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\matrixfree_cg.vcxproj">
+      <Project>{0D59E0F3-CAD4-3C2D-B0FC-9C89DEE8E9E3}</Project>
+      <Name>matrixfree_cg</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\nullary_indexing.vcxproj">
+      <Project>{8ABA2418-3E91-3203-8426-BC0BC00E1FEF}</Project>
+      <Name>nullary_indexing</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_arithmetic_add_sub.vcxproj">
+      <Project>{832E34DA-B506-3D1C-934F-0F59C4EB6336}</Project>
+      <Name>tut_arithmetic_add_sub</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_arithmetic_dot_cross.vcxproj">
+      <Project>{73975736-9B21-37D7-BABA-72EDBD23BB8F}</Project>
+      <Name>tut_arithmetic_dot_cross</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_arithmetic_matrix_mul.vcxproj">
+      <Project>{3DA2CAC9-4A63-31BC-B23E-BC959CFD3795}</Project>
+      <Name>tut_arithmetic_matrix_mul</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_arithmetic_redux_basic.vcxproj">
+      <Project>{6EB9BB67-3ABA-3ABE-99DA-579F229B6617}</Project>
+      <Name>tut_arithmetic_redux_basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_arithmetic_scalar_mul_div.vcxproj">
+      <Project>{88F3FA40-37DA-3FD4-881D-FE8C31A60AC2}</Project>
+      <Name>tut_arithmetic_scalar_mul_div</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_matrix_coefficient_accessors.vcxproj">
+      <Project>{615EA3A3-585A-3732-BFE5-0516217E73C4}</Project>
+      <Name>tut_matrix_coefficient_accessors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_matrix_resize.vcxproj">
+      <Project>{311FC21F-CDB6-3CBF-8279-30CC0BDAF92E}</Project>
+      <Name>tut_matrix_resize</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_asan\_deps\eigen-build\doc\examples\tut_matrix_resize_fixed_size.vcxproj">
+      <Project>{3FE02FB2-A37C-3FF4-9DD4-02EB9DF85900}</Project>
+      <Name>tut_matrix_resize_fixed_size</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 13.2.targets" />
+  </ImportGroup>
+</Project>

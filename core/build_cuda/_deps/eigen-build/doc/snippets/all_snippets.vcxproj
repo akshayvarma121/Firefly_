@@ -1,0 +1,1308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{06596B44-08AE-3620-B95C-198EB1070C6B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>all_snippets</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 13.2.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_cuda\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_cuda\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_cuda\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\firefly\core\build_cuda\_deps\eigen-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\firefly\core\build_cuda\_deps\eigen-src\doc\snippets\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/firefly/core/build_cuda/_deps/eigen-src/doc/snippets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_cuda --check-stamp-file E:/firefly/core/build_cuda/_deps/eigen-build/doc/snippets/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\firefly\core\build_cuda\_deps\eigen-src\doc\snippets\compile_snippet.cpp.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/firefly/core/build_cuda/_deps/eigen-src/doc/snippets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_cuda --check-stamp-file E:/firefly/core/build_cuda/_deps/eigen-build/doc/snippets/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\firefly\core\build_cuda\_deps\eigen-src\doc\snippets\compile_snippet.cpp.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/firefly/core/build_cuda/_deps/eigen-src/doc/snippets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_cuda --check-stamp-file E:/firefly/core/build_cuda/_deps/eigen-build/doc/snippets/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\firefly\core\build_cuda\_deps\eigen-src\doc\snippets\compile_snippet.cpp.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/firefly/core/build_cuda/_deps/eigen-src/doc/snippets/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/firefly/core -BE:/firefly/core/build_cuda --check-stamp-file E:/firefly/core/build_cuda/_deps/eigen-build/doc/snippets/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\firefly\core\build_cuda\_deps\eigen-src\doc\snippets\compile_snippet.cpp.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="E:\firefly\core\build_cuda\ZERO_CHECK.vcxproj">
+      <Project>{CB881360-DE12-337F-9B15-217B80178414}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_AngleAxis_mimic_euler.vcxproj">
+      <Project>{58A528C2-15FD-3517-A47B-7D55EBD093EA}</Project>
+      <Name>compile_AngleAxis_mimic_euler</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_BiCGSTAB_simple.vcxproj">
+      <Project>{64466A9B-3BB4-3CBD-BEB3-2E62D70E963D}</Project>
+      <Name>compile_BiCGSTAB_simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_BiCGSTAB_step_by_step.vcxproj">
+      <Project>{A6118858-FB4A-3623-B7AA-7943D220B825}</Project>
+      <Name>compile_BiCGSTAB_step_by_step</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_ColPivHouseholderQR_solve.vcxproj">
+      <Project>{EB0CC5E3-1C96-39FB-8DF0-BC338B4B84C5}</Project>
+      <Name>compile_ColPivHouseholderQR_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_ComplexEigenSolver_compute.vcxproj">
+      <Project>{BF9B6B5E-A68A-3D53-9C38-6B99F4BCD068}</Project>
+      <Name>compile_ComplexEigenSolver_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_ComplexEigenSolver_eigenvalues.vcxproj">
+      <Project>{C24F2C30-0B43-3ACC-BD8A-75756BFAA3D6}</Project>
+      <Name>compile_ComplexEigenSolver_eigenvalues</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_ComplexEigenSolver_eigenvectors.vcxproj">
+      <Project>{4480D496-8663-39DB-8B7F-8EC81BBE1142}</Project>
+      <Name>compile_ComplexEigenSolver_eigenvectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_ComplexSchur_compute.vcxproj">
+      <Project>{EDFAB2CB-E017-3ADE-97E5-F926BBAC4A13}</Project>
+      <Name>compile_ComplexSchur_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_ComplexSchur_matrixT.vcxproj">
+      <Project>{2DCEBCC3-64BB-3B04-95EA-86C3A26E9326}</Project>
+      <Name>compile_ComplexSchur_matrixT</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_ComplexSchur_matrixU.vcxproj">
+      <Project>{62618EE8-1AA0-353C-A94F-5D84AE1486FC}</Project>
+      <Name>compile_ComplexSchur_matrixU</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_abs.vcxproj">
+      <Project>{601DDE91-4902-3F40-BA10-98DF39BEA69C}</Project>
+      <Name>compile_Cwise_abs</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_abs2.vcxproj">
+      <Project>{65D40A91-F1F8-39AF-9A10-0BD50F759D6E}</Project>
+      <Name>compile_Cwise_abs2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_acos.vcxproj">
+      <Project>{40EBF146-2FBE-3EB0-9AD4-75E6BC0CB8A2}</Project>
+      <Name>compile_Cwise_acos</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_arg.vcxproj">
+      <Project>{0905B3F0-70AC-3F68-A28E-97C9DB4E9D8F}</Project>
+      <Name>compile_Cwise_arg</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_array_power_array.vcxproj">
+      <Project>{DBB349C6-F1B9-3CF0-9770-144EA7001657}</Project>
+      <Name>compile_Cwise_array_power_array</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_asin.vcxproj">
+      <Project>{AE682BFB-E451-374B-AD26-744504F50AEB}</Project>
+      <Name>compile_Cwise_asin</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_atan.vcxproj">
+      <Project>{7BAEC9BD-8F91-3C97-A1E3-87DBEFC8C5D3}</Project>
+      <Name>compile_Cwise_atan</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_boolean_and.vcxproj">
+      <Project>{03FE4D11-4C31-3E90-AC90-C80E8560AD66}</Project>
+      <Name>compile_Cwise_boolean_and</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_boolean_not.vcxproj">
+      <Project>{F5E78FCA-21D9-3C83-8665-F237E7C4E685}</Project>
+      <Name>compile_Cwise_boolean_not</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_boolean_or.vcxproj">
+      <Project>{8F3F1087-9B75-31B8-BDAB-F86303243E4F}</Project>
+      <Name>compile_Cwise_boolean_or</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_boolean_xor.vcxproj">
+      <Project>{80D56661-C974-3714-9AB1-9D4BB98856AB}</Project>
+      <Name>compile_Cwise_boolean_xor</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_ceil.vcxproj">
+      <Project>{CB309050-6CF0-3007-93DC-DB0B0D5D5E7F}</Project>
+      <Name>compile_Cwise_ceil</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_cos.vcxproj">
+      <Project>{11345BFA-337A-3C13-97EA-F787F3083D52}</Project>
+      <Name>compile_Cwise_cos</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_cosh.vcxproj">
+      <Project>{B5582025-B190-3F0D-A70E-21E050A51D0D}</Project>
+      <Name>compile_Cwise_cosh</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_cube.vcxproj">
+      <Project>{D6235A03-DD4D-361A-915C-5CAD442E118F}</Project>
+      <Name>compile_Cwise_cube</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_equal_equal.vcxproj">
+      <Project>{F3BB02EE-83DD-3740-B1D9-50720811606E}</Project>
+      <Name>compile_Cwise_equal_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_exp.vcxproj">
+      <Project>{491416EC-0664-3937-8978-95D4560E21B0}</Project>
+      <Name>compile_Cwise_exp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_floor.vcxproj">
+      <Project>{8148353E-730A-3E6A-8FB7-CB0DC6367E31}</Project>
+      <Name>compile_Cwise_floor</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_greater.vcxproj">
+      <Project>{40AA1CDC-403E-382B-9212-643F879F094E}</Project>
+      <Name>compile_Cwise_greater</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_greater_equal.vcxproj">
+      <Project>{F4001413-7042-3B4A-A016-133B2CD6E77C}</Project>
+      <Name>compile_Cwise_greater_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_inverse.vcxproj">
+      <Project>{C17E0B2F-CC6F-34EA-8F2F-04E63D7724AE}</Project>
+      <Name>compile_Cwise_inverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_isFinite.vcxproj">
+      <Project>{7FA89773-B2FB-3210-AA0E-32B7ADC0F8F3}</Project>
+      <Name>compile_Cwise_isFinite</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_isInf.vcxproj">
+      <Project>{200FEC73-427A-30C3-8EE4-5F71B6D42AF3}</Project>
+      <Name>compile_Cwise_isInf</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_isNaN.vcxproj">
+      <Project>{0A00D0BC-1CFB-3BE5-942C-622FFAEE8060}</Project>
+      <Name>compile_Cwise_isNaN</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_less.vcxproj">
+      <Project>{008A2DD9-63AC-3837-A378-427360A78AC8}</Project>
+      <Name>compile_Cwise_less</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_less_equal.vcxproj">
+      <Project>{B0C6BEC3-B348-352B-A051-40F20970DAFA}</Project>
+      <Name>compile_Cwise_less_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_log.vcxproj">
+      <Project>{F45139DB-343D-30A9-8694-9FA9AC5EBBF6}</Project>
+      <Name>compile_Cwise_log</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_log10.vcxproj">
+      <Project>{E5F6AFD5-2523-3B18-9F1E-12771F646F0F}</Project>
+      <Name>compile_Cwise_log10</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_max.vcxproj">
+      <Project>{B29BDA31-C374-3DE2-852A-A34CC16CA23E}</Project>
+      <Name>compile_Cwise_max</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_min.vcxproj">
+      <Project>{DE69F4E9-1F38-382D-93B7-8179921A4B91}</Project>
+      <Name>compile_Cwise_min</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_minus.vcxproj">
+      <Project>{7EEC7882-561E-3F59-8193-BD9E418DE6F6}</Project>
+      <Name>compile_Cwise_minus</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_minus_equal.vcxproj">
+      <Project>{A78EFC7A-F32B-3E47-BC30-F89570E744E9}</Project>
+      <Name>compile_Cwise_minus_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_not_equal.vcxproj">
+      <Project>{72637A84-62EF-35E9-9DDE-70873FA3E865}</Project>
+      <Name>compile_Cwise_not_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_plus.vcxproj">
+      <Project>{F9BB06FF-6B07-3B86-A028-92E368CCA673}</Project>
+      <Name>compile_Cwise_plus</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_plus_equal.vcxproj">
+      <Project>{6B7FBE00-7865-33DE-B86E-0434E632C006}</Project>
+      <Name>compile_Cwise_plus_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_pow.vcxproj">
+      <Project>{EDBC3448-4F42-3C1F-8175-58035ECA0C55}</Project>
+      <Name>compile_Cwise_pow</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_product.vcxproj">
+      <Project>{DE62BDB1-4D50-3042-B870-02FFA20071E0}</Project>
+      <Name>compile_Cwise_product</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_quotient.vcxproj">
+      <Project>{3B5C64A3-9FD4-397A-B8BC-8DB2A83CA6C3}</Project>
+      <Name>compile_Cwise_quotient</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_rint.vcxproj">
+      <Project>{70151787-6588-390C-B378-8E0BDFB66F9E}</Project>
+      <Name>compile_Cwise_rint</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_round.vcxproj">
+      <Project>{4E23F3F0-AA98-3D37-AF80-6A21D146BEF8}</Project>
+      <Name>compile_Cwise_round</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_scalar_power_array.vcxproj">
+      <Project>{A22D8F3B-5CE4-3632-9BBA-4087F81EDB29}</Project>
+      <Name>compile_Cwise_scalar_power_array</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_sign.vcxproj">
+      <Project>{FB371076-F6F5-3464-9309-099DA4F1C780}</Project>
+      <Name>compile_Cwise_sign</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_sin.vcxproj">
+      <Project>{79655477-EBD6-33ED-9539-070E1309D73A}</Project>
+      <Name>compile_Cwise_sin</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_sinh.vcxproj">
+      <Project>{25DDB0F9-35B5-338C-AFB5-D511CD8415BF}</Project>
+      <Name>compile_Cwise_sinh</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_slash_equal.vcxproj">
+      <Project>{DB282E06-52BE-3807-808C-664BE46162C1}</Project>
+      <Name>compile_Cwise_slash_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_sqrt.vcxproj">
+      <Project>{E0012DF6-327B-3C4A-91DC-A28560D7343A}</Project>
+      <Name>compile_Cwise_sqrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_square.vcxproj">
+      <Project>{49B38A9D-20E9-3EFE-92BA-098EEFEF008F}</Project>
+      <Name>compile_Cwise_square</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_tan.vcxproj">
+      <Project>{158330B9-6F1B-3F5B-9AAF-5CCD26EFAA5D}</Project>
+      <Name>compile_Cwise_tan</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_tanh.vcxproj">
+      <Project>{4E1554C2-06CF-35E6-A3B4-B3B1062C5C61}</Project>
+      <Name>compile_Cwise_tanh</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Cwise_times_equal.vcxproj">
+      <Project>{0229CEB0-D4D3-3E41-8C39-E451C341D4EC}</Project>
+      <Name>compile_Cwise_times_equal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_DenseBase_LinSpaced.vcxproj">
+      <Project>{B69AD79A-D55E-3664-B045-0CD6F217A3D4}</Project>
+      <Name>compile_DenseBase_LinSpaced</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_DenseBase_LinSpacedInt.vcxproj">
+      <Project>{4854A826-C011-3766-902D-BD730AEDE197}</Project>
+      <Name>compile_DenseBase_LinSpacedInt</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_DenseBase_LinSpaced_seq_deprecated.vcxproj">
+      <Project>{B44D7FA0-B7E3-3BE8-9F8E-62EC960FC148}</Project>
+      <Name>compile_DenseBase_LinSpaced_seq_deprecated</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_DenseBase_setLinSpaced.vcxproj">
+      <Project>{146091BD-378C-37C5-919C-6A6B2CD72FE6}</Project>
+      <Name>compile_DenseBase_setLinSpaced</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_DirectionWise_hnormalized.vcxproj">
+      <Project>{E97F83C0-652E-332D-93F0-CCD811ED7DE7}</Project>
+      <Name>compile_DirectionWise_hnormalized</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_DirectionWise_replicate.vcxproj">
+      <Project>{BE7501B8-BACD-399E-B069-BABADC06D3E3}</Project>
+      <Name>compile_DirectionWise_replicate</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_DirectionWise_replicate_int.vcxproj">
+      <Project>{864E1A10-0CD7-369E-9C53-3E70D6AC9635}</Project>
+      <Name>compile_DirectionWise_replicate_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_EigenSolver_EigenSolver_MatrixType.vcxproj">
+      <Project>{1B9F5268-5057-3C5E-8DB0-8C49CB368CB5}</Project>
+      <Name>compile_EigenSolver_EigenSolver_MatrixType</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_EigenSolver_compute.vcxproj">
+      <Project>{C6ED2F6E-FC6B-33AE-9B5B-18C1276E5190}</Project>
+      <Name>compile_EigenSolver_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_EigenSolver_eigenvalues.vcxproj">
+      <Project>{B60761A6-D07C-3F4F-967A-21F83DCD21AF}</Project>
+      <Name>compile_EigenSolver_eigenvalues</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_EigenSolver_eigenvectors.vcxproj">
+      <Project>{333CE632-6EBC-33F4-93F9-6C0B40A8A8B4}</Project>
+      <Name>compile_EigenSolver_eigenvectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_EigenSolver_pseudoEigenvectors.vcxproj">
+      <Project>{D1573AC7-B171-3536-AFF8-7994544C7B6B}</Project>
+      <Name>compile_EigenSolver_pseudoEigenvectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_FullPivHouseholderQR_solve.vcxproj">
+      <Project>{72722092-671C-3CC6-A91A-69B59631D67B}</Project>
+      <Name>compile_FullPivHouseholderQR_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_FullPivLU_image.vcxproj">
+      <Project>{F4CC7202-693E-3973-8D43-0F0655B468C9}</Project>
+      <Name>compile_FullPivLU_image</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_FullPivLU_kernel.vcxproj">
+      <Project>{97C081D8-5F07-3ACD-BE64-9447EB66F3EA}</Project>
+      <Name>compile_FullPivLU_kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_FullPivLU_solve.vcxproj">
+      <Project>{78A0B390-0824-3D96-A312-FBF6D8A2DA9F}</Project>
+      <Name>compile_FullPivLU_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_GeneralizedEigenSolver.vcxproj">
+      <Project>{47153777-D3B4-362C-9879-B2C4E05490B1}</Project>
+      <Name>compile_GeneralizedEigenSolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_HessenbergDecomposition_compute.vcxproj">
+      <Project>{5BA651AE-A119-3605-A604-75000078902D}</Project>
+      <Name>compile_HessenbergDecomposition_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_HessenbergDecomposition_matrixH.vcxproj">
+      <Project>{F1187B1B-F610-38F3-86E5-DC2909A68000}</Project>
+      <Name>compile_HessenbergDecomposition_matrixH</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_HessenbergDecomposition_packedMatrix.vcxproj">
+      <Project>{DA274E93-7A66-3C39-9838-54893C94BC84}</Project>
+      <Name>compile_HessenbergDecomposition_packedMatrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_HouseholderQR_householderQ.vcxproj">
+      <Project>{DF4111AF-EAAE-3BE5-A593-1C060DAF7B1F}</Project>
+      <Name>compile_HouseholderQR_householderQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_HouseholderQR_solve.vcxproj">
+      <Project>{B467FB21-7284-3240-95E0-D058E82743D0}</Project>
+      <Name>compile_HouseholderQR_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_HouseholderSequence_HouseholderSequence.vcxproj">
+      <Project>{49A53248-6D96-360C-8FF3-A25EEBBA4A60}</Project>
+      <Name>compile_HouseholderSequence_HouseholderSequence</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_IOFormat.vcxproj">
+      <Project>{83CFB313-5E66-3EC8-8377-C5ADB35F2C2E}</Project>
+      <Name>compile_IOFormat</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_JacobiSVD_basic.vcxproj">
+      <Project>{16D836DF-FF46-3916-A3DC-4FC4622AA1C3}</Project>
+      <Name>compile_JacobiSVD_basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Jacobi_makeGivens.vcxproj">
+      <Project>{0ADF2AA9-A161-37EF-8C72-D8098CA2A96B}</Project>
+      <Name>compile_Jacobi_makeGivens</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Jacobi_makeJacobi.vcxproj">
+      <Project>{4E5C971C-9A43-3E67-8374-E498687E6AD6}</Project>
+      <Name>compile_Jacobi_makeJacobi</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_LLT_example.vcxproj">
+      <Project>{1485F3BB-6A0C-3CB1-8114-A76E8617FC23}</Project>
+      <Name>compile_LLT_example</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_LLT_solve.vcxproj">
+      <Project>{218F724C-6CDB-3EE1-A78E-268D25C90BE3}</Project>
+      <Name>compile_LLT_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_LeastSquaresNormalEquations.vcxproj">
+      <Project>{D8B5CE4F-4815-319B-B152-B4F397002662}</Project>
+      <Name>compile_LeastSquaresNormalEquations</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_LeastSquaresQR.vcxproj">
+      <Project>{8E6C0E58-D9B6-3FEB-8BBC-18041B99C9C7}</Project>
+      <Name>compile_LeastSquaresQR</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Map_general_stride.vcxproj">
+      <Project>{CC52CE27-18F1-3E8D-8EDA-852B46626984}</Project>
+      <Name>compile_Map_general_stride</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Map_inner_stride.vcxproj">
+      <Project>{9A6E1398-12AC-3BED-B8CD-6A3FD2F92240}</Project>
+      <Name>compile_Map_inner_stride</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Map_outer_stride.vcxproj">
+      <Project>{BBA2F0F4-BAD5-35C8-9A19-1E802BF02F7C}</Project>
+      <Name>compile_Map_outer_stride</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Map_placement_new.vcxproj">
+      <Project>{0428B300-64B3-31D0-89D0-6F7CC95D303A}</Project>
+      <Name>compile_Map_placement_new</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Map_simple.vcxproj">
+      <Project>{7E02AF65-861C-37BA-9979-C6056849CDD9}</Project>
+      <Name>compile_Map_simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_adjoint.vcxproj">
+      <Project>{AFA8AF9D-6188-33AC-8202-BDDA1C4F6FF5}</Project>
+      <Name>compile_MatrixBase_adjoint</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_all.vcxproj">
+      <Project>{7CC32AB1-0E6D-3DB4-8B54-E6B6C05BFCE3}</Project>
+      <Name>compile_MatrixBase_all</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_applyOnTheLeft.vcxproj">
+      <Project>{108A4E36-3160-38FC-BCF2-A110C5E97DB9}</Project>
+      <Name>compile_MatrixBase_applyOnTheLeft</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_applyOnTheRight.vcxproj">
+      <Project>{6163337E-E659-3D46-858E-CD40433A5D85}</Project>
+      <Name>compile_MatrixBase_applyOnTheRight</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_array.vcxproj">
+      <Project>{0149CEA9-2AC2-30E3-A78A-2D00D9F86349}</Project>
+      <Name>compile_MatrixBase_array</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_array_const.vcxproj">
+      <Project>{F4E9CC76-6230-3420-9389-B7793327E81B}</Project>
+      <Name>compile_MatrixBase_array_const</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_asDiagonal.vcxproj">
+      <Project>{8BCF54F5-776E-305B-9978-D1DF47BD2942}</Project>
+      <Name>compile_MatrixBase_asDiagonal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_block_int_int.vcxproj">
+      <Project>{AAE2F39D-12B9-3F77-8598-7F8CE5F4486C}</Project>
+      <Name>compile_MatrixBase_block_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_block_int_int_int_int.vcxproj">
+      <Project>{7B026751-D554-3859-A50E-165EBD115133}</Project>
+      <Name>compile_MatrixBase_block_int_int_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_bottomLeftCorner_int_int.vcxproj">
+      <Project>{0223704F-334E-397D-906D-462CE6258347}</Project>
+      <Name>compile_MatrixBase_bottomLeftCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_bottomRightCorner_int_int.vcxproj">
+      <Project>{DB9332F1-2B96-3756-9347-0AAF8EAF5D1D}</Project>
+      <Name>compile_MatrixBase_bottomRightCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_bottomRows_int.vcxproj">
+      <Project>{C8FE6990-BC33-3DCF-AD2C-49992FC45DA3}</Project>
+      <Name>compile_MatrixBase_bottomRows_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cast.vcxproj">
+      <Project>{2C3DE503-81B3-3888-9879-FF86AFE36A1B}</Project>
+      <Name>compile_MatrixBase_cast</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_col.vcxproj">
+      <Project>{9A6452EF-972D-3485-9FDC-DF9C366D501F}</Project>
+      <Name>compile_MatrixBase_col</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_colwise.vcxproj">
+      <Project>{E91815D5-85C0-3101-9805-8C15FC33B950}</Project>
+      <Name>compile_MatrixBase_colwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_computeInverseAndDetWithCheck.vcxproj">
+      <Project>{DCDB5848-502C-3D4D-89B4-21A3044A0F96}</Project>
+      <Name>compile_MatrixBase_computeInverseAndDetWithCheck</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_computeInverseWithCheck.vcxproj">
+      <Project>{971D43CC-1A49-3703-8311-3E128E608FE2}</Project>
+      <Name>compile_MatrixBase_computeInverseWithCheck</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseAbs.vcxproj">
+      <Project>{DE046B8D-CB1D-363D-A74B-E5569D5CB59D}</Project>
+      <Name>compile_MatrixBase_cwiseAbs</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseAbs2.vcxproj">
+      <Project>{B8168D88-6851-3B58-88B9-C2C740A1F5B6}</Project>
+      <Name>compile_MatrixBase_cwiseAbs2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseArg.vcxproj">
+      <Project>{7078BC60-DD2D-3CB1-859F-EAAEA2EACBD0}</Project>
+      <Name>compile_MatrixBase_cwiseArg</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseEqual.vcxproj">
+      <Project>{C8EF85B1-231D-3106-9520-ABAFB6724B51}</Project>
+      <Name>compile_MatrixBase_cwiseEqual</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseInverse.vcxproj">
+      <Project>{EEE7A05D-BB68-38DA-AB15-D3DBC2951A9F}</Project>
+      <Name>compile_MatrixBase_cwiseInverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseMax.vcxproj">
+      <Project>{616CD562-9766-3D9B-A6F4-9DF76DD78FF3}</Project>
+      <Name>compile_MatrixBase_cwiseMax</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseMin.vcxproj">
+      <Project>{DC28858A-925E-3C1A-AECE-BDFC1C80A268}</Project>
+      <Name>compile_MatrixBase_cwiseMin</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseNotEqual.vcxproj">
+      <Project>{D1599280-0E41-32B8-A873-D9B8ED6E66A5}</Project>
+      <Name>compile_MatrixBase_cwiseNotEqual</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseProduct.vcxproj">
+      <Project>{A9DA3122-0BE4-3F75-B48F-8F9694146C88}</Project>
+      <Name>compile_MatrixBase_cwiseProduct</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseQuotient.vcxproj">
+      <Project>{3FB69C13-CB16-30FF-97BD-E938307DE764}</Project>
+      <Name>compile_MatrixBase_cwiseQuotient</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseSign.vcxproj">
+      <Project>{0A7CB994-FA71-3359-96F3-00265163095B}</Project>
+      <Name>compile_MatrixBase_cwiseSign</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_cwiseSqrt.vcxproj">
+      <Project>{9732BAD4-9781-3185-BFBC-C03AD1C196C1}</Project>
+      <Name>compile_MatrixBase_cwiseSqrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_diagonal.vcxproj">
+      <Project>{FB38C5E4-351E-3776-A3A2-24038CFF3D9B}</Project>
+      <Name>compile_MatrixBase_diagonal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_diagonal_int.vcxproj">
+      <Project>{1F4D59B3-FD88-3ED2-8E47-AF36CDDCB1F6}</Project>
+      <Name>compile_MatrixBase_diagonal_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_diagonal_template_int.vcxproj">
+      <Project>{124D0E76-8FCC-3AF8-8985-93B2ED318D9B}</Project>
+      <Name>compile_MatrixBase_diagonal_template_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_eigenvalues.vcxproj">
+      <Project>{42FC9D71-3971-3699-BB64-D9999922301B}</Project>
+      <Name>compile_MatrixBase_eigenvalues</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_end_int.vcxproj">
+      <Project>{B1FE4C98-7671-3CFA-8A0A-94D21DE31001}</Project>
+      <Name>compile_MatrixBase_end_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_eval.vcxproj">
+      <Project>{FBDF7D6B-E4B5-3519-BF68-B6622C6B4D59}</Project>
+      <Name>compile_MatrixBase_eval</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_fixedBlock_int_int.vcxproj">
+      <Project>{B08247C6-62DC-32C7-8F47-B4E75C821A94}</Project>
+      <Name>compile_MatrixBase_fixedBlock_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_hnormalized.vcxproj">
+      <Project>{10432140-5F1A-3481-984C-5B6AF69B3478}</Project>
+      <Name>compile_MatrixBase_hnormalized</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_homogeneous.vcxproj">
+      <Project>{4E1019D7-A4BB-3915-96E8-F95AAC5A74B8}</Project>
+      <Name>compile_MatrixBase_homogeneous</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_identity.vcxproj">
+      <Project>{CB9996E0-E453-3555-BB55-BD2C112C3D74}</Project>
+      <Name>compile_MatrixBase_identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_identity_int_int.vcxproj">
+      <Project>{76B6C2EB-55BA-3D34-9ACD-29CD18757015}</Project>
+      <Name>compile_MatrixBase_identity_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_inverse.vcxproj">
+      <Project>{EC356760-BCE3-3DD1-8FDE-44898F532B59}</Project>
+      <Name>compile_MatrixBase_inverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_isDiagonal.vcxproj">
+      <Project>{018F6C35-D96C-31F7-A471-4A8A8A058AFA}</Project>
+      <Name>compile_MatrixBase_isDiagonal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_isIdentity.vcxproj">
+      <Project>{5ECA92E2-A6AF-36C1-9D2A-70265ED27114}</Project>
+      <Name>compile_MatrixBase_isIdentity</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_isOnes.vcxproj">
+      <Project>{DB224521-0785-3448-B705-49C6C1D74283}</Project>
+      <Name>compile_MatrixBase_isOnes</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_isOrthogonal.vcxproj">
+      <Project>{EC612B4A-4CAB-39C9-BF5A-7C68E927B32E}</Project>
+      <Name>compile_MatrixBase_isOrthogonal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_isUnitary.vcxproj">
+      <Project>{08FC8D50-3CC4-36B0-AF33-D6A3D0C50280}</Project>
+      <Name>compile_MatrixBase_isUnitary</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_isZero.vcxproj">
+      <Project>{EA467F78-2AAD-3E09-A2D4-9B5009C85687}</Project>
+      <Name>compile_MatrixBase_isZero</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_leftCols_int.vcxproj">
+      <Project>{7B657EFD-FBA9-3D1E-88CB-8469C0DCAA6C}</Project>
+      <Name>compile_MatrixBase_leftCols_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_noalias.vcxproj">
+      <Project>{4EADCC7C-1616-33F5-92D4-F0BC50436D5A}</Project>
+      <Name>compile_MatrixBase_noalias</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_ones.vcxproj">
+      <Project>{B5318C98-4C1E-359F-8F0E-EF2ED2806F18}</Project>
+      <Name>compile_MatrixBase_ones</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_ones_int.vcxproj">
+      <Project>{D3FEB757-DBDA-3EBF-9BBF-26145A475B8E}</Project>
+      <Name>compile_MatrixBase_ones_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_ones_int_int.vcxproj">
+      <Project>{3343CA6F-CBE9-3C98-835A-AC8E0CD074D4}</Project>
+      <Name>compile_MatrixBase_ones_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_operatorNorm.vcxproj">
+      <Project>{067D5B0E-2625-3EFB-9044-AFD125FD6336}</Project>
+      <Name>compile_MatrixBase_operatorNorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_prod.vcxproj">
+      <Project>{62D54ED9-09E0-39F0-BE9F-226BE2968782}</Project>
+      <Name>compile_MatrixBase_prod</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_random.vcxproj">
+      <Project>{03DF185F-1EF7-3CE4-B826-7DB67F9653CD}</Project>
+      <Name>compile_MatrixBase_random</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_random_int.vcxproj">
+      <Project>{B7BD7FA4-0EAF-3E20-853F-5B90A7AE9EE0}</Project>
+      <Name>compile_MatrixBase_random_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_random_int_int.vcxproj">
+      <Project>{2389880E-5AFD-31DB-A15C-5DC993DE1D4E}</Project>
+      <Name>compile_MatrixBase_random_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_replicate.vcxproj">
+      <Project>{572E4CDF-C379-3F47-8893-B863807CD6B2}</Project>
+      <Name>compile_MatrixBase_replicate</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_replicate_int_int.vcxproj">
+      <Project>{09C3B22A-77B7-3AD2-8405-3AEB2D85BB61}</Project>
+      <Name>compile_MatrixBase_replicate_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_reshaped_auto.vcxproj">
+      <Project>{2495DD3A-5021-344A-A4D7-79E75D287467}</Project>
+      <Name>compile_MatrixBase_reshaped_auto</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_reshaped_fixed.vcxproj">
+      <Project>{177BE4A4-7F4D-3DD9-B89B-343D9A7E8A37}</Project>
+      <Name>compile_MatrixBase_reshaped_fixed</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_reshaped_int_int.vcxproj">
+      <Project>{8B454907-8AB7-3771-AC9A-17C04EC550C8}</Project>
+      <Name>compile_MatrixBase_reshaped_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_reshaped_to_vector.vcxproj">
+      <Project>{F709D513-037D-37F3-9E7F-DC67A798DF6A}</Project>
+      <Name>compile_MatrixBase_reshaped_to_vector</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_reverse.vcxproj">
+      <Project>{7265C8CB-ED89-3356-9CF3-B4FF66239B93}</Project>
+      <Name>compile_MatrixBase_reverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_rightCols_int.vcxproj">
+      <Project>{8AB0DCAF-13A4-3EF3-826F-EAFC29E52A62}</Project>
+      <Name>compile_MatrixBase_rightCols_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_row.vcxproj">
+      <Project>{3EBF9F56-FF36-36BD-B161-C1DD3D97AB47}</Project>
+      <Name>compile_MatrixBase_row</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_rowwise.vcxproj">
+      <Project>{4130019A-3AEE-3ED6-817F-B3C4A9D12DF0}</Project>
+      <Name>compile_MatrixBase_rowwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_segment_int_int.vcxproj">
+      <Project>{E8E00EBF-70F3-392F-AE68-7EA782086AB6}</Project>
+      <Name>compile_MatrixBase_segment_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_select.vcxproj">
+      <Project>{8FB10E93-4B4E-34C5-A42B-34695C873322}</Project>
+      <Name>compile_MatrixBase_select</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_selfadjointView.vcxproj">
+      <Project>{F2F32164-4E2C-3337-8DB6-997D3EE2A3D7}</Project>
+      <Name>compile_MatrixBase_selfadjointView</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_set.vcxproj">
+      <Project>{B01CC5EF-88F7-3C10-B92D-5A5971563F2A}</Project>
+      <Name>compile_MatrixBase_set</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_setIdentity.vcxproj">
+      <Project>{45EB0560-C314-366E-8783-EFDE7FBA1756}</Project>
+      <Name>compile_MatrixBase_setIdentity</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_setOnes.vcxproj">
+      <Project>{3D8A41AD-830D-33E2-A54A-7F6C16F70127}</Project>
+      <Name>compile_MatrixBase_setOnes</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_setRandom.vcxproj">
+      <Project>{5E7D205E-D48C-3861-BA91-D3053154E75E}</Project>
+      <Name>compile_MatrixBase_setRandom</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_setZero.vcxproj">
+      <Project>{3247651A-D507-3977-97DD-106898BF664F}</Project>
+      <Name>compile_MatrixBase_setZero</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_start_int.vcxproj">
+      <Project>{192FF7EC-7D2A-3136-8882-0897F9AA5982}</Project>
+      <Name>compile_MatrixBase_start_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_bottomRows.vcxproj">
+      <Project>{C8CFB116-BCDF-39BB-84BA-22557CB3AE8D}</Project>
+      <Name>compile_MatrixBase_template_int_bottomRows</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_end.vcxproj">
+      <Project>{B66A9A5D-0B70-3CC9-9476-38A89FC8F5C1}</Project>
+      <Name>compile_MatrixBase_template_int_end</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_block_int_int_int_int.vcxproj">
+      <Project>{87E98FA5-FDCD-3ECE-869F-CFF55969A934}</Project>
+      <Name>compile_MatrixBase_template_int_int_block_int_int_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_bottomLeftCorner.vcxproj">
+      <Project>{C009C0A0-F268-3CF3-ADB2-E1F4FF212552}</Project>
+      <Name>compile_MatrixBase_template_int_int_bottomLeftCorner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_bottomLeftCorner_int_int.vcxproj">
+      <Project>{B45268E9-3362-338E-99B7-AA3646252D50}</Project>
+      <Name>compile_MatrixBase_template_int_int_bottomLeftCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_bottomRightCorner.vcxproj">
+      <Project>{6356F3BA-9DD2-33A5-BE20-3DF19715178F}</Project>
+      <Name>compile_MatrixBase_template_int_int_bottomRightCorner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_bottomRightCorner_int_int.vcxproj">
+      <Project>{DD07F832-53E6-3A5B-B253-14A5DD2375C7}</Project>
+      <Name>compile_MatrixBase_template_int_int_bottomRightCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_topLeftCorner.vcxproj">
+      <Project>{3E36B2B4-EA70-3043-A616-450C824E5004}</Project>
+      <Name>compile_MatrixBase_template_int_int_topLeftCorner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_topLeftCorner_int_int.vcxproj">
+      <Project>{E2FCF518-B961-363E-863B-9AD5CDD0C1A3}</Project>
+      <Name>compile_MatrixBase_template_int_int_topLeftCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_topRightCorner.vcxproj">
+      <Project>{DF2529D6-ABCA-36B7-9ACC-04A87C3410FC}</Project>
+      <Name>compile_MatrixBase_template_int_int_topRightCorner</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_int_topRightCorner_int_int.vcxproj">
+      <Project>{45AF2D68-6ECA-3FA7-AB16-34D5F83AD8DC}</Project>
+      <Name>compile_MatrixBase_template_int_int_topRightCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_leftCols.vcxproj">
+      <Project>{36A83BAF-EC59-389C-9228-3EA2DC9885D8}</Project>
+      <Name>compile_MatrixBase_template_int_leftCols</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_rightCols.vcxproj">
+      <Project>{76F80FFC-E06B-3BCD-AC47-159018CEA3CA}</Project>
+      <Name>compile_MatrixBase_template_int_rightCols</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_segment.vcxproj">
+      <Project>{BE39D699-5D2B-321D-BA94-3AB70E68AD25}</Project>
+      <Name>compile_MatrixBase_template_int_segment</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_start.vcxproj">
+      <Project>{BAE52629-69F7-3A0D-AFB6-AC2D71733A68}</Project>
+      <Name>compile_MatrixBase_template_int_start</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_template_int_topRows.vcxproj">
+      <Project>{69F19FDD-8275-3592-B76E-A7A07472062C}</Project>
+      <Name>compile_MatrixBase_template_int_topRows</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_topLeftCorner_int_int.vcxproj">
+      <Project>{CEFF68FC-CD91-3F38-8653-6091920FFC1E}</Project>
+      <Name>compile_MatrixBase_topLeftCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_topRightCorner_int_int.vcxproj">
+      <Project>{842AAB76-A891-376F-B389-D8EBAE656341}</Project>
+      <Name>compile_MatrixBase_topRightCorner_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_topRows_int.vcxproj">
+      <Project>{7904B564-5B64-33FB-99C9-4C724732831E}</Project>
+      <Name>compile_MatrixBase_topRows_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_transpose.vcxproj">
+      <Project>{D855CA74-1E70-330A-89AA-AAD578595EC1}</Project>
+      <Name>compile_MatrixBase_transpose</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_triangularView.vcxproj">
+      <Project>{F317DF50-4B09-3014-94EF-119AE568F52E}</Project>
+      <Name>compile_MatrixBase_triangularView</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_zero.vcxproj">
+      <Project>{DF678B7D-132A-3568-97F7-429E1D9D7D86}</Project>
+      <Name>compile_MatrixBase_zero</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_zero_int.vcxproj">
+      <Project>{6342CD7D-8CB4-39FC-BA9B-E1EDD9A4202C}</Project>
+      <Name>compile_MatrixBase_zero_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_MatrixBase_zero_int_int.vcxproj">
+      <Project>{767E2FDE-B453-310C-ABA0-F21D4609654C}</Project>
+      <Name>compile_MatrixBase_zero_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_Map_stride.vcxproj">
+      <Project>{5C7187E7-5D35-3023-AAC4-71A08F7FAC19}</Project>
+      <Name>compile_Matrix_Map_stride</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_resize_NoChange_int.vcxproj">
+      <Project>{811D25B2-D124-3E1D-9EA6-69C4C09EDE20}</Project>
+      <Name>compile_Matrix_resize_NoChange_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_resize_int.vcxproj">
+      <Project>{F01AC9B0-3A8C-39AA-A12A-FDCED478D51C}</Project>
+      <Name>compile_Matrix_resize_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_resize_int_NoChange.vcxproj">
+      <Project>{02304E01-70A8-3D57-BA09-0FF2511DB923}</Project>
+      <Name>compile_Matrix_resize_int_NoChange</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_resize_int_int.vcxproj">
+      <Project>{D44FD119-3D34-3482-9BDC-9C5408599E29}</Project>
+      <Name>compile_Matrix_resize_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_setConstant_int.vcxproj">
+      <Project>{9373F7F9-1ACB-3185-B72A-622743CFCC09}</Project>
+      <Name>compile_Matrix_setConstant_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_setConstant_int_int.vcxproj">
+      <Project>{E786BD98-6D02-3282-B1E8-565FF35C9B41}</Project>
+      <Name>compile_Matrix_setConstant_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_setIdentity_int_int.vcxproj">
+      <Project>{12A684DF-14A7-3792-8891-12A82A424C48}</Project>
+      <Name>compile_Matrix_setIdentity_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_setOnes_int.vcxproj">
+      <Project>{4314DE47-92FF-37EC-A2F6-FA4BF3062C74}</Project>
+      <Name>compile_Matrix_setOnes_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_setOnes_int_int.vcxproj">
+      <Project>{42F3CCFB-7FF2-33F3-BFC6-CA369CDE2384}</Project>
+      <Name>compile_Matrix_setOnes_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_setRandom_int.vcxproj">
+      <Project>{42530A84-E2AA-362B-BFA9-D3679A98CD36}</Project>
+      <Name>compile_Matrix_setRandom_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_setRandom_int_int.vcxproj">
+      <Project>{CD85B36C-E3C6-399D-8F1A-8AD2862B46CA}</Project>
+      <Name>compile_Matrix_setRandom_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_setZero_int.vcxproj">
+      <Project>{FC702CC4-0688-3BD6-90BF-CC8FB69902C3}</Project>
+      <Name>compile_Matrix_setZero_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Matrix_setZero_int_int.vcxproj">
+      <Project>{659122E6-1514-3A31-9DD4-D438796F4489}</Project>
+      <Name>compile_Matrix_setZero_int_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_PartialPivLU_solve.vcxproj">
+      <Project>{4FA7A0E8-C516-30D4-BC0E-0204AA0A3FF9}</Project>
+      <Name>compile_PartialPivLU_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_PartialRedux_count.vcxproj">
+      <Project>{DE874AF3-4F80-3959-982F-00665D40BD65}</Project>
+      <Name>compile_PartialRedux_count</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_PartialRedux_maxCoeff.vcxproj">
+      <Project>{3AC47654-3D01-3B70-B187-1E145A5FE831}</Project>
+      <Name>compile_PartialRedux_maxCoeff</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_PartialRedux_minCoeff.vcxproj">
+      <Project>{29291C17-128A-35F0-B6EA-6956A3515FB6}</Project>
+      <Name>compile_PartialRedux_minCoeff</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_PartialRedux_norm.vcxproj">
+      <Project>{442C4802-F5FF-362B-A8EC-9469C0DEF249}</Project>
+      <Name>compile_PartialRedux_norm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_PartialRedux_prod.vcxproj">
+      <Project>{F949C0C3-5CDD-37BE-BBBA-3005602EC717}</Project>
+      <Name>compile_PartialRedux_prod</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_PartialRedux_squaredNorm.vcxproj">
+      <Project>{24107457-F63F-34D9-B728-196C197EF92D}</Project>
+      <Name>compile_PartialRedux_squaredNorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_PartialRedux_sum.vcxproj">
+      <Project>{1D64ABD0-5D4D-39D9-9B1D-18DB53E481C9}</Project>
+      <Name>compile_PartialRedux_sum</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_RealQZ_compute.vcxproj">
+      <Project>{A0B00714-95E6-3FAD-B506-96310D2AAD5F}</Project>
+      <Name>compile_RealQZ_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_RealSchur_RealSchur_MatrixType.vcxproj">
+      <Project>{FC1CC276-A13A-3435-AAA7-C750A17B9CDD}</Project>
+      <Name>compile_RealSchur_RealSchur_MatrixType</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_RealSchur_compute.vcxproj">
+      <Project>{7C70D91A-799A-3B65-844B-29983B766652}</Project>
+      <Name>compile_RealSchur_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver.vcxproj">
+      <Project>{C34D9F3E-3EB4-3D65-9FC9-CCCD2D8752A2}</Project>
+      <Name>compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType.vcxproj">
+      <Project>{9B6EF04E-135F-3EDB-86DC-3D34A2BFD41B}</Project>
+      <Name>compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType2.vcxproj">
+      <Project>{1FD700E5-6678-34F9-BF50-45C7D05C8BA2}</Project>
+      <Name>compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver_MatrixType2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_compute_MatrixType.vcxproj">
+      <Project>{E9318758-F837-31D3-A214-03544C84CE92}</Project>
+      <Name>compile_SelfAdjointEigenSolver_compute_MatrixType</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_compute_MatrixType2.vcxproj">
+      <Project>{4C5DABBD-6C7D-3842-AA62-DAFAE68CAB80}</Project>
+      <Name>compile_SelfAdjointEigenSolver_compute_MatrixType2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_eigenvalues.vcxproj">
+      <Project>{DF2EB60A-5AD7-38D4-9E93-FCD7E42261FE}</Project>
+      <Name>compile_SelfAdjointEigenSolver_eigenvalues</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_eigenvectors.vcxproj">
+      <Project>{2354056B-2E5E-3BB4-8FC9-B3F58ABAD4A0}</Project>
+      <Name>compile_SelfAdjointEigenSolver_eigenvectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_operatorInverseSqrt.vcxproj">
+      <Project>{E75CCE99-9777-32D8-BADB-39D6EF1C4A6D}</Project>
+      <Name>compile_SelfAdjointEigenSolver_operatorInverseSqrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointEigenSolver_operatorSqrt.vcxproj">
+      <Project>{09F16D05-4DF8-3BA9-865F-D17E562D44DF}</Project>
+      <Name>compile_SelfAdjointEigenSolver_operatorSqrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointView_eigenvalues.vcxproj">
+      <Project>{5FF9A395-D073-3F68-B165-9D98B3F00C24}</Project>
+      <Name>compile_SelfAdjointView_eigenvalues</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SelfAdjointView_operatorNorm.vcxproj">
+      <Project>{43D735CD-541A-39E0-BEB7-57DE1256C1FB}</Project>
+      <Name>compile_SelfAdjointView_operatorNorm</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Slicing_arrayexpr.vcxproj">
+      <Project>{73699A87-FAE9-39F2-93FF-C06E6A70B2BE}</Project>
+      <Name>compile_Slicing_arrayexpr</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_SparseMatrix_coeffs.vcxproj">
+      <Project>{932F8074-A155-31C4-852D-DBB1182B0E84}</Project>
+      <Name>compile_SparseMatrix_coeffs</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_TopicAliasing_block.vcxproj">
+      <Project>{31FE1680-6A83-3C42-9970-BBE2C4C512A7}</Project>
+      <Name>compile_TopicAliasing_block</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_TopicAliasing_block_correct.vcxproj">
+      <Project>{233C0880-DBED-33A3-9E4F-C89E339B26A2}</Project>
+      <Name>compile_TopicAliasing_block_correct</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_TopicAliasing_cwise.vcxproj">
+      <Project>{505EC470-A5A4-3E5E-9519-1929A0EBED4B}</Project>
+      <Name>compile_TopicAliasing_cwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_TopicAliasing_mult1.vcxproj">
+      <Project>{14C9F109-7E77-3334-A80E-F02388D984AA}</Project>
+      <Name>compile_TopicAliasing_mult1</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_TopicAliasing_mult2.vcxproj">
+      <Project>{E89BA7CF-F71C-3104-BF21-D4D2D55F9830}</Project>
+      <Name>compile_TopicAliasing_mult2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_TopicAliasing_mult3.vcxproj">
+      <Project>{1A87D5F8-5C7A-38BD-BF53-824993D1BCCB}</Project>
+      <Name>compile_TopicAliasing_mult3</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_TopicAliasing_mult4.vcxproj">
+      <Project>{EDA9E91F-58A2-375C-876C-8ADF21C35C2F}</Project>
+      <Name>compile_TopicAliasing_mult4</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_TopicAliasing_mult5.vcxproj">
+      <Project>{DFDC7E13-674D-35AC-B9DF-F15988C5EEAB}</Project>
+      <Name>compile_TopicAliasing_mult5</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_TopicStorageOrders_example.vcxproj">
+      <Project>{36CB3F61-2821-3B3D-B9AE-EFC502DB14CE}</Project>
+      <Name>compile_TopicStorageOrders_example</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Triangular_solve.vcxproj">
+      <Project>{A3BD2423-2A8A-3701-85E3-D6E66C5282D4}</Project>
+      <Name>compile_Triangular_solve</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_Tridiagonalization_MatrixType.vcxproj">
+      <Project>{2267F814-950D-326C-9310-54988D81F1A6}</Project>
+      <Name>compile_Tridiagonalization_Tridiagonalization_MatrixType</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_compute.vcxproj">
+      <Project>{94B94631-EB03-36D9-ABD6-66DBC030C8AA}</Project>
+      <Name>compile_Tridiagonalization_compute</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_decomposeInPlace.vcxproj">
+      <Project>{8E466B20-C45E-35D6-9A6F-DD61193DE34D}</Project>
+      <Name>compile_Tridiagonalization_decomposeInPlace</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_diagonal.vcxproj">
+      <Project>{E767FC6F-9CFD-34A3-8E9D-0C3654BE17F7}</Project>
+      <Name>compile_Tridiagonalization_diagonal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_householderCoefficients.vcxproj">
+      <Project>{FED458B2-98F9-3E45-AB47-D7FFD9E5835C}</Project>
+      <Name>compile_Tridiagonalization_householderCoefficients</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tridiagonalization_packedMatrix.vcxproj">
+      <Project>{20E9E823-ABFE-3048-B3E7-0D5860764A5C}</Project>
+      <Name>compile_Tridiagonalization_packedMatrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_Block.vcxproj">
+      <Project>{F229B457-9BD7-3BA7-AF75-8B09E184576F}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_Block</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_CommaTemporary.vcxproj">
+      <Project>{EFF80B59-4040-3F85-B185-4B29C30A78B1}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_CommaTemporary</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_Join.vcxproj">
+      <Project>{5643FB33-EFE6-39C5-A6E7-688D1645C566}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_Join</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_LinSpaced.vcxproj">
+      <Project>{CEFA1968-1567-30C3-8A07-33897695E941}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_LinSpaced</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_ThreeWays.vcxproj">
+      <Project>{E7EB6AD8-593F-356E-8212-DEB8F7BB15CE}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_ThreeWays</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_AdvancedInitialization_Zero.vcxproj">
+      <Project>{25E229F6-A94E-3B70-B387-51B21319C8A5}</Project>
+      <Name>compile_Tutorial_AdvancedInitialization_Zero</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_Map_rowmajor.vcxproj">
+      <Project>{54E1B6E3-E02D-3A6E-BAA5-27C09ECB8FFD}</Project>
+      <Name>compile_Tutorial_Map_rowmajor</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_Map_using.vcxproj">
+      <Project>{6892AA82-70A7-3036-A0FC-E81135EBF75B}</Project>
+      <Name>compile_Tutorial_Map_using</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_ReshapeMat2Mat.vcxproj">
+      <Project>{2A188176-E229-3FD5-A66C-17757307FE45}</Project>
+      <Name>compile_Tutorial_ReshapeMat2Mat</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_ReshapeMat2Vec.vcxproj">
+      <Project>{3F28DDA8-8FB0-3656-BF4E-3FAB325202C3}</Project>
+      <Name>compile_Tutorial_ReshapeMat2Vec</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_SlicingCol.vcxproj">
+      <Project>{F3C8C37A-8CCA-30F2-9768-BC851C0FB9F8}</Project>
+      <Name>compile_Tutorial_SlicingCol</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_SlicingVec.vcxproj">
+      <Project>{22D03219-1F3E-3688-ABF0-13D2F727D01E}</Project>
+      <Name>compile_Tutorial_SlicingVec</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_commainit_01.vcxproj">
+      <Project>{47F0D429-789A-3B04-92F3-FA53754D366A}</Project>
+      <Name>compile_Tutorial_commainit_01</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_commainit_01b.vcxproj">
+      <Project>{F3DBFF76-0A7F-3268-B7D9-FA689C1EE054}</Project>
+      <Name>compile_Tutorial_commainit_01b</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_commainit_02.vcxproj">
+      <Project>{923B3F2F-E402-304B-BF12-F9C72B2F75AA}</Project>
+      <Name>compile_Tutorial_commainit_02</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_reshaped_vs_resize_1.vcxproj">
+      <Project>{5E56AB08-C43C-335B-AFA5-45EC34EA25BF}</Project>
+      <Name>compile_Tutorial_reshaped_vs_resize_1</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_reshaped_vs_resize_2.vcxproj">
+      <Project>{1A276FD7-9F30-3755-B7E5-7AB9698FF5C1}</Project>
+      <Name>compile_Tutorial_reshaped_vs_resize_2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_matrix_inverse.vcxproj">
+      <Project>{6FBB8345-FA33-3AB8-B249-AC24724E4F0F}</Project>
+      <Name>compile_Tutorial_solve_matrix_inverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_multiple_rhs.vcxproj">
+      <Project>{CA877051-B45D-3937-8EB4-14D8B50FD39B}</Project>
+      <Name>compile_Tutorial_solve_multiple_rhs</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_reuse_decomposition.vcxproj">
+      <Project>{D3858300-6B38-3D0F-ABBF-FB320412AE18}</Project>
+      <Name>compile_Tutorial_solve_reuse_decomposition</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_singular.vcxproj">
+      <Project>{F763F2EA-61AF-3B23-9995-15DB3B51B2A9}</Project>
+      <Name>compile_Tutorial_solve_singular</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_triangular.vcxproj">
+      <Project>{78DEE9CC-461F-3524-99E7-784AC5291A9E}</Project>
+      <Name>compile_Tutorial_solve_triangular</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_solve_triangular_inplace.vcxproj">
+      <Project>{0ED621B1-72B1-35A3-A7BD-43FFD334B95C}</Project>
+      <Name>compile_Tutorial_solve_triangular_inplace</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Tutorial_std_sort.vcxproj">
+      <Project>{78DA5821-C57B-33AB-9EF0-40FCEC4CDBC3}</Project>
+      <Name>compile_Tutorial_std_sort</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_VectorwiseOp_homogeneous.vcxproj">
+      <Project>{45B64E6D-8342-3E63-A3CC-2F20DA2A1E62}</Project>
+      <Name>compile_VectorwiseOp_homogeneous</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_Vectorwise_reverse.vcxproj">
+      <Project>{38A71E26-E4D1-301D-9DE3-51F4EF57EB25}</Project>
+      <Name>compile_Vectorwise_reverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_class_FullPivLU.vcxproj">
+      <Project>{EDBEB3DF-D8A6-3901-9FF6-A1E8D5C59A5B}</Project>
+      <Name>compile_class_FullPivLU</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_tut_arithmetic_redux_minmax.vcxproj">
+      <Project>{A0EC5EA2-F5F1-31FA-A9AE-AB8F2DB42FEA}</Project>
+      <Name>compile_tut_arithmetic_redux_minmax</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_tut_arithmetic_transpose_aliasing.vcxproj">
+      <Project>{F5073291-B1A7-34AF-9EE7-BCB9F32AB736}</Project>
+      <Name>compile_tut_arithmetic_transpose_aliasing</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_tut_arithmetic_transpose_conjugate.vcxproj">
+      <Project>{D64F1889-2D24-3736-A11F-57A7B1F093AC}</Project>
+      <Name>compile_tut_arithmetic_transpose_conjugate</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_tut_arithmetic_transpose_inplace.vcxproj">
+      <Project>{C353FB56-44C2-3087-8646-DF640D01AFF4}</Project>
+      <Name>compile_tut_arithmetic_transpose_inplace</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cuda\_deps\eigen-build\doc\snippets\compile_tut_matrix_assignment_resizing.vcxproj">
+      <Project>{C18087F8-FA73-3B1A-A11F-CA1BE22279DE}</Project>
+      <Name>compile_tut_matrix_assignment_resizing</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 13.2.targets" />
+  </ImportGroup>
+</Project>
