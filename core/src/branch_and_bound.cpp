@@ -119,8 +119,16 @@ BBSolverResult BranchAndBoundSolver::solve(const Problem& prob, const BBSolverOp
         auto lp_end = std::chrono::high_resolution_clock::now();
         total_lp_ms += std::chrono::duration_cast<std::chrono::milliseconds>(lp_end - presolve_end).count();
         
-        if (lp_res.status == SolveStatus::INFEASIBLE || lp_res.status == SolveStatus::UNBOUNDED) {
+        if (lp_res.status == SolveStatus::INFEASIBLE) {
             continue; 
+        }
+        
+        if (lp_res.status == SolveStatus::UNBOUNDED) {
+            if (current.depth == 0) {
+                result.status = SolveStatus::UNBOUNDED;
+                break;
+            }
+            continue;
         }
         
         if (lp_res.status != SolveStatus::OPTIMAL) {
@@ -182,7 +190,9 @@ BBSolverResult BranchAndBoundSolver::solve(const Problem& prob, const BBSolverOp
         }
     }
     
-    if (result.status != SolveStatus::TIME_LIMIT && result.status != SolveStatus::NODE_LIMIT) {
+    if (result.status != SolveStatus::TIME_LIMIT && 
+        result.status != SolveStatus::NODE_LIMIT && 
+        result.status != SolveStatus::UNBOUNDED) {
         if (best_incumbent < INFINITY) {
             result.status = SolveStatus::OPTIMAL;
         } else {

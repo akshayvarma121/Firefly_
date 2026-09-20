@@ -1,0 +1,19 @@
+[build-system]
+requires = ["scikit-build-core>=0.9", "pybind11>=3.0"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "firefly-probe"
+version = "0.1.0"
+description = "Throwaway pybind11 smoke-test for the Firefly build pipeline"
+requires-python = ">=3.10"
+
+[tool.scikit-build]
+cmake.build-type = "Release"
+
+# Tell scikit-build-core where the CMakeLists.txt root is
+# (same directory as this pyproject.toml — the default, stated explicitly).
+cmake.source-dir = "."
+
+# The module name must match PYBIND11_MODULE(...) in probe.cpp
+wheel.packages = []          # pure-python packages to include — none here

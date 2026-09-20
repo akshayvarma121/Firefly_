@@ -45,6 +45,85 @@ Firefly operates in a decoupled, three-tier architecture:
 - NVIDIA CUDA Toolkit 12.0 or higher
 - A compatible C++20 compiler (MSVC, GCC, Clang)
 
+---
+
+### Windows Setup
+
+> **This section is not optional.** Python 3.8+ on Windows stopped honouring
+> the `PATH` environment variable for DLL dependencies of compiled extension
+> modules (`.pyd` files). `firefly_solver.pyd` links against
+> `cusparse64_12.dll` and `cublas64_13.dll` from the CUDA Toolkit. Without
+> the steps below the import will raise a misleading `ImportError: DLL load
+> failed … The specified module could not be found` even when the DLLs are
+> physically present.
+>
+> Background: [Python 3.8 changelog — bpo-36085](https://docs.python.org/3/whatsnew/3.8.html#bpo-36085-whatsnew)
+
+**Step 1 — Verify `CUDA_PATH` is set**
+
+The NVIDIA Toolkit installer sets this automatically. Confirm in PowerShell:
+
+```powershell
+$env:CUDA_PATH
+# Expected: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v<version>
+```
+
+If it is empty, set it in System Environment Variables and reopen any
+terminal or IDE before continuing.
+
+**Step 2 — Confirm the DLLs exist in `bin\x64\`**
+
+```powershell
+Get-Item "$env:CUDA_PATH\bin\x64\cusparse64_12.dll"
+Get-Item "$env:CUDA_PATH\bin\x64\cublas64_13.dll"
+```
+
+> **Important:** The DLLs live in `bin\x64\`, not `bin\`. The API server
+> calls `os.add_dll_directory(os.path.join(CUDA_PATH, "bin", "x64"))`
+> before importing `firefly_solver`. Any other script that imports the
+> module directly must do the same, before the import statement:
+>
+> ```python
+> import os, sys
+> if os.name == "nt":
+>     cuda_path = os.environ.get("CUDA_PATH")
+>     if cuda_path:
+>         os.add_dll_directory(os.path.join(cuda_path, "bin", "x64"))
+> import firefly_solver   # safe to import after the line above
+> ```
+
+**Step 3 — Install the Python bindings**
+
+```powershell
+# From the repo root — uses scikit-build-core + CMake + MSVC
+pip install -e core --no-build-isolation
+```
+
+This compiles `firefly_core` (C++20 static library), fetches Eigen via
+CMake FetchContent, and links `firefly_solver.pyd`. A full first build
+takes 2–5 minutes; incremental rebuilds are fast.
+
+**Step 4 — Smoke-test the import**
+
+```powershell
+python -c "
+import os
+os.add_dll_directory(os.path.join(os.environ['CUDA_PATH'], 'bin', 'x64'))
+import firefly_solver
+p = firefly_solver.SparseProblem()
+p.num_vars = 2; p.num_constrs = 1
+p.obj_coeffs = [-1.0, -2.0]; p.row_ptr = [0,2]; p.col_idx = [0,1]
+p.values = [1.0,1.0]; p.row_senses = ['L']; p.rhs = [4.0]
+p.var_lower_bounds = [0.0,0.0]; p.var_upper_bounds = [1e30,1e30]
+p.is_integer = [False,False]
+res = firefly_solver.solve(p, method='simplex', gpu=False)
+assert res.status == 'OPTIMAL' and abs(res.objective + 8.0) < 1e-4
+print('OK — firefly_solver is working correctly')
+"
+```
+
+---
+
 ### Compiling the Core
 
 ```bash

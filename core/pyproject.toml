@@ -1,0 +1,27 @@
+[build-system]
+requires = ["scikit-build-core>=0.9", "pybind11>=3.0"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "firefly-solver"
+version = "0.1.0"
+description = "Firefly LP/MILP/QP solver — Python bindings"
+requires-python = ">=3.10"
+
+# Register the `firefly` command-line tool.
+[project.scripts]
+firefly = "core.cli.firefly:main"
+
+[tool.scikit-build]
+cmake.build-type = "Release"
+
+# Root CMakeLists.txt is in the same directory as this file (core/).
+cmake.source-dir = "."
+
+# Pass -DBUILD_PYTHON_BINDINGS=ON so the bindings target is enabled.
+# The tests subdirectory is still included but CTest is not run during pip install.
+cmake.args = ["-DBUILD_PYTHON_BINDINGS=ON"]
+
+# Include the pure-Python cli package (core/cli/) in the installed wheel
+# so that `from core.cli.bench import …` resolves correctly.
+wheel.packages = ["cli"]

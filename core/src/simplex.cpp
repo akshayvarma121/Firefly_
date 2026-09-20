@@ -20,6 +20,30 @@ struct BoundedSimplex {
     SimplexOptions options;
     
     SolveStatus solve(size_t& iterations, std::vector<double>& duals) {
+        if (M == 0) {
+            // No constraints. Check for unboundedness and set variables to bounds.
+            for (size_t j = 0; j < N; ++j) {
+                if (status[j] == Status::FIXED) continue;
+                if (c[j] < -options.tolerance) {
+                    if (std::isinf(U[j])) return SolveStatus::UNBOUNDED;
+                    x[j] = U[j];
+                    status[j] = Status::AT_UPPER;
+                } else if (c[j] > options.tolerance) {
+                    // Note: minimizing c^T x. So if c[j] > 0, we want x[j] as small as possible
+                    if (std::isinf(L[j])) return SolveStatus::UNBOUNDED;
+                    x[j] = L[j];
+                    status[j] = Status::AT_LOWER;
+                } else {
+                    if (!std::isinf(L[j])) { x[j] = L[j]; status[j] = Status::AT_LOWER; }
+                    else if (!std::isinf(U[j])) { x[j] = U[j]; status[j] = Status::AT_UPPER; }
+                    else { x[j] = 0; status[j] = Status::FREE; }
+                }
+            }
+            iterations = 0;
+            duals.assign(M, 0.0);
+            return SolveStatus::OPTIMAL;
+        }
+
         Eigen::SparseLU<SpMat, Eigen::COLAMDOrdering<int>> solver;
         
         for (size_t iter = 0; iter < options.max_iterations; ++iter) {

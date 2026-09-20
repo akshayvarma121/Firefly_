@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 project(FireflySolver LANGUAGES CXX)
 
+option(BUILD_PYTHON_BINDINGS "Build pybind11 Python module (firefly_solver)" OFF)
+
 include(FetchContent)
 FetchContent_Declare(
     eigen
@@ -56,3 +58,33 @@ endif()
 enable_testing()
 
 add_subdirectory(tests)
+
+# ---------------------------------------------------------------------------
+# Python bindings — built only when scikit-build-core sets BUILD_PYTHON_BINDINGS=ON
+# ---------------------------------------------------------------------------
+if(BUILD_PYTHON_BINDINGS)
+    # Silence the CMP0148 deprecation from pybind11's old FindPythonLibsNew path.
+    # pybind11 3.x supports the modern FindPython when PYBIND11_FINDPYTHON is ON.
+    set(PYBIND11_FINDPYTHON ON)
+    find_package(pybind11 CONFIG REQUIRED)
+
+    pybind11_add_module(firefly_solver bindings/bindings.cpp)
+
+    target_include_directories(firefly_solver PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${eigen_SOURCE_DIR}
+    )
+
+    # Link against the static core (already built above)
+    target_link_libraries(firefly_solver PRIVATE firefly_core)
+
+    target_compile_features(firefly_solver PRIVATE cxx_std_20)
+
+    if(WITH_CUDA)
+        target_compile_definitions(firefly_solver PRIVATE FIREFLY_WITH_CUDA)
+    endif()
+
+    # CRITICAL: DESTINATION . places the .pyd at the wheel root.
+    # Any subdirectory here will cause "builds but won't import" failures.
+    install(TARGETS firefly_solver LIBRARY DESTINATION .)
+endif()

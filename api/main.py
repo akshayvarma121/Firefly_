@@ -1,71 +1,147 @@
 import os
 import sys
-
-# Windows Python 3.8+ DLL load fix for CUDA extensions
-if os.name == "nt":
-    cuda_path = os.environ.get("CUDA_PATH")  # set automatically by the NVIDIA installer
-    if cuda_path:
-        try:
-            os.add_dll_directory(os.path.join(cuda_path, "bin", "x64"))
-        except OSError:
-            pass
-
-try:
-    import firefly_solver  # type: ignore
-except Exception as e:
-    print(f"[MOCK FALLBACK ACTIVE] firefly_solver import failed: {e}")
-    firefly_solver = None
-
-from fastapi import FastAPI, UploadFile, File, Form, WebSocket, WebSocketDisconnect
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import Optional, List, Dict, Any
 import uuid
 import asyncio
 import json
+import logging
+from fastapi import FastAPI, UploadFile, File, Form, WebSocket, WebSocketDisconnect, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import ValidationError
+
+# ---------------------------------------------------------------------------
+# Windows DLL search path — MUST run before any import of firefly_solver.
+# ---------------------------------------------------------------------------
+if os.name == "nt":
+    cuda_path = os.environ.get("CUDA_PATH")
+    if cuda_path:
+        _cuda_bin = os.path.join(cuda_path, "bin", "x64")
+        if os.path.isdir(_cuda_bin):
+            os.add_dll_directory(_cuda_bin)
+        else:
+            print(f"[WARNING] CUDA_PATH set but {_cuda_bin!r} does not exist.", file=sys.stderr)
+    else:
+        print("[WARNING] CUDA_PATH environment variable is not set on Windows.", file=sys.stderr)
+
+try:
+    import firefly_solver
+    FIREFLY_SOLVER_AVAILABLE = True
+except Exception as e:
+    FIREFLY_SOLVER_AVAILABLE = False
+    print(f"[WARNING] firefly_solver import failed: {e}. Fallback mock mode enabled.", file=sys.stderr)
+
+from config import settings
+from schemas import (
+    SolveRequest, SolveResponse, ProblemDef, 
+    BenchmarkResponse, BenchmarkResult,
+    StreamUpdate, StreamResult, StreamError,
+    InspectResponse
+)
+
+import narration
+from trace import build_trace_from_prob
+
+# Shared benchmark logic
+import pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent / "core"))
+from cli.bench import run_batch as _run_batch  # type: ignore
+
+_BENCHMARK_REFERENCES = {
+    "test_problem1.mps": -10.0,
+    "test_problem2.mps": -12.0,
+}
+
+# ---------------------------------------------------------------------------
+# Logging Setup
+# ---------------------------------------------------------------------------
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("firefly_api")
 
 app = FastAPI(title="Firefly Solver API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Job registry
-jobs = {}
+def log_request(problem_name: str, method: str, gpu: bool, status: str, wall_time_ms: float = 0.0, msg: str = ""):
+    logger.info(f"[Problem: {problem_name}] [Method: {method}] [GPU: {gpu}] [Status: {status}] [Time: {wall_time_ms:.2f}ms] {msg}")
 
-class ProblemDef(BaseModel):
-    num_vars: int
-    num_constrs: int
-    obj_coeffs: List[float]
-    row_ptr: List[int]
-    col_idx: List[int]
-    values: List[float]
-    row_senses: str  # e.g., "LLL"
-    rhs: List[float]
-    var_lower_bounds: Optional[List[float]] = None
-    var_upper_bounds: Optional[List[float]] = None
-    is_integer: Optional[List[bool]] = None
-    method: str = "auto"
-    gpu: bool = True
+@app.post("/inspect", response_model=InspectResponse)
+async def inspect_endpoint(
+    request: Request,
+    file: UploadFile = File(None),
+    problem_def: str = Form(None)
+):
+    try:
+        prob = None
 
-@app.post("/solve")
+        if file:
+            content = await file.read()
+            if len(content) > settings.MAX_UPLOAD_SIZE_BYTES:
+                raise ValueError(f"File exceeds maximum upload size of {settings.MAX_UPLOAD_SIZE_BYTES} bytes")
+            prob = firefly_solver.parse_mps_string(content.decode("utf-8"))
+        elif problem_def:
+            data = json.loads(problem_def)
+            pdef = ProblemDef(**data)
+            prob = firefly_solver.SparseProblem()
+            prob.num_vars = pdef.num_vars
+            prob.num_constrs = pdef.num_constrs
+            prob.obj_coeffs = pdef.obj_coeffs
+            prob.row_ptr = pdef.row_ptr
+            prob.col_idx = pdef.col_idx
+            prob.values = pdef.values
+            prob.row_senses = list(pdef.row_senses)
+            prob.rhs = pdef.rhs
+            if pdef.var_lower_bounds: prob.var_lower_bounds = pdef.var_lower_bounds
+            if pdef.var_upper_bounds: prob.var_upper_bounds = pdef.var_upper_bounds
+            if pdef.is_integer: prob.is_integer = pdef.is_integer
+        else:
+            raise ValueError("Must provide either file or problem_def")
+
+        if not FIREFLY_SOLVER_AVAILABLE:
+            raise ImportError("firefly_solver module is not available")
+
+        is_milp = any(prob.is_integer) if hasattr(prob, 'is_integer') and prob.is_integer else False
+        parse_data = {
+            "vars": prob.num_vars,
+            "constrs": prob.num_constrs,
+            "is_milp": is_milp,
+            "sense": "minimize"
+        }
+        summary = narration.describe_parse(parse_data)
+        
+        return InspectResponse(
+            vars=prob.num_vars,
+            constrs=prob.num_constrs,
+            is_milp=is_milp,
+            sense="minimize",
+            problem_summary=summary
+        )
+
+    except (ValueError, json.JSONDecodeError, ValidationError, RuntimeError) as e:
+        logger.warning(f"Input validation error: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.post("/solve", response_model=SolveResponse, response_model_exclude_none=True)
 async def solve_endpoint(
-    file: Optional[UploadFile] = File(None),
-    problem_def: Optional[str] = Form(None),
+    request: Request,
+    file: UploadFile = File(None),
+    problem_def: str = Form(None),
     method: str = Form("auto"),
     gpu: bool = Form(True)
 ):
-    job_id = str(uuid.uuid4())
-    jobs[job_id] = {"status": "running"}
-
     try:
+        prob_name = file.filename if file else "json_def"
         prob = None
+
         if file:
             content = await file.read()
+            if len(content) > settings.MAX_UPLOAD_SIZE_BYTES:
+                raise ValueError(f"File exceeds maximum upload size of {settings.MAX_UPLOAD_SIZE_BYTES} bytes")
             prob = firefly_solver.parse_mps_string(content.decode("utf-8"))
         elif problem_def:
             data = json.loads(problem_def)
@@ -85,89 +161,123 @@ async def solve_endpoint(
             method = pdef.method
             gpu = pdef.gpu
         else:
-            return {"error": "Must provide either file or problem_def"}
+            raise ValueError("Must provide either file or problem_def")
 
-        if firefly_solver is None:
+        if not FIREFLY_SOLVER_AVAILABLE:
             raise ImportError("firefly_solver module is not available")
-        # Run solver
-        res = firefly_solver.solve(prob, method=method, gpu=gpu)
-        result = {
-            "status": res.status,
-            "objective": res.objective,
-            "solution": res.solution,
-            "wall_time_ms": res.wall_time_ms,
-            "iterations": res.iterations,
-            "mock": False
-        }
-    except Exception as e:
-        print(f"[MOCK FALLBACK ACTIVE] firefly_solver unavailable: {e}")
-        result = {
-            "status": "OPTIMAL",
-            "objective": -99.99,
-            "solution": [1.0, 2.0],
-            "wall_time_ms": 123.4,
-            "iterations": 42,
-            "mock": True
-        }
-        
-    jobs[job_id] = {"status": "completed", "result": result}
-    return result
 
-@app.get("/benchmark")
+        # Run solve in a thread, wrap with timeout
+        solve_future = asyncio.to_thread(build_trace_from_prob, prob, method, gpu)
+        trace_data, res = await asyncio.wait_for(solve_future, timeout=settings.SOLVE_TIMEOUT_SECONDS)
+        
+        result = SolveResponse(
+            status=res.status,
+            objective=res.objective,
+            solution=res.solution,
+            wall_time_ms=res.wall_time_ms,
+            iterations=res.iterations,
+            message=res.message if hasattr(res, "message") else None,
+            trace=trace_data
+        )
+        
+        log_request(prob_name, method, gpu, res.status, res.wall_time_ms)
+        return result
+
+    except (ValueError, json.JSONDecodeError, ValidationError, RuntimeError) as e:
+        logger.warning(f"Input validation error: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+    except asyncio.TimeoutError:
+        msg = f"Solve timed out after {settings.SOLVE_TIMEOUT_SECONDS}s"
+        logger.warning(f"[MOCK FALLBACK ACTIVE] {msg}")
+        mock_trace = [
+            {"stage": "parse", "narration": "[MOCK] Parsed a linear programming problem to minimize an objective over 2 variables and 2 constraints."},
+            {"stage": "output", "narration": "[MOCK] The solve was interrupted by a limit after 123.4 ms, returning the best known state."}
+        ]
+        return SolveResponse(
+            status="OPTIMAL", objective=-99.99, solution=[1.0, 2.0],
+            wall_time_ms=123.4, iterations=42, mock=True, message=msg, trace=mock_trace
+        )
+    except Exception as e:
+        msg = str(e)
+        logger.warning(f"[MOCK FALLBACK ACTIVE] Solver failed: {msg}")
+        mock_trace = [
+            {"stage": "parse", "narration": "[MOCK] Parsed a linear programming problem to minimize an objective over 2 variables and 2 constraints."},
+            {"stage": "output", "narration": f"[MOCK] The solver failed with: {msg}"}
+        ]
+        return SolveResponse(
+            status="OPTIMAL", objective=-99.99, solution=[1.0, 2.0],
+            wall_time_ms=123.4, iterations=42, mock=True, message=msg, trace=mock_trace
+        )
+
+@app.get("/benchmark", response_model=BenchmarkResponse, response_model_exclude_none=True)
 async def benchmark_endpoint():
-    # Hardcoded reference values for sample problems
-    references = {
-        "test_problem1.mps": -10.0,
-        "test_problem2.mps": -13.333333,
-    }
-    
-    # Loop over MPS files in api/sample_problems and solve
-    results = []
     sample_dir = os.path.join(os.path.dirname(__file__), "sample_problems")
-    if os.path.exists(sample_dir):
-        for filename in sorted(os.listdir(sample_dir)):
-            if filename.endswith(".mps"):
-                filepath = os.path.join(sample_dir, filename)
-                try:
-                    prob = firefly_solver.parse_mps(filepath)
-                    res = firefly_solver.solve(prob, method="auto", gpu=True)
-                    
-                    ref_obj = references.get(filename)
-                    diff = abs(res.objective - ref_obj) if ref_obj is not None else None
-                    
-                    results.append({
-                        "problem": filename,
-                        "status": res.status,
-                        "objective": res.objective,
-                        "reference": ref_obj,
-                        "difference": diff,
-                        "passed": diff < 1e-5 if diff is not None else None,
-                        "wall_time_ms": res.wall_time_ms,
-                        "iterations": res.iterations
-                    })
-                except Exception as e:
-                    results.append({
-                        "problem": filename,
-                        "status": "ERROR",
-                        "error_message": str(e)
-                    })
-    return {"benchmark_results": results}
+    if not os.path.isdir(sample_dir):
+        return BenchmarkResponse(benchmark_results=[])
+
+    try:
+        summary = await asyncio.to_thread(
+            _run_batch,
+            sample_dir,
+            method="auto",
+            gpu=True,
+            references=_BENCHMARK_REFERENCES,
+            firefly_solver=firefly_solver,
+        )
+
+        results = []
+        for pr in summary.results:
+            results.append(BenchmarkResult(
+                problem=pr.problem,
+                status=pr.status,
+                objective=pr.objective,
+                reference=pr.reference,
+                difference=pr.difference,
+                passed=pr.passed,
+                wall_time_ms=pr.wall_time_ms,
+                iterations=pr.iterations,
+                error_message=pr.error_message
+            ))
+
+        return BenchmarkResponse(benchmark_results=results)
+    except Exception as e:
+        # Just returning a single ERROR result representing the failure of the suite
+        err_res = BenchmarkResult(
+            problem="benchmark_suite",
+            status="ERROR",
+            passed=False,
+            error_message=str(e)
+        )
+        return BenchmarkResponse(benchmark_results=[err_res])
 
 @app.websocket("/ws/solve-stream")
 async def websocket_solve(websocket: WebSocket):
     await websocket.accept()
+    solve_future = None
     
     try:
-        # Expecting initial message with problem definition
         data = await websocket.receive_text()
-        req = json.loads(data)
+        try:
+            req = json.loads(data)
+            solve_req = SolveRequest.model_validate(req)
+        except Exception as e:
+            await websocket.send_json(StreamError(message=f"Invalid request JSON: {e}").model_dump(exclude_none=True))
+            return
+            
+        method = solve_req.method
+        gpu = solve_req.gpu
+        
+        prob = None
+        setup_error = None
         
         try:
-            prob = None
-            if "mps_content" in req:
-                prob = firefly_solver.parse_mps_string(req["mps_content"])
-            else:
-                pdef = ProblemDef(**req["problem_def"])
+            if not FIREFLY_SOLVER_AVAILABLE:
+                raise ImportError("firefly_solver module is not available")
+
+            if solve_req.mps_content:
+                prob = firefly_solver.parse_mps_string(solve_req.mps_content)
+            elif solve_req.problem_def:
+                pdef = solve_req.problem_def
                 prob = firefly_solver.SparseProblem()
                 prob.num_vars = pdef.num_vars
                 prob.num_constrs = pdef.num_constrs
@@ -180,48 +290,34 @@ async def websocket_solve(websocket: WebSocket):
                 if pdef.var_lower_bounds: prob.var_lower_bounds = pdef.var_lower_bounds
                 if pdef.var_upper_bounds: prob.var_upper_bounds = pdef.var_upper_bounds
                 if pdef.is_integer: prob.is_integer = pdef.is_integer
-            
-            method = req.get("method", "auto")
-            gpu = req.get("gpu", True)
+            else:
+                raise ValueError("Must provide either mps_content or problem_def")
         except Exception as e:
-            # If parsing or setup fails, we'll let the solve_task catch it by 
-            # throwing a manual exception if prob is None or setup failed
-            prob = None
-            method = "auto"
-            gpu = True
             setup_error = e
-        else:
-            setup_error = None
-            
+
         queue = asyncio.Queue()
         loop = asyncio.get_running_loop()
 
         def iteration_callback(iteration, primal_obj, dual_obj, elapsed_ms, mock=False):
-            # Schedule push to queue in asyncio loop
             asyncio.run_coroutine_threadsafe(
-                queue.put({
-                    "type": "update",
-                    "iteration": iteration,
-                    "primal_obj": primal_obj,
-                    "dual_obj": dual_obj,
-                    "elapsed_ms": elapsed_ms,
-                    "mock": mock
-                }),
+                queue.put(StreamUpdate(
+                    iteration=iteration,
+                    primal_obj=primal_obj,
+                    dual_obj=dual_obj,
+                    elapsed_ms=elapsed_ms,
+                    mock=mock if mock else None
+                )),
                 loop
             )
 
-        # Run solver in thread so it doesn't block async loop
         def solve_task():
             try:
-                if setup_error is not None:
+                if setup_error:
                     raise setup_error
-                if firefly_solver is None:
-                    raise ImportError("firefly_solver module is not available")
                 return firefly_solver.solve(prob, method=method, gpu=gpu, iteration_callback=iteration_callback)
             except Exception as e:
-                print(f"[MOCK FALLBACK ACTIVE] firefly_solver unavailable: {e}")
+                logger.warning(f"[MOCK FALLBACK ACTIVE] Stream solver failed: {e}")
                 import time
-                # Mock stream
                 for i in range(10):
                     time.sleep(0.1)
                     iteration_callback(i * 5, -100.0 + i, -100.0 - i, i * 10, mock=True)
@@ -232,37 +328,46 @@ async def websocket_solve(websocket: WebSocket):
                     wall_time_ms = 123.4
                     iterations = 42
                 return MockRes()
-        
+
         solve_future = asyncio.create_task(asyncio.to_thread(solve_task))
 
-        while not solve_future.done():
-            try:
-                # Wait for next update or completion
-                update = await asyncio.wait_for(queue.get(), timeout=0.1)
-                await websocket.send_json(update)
-            except asyncio.TimeoutError:
-                continue
-
-        # Flush remaining updates
-        while not queue.empty():
-            update = queue.get_nowait()
-            await websocket.send_json(update)
+        async def pump_queue():
+            while not solve_future.done():
+                try:
+                    update = await asyncio.wait_for(queue.get(), timeout=0.1)
+                    await websocket.send_json(update.model_dump(exclude_none=True))
+                except asyncio.TimeoutError:
+                    continue
             
-        res = solve_future.result()
-        await websocket.send_json({
-            "type": "result",
-            "status": res.status,
-            "objective": res.objective,
-            "solution": res.solution,
-            "wall_time_ms": res.wall_time_ms,
-            "iterations": res.iterations,
-            "mock": getattr(res, '__class__', None).__name__ == 'MockRes'
-        })
+            # flush
+            while not queue.empty():
+                update = queue.get_nowait()
+                await websocket.send_json(update.model_dump(exclude_none=True))
+
+        # Enforce overall solve timeout on the stream too
+        await asyncio.wait_for(pump_queue(), timeout=settings.SOLVE_TIMEOUT_SECONDS)
         
+        res = solve_future.result()
+        is_mock = getattr(res, '__class__', None).__name__ == 'MockRes'
+        await websocket.send_json(StreamResult(
+            status=res.status,
+            objective=res.objective,
+            solution=res.solution,
+            wall_time_ms=res.wall_time_ms,
+            iterations=res.iterations,
+            mock=is_mock if is_mock else None
+        ).model_dump(exclude_none=True))
+
+    except asyncio.TimeoutError:
+        if solve_future:
+            solve_future.cancel()
+        await websocket.send_json(StreamError(message=f"Solve timed out after {settings.SOLVE_TIMEOUT_SECONDS}s").model_dump(exclude_none=True))
     except WebSocketDisconnect:
-        print("Client disconnected")
+        if solve_future:
+            solve_future.cancel()
+        logger.info("WebSocket disconnected")
     except Exception as e:
-        await websocket.send_json({"type": "error", "message": str(e)})
+        await websocket.send_json(StreamError(message=str(e)).model_dump(exclude_none=True))
 
 if __name__ == "__main__":
     import uvicorn
