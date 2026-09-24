@@ -19,6 +19,9 @@
     <ClCompile Include="E:\firefly\core\src\pdlp_cpu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="E:\firefly\core\src\branch_and_bound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="E:\firefly\core\CMakeLists.txt" />

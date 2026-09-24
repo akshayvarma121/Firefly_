@@ -9,13 +9,17 @@
 	</Configurations>
 	<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3111ab9c-34c8-322b-a9a1-f03e313496d6" DefaultStartup="true">
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="tests/benchmark_gpu.vcxproj"/>
 		<BuildDependency Project="firefly_core.vcxproj"/>
 		<BuildDependency Project="tests/firefly_tests.vcxproj"/>
+		<BuildDependency Project="tests/report_ruiz.vcxproj"/>
 		<BuildDependency Project="tests/run_real_files.vcxproj"/>
+		<BuildDependency Project="tests/test_branch_and_bound.vcxproj"/>
 		<BuildDependency Project="tests/test_gpu_unavailability.vcxproj"/>
 		<BuildDependency Project="tests/test_pdlp.vcxproj"/>
 		<BuildDependency Project="tests/test_pdlp_concurrency.vcxproj"/>
 		<BuildDependency Project="tests/test_pdlp_cross_validation.vcxproj"/>
+		<BuildDependency Project="tests/test_pdlp_ruiz.vcxproj"/>
 		<BuildDependency Project="tests/test_pdlp_stability.vcxproj"/>
 		<BuildDependency Project="tests/test_presolve.vcxproj"/>
 		<BuildDependency Project="tests/test_presolve_rules.vcxproj"/>
@@ -37,6 +41,10 @@
 		<Build Solution="RelWithDebInfo|*" Project="false"/>
 	</Project>
 	<Project Path="ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0825eeee-2691-301f-851c-14c70e5310ca"/>
+	<Project Path="tests/benchmark_gpu.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="956b632f-7bf8-3ba2-a736-9c5e6c8a41c0">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
 	<Project Path="firefly_core.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5a630ac7-b88a-3190-8b3f-5452f06e9c56">
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 	</Project>
@@ -44,7 +52,15 @@
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 		<BuildDependency Project="firefly_core.vcxproj"/>
 	</Project>
+	<Project Path="tests/report_ruiz.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2030c4bb-e69f-34f3-ae65-9c9e1fa199a0">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
 	<Project Path="tests/run_real_files.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="f80e1029-d250-3940-94a2-f8296fc21789">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/test_branch_and_bound.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="bc2389ff-e8de-3541-8b62-b49bf68f4914">
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 		<BuildDependency Project="firefly_core.vcxproj"/>
 	</Project>
@@ -61,6 +77,10 @@
 		<BuildDependency Project="firefly_core.vcxproj"/>
 	</Project>
 	<Project Path="tests/test_pdlp_cross_validation.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c1c4b05b-e8dc-3da3-827e-c34917cf0446">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="firefly_core.vcxproj"/>
+	</Project>
+	<Project Path="tests/test_pdlp_ruiz.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="52f5519f-74d4-30f5-92c8-f3f85f384190">
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
 		<BuildDependency Project="firefly_core.vcxproj"/>
 	</Project>

@@ -141,6 +141,7 @@ void test_miplib_flugpl() {
     FIREFLY_TEST_ASSERT(res_best.status == SolveStatus::OPTIMAL);
     
     // Published optimal for flugpl is 1201500
+    // Citation: MIPLIB 3.0 Reference (http://miplib.zib.de/miplib3/flugpl.php)
     double expected_obj = 1201500.0;
     FIREFLY_TEST_ASSERT(std::abs(res_best.objective_value - expected_obj) < 1e-1);
     

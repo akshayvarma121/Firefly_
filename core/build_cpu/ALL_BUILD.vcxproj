@@ -174,6 +174,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cpu\tests\benchmark_gpu.vcxproj">
+      <Project>{956B632F-7BF8-3BA2-A736-9C5E6C8A41C0}</Project>
+      <Name>benchmark_gpu</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\firefly\core\build_cpu\firefly_core.vcxproj">
       <Project>{5A630AC7-B88A-3190-8B3F-5452F06E9C56}</Project>
       <Name>firefly_core</Name>
@@ -182,9 +186,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{D1814569-E81F-3EC7-B472-9E1C45B9D504}</Project>
       <Name>firefly_tests</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cpu\tests\report_ruiz.vcxproj">
+      <Project>{2030C4BB-E69F-34F3-AE65-9C9E1FA199A0}</Project>
+      <Name>report_ruiz</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\firefly\core\build_cpu\tests\run_real_files.vcxproj">
       <Project>{F80E1029-D250-3940-94A2-F8296FC21789}</Project>
       <Name>run_real_files</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cpu\tests\test_branch_and_bound.vcxproj">
+      <Project>{BC2389FF-E8DE-3541-8B62-B49BF68F4914}</Project>
+      <Name>test_branch_and_bound</Name>
     </ProjectReference>
     <ProjectReference Include="E:\firefly\core\build_cpu\tests\test_gpu_unavailability.vcxproj">
       <Project>{22E07036-ACB4-3F54-A09F-CF3012EF9B75}</Project>
@@ -201,6 +213,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="E:\firefly\core\build_cpu\tests\test_pdlp_cross_validation.vcxproj">
       <Project>{C1C4B05B-E8DC-3DA3-827E-C34917CF0446}</Project>
       <Name>test_pdlp_cross_validation</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\firefly\core\build_cpu\tests\test_pdlp_ruiz.vcxproj">
+      <Project>{52F5519F-74D4-30F5-92C8-F3F85F384190}</Project>
+      <Name>test_pdlp_ruiz</Name>
     </ProjectReference>
     <ProjectReference Include="E:\firefly\core\build_cpu\tests\test_pdlp_stability.vcxproj">
       <Project>{21F7AF5C-5971-3547-9A84-61B554AB197A}</Project>
