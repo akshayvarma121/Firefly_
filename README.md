@@ -143,6 +143,23 @@ cmake --build . --config Release
 
 Firefly enforces strict algorithmic correctness via comprehensive unit testing against established MIPLIB and Netlib reference datasets.
 
+**Tier 1 Convergence & Fallback Validation (Auto-Dispatch):**
+The solver guarantees termination within defined iteration and time limits, gracefully falling back to the Simplex engine when PDLP struggles with numerically stiff matrices.
+
+```text
+Filename                             Status                    Solver   Obj Value                        Time (ms)  Iters
+-------------------------------------------------------------------------------------------------------------------------
+afiro.mps                            OPTIMAL                   pdlp   -464.753142                         185.0 ms     2100
+sc50b.mps                            OPTIMAL                   pdlp    -69.999999                         358.5 ms    10100
+adlittle.mps                         OPTIMAL       simplex_fallback 225494.963162                         378.1 ms    50000
+blend.mps                            OPTIMAL                   pdlp    -30.812150                         446.8 ms    15100
+kb2.mps                              OPTIMAL                   pdlp  -1749.900129                         439.8 ms    15100
+sc50a.mps                            OPTIMAL                   pdlp    -64.575077                         332.1 ms    10100
+woodinfe.mps                         INFEASIBLE    simplex_fallback      0.000000                           1.0 ms        0
+israel.mps                           OPTIMAL       simplex_fallback -896644.821863                        425.2 ms    50000
+greenbea.mps                         OPTIMAL       simplex_fallback -72555248.129846                      534.6 ms    50000
+```
+
 ```bash
 cd core/build
 ctest -C Release --output-on-failure

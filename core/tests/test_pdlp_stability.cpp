@@ -4,30 +4,49 @@
 #include <iostream>
 
 #undef NDEBUG
-#include <cassert>
+#include "test_utils.h"
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
 
 using namespace firefly;
 
-int main() {
+int main(int argc, char* argv[]) {
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG | _CALL_REPORTFAULT);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif
+
+    std::string test_name = "all";
+    if (argc >= 3 && std::string(argv[1]) == "--test") {
+        test_name = argv[2];
+    }
+
     try {
-        auto prob = MPSParser::parse("E:/firefly/core/tests/regression/ill_conditioned.mps");
-        auto pre = Presolver::presolve(prob);
-        
-        PDLPOptions pdlp_opts;
-        pdlp_opts.max_iterations = 10000;
-        
-        auto pdlp_res = PDLPSolver::solve(pre, pdlp_opts);
-        
-        std::cout << "Status: " << static_cast<int>(pdlp_res.status) << "\n";
-        std::cout << "Objective: " << pdlp_res.objective_value << "\n";
-        
-        // Assert it reached iteration limit and exited cleanly without crashing
-        assert(pdlp_res.status == SolveStatus::OPTIMAL || (pdlp_res.status == SolveStatus::ERROR && pdlp_res.message.find("Iteration limit") != std::string::npos));
-        
-        // Assert no NaN or corrupted values
-        assert(std::isfinite(pdlp_res.objective_value));
-        
-        std::cout << "Stability test passed on ill-conditioned file.\n";
+        if (test_name == "ill_conditioned_stability" || test_name == "all") {
+            auto prob = MPSParser::parse("E:/firefly/core/tests/regression/ill_conditioned.mps");
+            auto pre = Presolver::presolve(prob);
+            
+            PDLPOptions pdlp_opts;
+            pdlp_opts.max_iterations = 10000;
+            
+            auto pdlp_res = PDLPSolver::solve(pre, pdlp_opts);
+            
+            std::cout << "Status: " << static_cast<int>(pdlp_res.status) << "\n";
+            std::cout << "Objective: " << pdlp_res.objective_value << "\n";
+            
+            // Assert it reached iteration limit and exited cleanly without crashing
+            FIREFLY_TEST_ASSERT(pdlp_res.status == SolveStatus::OPTIMAL || (pdlp_res.status == SolveStatus::ERROR && pdlp_res.message.find("Iteration limit") != std::string::npos));
+            
+            // Assert no NaN or corrupted values
+            FIREFLY_TEST_ASSERT(std::isfinite(pdlp_res.objective_value));
+            
+            std::cout << "Stability test passed on ill-conditioned file.\n";
+        } else {
+            throw std::runtime_error("Unknown test: " + test_name + ". Valid tests: ill_conditioned_stability, all");
+        }
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << "\n";
         return 1;

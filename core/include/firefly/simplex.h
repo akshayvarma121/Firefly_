@@ -13,11 +13,13 @@ enum class SolveStatus {
     FEASIBLE,
     TIME_LIMIT,
     NODE_LIMIT,
+    ITERATION_LIMIT,
     ERROR
 };
 
 struct SolveResult {
     SolveStatus status;
+    std::string solver_used;
     double objective_value = 0.0;
     
     // The primal solution mapped back to the ORIGINAL problem variables

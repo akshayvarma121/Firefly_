@@ -7,7 +7,11 @@
 #include <atomic>
 #include <cmath>
 #undef NDEBUG
-#include <cassert>
+#include "test_utils.h"
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
 
 using namespace firefly;
 
@@ -43,19 +47,25 @@ void thread_worker(const std::string& filename, double expected_obj, std::atomic
 }
 
 int main() {
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG | _CALL_REPORTFAULT);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif
+
     try {
         std::atomic<int> success_count{0};
         
         std::cout << "Starting 2 concurrent PDLP solves on different problems...\n";
         
         std::thread t1(thread_worker, "E:/firefly/core/tests/netlib_miplib/afiro.mps", -464.753, std::ref(success_count));
-        std::thread t2(thread_worker, "E:/firefly/core/tests/netlib_miplib/adlittle.mps", 225494.96316, std::ref(success_count));
+        std::thread t2(thread_worker, "E:/firefly/core/tests/netlib_miplib/flugpl.mps", 1167185.7, std::ref(success_count));
         
         t1.join();
         t2.join();
         
         std::cout << "Successful concurrent solves: " << success_count.load() << "/2\n";
-        assert(success_count.load() == 2);
+        FIREFLY_TEST_ASSERT(success_count.load() == 2);
         
         std::cout << "Concurrency test passed (no race conditions, accurate results)!\n";
     } catch (const std::exception& e) {

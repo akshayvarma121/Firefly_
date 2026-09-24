@@ -9,7 +9,8 @@ import { EmptyState } from '../components/EmptyState';
 type BenchmarkRow = {
   problem: string;
   status: string;
-  objective: number;
+  solver_used?: string;
+  objective: number | null;
   reference: number | null;
   difference: number | null;
   passed: boolean | null;
@@ -233,6 +234,10 @@ export function Benchmarks() {
                       <div className="flex flex-col gap-1">
                         <span className="text-[10px] font-mono text-text-muted uppercase tracking-wider">HiGHS Reference</span>
                         <span className="font-mono text-sm text-text-primary">{row.reference !== null ? row.reference.toExponential(6) : '—'}</span>
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-[10px] font-mono text-text-muted uppercase tracking-wider">Engine</span>
+                        <span className="font-mono text-sm text-text-primary">{row.solver_used || 'pdlp'}</span>
                       </div>
                       <div className="flex flex-col gap-1">
                         <span className="text-[10px] font-mono text-text-muted uppercase tracking-wider">Objective Gap</span>

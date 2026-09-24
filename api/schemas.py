@@ -24,6 +24,7 @@ class SolveRequest(BaseModel):
 
 class SolveResponse(BaseModel):
     status: str
+    solver_used: Optional[str] = None
     objective: Optional[float] = None
     solution: Optional[List[float]] = None
     wall_time_ms: Optional[float] = None
@@ -42,6 +43,7 @@ class InspectResponse(BaseModel):
 class BenchmarkResult(BaseModel):
     problem: str
     status: str
+    solver_used: Optional[str] = None
     objective: Optional[float] = None
     reference: Optional[float] = None
     difference: Optional[float] = None
@@ -65,6 +67,7 @@ class StreamUpdate(BaseModel):
 class StreamResult(BaseModel):
     type: str = "result"
     status: str
+    solver_used: Optional[str] = None
     objective: Optional[float] = None
     solution: Optional[List[float]] = None
     wall_time_ms: Optional[float] = None

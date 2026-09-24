@@ -1,7 +1,11 @@
 #include "firefly/presolve.h"
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include "test_utils.h"
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
 #include <cmath>
 
 using namespace firefly;
@@ -10,7 +14,7 @@ void assert_double_eq(double a, double b) {
     if (std::isinf(a) && std::isinf(b) && (a > 0) == (b > 0)) return;
     if (std::abs(a - b) >= 1e-6) {
         std::cerr << "Assertion failed: " << a << " != " << b << "\n";
-        assert(false);
+        FIREFLY_TEST_ASSERT(false);
     }
 }
 
@@ -66,7 +70,7 @@ void test_isolation_and_postsolve() {
     auto result_full = Presolver::presolve(prob, opts);
     
     // Verify bound tightening narrows bounds
-    assert(result_full.stats.bounds_tightened > 0);
+    FIREFLY_TEST_ASSERT(result_full.stats.bounds_tightened > 0);
     // Original X2 upper bound was 100. With C1: 2*X2 <= 50, X2 upper bound should be 25.
     // In reduced problem, X2 is the first variable (since X1 is removed).
     assert_double_eq(result_full.problem.col_upper_bounds[0], 25.0);
@@ -75,7 +79,7 @@ void test_isolation_and_postsolve() {
     auto reduced_sol = mock_solve(result_full.problem); // X2=0, X3=0
     auto orig_sol = Presolver::postsolve_primal(result_full, reduced_sol);
     
-    assert(orig_sol.size() == 3);
+    FIREFLY_TEST_ASSERT(orig_sol.size() == 3);
     assert_double_eq(orig_sol[0], 5.0); // X1 correctly restored
     assert_double_eq(orig_sol[1], reduced_sol[0] * result_full.postsolve.col_scale_factors[1]);
     
@@ -88,12 +92,12 @@ void test_isolation_and_postsolve() {
     PresolveOptions opt_no_tighten;
     opt_no_tighten.enable_singleton_row_tightening = false;
     auto result_no_tighten = Presolver::presolve(prob, opt_no_tighten);
-    assert(result_no_tighten.stats.bounds_tightened == 0); // No tightening
+    FIREFLY_TEST_ASSERT(result_no_tighten.stats.bounds_tightened == 0); // No tightening
     
     PresolveOptions opt_no_fixed;
     opt_no_fixed.enable_fixed_variable_substitution = false;
     auto result_no_fixed = Presolver::presolve(prob, opt_no_fixed);
-    assert(result_no_fixed.stats.variables_fixed == 0); // X1 is not removed
+    FIREFLY_TEST_ASSERT(result_no_fixed.stats.variables_fixed == 0); // X1 is not removed
     
     std::cout << "test_isolation_and_postsolve passed.\n";
 }
@@ -138,18 +142,42 @@ void test_feasibility_invariance() {
             Presolver::presolve(prob);
         } catch (const InfeasibleProblemException& e) {
             std::cerr << "Presolve incorrectly flagged " << f << " as infeasible!\n";
-            assert(false);
+            FIREFLY_TEST_ASSERT(false);
         }
     }
     
     std::cout << "test_feasibility_invariance passed.\n";
 }
 
-int main() {
-    std::cout << "--- Advanced Presolve Rules Tests ---\n";
-    test_isolation_and_postsolve();
-    test_scaling_objective_invariance();
-    test_feasibility_invariance();
+int main(int argc, char* argv[]) {
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG | _CALL_REPORTFAULT);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif
+
+    std::string test_name = "all";
+    if (argc >= 3 && std::string(argv[1]) == "--test") {
+        test_name = argv[2];
+    }
+
+    std::cout << "--- Advanced Presolve Rules Tests --- (test: " << test_name << ")\n";
+    try {
+        if (test_name == "isolation_and_postsolve") test_isolation_and_postsolve();
+        else if (test_name == "scaling_objective_invariance") test_scaling_objective_invariance();
+        else if (test_name == "feasibility_invariance") test_feasibility_invariance();
+        else if (test_name == "all") {
+            test_isolation_and_postsolve();
+            test_scaling_objective_invariance();
+            test_feasibility_invariance();
+        } else {
+            throw std::runtime_error("Unknown test: " + test_name + ". Valid tests: isolation_and_postsolve, scaling_objective_invariance, feasibility_invariance, all");
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Unhandled Exception: " << e.what() << "\n";
+        return 1;
+    }
+    
     std::cout << "All advanced presolve tests passed.\n";
     return 0;
 }

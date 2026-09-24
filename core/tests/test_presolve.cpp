@@ -1,13 +1,17 @@
 #include "firefly/presolve.h"
 #include <iostream>
-#include <cassert>
+#include "test_utils.h"
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
 #include <cmath>
 
 using namespace firefly;
 
 void assert_double_eq(double a, double b) {
     if (std::isinf(a) && std::isinf(b) && (a > 0) == (b > 0)) return;
-    assert(std::abs(a - b) < 1e-9);
+    FIREFLY_TEST_ASSERT(std::abs(a - b) < 1e-9);
 }
 
 void test_fixed_variable() {
@@ -36,12 +40,12 @@ void test_fixed_variable() {
     auto result = Presolver::presolve(orig);
     
     // X1 is fixed -> C1 becomes X2 = 0 -> C1 tightened to X2 and removed -> X2 fixed to 0
-    assert(result.stats.variables_fixed == 2);
-    assert(result.stats.rows_removed == 1);
-    assert(result.stats.bounds_tightened >= 1);
+    FIREFLY_TEST_ASSERT(result.stats.variables_fixed == 2);
+    FIREFLY_TEST_ASSERT(result.stats.rows_removed == 1);
+    FIREFLY_TEST_ASSERT(result.stats.bounds_tightened >= 1);
     
-    assert(result.problem.col_names.size() == 0);
-    assert(result.problem.row_names.size() == 0);
+    FIREFLY_TEST_ASSERT(result.problem.col_names.size() == 0);
+    FIREFLY_TEST_ASSERT(result.problem.row_names.size() == 0);
     
     assert_double_eq(result.postsolve.fixed_variables[0], 5.0);
     assert_double_eq(result.postsolve.fixed_variables[1], 0.0);
@@ -75,7 +79,7 @@ void test_scaling() {
     
     auto result = Presolver::presolve(orig);
     
-    assert(result.stats.scaling_applied == 2); // Two rows scaled by 20
+    FIREFLY_TEST_ASSERT(result.stats.scaling_applied == 2); // Two rows scaled by 20
     assert_double_eq(result.problem.row_upper_bounds[0], 5.0);
     assert_double_eq(result.problem.row_upper_bounds[1], 5.0);
     
@@ -106,7 +110,7 @@ void test_infeasible() {
     
     try {
         Presolver::presolve(orig);
-        assert(false && "Should have thrown InfeasibleProblemException");
+        FIREFLY_TEST_ASSERT(false && "Should have thrown InfeasibleProblemException");
     } catch (const InfeasibleProblemException& e) {
         // Expected
     }
@@ -114,11 +118,97 @@ void test_infeasible() {
     std::cout << "test_infeasible passed.\n";
 }
 
-int main() {
-    std::cout << "Running Presolver tests...\n";
-    test_fixed_variable();
-    test_scaling();
-    test_infeasible();
+void test_redundant_row() {
+    Problem orig;
+    orig.name = "redundant_row_test";
+    
+    orig.col_names = {"X1"};
+    orig.col_to_index = {{"X1", 0}};
+    orig.col_lower_bounds = {0.0};
+    orig.col_upper_bounds = {10.0};
+    orig.is_integer = {false};
+    orig.objective = {1.0};
+    
+    orig.row_names = {"C1"};
+    orig.row_to_index = {{"C1", 0}};
+    orig.row_lower_bounds = {-INF};
+    orig.row_upper_bounds = {100.0};
+    orig.row_senses = {'L'};
+    
+    // C1: X1 <= 100. Since X1 <= 10, this is redundant.
+    orig.matrix = {
+        {0, 0, 1.0}
+    };
+    
+    PresolveOptions opts;
+    auto result = Presolver::presolve(orig, opts);
+    
+    FIREFLY_TEST_ASSERT(result.stats.rows_removed == 1);
+    std::cout << "test_redundant_row passed.\n";
+}
+
+void test_bound_tightening() {
+    Problem orig;
+    orig.name = "bound_tightening_test";
+    
+    orig.col_names = {"X1"};
+    orig.col_to_index = {{"X1", 0}};
+    orig.col_lower_bounds = {0.0};
+    orig.col_upper_bounds = {100.0};
+    orig.is_integer = {false};
+    orig.objective = {1.0};
+    
+    orig.row_names = {"C1"};
+    orig.row_to_index = {{"C1", 0}};
+    orig.row_lower_bounds = {-INF};
+    orig.row_upper_bounds = {20.0};
+    orig.row_senses = {'L'};
+    
+    // C1: 2*X1 <= 20  => X1 <= 10
+    orig.matrix = {
+        {0, 0, 2.0}
+    };
+    
+    PresolveOptions opts;
+    auto result = Presolver::presolve(orig, opts);
+    
+    FIREFLY_TEST_ASSERT(result.stats.bounds_tightened >= 1);
+    std::cout << "test_bound_tightening passed.\n";
+}
+
+int main(int argc, char* argv[]) {
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG | _CALL_REPORTFAULT);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif
+
+    std::string test_name = "all";
+    if (argc >= 3 && std::string(argv[1]) == "--test") {
+        test_name = argv[2];
+    }
+    
+    std::cout << "Running Presolver tests... (test: " << test_name << ")\n";
+    try {
+        if (test_name == "fixed_variable") test_fixed_variable();
+        else if (test_name == "scaling") test_scaling();
+        else if (test_name == "infeasible") test_infeasible();
+        else if (test_name == "redundant_row") test_redundant_row();
+        else if (test_name == "bound_tightening") test_bound_tightening();
+        else if (test_name == "all") {
+            test_fixed_variable();
+            test_scaling();
+            test_infeasible();
+            test_redundant_row();
+            test_bound_tightening();
+        } else {
+            throw std::runtime_error("Unknown test: " + test_name + ". Valid tests: fixed_variable, scaling, infeasible, redundant_row, bound_tightening, all");
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Unhandled Exception: " << e.what() << "\n";
+        return 1;
+    }
+    
     std::cout << "All Presolver tests passed.\n";
     return 0;
 }

@@ -2,6 +2,10 @@
 #include "firefly/presolve.h"
 #include "firefly/pdlp.h"
 #include <iostream>
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
 #include <string>
 #include <vector>
 #include <iomanip>
@@ -9,6 +13,12 @@
 using namespace firefly;
 
 int main() {
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG | _CALL_REPORTFAULT);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif
+
     std::vector<std::string> cases = {
         "E:/firefly/core/tests/netlib_miplib/afiro.mps",
         "E:/firefly/core/tests/netlib_miplib/adlittle.mps",
@@ -39,7 +49,7 @@ int main() {
             std::cout << std::left << std::setw(30) << short_name 
                       << std::setw(15) << pdlp_res.phase1_iterations 
                       << std::setw(20) << pdlp_res.primal_dual_gap 
-                      << (pdlp_res.status == SolveStatus::OPTIMAL ? "OPTIMAL" : "FAILED") << "\n";
+                      << (pdlp_res.status == SolveStatus::OPTIMAL ? "OPTIMAL" : (pdlp_res.status == SolveStatus::ITERATION_LIMIT ? "ITER_LIMIT" : "FAILED")) << "\n";
             
         } catch (const std::exception& e) {
             std::cerr << "Exception on " << filename << ": " << e.what() << "\n";

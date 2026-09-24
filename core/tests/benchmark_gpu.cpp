@@ -1,4 +1,8 @@
 #include <iostream>
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
 #include <vector>
 #include <chrono>
 #include <iomanip>
@@ -54,6 +58,12 @@ Problem generate_packing_problem(int M, int N) {
 }
 
 int main(int argc, char** argv) {
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG | _CALL_REPORTFAULT);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif
+
     std::vector<std::pair<int, int>> sizes = {
         {100, 100},
         {500, 500},
@@ -92,6 +102,17 @@ int main(int argc, char** argv) {
         auto pdlp_res = PDLPSolver::solve(pre, pdlp_opts);
         auto end_pdlp = std::chrono::high_resolution_clock::now();
         double pdlp_ms = std::chrono::duration<double, std::milli>(end_pdlp - start_pdlp).count();
+
+        if (sx_res.status != SolveStatus::OPTIMAL) {
+            std::cout << std::left << std::setw(15) << (std::to_string(M) + "x" + std::to_string(N))
+                      << "Simplex failed: " << (sx_res.status == SolveStatus::ITERATION_LIMIT ? "Iteration limit" : "Error") << "\n";
+            continue;
+        }
+        if (pdlp_res.status != SolveStatus::OPTIMAL) {
+            std::cout << std::left << std::setw(15) << (std::to_string(M) + "x" + std::to_string(N))
+                      << "PDLP failed: " << pdlp_res.message << "\n";
+            continue;
+        }
 
         double speedup = sx_ms / pdlp_ms;
 

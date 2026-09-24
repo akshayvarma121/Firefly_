@@ -62,15 +62,15 @@ else:
 # Shared bench logic
 # ---------------------------------------------------------------------------
 # Support both:
-#   (a) installed via `pip install -e .` → `from core.cli.bench import …`
+#   (a) installed via `pip install -e .` → `from cli.bench import …`
 #   (b) run directly:  `python core/cli/firefly.py …`
-#                       → inject repo root so the absolute import resolves.
+#                       → inject core/ root so the absolute import resolves.
 _CLI_DIR  = os.path.dirname(os.path.abspath(__file__))
-_REPO_ROOT = os.path.abspath(os.path.join(_CLI_DIR, "..", ".."))
-if _REPO_ROOT not in sys.path:
-    sys.path.insert(0, _REPO_ROOT)
+_CORE_ROOT = os.path.abspath(os.path.join(_CLI_DIR, ".."))
+if _CORE_ROOT not in sys.path:
+    sys.path.insert(0, _CORE_ROOT)
 
-from core.cli.bench import (              # noqa: E402
+from cli.bench import (              # noqa: E402
     BatchSummary,
     ProblemResult,
     collect_mps_files,
@@ -140,6 +140,8 @@ def _print_summary(result, filepath: str, quiet: bool, verbose: bool) -> None:
     print()
     print(f"  Problem   : {os.path.basename(filepath)}")
     print(f"  Status    : {result.status}{mock_tag}")
+    if result.status == "ERROR" and getattr(result, "error_message", None):
+        print(f"  Error     : {result.error_message}")
     if result.objective is not None:
         print(f"  Objective : {result.objective:.10g}")
     print(f"  Time      : {result.wall_time_ms:.1f} ms")
@@ -178,6 +180,7 @@ def _cmd_solve(args: argparse.Namespace) -> int:
             gpu=args.gpu,
             iteration_callback=cb,
             firefly_solver=_fs,
+            raise_errors=args.debug,
         )
     except Exception as exc:
         if args.debug:

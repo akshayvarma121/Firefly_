@@ -89,6 +89,33 @@ SolveResult PDLPSolver::solve(const PresolvedProblem& pre, const PDLPOptions& op
         scaled_pre.postsolve.row_scale_factors[orig_i] /= cum_r[i];
     }
 
+    // DIAGNOSTIC LOGGING: Compute max row and column norms of scaled matrix
+    double max_row_norm = 0.0;
+    double min_row_norm = 1e9;
+    double max_col_norm = 0.0;
+    double min_col_norm = 1e9;
+    if (M > 0 && N > 0) {
+        std::vector<double> r_norms(M, 0.0);
+        std::vector<double> c_norms(N, 0.0);
+        for (const auto& t : scaled_pre.problem.matrix) {
+            double val = std::abs(t.value);
+            r_norms[t.row] = std::max(r_norms[t.row], val);
+            c_norms[t.col] = std::max(c_norms[t.col], val);
+        }
+        for (size_t i = 0; i < M; ++i) {
+            max_row_norm = std::max(max_row_norm, r_norms[i]);
+            min_row_norm = std::min(min_row_norm, r_norms[i]);
+        }
+        for (size_t j = 0; j < N; ++j) {
+            max_col_norm = std::max(max_col_norm, c_norms[j]);
+            min_col_norm = std::min(min_col_norm, c_norms[j]);
+        }
+    }
+    std::cout << "[DIAGNOSTIC] After Ruiz:\n";
+    std::cout << "  Row norms (min-max): " << min_row_norm << " to " << max_row_norm << "\n";
+    std::cout << "  Col norms (min-max): " << min_col_norm << " to " << max_col_norm << "\n";
+
+
     // Power iteration to estimate ||A||_2 of the scaled matrix
     double lambda_max = 0.0;
     if (M > 0 && N > 0) {

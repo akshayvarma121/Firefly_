@@ -2,7 +2,11 @@
 #include <iostream>
 #include <cmath>
 #undef NDEBUG
-#include <cassert>
+#include "test_utils.h"
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
 
 using namespace firefly;
 
@@ -45,22 +49,37 @@ void test_ruiz_equilibration() {
         std::cout << "Dual Solution: y0 = " << result.dual_solution[0] << "\n";
     }
     
-    assert(result.status == SolveStatus::OPTIMAL);
+    FIREFLY_TEST_ASSERT(result.status == SolveStatus::OPTIMAL);
     
     // Check primal values
-    assert(std::abs(result.primal_solution[0] - 1e-4) < 1e-5);
-    assert(std::abs(result.primal_solution[1] - 0.0) < 1e-5);
+    FIREFLY_TEST_ASSERT(std::abs(result.primal_solution[0] - 1e-4) < 1e-5);
+    FIREFLY_TEST_ASSERT(std::abs(result.primal_solution[1] - 0.0) < 1e-5);
     
     // Check dual values (should be ~1e-3)
-    assert(result.dual_solution.size() > 0);
-    assert(std::abs(result.dual_solution[0] - 1e-3) < 1e-4);
+    FIREFLY_TEST_ASSERT(result.dual_solution.size() > 0);
+    FIREFLY_TEST_ASSERT(std::abs(result.dual_solution[0] - 1e-3) < 1e-4);
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG | _CALL_REPORTFAULT);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif
+
+    std::string test_name = "all";
+    if (argc >= 3 && std::string(argv[1]) == "--test") {
+        test_name = argv[2];
+    }
+
     try {
-        std::cout << "Testing Ruiz equilibration...\n";
-        test_ruiz_equilibration();
-        std::cout << "All Ruiz tests passed!\n";
+        if (test_name == "ruiz_equilibration" || test_name == "all") {
+            std::cout << "Testing Ruiz equilibration...\n";
+            test_ruiz_equilibration();
+            std::cout << "All Ruiz tests passed!\n";
+        } else {
+            throw std::runtime_error("Unknown test: " + test_name + ". Valid tests: ruiz_equilibration, all");
+        }
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << "\n";
         return 1;

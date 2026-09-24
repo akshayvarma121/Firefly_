@@ -71,7 +71,7 @@ _EC = {
 @dataclass
 class Case:
     filename: str
-    expect_parse_error: bool = False   # True if the solver should fail to parse / crash on parse
+    expect_error_msg: Optional[str] = None   # Substring to expect in Error output if it should fail
     expect_status: Optional[str] = None
     expect_obj: Optional[float] = None
     obj_tol: float = 1e-4              # absolute tolerance on objective
@@ -94,24 +94,23 @@ CASES: list[Case] = [
          expect_status="INFEASIBLE",
          note="X1<=0 AND X1>=1 makes it infeasible"),
 
-    # ----- malformed files: the current pyd parses them leniently (does not
-    #       throw MPSParseException), but then the solver crashes or hangs.
-    #       We test via subprocess so the harness survives the crash.
+    # ----- malformed files: the parser must reject these immediately
+    #       and throw an MPSParseException with the exact line number.
     Case("malformed.mps",
-         expect_parse_error=True,
-         note="Missing ENDATA — pyd parser lenient but solver crashes; exit!=0"),
+         expect_error_msg="Line 7: Missing ENDATA",
+         note="Missing ENDATA — throws MPSParseException"),
 
     Case("malformed_empty.mps",
-         expect_parse_error=True,
-         note="Only comments, no sections — pyd parses empty prob; solver crashes"),
+         expect_error_msg="Line 0: Empty file",
+         note="Only comments, no sections — throws MPSParseException"),
 
     Case("malformed_undeclared_row.mps",
-         expect_parse_error=True,
-         note="COLUMNS references BAD_ROW not in ROWS — pyd lenient; solver crashes"),
+         expect_error_msg="Line 5: Reference to undeclared row: BAD_ROW",
+         note="COLUMNS references BAD_ROW not in ROWS — throws MPSParseException"),
 
     Case("malformed_unknown_section.mps",
-         expect_parse_error=True,
-         note="Unknown section header — new core throws MPSParseException"),
+         expect_error_msg="Line 4: Unknown section header: FAKE_SECTION",
+         note="Unknown section header — throws MPSParseException"),
 
     Case("marker_int.mps",
          expect_status="OPTIMAL",
@@ -153,12 +152,10 @@ def _run_cli(filepath: str, method: str) -> tuple[int, str, str]:
     # The solver should now be installed via pip in the environment.
 
     cmd = [
-        sys.executable,
-        os.path.join(_REPO_ROOT, "core", "cli", "firefly.py"),
+        sys.executable, "-m", "cli.firefly",
         "solve", filepath,
         "--method", method,
         "--no-gpu",
-        "--debug",
     ]
     result = subprocess.run(
         cmd,
@@ -202,10 +199,22 @@ def run_all() -> tuple[int, int]:
 
         errors: list[str] = []
 
-        if case.expect_parse_error:
-            # We just require the exit code to be nonzero.
+        if case.expect_error_msg:
+            # We expect an error output from the CLI
             if rc == 0:
-                errors.append(f"expected nonzero exit (parse/crash), got 0")
+                errors.append(f"expected nonzero exit with error, got 0")
+            
+            # Look for the exact error message in stdout (printed by firefly.py)
+            err_line = None
+            for line in stdout.splitlines():
+                if "Error" in line and ":" in line:
+                    err_line = line.split("Error     :", 1)[-1].strip() if "Error     :" in line else line.split(":", 1)[-1].strip()
+                    break
+            
+            if not err_line:
+                errors.append(f"did not find any 'Error' line in output")
+            elif case.expect_error_msg not in err_line:
+                errors.append(f"error message: expected to contain {case.expect_error_msg!r}, got {err_line!r}")
         else:
             # Check exit code matches expected status
             expected_rc = _EC.get(case.expect_status or "ERROR", 4)
@@ -246,12 +255,13 @@ def run_all() -> tuple[int, int]:
             failed += 1
         else:
             note_str = f"  ({case.note})" if case.note else ""
-            status_str = "error->nonzero" if case.expect_parse_error else case.expect_status
+            status_str = "error->nonzero" if case.expect_error_msg else case.expect_status
             print(f"{PASS} {case.filename:<40s} [{status_str}]{note_str}")
             passed += 1
 
     print(sep)
     print(f"Results: {passed} passed, {failed} failed out of {passed+failed} cases")
+    print(f"[EVIDENCE] CLI Regression Suite: {passed} passed, {failed} failed out of {passed+failed} cases")
     print()
     return passed, failed
 

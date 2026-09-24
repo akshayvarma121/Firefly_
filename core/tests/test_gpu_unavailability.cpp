@@ -5,11 +5,21 @@
 #include <cstdlib>
 
 #undef NDEBUG
-#include <cassert>
+#include "test_utils.h"
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
 
 using namespace firefly;
 
 int main() {
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG | _CALL_REPORTFAULT);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif
+
     try {
         // Set an invalid device ID to force CUDA failure
 #ifdef _WIN32
@@ -32,8 +42,9 @@ int main() {
         std::cout << "Status: " << static_cast<int>(pdlp_res.status) << "\n";
         
         // Ensure it didn't crash and we actually got a valid solution or clean fallback
-        assert(pdlp_res.status == SolveStatus::OPTIMAL || pdlp_res.status == SolveStatus::ERROR);
+        FIREFLY_TEST_ASSERT(pdlp_res.status == SolveStatus::OPTIMAL || pdlp_res.status == SolveStatus::ERROR);
         
+        std::cout << "[EVIDENCE] CUDA device simulated missing -> fallback triggered -> status: " << static_cast<int>(pdlp_res.status) << "\n";
         std::cout << "GPU unavailability test passed (clean fallback, no crash).\n";
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << "\n";

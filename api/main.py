@@ -8,19 +8,6 @@ from fastapi import FastAPI, UploadFile, File, Form, WebSocket, WebSocketDisconn
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import ValidationError
 
-# ---------------------------------------------------------------------------
-# Windows DLL search path — MUST run before any import of firefly_solver.
-# ---------------------------------------------------------------------------
-if os.name == "nt":
-    cuda_path = os.environ.get("CUDA_PATH")
-    if cuda_path:
-        _cuda_bin = os.path.join(cuda_path, "bin", "x64")
-        if os.path.isdir(_cuda_bin):
-            os.add_dll_directory(_cuda_bin)
-        else:
-            print(f"[WARNING] CUDA_PATH set but {_cuda_bin!r} does not exist.", file=sys.stderr)
-    else:
-        print("[WARNING] CUDA_PATH environment variable is not set on Windows.", file=sys.stderr)
 
 try:
     import firefly_solver
@@ -76,6 +63,9 @@ async def inspect_endpoint(
     problem_def: str = Form(None)
 ):
     try:
+        if not FIREFLY_SOLVER_AVAILABLE:
+            raise ImportError("firefly_solver module is not available")
+
         prob = None
 
         if file:
@@ -172,6 +162,7 @@ async def solve_endpoint(
         
         result = SolveResponse(
             status=res.status,
+            solver_used=getattr(res, "solver_used", None),
             objective=res.objective,
             solution=res.solution,
             wall_time_ms=res.wall_time_ms,
@@ -230,6 +221,7 @@ async def benchmark_endpoint():
             results.append(BenchmarkResult(
                 problem=pr.problem,
                 status=pr.status,
+                solver_used=getattr(pr, "solver_used", None),
                 objective=pr.objective,
                 reference=pr.reference,
                 difference=pr.difference,
@@ -351,6 +343,7 @@ async def websocket_solve(websocket: WebSocket):
         is_mock = getattr(res, '__class__', None).__name__ == 'MockRes'
         await websocket.send_json(StreamResult(
             status=res.status,
+            solver_used=getattr(res, "solver_used", None),
             objective=res.objective,
             solution=res.solution,
             wall_time_ms=res.wall_time_ms,

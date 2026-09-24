@@ -10,7 +10,7 @@ requires-python = ">=3.10"
 
 # Register the `firefly` command-line tool.
 [project.scripts]
-firefly = "core.cli.firefly:main"
+firefly = "cli.firefly:main"
 
 [tool.scikit-build]
 cmake.build-type = "Release"
@@ -23,5 +23,5 @@ cmake.source-dir = "."
 cmake.args = ["-DBUILD_PYTHON_BINDINGS=ON"]
 
 # Include the pure-Python cli package (core/cli/) in the installed wheel
-# so that `from core.cli.bench import …` resolves correctly.
-wheel.packages = ["cli"]
+# so that `from cli.bench import …` resolves correctly.
+wheel.packages = ["cli", "firefly_solver"]

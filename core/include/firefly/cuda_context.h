@@ -18,8 +18,9 @@ private:
     std::mutex ctx_mutex;
 
     CudaContext() {
-        if (cublasCreate(&cublas_handle) != CUBLAS_STATUS_SUCCESS) {
-            throw std::runtime_error("Failed to initialize cuBLAS");
+        cublasStatus_t status = cublasCreate(&cublas_handle);
+        if (status != CUBLAS_STATUS_SUCCESS) {
+            throw std::runtime_error("Failed to initialize cuBLAS. Status code: " + std::to_string(static_cast<int>(status)));
         }
         if (cusparseCreate(&cusparse_handle) != CUSPARSE_STATUS_SUCCESS) {
             cublasDestroy(cublas_handle);

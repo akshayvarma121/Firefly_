@@ -21,15 +21,6 @@ import time
 import threading
 import traceback
 
-# ── Windows DLL path — MUST precede the import ────────────────────────────────
-if os.name == "nt":
-    cuda_path = os.environ.get("CUDA_PATH")
-    if cuda_path:
-        _bin = os.path.join(cuda_path, "bin", "x64")
-        if os.path.isdir(_bin):
-            os.add_dll_directory(_bin)
-# ──────────────────────────────────────────────────────────────────────────────
-
 # Force UTF-8 stdout so Unicode chars don't crash on Windows cp1252 terminals
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -441,36 +432,91 @@ def test_result_never_none():
 # Runner
 # ═══════════════════════════════════════════════════════════════════════════════
 
+def test_windows_dll_path_resolution():
+    """
+    On Windows, verify that importing firefly_solver succeeds in a subprocess
+    even when the system PATH is stripped of CUDA bin paths, relying solely on
+    os.add_dll_directory(CUDA_PATH/bin/x64).
+    """
+    if os.name != "nt":
+        print("  PASS  windows DLL check (skipped on non-Windows)")
+        return
+        
+    cuda_path = os.environ.get("CUDA_PATH")
+    if not cuda_path:
+        print("  PASS  windows DLL check (skipped, CUDA_PATH not set)")
+        return
+        
+    import subprocess
+    env = os.environ.copy()
+    
+    # Strip PATH of anything that looks like CUDA
+    if "PATH" in env:
+        paths = env["PATH"].split(os.pathsep)
+        clean_paths = [p for p in paths if "cuda" not in p.lower()]
+        env["PATH"] = os.pathsep.join(clean_paths)
+        
+    script = """
+import os
+import sys
+
+# The fix that must be present
+if os.name == 'nt':
+    cuda_path = os.environ.get('CUDA_PATH')
+    if cuda_path:
+        _bin = os.path.join(cuda_path, 'bin', 'x64')
+        if os.path.isdir(_bin):
+            os.add_dll_directory(_bin)
+
+try:
+    import firefly_solver
+    print('SUCCESS')
+except Exception as e:
+    print(f'FAILED: {e}')
+    sys.exit(1)
+"""
+    
+    res = subprocess.run([sys.executable, "-c", script], env=env, capture_output=True, text=True)
+    assert res.returncode == 0, f"Subprocess import failed. stdout: {res.stdout}, stderr: {res.stderr}"
+    assert "SUCCESS" in res.stdout, f"Subprocess did not print SUCCESS. stdout: {res.stdout}"
+    print("  PASS  windows DLL path resolution via CUDA_PATH")
+
 _TESTS = [
     # Category 1 — method × gpu combinations
-    ("LP  simplex/no-gpu",            test_lp_simplex_no_gpu),
-    ("LP  pdlp/no-gpu",               test_lp_pdlp_no_gpu),
-    ("LP  auto/no-gpu",               test_lp_auto_no_gpu),
-    ("LP  auto/gpu",                  test_lp_auto_gpu),
-    ("MILP auto/no-gpu",              test_milp_auto_simplex_lp),
-    ("MILP auto/gpu",                 test_milp_auto_gpu),
-    ("Result fields populated",       test_result_fields_populated),
-    ("parse_mps LP",                  test_parse_mps_lp),
-    ("parse_mps MILP",                test_parse_mps_milp),
-    ("parse_mps_string roundtrip",    test_parse_mps_string),
+    ("[API] LP  simplex/no-gpu",            test_lp_simplex_no_gpu),
+    ("[API] LP  pdlp/no-gpu",               test_lp_pdlp_no_gpu),
+    ("[API] LP  auto/no-gpu",               test_lp_auto_no_gpu),
+    ("[API] LP  auto/gpu",                  test_lp_auto_gpu),
+    ("[API] MILP auto/no-gpu",              test_milp_auto_simplex_lp),
+    ("[API] MILP auto/gpu",                 test_milp_auto_gpu),
+    ("[API] Result fields populated",       test_result_fields_populated),
+    ("[API] parse_mps LP",                  test_parse_mps_lp),
+    ("[API] parse_mps MILP",                test_parse_mps_milp),
+    ("[API] parse_mps_string roundtrip",    test_parse_mps_string),
 
     # Category 2 — GIL stress
-    ("GIL callback single-thread",    test_gil_callback_real_work_single_thread),
-    ("GIL callback multithreaded",    test_gil_callback_multithreaded),
-    ("GIL no-callback baseline",      test_gil_no_callback_baseline),
+    ("[GIL] GIL callback single-thread",    test_gil_callback_real_work_single_thread),
+    ("[GIL] GIL callback multithreaded",    test_gil_callback_multithreaded),
+    ("[GIL] GIL no-callback baseline",      test_gil_no_callback_baseline),
 
     # Category 3 — exceptions
-    ("Exception: infeasible bounds",  test_exception_infeasible_bounds),
-    ("Exception: missing MPS file",   test_exception_parse_mps_nonexistent_file),
-    ("Exception: malformed MPS str",  test_exception_parse_mps_string_malformed),
-    ("Exception: callback raises",    test_exception_not_silent_on_callback_raise),
-    ("solve() never returns None",    test_result_never_none),
+    ("[EXC] Exception: infeasible bounds",  test_exception_infeasible_bounds),
+    ("[EXC] Exception: missing MPS file",   test_exception_parse_mps_nonexistent_file),
+    ("[EXC] Exception: malformed MPS str",  test_exception_parse_mps_string_malformed),
+    ("[EXC] Exception: callback raises",    test_exception_not_silent_on_callback_raise),
+    ("[EXC] solve() never returns None",    test_result_never_none),
+    
+    # Category 4 — Windows specific
+    ("[WIN] Windows DLL path resolution",   test_windows_dll_path_resolution),
 ]
 
 
-def run_all() -> bool:
+def run_all(test_filter=None) -> bool:
     passed = failed = 0
     for name, fn in _TESTS:
+        if test_filter and test_filter != "all" and test_filter not in name and test_filter not in fn.__name__:
+            continue
+        
         sys.stdout.write(f"\n[{name}]\n")
         sys.stdout.flush()
         try:
@@ -491,5 +537,9 @@ def run_all() -> bool:
 
 
 if __name__ == "__main__":
-    ok = run_all()
+    test_filter = "all"
+    if len(sys.argv) >= 3 and sys.argv[1] == "--test":
+        test_filter = sys.argv[2]
+        
+    ok = run_all(test_filter)
     sys.exit(0 if ok else 1)

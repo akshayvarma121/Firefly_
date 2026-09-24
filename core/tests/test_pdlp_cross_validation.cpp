@@ -9,7 +9,11 @@
 #include <iomanip>
 
 #undef NDEBUG
-#include <cassert>
+#include "test_utils.h"
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
 
 using namespace firefly;
 
@@ -17,7 +21,23 @@ struct TestCase {
     std::string filename;
 };
 
-int main() {
+int main(int argc, char* argv[]) {
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG | _CALL_REPORTFAULT);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif
+
+    std::string test_name = "all";
+    if (argc >= 3 && std::string(argv[1]) == "--test") {
+        test_name = argv[2];
+    }
+
+    if (test_name != "cross_validation" && test_name != "all") {
+        std::cerr << "Unknown test: " << test_name << ". Valid tests: cross_validation, all\n";
+        return 1;
+    }
+
     std::vector<TestCase> cases = {
         {"E:/firefly/core/tests/netlib_miplib/afiro.mps"},
         {"E:/firefly/core/tests/netlib_miplib/adlittle.mps"},
@@ -59,7 +79,7 @@ int main() {
             if (sx_res.status == SolveStatus::OPTIMAL) {
                 if (pdlp_res.status == SolveStatus::OPTIMAL && (diff < 1.0 || rel_diff < 0.05)) {
                     success_count++;
-                } else if (pdlp_res.status == SolveStatus::ERROR && pdlp_res.message.find("Iteration limit") != std::string::npos) {
+                } else if (pdlp_res.status == SolveStatus::ITERATION_LIMIT || (pdlp_res.status == SolveStatus::ERROR && pdlp_res.message.find("Iteration limit") != std::string::npos)) {
                     std::cout << "Clean non-convergence on " << tc.filename << "\n";
                     success_count++;
                 } else {
@@ -72,7 +92,7 @@ int main() {
     }
 
     std::cout << "Cross-Validation passed: " << success_count << "/" << cases.size() << "\n";
-    assert(success_count == cases.size());
+    FIREFLY_TEST_ASSERT(success_count == cases.size());
 
     return 0;
 }

@@ -1,7 +1,11 @@
 #include "firefly/simplex.h"
 #include "firefly/mps_parser.h"
 #include <iostream>
-#include <cassert>
+#include "test_utils.h"
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
 #include <cmath>
 
 using namespace firefly;
@@ -148,7 +152,7 @@ void test_bland_cycling() {
     sopts.max_iterations = 1000;
     auto res = SimplexSolver::solve(pre, sopts);
     
-    assert(res.status == SolveStatus::OPTIMAL);
+    FIREFLY_TEST_ASSERT(res.status == SolveStatus::OPTIMAL);
     // Beale's problem optimal is x1=1, x3=1, obj = -1.25 for min (-5/4)
     assert_double_eq(res.objective_value, -1.25);
     
@@ -217,17 +221,74 @@ void test_netlib_infeasible() {
     std::cout << "test_netlib_infeasible passed for woodinfe.mps\n";
 }
 
-int main() {
-    std::cout << "--- CPU Simplex Tests ---\n" << std::flush;
+void test_feasibility_self_check() {
+    Problem p;
+    p.name = "feas_check";
+    p.col_names = {"x1", "x2"};
+    p.col_lower_bounds = {0, 0};
+    p.col_upper_bounds = {INF, INF};
+    p.is_integer = {false, false};
+    p.objective = {-1, -1};
+    
+    p.row_names = {"c1"};
+    p.row_lower_bounds = {-INF};
+    p.row_upper_bounds = {10};
+    p.row_senses = {'L'};
+    
+    p.matrix = {
+        {0, 0, 1.0}, {0, 1, 1.0}
+    };
+    
+    PresolveOptions popts;
+    popts.enable_scaling = false;
+    auto pre = Presolver::presolve(p, popts);
+    
+    SimplexOptions sopts;
+    auto res = SimplexSolver::solve(pre, sopts);
+    ASSERT_EQ(res.status, SolveStatus::OPTIMAL);
+    
+    // Verify that the solution strictly honors the feasibility self-check tolerances
+    double c1_val = res.primal_solution[0] + res.primal_solution[1];
+    ASSERT_TRUE(c1_val <= 10.0 + 1e-6);
+    ASSERT_TRUE(res.primal_solution[0] >= -1e-6);
+    ASSERT_TRUE(res.primal_solution[1] >= -1e-6);
+    
+    std::cout << "test_feasibility_self_check passed.\n";
+}
+
+int main(int argc, char* argv[]) {
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG | _CALL_REPORTFAULT);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif
+
+    std::string test_name = "all";
+    if (argc >= 3 && std::string(argv[1]) == "--test") {
+        test_name = argv[2];
+    }
+    
+    std::cout << "--- CPU Simplex Tests --- (test: " << test_name << ")\n" << std::flush;
     try {
-        test_optimal();
-        test_infeasible();
-        test_unbounded();
-        test_bland_cycling();
-        test_regression_infeasible();
-        test_regression_unbounded();
-        test_netlib_reference();
-        test_netlib_infeasible();
+        if (test_name == "optimal") test_optimal();
+        else if (test_name == "infeasible") { test_infeasible(); test_regression_infeasible(); test_netlib_infeasible(); }
+        else if (test_name == "unbounded") { test_unbounded(); test_regression_unbounded(); }
+        else if (test_name == "bland_cycling") test_bland_cycling();
+        else if (test_name == "netlib_reference") test_netlib_reference();
+        else if (test_name == "feasibility_self_check") test_feasibility_self_check();
+        else if (test_name == "all") {
+            test_optimal();
+            test_infeasible();
+            test_regression_infeasible();
+            test_netlib_infeasible();
+            test_unbounded();
+            test_regression_unbounded();
+            test_bland_cycling();
+            test_netlib_reference();
+            test_feasibility_self_check();
+        } else {
+            throw std::runtime_error("Unknown test: " + test_name + ". Valid tests: optimal, infeasible, unbounded, bland_cycling, netlib_reference, feasibility_self_check, all");
+        }
         std::cout << "All CPU Simplex tests passed.\n" << std::flush;
     } catch(const std::exception& e) {
         std::cerr << "Exception caught: " << e.what() << "\n";

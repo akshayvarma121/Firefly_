@@ -68,23 +68,22 @@ if(BUILD_PYTHON_BINDINGS)
     set(PYBIND11_FINDPYTHON ON)
     find_package(pybind11 CONFIG REQUIRED)
 
-    pybind11_add_module(firefly_solver bindings/bindings.cpp)
+    pybind11_add_module(_firefly_solver bindings/bindings.cpp)
 
-    target_include_directories(firefly_solver PRIVATE
+    target_include_directories(_firefly_solver PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${eigen_SOURCE_DIR}
     )
 
     # Link against the static core (already built above)
-    target_link_libraries(firefly_solver PRIVATE firefly_core)
+    target_link_libraries(_firefly_solver PRIVATE firefly_core)
 
-    target_compile_features(firefly_solver PRIVATE cxx_std_20)
+    target_compile_features(_firefly_solver PRIVATE cxx_std_20)
 
     if(WITH_CUDA)
-        target_compile_definitions(firefly_solver PRIVATE FIREFLY_WITH_CUDA)
+        target_compile_definitions(_firefly_solver PRIVATE FIREFLY_WITH_CUDA)
     endif()
 
-    # CRITICAL: DESTINATION . places the .pyd at the wheel root.
-    # Any subdirectory here will cause "builds but won't import" failures.
-    install(TARGETS firefly_solver LIBRARY DESTINATION .)
+    # Install into the firefly_solver python package directory
+    install(TARGETS _firefly_solver LIBRARY DESTINATION firefly_solver)
 endif()

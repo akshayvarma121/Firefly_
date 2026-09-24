@@ -172,6 +172,7 @@ struct PyPresolveStats {
 // Convert firefly::SolveResult -> Python-friendly struct
 struct PySolveResult {
     std::string         status;
+    std::string         solver_used;
     double              objective   = 0.0;
     std::vector<double> solution;
     std::vector<double> dual_solution;
@@ -185,6 +186,7 @@ struct PySolveResult {
 static PySolveResult to_py_result(const firefly::SolveResult& r) {
     PySolveResult pr;
     pr.status         = status_to_str(r.status);
+    pr.solver_used    = r.solver_used;
     pr.objective      = r.objective_value;
     pr.solution       = r.primal_solution;
     pr.dual_solution  = r.dual_solution;
@@ -335,6 +337,7 @@ static PySolveResult py_solve(
             py::gil_scoped_release release;
             result = firefly::SimplexSolver::solve(pre, so);
         }
+        result.solver_used = "simplex";
 
         // Simplex doesn't natively support per-iteration callbacks here.
         // (The simplex implementation would need to be extended; for now
@@ -354,6 +357,17 @@ static PySolveResult py_solve(
         {
             py::gil_scoped_release release;  // release while in CUDA
             result = firefly::PDLPSolver::solve(pre, po);
+        }
+        result.solver_used = "pdlp";
+
+        // FALLBACK LOGIC
+        if (method == "auto" && (result.status == firefly::SolveStatus::ITERATION_LIMIT || result.status == firefly::SolveStatus::TIME_LIMIT)) {
+            firefly::SimplexOptions so;
+            {
+                py::gil_scoped_release release;
+                result = firefly::SimplexSolver::solve(pre, so);
+            }
+            result.solver_used = "simplex_fallback";
         }
     }
 
@@ -408,7 +422,7 @@ static SparseProblem py_parse_mps_string(const std::string& content) {
 // ---------------------------------------------------------------------------
 // Module definition
 // ---------------------------------------------------------------------------
-PYBIND11_MODULE(firefly_solver, m) {
+PYBIND11_MODULE(_firefly_solver, m) {
     m.doc() = "Firefly LP/MILP/QP solver — pybind11 bindings";
 
     // -- SparseProblem -------------------------------------------------------
@@ -454,6 +468,8 @@ PYBIND11_MODULE(firefly_solver, m) {
         .def(py::init<>())
         .def_readwrite("status",          &PySolveResult::status,
             "One of: OPTIMAL, INFEASIBLE, UNBOUNDED, FEASIBLE, TIME_LIMIT, NODE_LIMIT, ERROR")
+        .def_readwrite("solver_used",     &PySolveResult::solver_used,
+            "The engine that produced this result (e.g., pdlp, simplex, simplex_fallback)")
         .def_readwrite("objective",       &PySolveResult::objective,
             "Optimal objective value (valid when status is OPTIMAL or FEASIBLE)")
         .def_readwrite("solution",        &PySolveResult::solution,

@@ -68,11 +68,11 @@ BBSolverResult BranchAndBoundSolver::solve(const Problem& prob, const BBSolverOp
         if (options.ordering == NodeOrdering::BEST_FIRST) {
             current = pq.top();
             pq.pop();
-            result.best_bound = pq.empty() ? best_incumbent : pq.top().lower_bound;
+            result.best_bound = current.lower_bound;
         } else {
             current = stack.back();
             stack.pop_back();
-            double min_bound = best_incumbent;
+            double min_bound = current.lower_bound;
             for (const auto& n : stack) {
                 if (n.lower_bound < min_bound) min_bound = n.lower_bound;
             }
@@ -190,6 +190,16 @@ BBSolverResult BranchAndBoundSolver::solve(const Problem& prob, const BBSolverOp
         }
     }
     
+    if (options.ordering == NodeOrdering::BEST_FIRST) {
+        result.best_bound = pq.empty() ? best_incumbent : pq.top().lower_bound;
+    } else {
+        double min_bound = best_incumbent;
+        for (const auto& n : stack) {
+            if (n.lower_bound < min_bound) min_bound = n.lower_bound;
+        }
+        result.best_bound = min_bound;
+    }
+
     if (result.status != SolveStatus::TIME_LIMIT && 
         result.status != SolveStatus::NODE_LIMIT && 
         result.status != SolveStatus::UNBOUNDED) {

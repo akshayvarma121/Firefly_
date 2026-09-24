@@ -1,4 +1,4 @@
-﻿"""
+"""
 core/cli/bench.py
 -----------------
 Shared benchmark and batch-solve logic consumed by:
@@ -25,6 +25,7 @@ class ProblemResult:
     problem: str                          # filename (basename)
     path: str                             # absolute path
     status: str                           # OPTIMAL / INFEASIBLE / ERROR / ...
+    solver_used: Optional[str] = None     # Which engine produced the result
     objective: Optional[float] = None
     reference: Optional[float] = None     # known-good value if provided
     difference: Optional[float] = None    # abs(objective - reference)
@@ -74,6 +75,7 @@ def solve_one(
     tol: float = 1e-5,
     iteration_callback: Optional[Callable] = None,
     firefly_solver=None,
+    raise_errors: bool = False,
 ) -> ProblemResult:
     """
     Parse and solve a single MPS file.
@@ -89,6 +91,7 @@ def solve_one(
     firefly_solver  : the already-imported firefly_solver module (or None for
                       mock fallback).  Callers pass the module they imported
                       so this module never imports it directly.
+    raise_errors    : if True, do not suppress exceptions
     """
     basename = os.path.basename(filepath)
     result = ProblemResult(problem=basename, path=filepath, status="ERROR")
@@ -116,6 +119,8 @@ def solve_one(
         elapsed_ms = (time.perf_counter() - t0) * 1000.0
 
         result.status = res.status
+        if hasattr(res, "solver_used"):
+            result.solver_used = res.solver_used
         result.objective = res.objective
         result.wall_time_ms = res.wall_time_ms if res.wall_time_ms else elapsed_ms
         result.iterations = res.iterations
@@ -128,6 +133,8 @@ def solve_one(
             result.passed = diff < tol
 
     except Exception as exc:
+        if raise_errors:
+            raise
         result.status = "ERROR"
         result.error_message = str(exc)
 
@@ -197,9 +204,10 @@ def result_to_row(pr: ProblemResult) -> str:
     pass_str = ("PASS" if pr.passed else "FAIL") if pr.passed is not None else "----"
     time_str = f"{pr.wall_time_ms:>8.1f} ms"
     iter_str = f"{pr.iterations:>7}"
+    solver_str = f"{pr.solver_used or 'pdlp':>16}"
     mock_tag = " [MOCK]" if pr.mock else ""
     return (
-        f"  {pr.problem:<35s}  {pr.status:<12s}"
+        f"  {pr.problem:<35s}  {pr.status:<12s}  {solver_str}"
         f"{obj_str}  {ref_str}  {diff_str}  {pass_str}"
         f"  {time_str}  {iter_str}{mock_tag}"
     )
@@ -207,8 +215,8 @@ def result_to_row(pr: ProblemResult) -> str:
 
 def summary_header() -> str:
     return (
-        "  " + f"{'PROBLEM':<35s}  {'STATUS':<12s}"
+        "  " + f"{'PROBLEM':<35s}  {'STATUS':<12s}  {'ENGINE':>16}"
         f"{'OBJECTIVE':>14}  {'REFERENCE':>14}  {'DIFF':>10}  PASS"
         f"  {'TIME':>10}  {'ITERS':>7}"
-        "\n  " + "-" * 115
+        "\n  " + "-" * 133
     )

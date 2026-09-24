@@ -13,9 +13,13 @@ bool is_zero(double val) {
     return std::abs(val) < PRESOLVE_TOL;
 }
 
+bool is_inf(double val) {
+    return std::isinf(val) || std::abs(val) >= 1e19;
+}
+
 bool is_eq(double a, double b) {
-    if (std::isinf(a) && std::isinf(b) && (a > 0) == (b > 0)) return true;
-    if (std::isinf(a) || std::isinf(b)) return false;
+    if (is_inf(a) && is_inf(b) && (a > 0) == (b > 0)) return true;
+    if (is_inf(a) || is_inf(b)) return false;
     return std::abs(a - b) < PRESOLVE_TOL;
 }
 
@@ -96,8 +100,8 @@ PresolvedProblem Presolver::presolve(const Problem& orig, const PresolveOptions&
                 for (const auto& [r, coef] : col_nz[j]) {
                     if (!active_row[r]) continue;
                     double shift = coef * val;
-                    if (!std::isinf(row_lower[r])) row_lower[r] -= shift;
-                    if (!std::isinf(row_upper[r])) row_upper[r] -= shift;
+                    if (!is_inf(row_lower[r])) row_lower[r] -= shift;
+                    if (!is_inf(row_upper[r])) row_upper[r] -= shift;
                     
                     row_nz[r].erase(j);
                 }
@@ -129,11 +133,11 @@ PresolvedProblem Presolver::presolve(const Problem& orig, const PresolveOptions&
                 double nb_upper = INF;
                 
                 if (coef > 0) {
-                    if (!std::isinf(row_lower[i])) nb_lower = row_lower[i] / coef;
-                    if (!std::isinf(row_upper[i])) nb_upper = row_upper[i] / coef;
+                    if (!is_inf(row_lower[i])) nb_lower = row_lower[i] / coef;
+                    if (!is_inf(row_upper[i])) nb_upper = row_upper[i] / coef;
                 } else {
-                    if (!std::isinf(row_upper[i])) nb_lower = row_upper[i] / coef;
-                    if (!std::isinf(row_lower[i])) nb_upper = row_lower[i] / coef;
+                    if (!is_inf(row_upper[i])) nb_lower = row_upper[i] / coef;
+                    if (!is_inf(row_lower[i])) nb_upper = row_lower[i] / coef;
                 }
                 
                 if (nb_lower > col_lower[j] + PRESOLVE_TOL) {
@@ -148,6 +152,12 @@ PresolvedProblem Presolver::presolve(const Problem& orig, const PresolveOptions&
                 }
                 
                 if (col_lower[j] > col_upper[j] + PRESOLVE_TOL) {
+                    if (orig.row_names[i] == "DWASE") {
+                        std::cout << "[DEBUG] Row DWASE has " << row_nz[i].size() << " variables:\n";
+                        for (const auto& kv : row_nz[i]) {
+                            std::cout << "  Var: " << orig.col_names[kv.first] << " Coef: " << kv.second << "\n";
+                        }
+                    }
                     throw InfeasibleProblemException("Row " + orig.row_names[i] + " causes conflicting bounds for " + orig.col_names[j] + ": L=" + std::to_string(col_lower[j]) + ", U=" + std::to_string(col_upper[j]));
                 }
                 
@@ -180,10 +190,10 @@ PresolvedProblem Presolver::presolve(const Problem& orig, const PresolveOptions&
                 } else {
                     bool min_dir = orig.minimize ? (obj[j] > 0) : (obj[j] < 0);
                     if (min_dir) {
-                        if (std::isinf(col_lower[j])) throw InfeasibleProblemException("Unbounded: Cost pulls to -INF but no lower bound");
+                        if (is_inf(col_lower[j])) throw InfeasibleProblemException("Unbounded: Cost pulls to -INF but no lower bound");
                         result.postsolve.fixed_variables[j] = col_lower[j];
                     } else {
-                        if (std::isinf(col_upper[j])) throw InfeasibleProblemException("Unbounded: Cost pulls to +INF but no upper bound");
+                        if (is_inf(col_upper[j])) throw InfeasibleProblemException("Unbounded: Cost pulls to +INF but no upper bound");
                         result.postsolve.fixed_variables[j] = col_upper[j];
                     }
                     result.postsolve.objective_offset += obj[j] * result.postsolve.fixed_variables[j];
@@ -209,8 +219,8 @@ PresolvedProblem Presolver::presolve(const Problem& orig, const PresolveOptions&
         }
         if (max_abs > PRESOLVE_TOL && !is_eq(max_abs, 1.0)) {
             r_scale[i] = max_abs;
-            if (!std::isinf(row_lower[i])) row_lower[i] /= max_abs;
-            if (!std::isinf(row_upper[i])) row_upper[i] /= max_abs;
+            if (!is_inf(row_lower[i])) row_lower[i] /= max_abs;
+            if (!is_inf(row_upper[i])) row_upper[i] /= max_abs;
             for (auto& [j, v] : row_nz[i]) {
                 v /= max_abs;
                 col_nz[j][i] = v; // Update dual representation
@@ -232,7 +242,7 @@ PresolvedProblem Presolver::presolve(const Problem& orig, const PresolveOptions&
         }
         if (max_abs > PRESOLVE_TOL && !is_eq(max_abs, 1.0)) {
             c_scale[j] = max_abs;
-            if (!std::isinf(col_lower[j])) col_lower[j] *= max_abs; // x' = x / scale => L' = L / scale? Wait!
+            if (!is_inf(col_lower[j])) col_lower[j] *= max_abs; // x' = x / scale => L' = L / scale? Wait!
             // If we divide x by scale: x_new = x_orig / scale => x_orig = x_new * scale.
             // Bounds on x_orig: L <= x_orig <= U  =>  L <= x_new * scale <= U  =>  L/scale <= x_new <= U/scale
             // So col_lower[j] /= max_abs
@@ -247,8 +257,8 @@ PresolvedProblem Presolver::presolve(const Problem& orig, const PresolveOptions&
             // Postsolve: x_j = x'_j / scale.
             // Let's implement A'_j = A_j / scale. Then x'_j = x_j * scale.
             
-            if (!std::isinf(col_lower[j])) col_lower[j] *= max_abs;
-            if (!std::isinf(col_upper[j])) col_upper[j] *= max_abs;
+            if (!is_inf(col_lower[j])) col_lower[j] *= max_abs;
+            if (!is_inf(col_upper[j])) col_upper[j] *= max_abs;
             obj[j] /= max_abs; // cost * x_j = (cost / scale) * (x_j * scale)
             
             for (auto& [i, v] : col_nz[j]) {

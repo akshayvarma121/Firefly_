@@ -11,7 +11,10 @@ if os.name == "nt":
         if os.path.isdir(_cuda_bin):
             os.add_dll_directory(_cuda_bin)
 
-import firefly_solver
+try:
+    import firefly_solver
+except ImportError:
+    firefly_solver = None
 import narration
 
 def downsample_history(history, max_points=100):
