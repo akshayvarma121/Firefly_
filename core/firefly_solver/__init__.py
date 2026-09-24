@@ -19,6 +19,6 @@ if os.name == "nt":
 
 # Import all symbols from the internal compiled extension
 try:
-    from ._firefly_solver import *
+    from ._firefly_solver import *  # type: ignore
 except ImportError:
-    from _firefly_solver import *
+    from _firefly_solver import *  # type: ignore
