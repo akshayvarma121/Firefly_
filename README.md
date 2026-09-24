@@ -224,3 +224,9 @@ pip install -r api/requirements.txt
 # 2. Start the FastAPI server using Uvicorn
 uvicorn api.main:app --host 0.0.0.0 --port 8000
 ```
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
