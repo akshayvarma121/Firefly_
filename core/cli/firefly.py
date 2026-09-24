@@ -460,6 +460,24 @@ Examples
 
 def main() -> None:
     parser = _build_parser()
+    
+    # If run without arguments (e.g. double-clicked in Windows Explorer)
+    if len(sys.argv) == 1:
+        print(r"""
+  ___  _            __  _       
+ | __|(_) _ _  ___ / _|| | _  _ 
+ | _| | || '_|/ -_)|  _|| || || |
+ |_|  |_||_|  \___||_|  |_| \_, |
+                            |__/ 
+
+       LP/MILP/QP Solver Engine - SIH 2026
+""")
+        parser.print_help()
+        print("\n[Firefly CLI is designed to be run from the command prompt or terminal.]")
+        if os.name == "nt":
+            input("Press Enter to exit...")
+        sys.exit(0)
+
     args = parser.parse_args()
 
     # Warn if the native solver is unavailable (unless --quiet)
