@@ -17,3 +17,13 @@ CMakeFiles/
 
 # Ignore local audit reports
 core/audit_reports/
+
+# PyInstaller
+core/build/
+core/dist/
+*.spec
+
+# Python
+__pycache__/
+*.pyd
+*.pyc

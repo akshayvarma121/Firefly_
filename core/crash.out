@@ -1,6 +1,0 @@
-Testing PDLP strict convergence on E:/firefly/core/tests/netlib_miplib/afiro.mps...
-DEBUG: L_norm = 3.28216, tau = 0.301631, sigma = 0.301631
-PDLP init: tau=0.301631, sigma=0.301631, L_norm=3.28216
-  Status: 6
-  Iterations: 2000 (Max allowed: 2000)
-  Objective: -156.209 (Expected: -464.753)

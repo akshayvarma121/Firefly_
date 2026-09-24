@@ -1,2 +1,0 @@
-LOUD FAILURE: PDLP failed to converge optimally on E:/firefly/core/tests/netlib_miplib/afiro.mps within 2000 iterations!
-Assertion failed: false, file E:\firefly\core\tests\test_pdlp.cpp, line 30
