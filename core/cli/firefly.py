@@ -460,6 +460,7 @@ Examples
 
 def main() -> None:
     parser = _build_parser()
+    interactive_mode = False
     
     # If run without arguments (e.g. double-clicked in Windows Explorer)
     if len(sys.argv) == 1:
@@ -472,11 +473,35 @@ def main() -> None:
 
        LP/MILP/QP Solver Engine - SIH 2026
 """)
-        parser.print_help()
-        print("\n[Firefly CLI is designed to be run from the command prompt or terminal.]")
         if os.name == "nt":
-            input("Press Enter to exit...")
-        sys.exit(0)
+            print("Welcome to Firefly! For advanced usage, run this tool from a command prompt.")
+            print("To start a solve right now, you can drag and drop a .mps file here.")
+            try:
+                user_input = input("\nEnter path to .mps file (or press Enter for help): ").strip().strip('"').strip("'")
+            except (EOFError, KeyboardInterrupt):
+                user_input = ""
+                
+            if user_input:
+                if os.path.isfile(user_input):
+                    print(f"\nStarting solve for {user_input}...\n")
+                    interactive_mode = True
+                    sys.argv.extend(["solve", user_input])
+                else:
+                    print(f"\n[Error] File not found: {user_input}")
+                    input("Press Enter to exit...")
+                    sys.exit(4)
+            else:
+                parser.print_help()
+                print("\n[Firefly CLI is designed to be run from the command prompt or terminal.]")
+                try:
+                    input("Press Enter to exit...")
+                except (EOFError, KeyboardInterrupt):
+                    pass
+                sys.exit(0)
+        else:
+            parser.print_help()
+            sys.exit(0)
+
 
     args = parser.parse_args()
 
@@ -507,6 +532,13 @@ def main() -> None:
         else:
             print(f"firefly: unexpected error: {exc}", file=sys.stderr)
         code = 4
+
+    if interactive_mode and os.name == "nt":
+        print("\n[Done]")
+        try:
+            input("Press Enter to exit...")
+        except (EOFError, KeyboardInterrupt):
+            pass
 
     sys.exit(code)
 
