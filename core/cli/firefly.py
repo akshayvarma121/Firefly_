@@ -33,6 +33,24 @@ from io import StringIO
 from typing import Optional
 
 # ---------------------------------------------------------------------------
+# TrueColor ANSI Theme (Firefly Brand)
+# ---------------------------------------------------------------------------
+import ctypes
+if os.name == 'nt':
+    try:
+        kernel32 = ctypes.windll.kernel32
+        kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+    except Exception:
+        pass
+
+class Theme:
+    PRIMARY = "\x1b[38;2;232;230;222m"
+    MUTED   = "\x1b[38;2;140;139;128m"
+    ACCENT  = "\x1b[38;2;232;163;61m"
+    SECOND  = "\x1b[38;2;107;143;113m"
+    RESET   = "\x1b[0m"
+
+# ---------------------------------------------------------------------------
 # Windows: add CUDA DLL directories before importing the native extension.
 # The old pyd (core_old) links against DLLs in %CUDA_PATH%\bin, while the
 # new one needs %CUDA_PATH%\bin\x64.  Add both.
@@ -138,14 +156,14 @@ def _print_summary(result, filepath: str, quiet: bool, verbose: bool) -> None:
 
     mock_tag = "  [MOCK — solver not available]" if getattr(result, "mock", False) else ""
     print()
-    print(f"  Problem   : {os.path.basename(filepath)}")
-    print(f"  Status    : {result.status}{mock_tag}")
+    print(f"  {Theme.MUTED}Problem   :{Theme.RESET} {Theme.PRIMARY}{os.path.basename(filepath)}{Theme.RESET}")
+    print(f"  {Theme.MUTED}Status    :{Theme.RESET} {Theme.ACCENT}{result.status}{mock_tag}{Theme.RESET}")
     if result.status == "ERROR" and getattr(result, "error_message", None):
-        print(f"  Error     : {result.error_message}")
+        print(f"  {Theme.MUTED}Error     :{Theme.RESET} \x1b[31m{result.error_message}{Theme.RESET}")
     if result.objective is not None:
-        print(f"  Objective : {result.objective:.10g}")
-    print(f"  Time      : {result.wall_time_ms:.1f} ms")
-    print(f"  Iterations: {result.iterations}")
+        print(f"  {Theme.MUTED}Objective :{Theme.RESET} {Theme.SECOND}{result.objective:.10g}{Theme.RESET}")
+    print(f"  {Theme.MUTED}Time      :{Theme.RESET} {Theme.PRIMARY}{result.wall_time_ms:.1f} ms{Theme.RESET}")
+    print(f"  {Theme.MUTED}Iterations:{Theme.RESET} {Theme.PRIMARY}{result.iterations}{Theme.RESET}")
     print()
 
 
@@ -464,14 +482,14 @@ def main() -> None:
     
     # If run without arguments (e.g. double-clicked in Windows Explorer)
     if len(sys.argv) == 1:
-        print(r"""
-  ___  _            __  _       
- | __|(_) _ _  ___ / _|| | _  _ 
- | _| | || '_|/ -_)|  _|| || || |
- |_|  |_||_|  \___||_|  |_| \_, |
-                            |__/ 
+        print(f"""
+{Theme.ACCENT}  ___ {Theme.PRIMARY}_            __ {Theme.PRIMARY}_       
+{Theme.ACCENT} | __|{Theme.PRIMARY}(_) _ _  ___ / _|| | _  _ 
+{Theme.ACCENT} | _| {Theme.PRIMARY}| || '_|/ -_)|  _|| || || |
+{Theme.ACCENT} |_|  {Theme.PRIMARY}|_||_|  \\___||_|  |_| \\_, |
+                            |__/ {Theme.RESET}
 
-       LP/MILP/QP Solver Engine - SIH 2026
+       {Theme.MUTED}LP/MILP/QP Solver Engine - SIH 2026{Theme.RESET}
 """)
         if os.name == "nt":
             print("Welcome to Firefly! For advanced usage, run this tool from a command prompt.")
