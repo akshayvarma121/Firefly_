@@ -839,6 +839,15 @@ def _print_homepage() -> None:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
+    # Auto-cleanup: if there's a leftover .old file from a previous update, delete it
+    try:
+        exe_path = os.path.abspath(sys.executable if getattr(sys, 'frozen', False) else __file__)
+        old_path = exe_path + ".old"
+        if os.path.exists(old_path):
+            os.remove(old_path)
+    except Exception:
+        pass
+
     # Quick solve shortcut: if `firefly path/to/file.mps` is used, insert "solve"
     if len(sys.argv) == 2 and not sys.argv[1].startswith("-") and sys.argv[1].lower().endswith(".mps"):
         sys.argv.insert(1, "solve")
