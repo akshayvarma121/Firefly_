@@ -430,63 +430,88 @@ def _cmd_test_standard(args: argparse.Namespace) -> int:
 def _cmd_update(args: argparse.Namespace) -> int:
     import subprocess
     import tempfile
-    import urllib.request
-
+    
     print(f"\n{Theme.ACCENT}Checking for updates...{Theme.RESET}")
 
-    if os.name != "nt":
-        print("Update not supported on this OS via CLI yet.")
-        return 4
-
-    # On Windows, we can't overwrite a running executable. But we CAN rename it!
-    # So we rename the running file to .old, freeing up the original filename
-    # for the download.
     exe_path = os.path.abspath(sys.executable if getattr(sys, 'frozen', False) else __file__)
     exe_old = exe_path + ".old"
-    release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly.exe"
-
-    ps_lines = [
-        f'if (Test-Path "{exe_path}") {{',
-        f'    try {{ Move-Item -Path "{exe_path}" -Destination "{exe_old}" -Force -ErrorAction SilentlyContinue }} catch {{}}',
-        f'}}',
-        f'$req = [System.Net.HttpWebRequest]::Create("{release_url}")',
-        f'$req.UserAgent = "firefly-updater"',
-        f'$req.AllowAutoRedirect = $true',
-        f'try {{',
-        f'    $response = $req.GetResponse()',
-        f'    $totalBytes = $response.ContentLength',
-        f'    $stream = $response.GetResponseStream()',
-        f'    $outStream = [System.IO.File]::Create("{exe_path}")',
-        f'    $buffer = New-Object byte[] 65536',
-        f'    $received = 0',
-        f'    $startTime = [DateTime]::Now',
-        f'    while ($true) {{',
-        f'        $read = $stream.Read($buffer, 0, $buffer.Length)',
-        f'        if ($read -le 0) {{ break }}',
-        f'        $outStream.Write($buffer, 0, $read)',
-        f'        $received += $read',
-        f'        $elapsed = ([DateTime]::Now - $startTime).TotalSeconds',
-        f'        $speedMBs  = if ($elapsed -gt 0.1) {{ [math]::Round(($received / 1MB) / $elapsed, 1) }} else {{ 0 }}',
-        f'        $recvMB    = [math]::Round($received / 1MB, 1)',
-        f'        $totalMB   = [math]::Round($totalBytes / 1MB, 1)',
-        f'        $pct       = [math]::Round(($received / $totalBytes) * 100, 0)',
-        f'        Write-Host -NoNewline "`r  $pct% - $recvMB MB / $totalMB MB  |  $speedMBs MB/s   "',
-        f'    }}',
-        f'    $outStream.Close()',
-        f'    $stream.Close()',
-        f'    Write-Host "`n`n  `e[32m[OK] Firefly updated successfully!`e[0m`n"',
-        f'}} catch {{',
-        f'    Write-Host "`n`n  `e[31m[FAILED] Update failed: $_`e[0m`n"',
-        f'}}',
-    ]
-
-    tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.ps1', delete=False, encoding='utf-8-sig')
-    tmp.write('\n'.join(ps_lines))
-    tmp.close()
-
+    
     print(f"\n  Downloading latest Firefly...\n")
-    # Run synchronously in THIS window, no creationflags
-    subprocess.call(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", tmp.name])
+    
+    if os.name == "nt":
+        release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly.exe"
+        ps_lines = [
+            f'if (Test-Path "{exe_path}") {{',
+            f'    try {{ Move-Item -Path "{exe_path}" -Destination "{exe_old}" -Force -ErrorAction SilentlyContinue }} catch {{}}',
+            f'}}',
+            f'$req = [System.Net.HttpWebRequest]::Create("{release_url}")',
+            f'$req.UserAgent = "firefly-updater"',
+            f'$req.AllowAutoRedirect = $true',
+            f'try {{',
+            f'    $response = $req.GetResponse()',
+            f'    $totalBytes = $response.ContentLength',
+            f'    $stream = $response.GetResponseStream()',
+            f'    $outStream = [System.IO.File]::Create("{exe_path}")',
+            f'    $buffer = New-Object byte[] 65536',
+            f'    $received = 0',
+            f'    $startTime = [DateTime]::Now',
+            f'    while ($true) {{',
+            f'        $read = $stream.Read($buffer, 0, $buffer.Length)',
+            f'        if ($read -le 0) {{ break }}',
+            f'        $outStream.Write($buffer, 0, $read)',
+            f'        $received += $read',
+            f'        $elapsed = ([DateTime]::Now - $startTime).TotalSeconds',
+            f'        $speedMBs  = if ($elapsed -gt 0.1) {{ [math]::Round(($received / 1MB) / $elapsed, 1) }} else {{ 0 }}',
+            f'        $recvMB    = [math]::Round($received / 1MB, 1)',
+            f'        $totalMB   = [math]::Round($totalBytes / 1MB, 1)',
+            f'        $pct       = [math]::Round(($received / $totalBytes) * 100, 0)',
+            f'        Write-Host -NoNewline "`r  $pct% - $recvMB MB / $totalMB MB  |  $speedMBs MB/s   "',
+            f'    }}',
+            f'    $outStream.Close()',
+            f'    $stream.Close()',
+            f'    Write-Host "`n`n  `e[32m[OK] Firefly updated successfully!`e[0m`n"',
+            f'}} catch {{',
+            f'    Write-Host "`n`n  `e[31m[FAILED] Update failed: $_`e[0m`n"',
+            f'}}',
+        ]
+        tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.ps1', delete=False, encoding='utf-8-sig')
+        tmp.write('\n'.join(ps_lines))
+        tmp.close()
+
+        subprocess.call(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", tmp.name])
+    else:
+        if sys.platform == "darwin":
+            release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly-macos"
+        else:
+            release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly-linux"
+            
+        try:
+            if os.path.exists(exe_old):
+                os.remove(exe_old)
+            if os.path.exists(exe_path):
+                os.rename(exe_path, exe_old)
+        except OSError:
+            pass
+
+        bash_lines = [
+            f'#!/bin/bash',
+            f'echo ""',
+            f'curl -L --progress-bar "{release_url}" -o "{exe_path}"',
+            f'if [ $? -eq 0 ]; then',
+            f'  chmod +x "{exe_path}"',
+            f'  echo -e "\\n  \\033[32m[OK] Firefly updated successfully!\\033[0m\\n"',
+            f'else',
+            f'  echo -e "\\n  \\033[31m[FAILED] Update failed.\\033[0m\\n"',
+            f'fi',
+            f'rm -- "$0"',
+        ]
+        tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.sh', delete=False, encoding='utf-8')
+        tmp.write('\n'.join(bash_lines))
+        tmp.close()
+        os.chmod(tmp.name, 0o755)
+        
+        subprocess.call(["bash", tmp.name])
+        
     return 0
 
 # ---------------------------------------------------------------------------
@@ -575,7 +600,16 @@ def _cmd_top(args: argparse.Namespace) -> int:
                         mem_pct = (float(mem_used) / float(mem_total)) * 100.0
                         print(f"    VRAM:  [{_bar(mem_pct)}] {mem_pct:5.1f}%  ({mem_used}MB / {mem_total}MB)")
             except Exception:
-                print(f"  {Theme.MUTED}GPU: No NVIDIA GPU detected.{Theme.RESET}")
+                if sys.platform == "darwin":
+                    # Mac fallback info
+                    try:
+                        import platform
+                        mac_cpu = platform.processor()
+                        print(f"  {Theme.PRIMARY}Apple Silicon ({mac_cpu}):{Theme.RESET} [OK] Metal framework available (CPU-mode compiled)")
+                    except:
+                        print(f"  {Theme.MUTED}GPU: No NVIDIA GPU detected.{Theme.RESET}")
+                else:
+                    print(f"  {Theme.MUTED}GPU: No NVIDIA GPU detected.{Theme.RESET}")
                 
             print(f"\n{Theme.MUTED}Press Ctrl+C to exit{Theme.RESET}")
             time.sleep(1.0)
@@ -976,34 +1010,34 @@ def main() -> None:
     if len(sys.argv) == 1:
         _print_firefly_logo()
         print()
-        if os.name == "nt":
-            print("Firefly is running in interactive mode.")
-            while True:
-                try:
-                    user_input = input(f"\n{Theme.PRIMARY}Drag and drop a .mps file here to solve{Theme.RESET} (or press Enter for menu): ").strip().strip('"').strip("'")
-                except (EOFError, KeyboardInterrupt):
-                    user_input = ""
-                    break
-                    
-                if not user_input:
-                    break
-                    
-                if os.path.isfile(user_input):
-                    print(f"\nSolving {os.path.basename(user_input)}...\n")
-                    interactive_mode = True
-                    sys.argv.extend(["solve", user_input])
-                    break
-                else:
-                    print(f"  \x1b[31m[Error] File not found: {user_input}{Theme.RESET}")
-            
-            if not interactive_mode:
-                _print_homepage()
-                print("\n[Tip: You can also use Firefly directly from the command prompt.]")
+        print("Firefly is running in interactive mode.")
+        while True:
+            try:
+                user_input = input(f"\n{Theme.PRIMARY}Provide a path to a .mps file to solve{Theme.RESET} (or press Enter for menu): ").strip().strip('"').strip("'")
+            except (EOFError, KeyboardInterrupt):
+                user_input = ""
+                break
+                
+            if not user_input:
+                break
+                
+            if os.path.isfile(user_input):
+                print(f"\nSolving {os.path.basename(user_input)}...\n")
+                interactive_mode = True
+                sys.argv.extend(["solve", user_input])
+                break
+            else:
+                print(f"  \x1b[31m[Error] File not found: {user_input}{Theme.RESET}")
+        
+        if not interactive_mode:
+            _print_homepage()
+            print("\n[Tip: You can also use Firefly directly from the command prompt.]")
+            if os.name == "nt":
                 try:
                     input("Press Enter to exit...")
                 except (EOFError, KeyboardInterrupt):
                     pass
-                sys.exit(0)
+            sys.exit(0)
         else:
             _print_homepage()
             sys.exit(0)
