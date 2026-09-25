@@ -234,6 +234,7 @@ def _cmd_solve(args: argparse.Namespace) -> int:
             else:
                 print(f"firefly: warning: could not write output: {exc}", file=sys.stderr)
 
+    _add_recent_solve(args.file, result.objective, result.status, result.wall_time_ms)
     return _exit_code_for(result.status)
 
 
@@ -470,6 +471,94 @@ def _cmd_test(args: argparse.Namespace) -> int:
         return 4
 
 # ---------------------------------------------------------------------------
+# Utility sub-commands (Version, Recent, Audit)
+# ---------------------------------------------------------------------------
+
+def _cmd_version(args: argparse.Namespace) -> int:
+    print(f"{Theme.ACCENT}Firefly Solver Engine{Theme.RESET} v0.1.0")
+    print(f"{Theme.MUTED}Build: sm_89 CUDA-accelerated{Theme.RESET}")
+    return 0
+
+def _get_recent_file() -> str:
+    app_data = os.path.join(os.environ.get("LOCALAPPDATA", os.path.expanduser("~")), "Firefly")
+    os.makedirs(app_data, exist_ok=True)
+    return os.path.join(app_data, "recent_solves.json")
+
+def _add_recent_solve(filepath: str, objective: float, status: str, time_ms: float) -> None:
+    history_file = _get_recent_file()
+    try:
+        if os.path.exists(history_file):
+            with open(history_file, "r", encoding="utf-8") as f:
+                history = json.load(f)
+        else:
+            history = []
+    except Exception:
+        history = []
+        
+    entry = {
+        "file": os.path.abspath(filepath),
+        "objective": objective,
+        "status": status,
+        "time_ms": time_ms,
+        "timestamp": __import__("time").time()
+    }
+    history.insert(0, entry)
+    history = history[:5]  # Keep last 5
+    
+    try:
+        with open(history_file, "w", encoding="utf-8") as f:
+            json.dump(history, f)
+    except Exception:
+        pass
+
+def _cmd_recent(args: argparse.Namespace) -> int:
+    history_file = _get_recent_file()
+    if not os.path.exists(history_file):
+        print(f"\n  {Theme.MUTED}No recent solves found.{Theme.RESET}\n")
+        return 0
+        
+    try:
+        with open(history_file, "r", encoding="utf-8") as f:
+            history = json.load(f)
+    except Exception:
+        print(f"\n  {Theme.MUTED}Failed to read recent history.{Theme.RESET}\n")
+        return 4
+        
+    print(f"\n{Theme.ACCENT}▶ RECENT SOLVES{Theme.RESET}")
+    for i, entry in enumerate(history):
+        fname = os.path.basename(entry["file"])
+        obj = f"{entry['objective']:.6g}" if entry["objective"] is not None else "N/A"
+        time_struct = __import__("time").localtime(entry["timestamp"])
+        time_str = __import__("time").strftime("%Y-%m-%d %H:%M", time_struct)
+        
+        print(f"  {Theme.PRIMARY}{i+1}. {fname}{Theme.RESET}")
+        print(f"     Status: {entry['status']} | Objective: {obj} | Time: {entry['time_ms']:.1f}ms | {time_str}")
+        print()
+    return 0
+
+def _cmd_audit(args: argparse.Namespace) -> int:
+    import subprocess
+    cli_dir = os.path.dirname(os.path.abspath(__file__))
+    core_dir = os.path.abspath(os.path.join(cli_dir, ".."))
+    audit_dir = os.path.join(core_dir, "audit_reports")
+    
+    if not os.path.exists(audit_dir):
+        try:
+            os.makedirs(audit_dir)
+        except Exception:
+            print(f"firefly: error: could not create directory {audit_dir}", file=sys.stderr)
+            return 4
+            
+    print(f"\n{Theme.ACCENT}Opening audit reports directory...{Theme.RESET}")
+    if os.name == "nt":
+        os.startfile(audit_dir)
+    elif sys.platform == "darwin":
+        subprocess.Popen(["open", audit_dir])
+    else:
+        subprocess.Popen(["xdg-open", audit_dir])
+    return 0
+
+# ---------------------------------------------------------------------------
 # Argument parser
 # ---------------------------------------------------------------------------
 
@@ -666,6 +755,30 @@ Examples
         "home",
         help="Show the Firefly homepage and command list",
     )
+    
+    # ------------------------------------------------------------------
+    # firefly audit
+    # ------------------------------------------------------------------
+    p_audit = sub.add_parser(
+        "audit",
+        help="Open the audit reports directory",
+    )
+    
+    # ------------------------------------------------------------------
+    # firefly recent
+    # ------------------------------------------------------------------
+    p_recent = sub.add_parser(
+        "recent",
+        help="Show the last 5 solved files and their objectives",
+    )
+    
+    # ------------------------------------------------------------------
+    # firefly version
+    # ------------------------------------------------------------------
+    p_version = sub.add_parser(
+        "version",
+        help="Show current engine version",
+    )
 
     return root
 
@@ -699,7 +812,10 @@ def _print_homepage() -> None:
     print()
     
     print(f"{Theme.ACCENT}▶ UTILITIES{Theme.RESET}")
+    print(f"  {Theme.PRIMARY}firefly audit{Theme.RESET}                Open the audit reports directory")
+    print(f"  {Theme.PRIMARY}firefly recent{Theme.RESET}               Show recent solve results")
     print(f"  {Theme.PRIMARY}firefly update{Theme.RESET}               Auto-update this executable to the newest version")
+    print(f"  {Theme.PRIMARY}firefly version{Theme.RESET}              Show current engine version")
     print(f"  {Theme.PRIMARY}firefly home{Theme.RESET}                 Show this beautiful homepage")
     print()
     
@@ -715,6 +831,10 @@ def _print_homepage() -> None:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
+    # Quick solve shortcut: if `firefly path/to/file.mps` is used, insert "solve"
+    if len(sys.argv) == 2 and not sys.argv[1].startswith("-") and sys.argv[1].lower().endswith(".mps"):
+        sys.argv.insert(1, "solve")
+
     parser = _build_parser()
     interactive_mode = False
     
@@ -725,21 +845,25 @@ def main() -> None:
         if os.name == "nt":
             print("Welcome to Firefly! For advanced usage, run this tool from a command prompt.")
             print("To start a solve right now, you can drag and drop a .mps file here.")
-            try:
-                user_input = input("\nEnter path to .mps file (or press Enter for help): ").strip().strip('"').strip("'")
-            except (EOFError, KeyboardInterrupt):
-                user_input = ""
-                
-            if user_input:
+            while True:
+                try:
+                    user_input = input(f"\n{Theme.PRIMARY}Drop your .mps file here{Theme.RESET} (or press Enter for help): ").strip().strip('"').strip("'")
+                except (EOFError, KeyboardInterrupt):
+                    user_input = ""
+                    break
+                    
+                if not user_input:
+                    break
+                    
                 if os.path.isfile(user_input):
-                    print(f"\nStarting solve for {user_input}...\n")
+                    print(f"\nStarting solve for {os.path.basename(user_input)}...\n")
                     interactive_mode = True
                     sys.argv.extend(["solve", user_input])
+                    break
                 else:
-                    print(f"\n[Error] File not found: {user_input}")
-                    input("Press Enter to exit...")
-                    sys.exit(4)
-            else:
+                    print(f"  \x1b[31m[Error] File not found: {user_input}{Theme.RESET}")
+            
+            if not interactive_mode:
                 _print_homepage()
                 print("\n[Firefly CLI is designed to be run from the command prompt or terminal.]")
                 try:
@@ -783,6 +907,12 @@ def main() -> None:
             code = _cmd_test_standard(args)
         elif args.command == "update":
             code = _cmd_update(args)
+        elif args.command == "audit":
+            code = _cmd_audit(args)
+        elif args.command == "recent":
+            code = _cmd_recent(args)
+        elif args.command == "version":
+            code = _cmd_version(args)
         elif args.command in ["home", "help"]:
             _print_homepage()
             code = 0
