@@ -45,6 +45,10 @@ To install the standalone CLI , run this in **PowerShell**:
 irm https://bit.ly/install-firefly | iex
 ```
 
+> [!WARNING]
+> **Windows Defender False Positive**
+> Firefly is compiled into a single, high-performance executable using PyInstaller. Because it extracts its optimization libraries into a temporary folder at runtime, Windows Defender may occasionally flag it as a false positive (e.g. `Wacatac.B!ml`). **This is a known issue with PyInstaller.** If this happens, please click "More Info" -> "Run Anyway", or add `firefly.exe` to your Defender exclusions.
+
 ---
 
 ## Build from Source
