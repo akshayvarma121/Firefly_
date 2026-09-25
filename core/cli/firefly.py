@@ -470,17 +470,17 @@ def _cmd_update(args: argparse.Namespace) -> int:
         f'        $recvMB    = [math]::Round($received / 1MB, 1)',
         f'        $totalMB   = [math]::Round($totalBytes / 1MB, 1)',
         f'        $pct       = [math]::Round(($received / $totalBytes) * 100, 0)',
-        f'        Write-Host -NoNewline "`r  $pct% — $recvMB MB / $totalMB MB  |  $speedMBs MB/s   "',
+        f'        Write-Host -NoNewline "`r  $pct% - $recvMB MB / $totalMB MB  |  $speedMBs MB/s   "',
         f'    }}',
         f'    $outStream.Close()',
         f'    $stream.Close()',
-        f'    Write-Host "`n`n  `e[32m✓ Firefly updated successfully!`e[0m`n"',
+        f'    Write-Host "`n`n  `e[32m[OK] Firefly updated successfully!`e[0m`n"',
         f'}} catch {{',
-        f'    Write-Host "`n`n  `e[31m✗ Update failed: $_`e[0m`n"',
+        f'    Write-Host "`n`n  `e[31m[FAILED] Update failed: $_`e[0m`n"',
         f'}}',
     ]
 
-    tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.ps1', delete=False, encoding='utf-8')
+    tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.ps1', delete=False, encoding='utf-8-sig')
     tmp.write('\n'.join(ps_lines))
     tmp.close()
 
