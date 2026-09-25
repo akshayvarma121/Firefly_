@@ -2,8 +2,12 @@
 
 # Define paths and create directories
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(dirname "$SCRIPT_DIR")"
-REPORT_DIR="${ROOT_DIR}/audit_reports"
+if [ -n "$FIREFLY_AUDIT_OUT" ]; then
+    REPORT_DIR="$FIREFLY_AUDIT_OUT"
+else
+    ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+    REPORT_DIR="${ROOT_DIR}/audit_reports"
+fi
 mkdir -p "$REPORT_DIR"
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")

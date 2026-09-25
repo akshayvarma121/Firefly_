@@ -391,10 +391,14 @@ def _cmd_test(args: argparse.Namespace) -> int:
         
     try:
         print(f"\n{Theme.ACCENT}Running Firefly full audit suite...{Theme.RESET}")
+        
+        env = os.environ.copy()
+        env["FIREFLY_AUDIT_OUT"] = os.path.join(os.getcwd(), "audit_reports")
+        
         if os.name == "nt":
-            return subprocess.call([script_path], cwd=cwd)
+            return subprocess.call([script_path], cwd=cwd, env=env)
         else:
-            return subprocess.call(["bash", script_path], cwd=cwd)
+            return subprocess.call(["bash", script_path], cwd=cwd, env=env)
     except Exception as exc:
         if getattr(args, "debug", False):
             import traceback
