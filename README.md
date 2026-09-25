@@ -29,6 +29,13 @@ flowchart LR
 
 ---
 
+## Platform Support
+
+GPU acceleration requires **Windows** or **Linux** with a compatible NVIDIA GPU. 
+macOS has never supported CUDA (Apple dropped it years ago; Apple Silicon has no NVIDIA hardware at all), so Firefly always runs via the CPU fallback path on macOS — the same path already built and tested with `WITH_CUDA=OFF`. This is a real hardware limitation, not a bug, and the existing landing page copy ("automatically uses your GPU if available, falls back to CPU otherwise") is already accurate for macOS without needing a separate disclaimer.
+
+---
+
 ## Installation
 
 ### Quick Install (Windows)
