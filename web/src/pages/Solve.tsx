@@ -61,7 +61,7 @@ export function Solve() {
         setIsConnecting(false);
         setState('solving');
         toast.success('Connected to solver engine.');
-        ws.current?.send(JSON.stringify({ action: 'start', file: selectedFile }));
+        ws.current?.send(JSON.stringify({ action: 'start', filename: selectedFile }));
       };
 
       ws.current.onmessage = (event) => {
@@ -77,6 +77,11 @@ export function Solve() {
           }
           if (msg.type === 'data' && msg.data) {
             setData(prev => [...prev, msg.data]);
+          }
+          if (msg.type === 'error') {
+            setState('error');
+            toast.error(`Solver error: ${msg.message || 'Unknown'}`);
+            setTraces(prev => [...prev, `ERROR: ${msg.message}`]);
           }
         } catch (e) {
           console.error("Failed to parse WS message", e);

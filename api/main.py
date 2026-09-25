@@ -275,6 +275,12 @@ async def websocket_solve(websocket: WebSocket):
 
             if solve_req.mps_content:
                 prob = firefly_solver.parse_mps_string(solve_req.mps_content)
+            elif getattr(solve_req, 'filename', None):
+                sample_path = os.path.join(os.path.dirname(__file__), "sample_problems", solve_req.filename)
+                if not os.path.isfile(sample_path):
+                    raise ValueError(f"Sample not found: {solve_req.filename}")
+                with open(sample_path, "r", encoding="utf-8") as f:
+                    prob = firefly_solver.parse_mps_string(f.read())
             elif solve_req.problem_def:
                 pdef = solve_req.problem_def
                 prob = firefly_solver.SparseProblem()
@@ -290,7 +296,7 @@ async def websocket_solve(websocket: WebSocket):
                 if pdef.var_upper_bounds: prob.var_upper_bounds = pdef.var_upper_bounds
                 if pdef.is_integer: prob.is_integer = pdef.is_integer
             else:
-                raise ValueError("Must provide either mps_content or problem_def")
+                raise ValueError("Must provide either mps_content, filename, or problem_def")
         except Exception as e:
             setup_error = e
 

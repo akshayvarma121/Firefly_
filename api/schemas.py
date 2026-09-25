@@ -19,6 +19,7 @@ class ProblemDef(BaseModel):
 class SolveRequest(BaseModel):
     mps_content: Optional[str] = None
     problem_def: Optional[ProblemDef] = None
+    filename: Optional[str] = None
     method: str = "auto"
     gpu: bool = True
 
