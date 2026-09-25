@@ -758,10 +758,9 @@ Examples
 
     # ------------------------------------------------------------------
     # firefly home
-    # ------------------------------------------------------------------
     p_home = sub.add_parser(
         "home",
-        help="Show the Firefly main menu and command list",
+        help="Display the primary command registry",
     )
     
     # ------------------------------------------------------------------
@@ -806,25 +805,25 @@ def _print_firefly_logo() -> None:
 
 def _print_homepage() -> None:
     _print_firefly_logo()
-    print(f"\n{Theme.PRIMARY}Welcome to the Firefly Solver Engine!{Theme.RESET}\n")
+    print(f"\n{Theme.PRIMARY}Firefly Engine v0.1.0 — Command Registry{Theme.RESET}\n")
     
     print(f"{Theme.ACCENT}▶ CORE COMMANDS{Theme.RESET}")
-    print(f"  {Theme.PRIMARY}firefly solve <file.mps>{Theme.RESET}    Solve a single LP/MILP/QP problem")
-    print(f"  {Theme.PRIMARY}firefly solve-batch <folder>{Theme.RESET} Solve all .mps files in a directory")
+    print(f"  {Theme.PRIMARY}firefly solve <file.mps>{Theme.RESET}    Execute solver on a single LP/MILP/QP instance")
+    print(f"  {Theme.PRIMARY}firefly solve-batch <folder>{Theme.RESET} Execute solver sequentially on directory contents")
     print()
     
     print(f"{Theme.ACCENT}▶ TESTING & BENCHMARKING{Theme.RESET}")
-    print(f"  {Theme.PRIMARY}firefly benchmark <folder>{Theme.RESET}   Run and compare against known optimums")
-    print(f"  {Theme.PRIMARY}firefly test-standard{Theme.RESET}        Download & solve Netlib standard problems")
-    print(f"  {Theme.PRIMARY}firefly test{Theme.RESET}                 Run the internal C++ test suite")
+    print(f"  {Theme.PRIMARY}firefly benchmark <folder>{Theme.RESET}   Execute benchmark suite against reference optimums")
+    print(f"  {Theme.PRIMARY}firefly test-standard{Theme.RESET}        Download and evaluate standard Netlib instances")
+    print(f"  {Theme.PRIMARY}firefly test{Theme.RESET}                 Execute internal C++ validation suite")
     print()
     
     print(f"{Theme.ACCENT}▶ UTILITIES{Theme.RESET}")
     print(f"  {Theme.PRIMARY}firefly audit{Theme.RESET}                Open the audit reports directory")
-    print(f"  {Theme.PRIMARY}firefly recent{Theme.RESET}               Show recent solve results")
-    print(f"  {Theme.PRIMARY}firefly update{Theme.RESET}               Auto-update this executable to the newest version")
-    print(f"  {Theme.PRIMARY}firefly version{Theme.RESET}              Show current engine version")
-    print(f"  {Theme.PRIMARY}firefly home{Theme.RESET}                 Show this main menu")
+    print(f"  {Theme.PRIMARY}firefly recent{Theme.RESET}               Display recent execution results")
+    print(f"  {Theme.PRIMARY}firefly update{Theme.RESET}               Synchronize executable with latest upstream release")
+    print(f"  {Theme.PRIMARY}firefly version{Theme.RESET}              Display active engine version and build data")
+    print(f"  {Theme.PRIMARY}firefly home{Theme.RESET}                 Display this command registry")
     print()
     
     print(f"{Theme.ACCENT}▶ LINKS{Theme.RESET}")
@@ -832,7 +831,7 @@ def _print_homepage() -> None:
     print(f"  {Theme.PRIMARY}Official Website{Theme.RESET}             https://firefly-solver.vercel.app")
     print()
     
-    print(f"{Theme.MUTED}Tip: Use any command with -h (e.g., `firefly solve -h`) to see its specific flags.{Theme.RESET}\n")
+    print(f"{Theme.MUTED}Tip: Append -h to any command (e.g., `firefly solve -h`) for detailed configuration flags.{Theme.RESET}\n")
 
 # ---------------------------------------------------------------------------
 # Entry point
@@ -860,11 +859,10 @@ def main() -> None:
         _print_firefly_logo()
         print()
         if os.name == "nt":
-            print("Welcome to Firefly! For advanced usage, run this tool from a command prompt.")
-            print("To start a solve right now, you can drag and drop a .mps file here.")
+            print("Firefly Engine Initialized. Interactive solve mode active.")
             while True:
                 try:
-                    user_input = input(f"\n{Theme.PRIMARY}Drop your .mps file here{Theme.RESET} (or press Enter for help): ").strip().strip('"').strip("'")
+                    user_input = input(f"\n{Theme.PRIMARY}Provide path to .mps file{Theme.RESET} (or press Enter for registry): ").strip().strip('"').strip("'")
                 except (EOFError, KeyboardInterrupt):
                     user_input = ""
                     break
@@ -873,16 +871,16 @@ def main() -> None:
                     break
                     
                 if os.path.isfile(user_input):
-                    print(f"\nStarting solve for {os.path.basename(user_input)}...\n")
+                    print(f"\nInitializing solve sequence for {os.path.basename(user_input)}...\n")
                     interactive_mode = True
                     sys.argv.extend(["solve", user_input])
                     break
                 else:
-                    print(f"  \x1b[31m[Error] File not found: {user_input}{Theme.RESET}")
+                    print(f"  \x1b[31m[Error] Invalid path: {user_input}{Theme.RESET}")
             
             if not interactive_mode:
                 _print_homepage()
-                print("\n[Firefly CLI is designed to be run from the command prompt or terminal.]")
+                print("\n[Engine suspended. Execute with command-line arguments for advanced functionality.]")
                 try:
                     input("Press Enter to exit...")
                 except (EOFError, KeyboardInterrupt):
