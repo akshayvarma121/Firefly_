@@ -469,9 +469,9 @@ def _cmd_update(args: argparse.Namespace) -> int:
             f'    }}',
             f'    $outStream.Close()',
             f'    $stream.Close()',
-            f'    Write-Host "`n`n  `e[32m[OK] Firefly updated successfully!`e[0m`n"',
+            f'    Write-Host "`n`n  [OK] Firefly updated successfully!`n" -ForegroundColor Green',
             f'}} catch {{',
-            f'    Write-Host "`n`n  `e[31m[FAILED] Update failed: $_`e[0m`n"',
+            f'    Write-Host "`n`n  [FAILED] Update failed: $_`n" -ForegroundColor Red',
             f'}}',
         ]
         tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.ps1', delete=False, encoding='utf-8-sig')
