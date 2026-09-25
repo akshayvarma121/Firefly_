@@ -350,23 +350,31 @@ def _cmd_test_standard(args: argparse.Namespace) -> int:
         print(f"\n{Theme.ACCENT}Running Solver on Standard Problems...{Theme.RESET}\n")
         print(summary_header())
         
+        netlib_refs = {
+            "afiro.mps": -464.75314286,
+            "adlittle.mps": 225494.96316,
+            "israel.mps": -896644.82186,
+        }
+
         summary = run_batch(
             tmpdir,
             method=args.method,
             gpu=args.gpu,
-            references=None,
+            references=netlib_refs,
             on_result=lambda pr: _print_batch_result(pr, args.quiet),
             firefly_solver=_fs,
         )
         
         print()
-        if summary.errors == 0 and summary.failed == 0:
-            print(f"  {Theme.PRIMARY}All standard tests completed successfully!{Theme.RESET}")
+        print(f"  Total: {summary.total}  |  Passed: {summary.passed}  "
+              f"|  Failed: {summary.failed}  |  Errors: {summary.errors}")
+        if summary.all_passed:
+            print(f"\n  {Theme.PRIMARY}All standard tests completed successfully!{Theme.RESET}")
         else:
-            print(f"  {Theme.MUTED}Some tests encountered errors.{Theme.RESET}")
+            print(f"\n  {Theme.MUTED}Some tests encountered errors or missed the optimum.{Theme.RESET}")
         print()
         
-    return 0 if summary.errors == 0 else 4
+    return 0 if summary.all_passed else 4
 
 # ---------------------------------------------------------------------------
 # Sub-command: test
