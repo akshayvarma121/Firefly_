@@ -90,10 +90,10 @@ try {
 }
 
 Write-Host ""
-Write-Host "  Engine installed successfully." -ForegroundColor Green
+Write-Host "  Firefly installed successfully." -ForegroundColor Green
 Write-Host ""
-Write-Host "  Path: $installDir" -ForegroundColor DarkGray
+Write-Host "  Location: $installDir" -ForegroundColor DarkGray
 Write-Host ""
-Write-Host "  Execute 'firefly home' to view the command registry." -ForegroundColor Gray
-Write-Host "  Context menu integration: Right-click any .mps file -> 'Solve with Firefly'." -ForegroundColor DarkGray
+Write-Host "  Run 'firefly home' to see all commands." -ForegroundColor Gray
+Write-Host "  Tip: Right-click any .mps file and select 'Solve with Firefly'." -ForegroundColor DarkGray
 Write-Host ""
