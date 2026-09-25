@@ -439,7 +439,7 @@ def _cmd_update(args: argparse.Namespace) -> int:
     print(f"\n  Downloading latest Firefly...\n")
     
     if os.name == "nt":
-        release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly.exe"
+        release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.2.0/firefly.exe"
         ps_lines = [
             f'if (Test-Path "{exe_path}") {{',
             f'    try {{ Move-Item -Path "{exe_path}" -Destination "{exe_old}" -Force -ErrorAction SilentlyContinue }} catch {{}}',
@@ -481,9 +481,9 @@ def _cmd_update(args: argparse.Namespace) -> int:
         subprocess.call(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", tmp.name])
     else:
         if sys.platform == "darwin":
-            release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly-macos"
+            release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.2.0/firefly-macos"
         else:
-            release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly-linux"
+            release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.2.0/firefly-linux"
             
         try:
             if os.path.exists(exe_old):

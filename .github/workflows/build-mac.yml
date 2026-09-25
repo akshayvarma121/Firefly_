@@ -1,4 +1,4 @@
-name: Build and Release macOS
+name: Build and Release
 
 on:
   push:
@@ -6,45 +6,55 @@ on:
       - main
     paths:
       - 'core/**'
-      - '.github/workflows/build-mac.yml'
+      - '.github/workflows/**'
+
+permissions:
+  contents: write
 
 jobs:
   build-macos:
     runs-on: macos-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Install dependencies
-        run: |
+      - run: |
           python -m pip install --upgrade pip
           pip install scikit-build-core pybind11 cmake pyinstaller
-
-      - name: Build C++ Core (CPU-only on Mac)
-        working-directory: core
-        run: |
-          pip install .
-
-      - name: Build macOS Executable via PyInstaller
-        working-directory: core
-        run: |
-          pyinstaller firefly.spec --clean --distpath dist_new
-
-      - name: Rename Executable for Mac
-        working-directory: core/dist_new
-        run: |
-          mv firefly firefly-macos
-
-      - name: Upload to Release
-        uses: softprops/action-gh-release@v2
+      - working-directory: core
+        run: pip install .
+      - working-directory: core
+        run: pyinstaller firefly.spec --clean --distpath dist_new
+      - working-directory: core/dist_new
+        run: mv firefly firefly-macos
+      - uses: softprops/action-gh-release@v2
         with:
-          tag_name: v0.1.0
+          tag_name: v0.2.0
           files: core/dist_new/firefly-macos
           fail_on_unmatched_files: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: Jimver/cuda-toolkit@v0.2.19
+        id: cuda-toolkit
+        with:
+          cuda: '12.4.1'
+      - run: |
+          python -m pip install --upgrade pip
+          pip install scikit-build-core pybind11 cmake pyinstaller
+      - working-directory: core
+        run: pip install .
+      - working-directory: core
+        run: pyinstaller firefly.spec --clean --distpath dist_new
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v0.2.0
+          files: core/dist_new/firefly.exe
+          fail_on_unmatched_files: true
+

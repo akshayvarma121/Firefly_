@@ -19,7 +19,7 @@ fi
 
 INSTALL_DIR="$HOME/.local/bin"
 EXE_PATH="$INSTALL_DIR/firefly"
-DOWNLOAD_URL="https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/$ASSET_NAME"
+DOWNLOAD_URL="https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.2.0/$ASSET_NAME"
 
 echo ""
 echo -e "  \033[33mDownloading Firefly Solver Engine...\033[0m"
