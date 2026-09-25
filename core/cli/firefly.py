@@ -382,21 +382,57 @@ def _cmd_test_standard(args: argparse.Namespace) -> int:
 
 def _cmd_update(args: argparse.Namespace) -> int:
     import subprocess
-    print(f"\n{Theme.ACCENT}Starting Firefly updater...{Theme.RESET}")
-    if os.name == "nt":
-        ps_command = (
-            "Start-Sleep -Seconds 2; "
-            "irm https://bit.ly/install-firefly | iex"
-        )
-        subprocess.Popen(
-            ["powershell", "-NoProfile", "-Command", ps_command],
-            creationflags=subprocess.CREATE_NEW_CONSOLE
-        )
-        print(f"{Theme.PRIMARY}Updater launched! This window will now close so the update can overwrite the executable.{Theme.RESET}")
-        return 0
-    else:
+    import tempfile
+    import urllib.request
+
+    print(f"\n{Theme.ACCENT}Checking for updates...{Theme.RESET}")
+
+    if os.name != "nt":
         print("Update not supported on this OS via CLI yet.")
         return 4
+
+    # Download the install script to a temp file so we can run it
+    # after this process exits (releasing the file lock on firefly.exe).
+    # We write a small wrapper that:
+    #   1. Waits 2 s for this process to fully exit
+    #   2. Runs curl to overwrite firefly.exe
+    #   3. Prints a clean success message
+    exe_path = os.path.abspath(sys.executable if getattr(sys, 'frozen', False) else __file__)
+    install_dir = os.path.dirname(exe_path)
+    exe_dest = os.path.join(install_dir, "firefly.exe")
+    release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly.exe"
+
+    ps_lines = [
+        "Start-Sleep -Seconds 2",
+        f'Write-Host ""',
+        f'Write-Host "  Downloading latest Firefly..." -ForegroundColor Yellow',
+        f'Write-Host ""',
+        f'curl.exe -L "{release_url}" -o "{exe_dest}"',
+        f'Write-Host ""',
+        f'if ($LASTEXITCODE -eq 0) {{',
+        f'    Write-Host "  ✓ Firefly updated successfully!" -ForegroundColor Green',
+        f'}} else {{',
+        f'    Write-Host "  ✗ Update failed. Please re-run: irm https://bit.ly/install-firefly | iex" -ForegroundColor Red',
+        f'}}',
+        f'Write-Host ""',
+        f'Write-Host "  Run `firefly home` to see all available commands." -ForegroundColor Gray',
+        f'Write-Host ""',
+        f'Start-Sleep -Seconds 3',
+    ]
+
+    tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.ps1', delete=False, encoding='utf-8')
+    tmp.write('\n'.join(ps_lines))
+    tmp.close()
+
+    subprocess.Popen(
+        ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass",
+         "-File", tmp.name],
+        creationflags=subprocess.CREATE_NEW_CONSOLE,
+    )
+
+    print(f"  {Theme.PRIMARY}Update is downloading in the new window that just opened.{Theme.RESET}")
+    print(f"  {Theme.MUTED}This window is now safe to close.{Theme.RESET}\n")
+    return 0
 
 # ---------------------------------------------------------------------------
 # Sub-command: test
@@ -767,7 +803,7 @@ def main() -> None:
         except (EOFError, KeyboardInterrupt):
             pass
 
-    if not quiet and args.command not in ["home", "help"] and not interactive_mode:
+    if not quiet and args.command not in ["home", "help", "update"] and not interactive_mode:
         print("\n" + "="*70)
         _print_homepage()
 
