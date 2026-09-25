@@ -532,7 +532,10 @@ def _cmd_test(args: argparse.Namespace) -> int:
         cwd = core_dir
     
     if not os.path.isfile(script_path):
-        print(f"firefly: error: test script not found: {script_path}", file=sys.stderr)
+        print(f"\n{Theme.WARNING}Developer Command Unavailable{Theme.RESET}")
+        print("The 'test' command runs the C++ source-code audit suite.")
+        print("Because you are running the compiled binary, the source code and C++ tests are not present.")
+        print(f"\nTip: Use '{Theme.ACCENT}firefly test-standard{Theme.RESET}' to run the Netlib mathematical test suite instead!\n")
         return 4
         
     try:
