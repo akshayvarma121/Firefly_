@@ -761,7 +761,7 @@ Examples
     # ------------------------------------------------------------------
     p_home = sub.add_parser(
         "home",
-        help="Show the Firefly homepage and command list",
+        help="Show the Firefly main menu and command list",
     )
     
     # ------------------------------------------------------------------
@@ -824,7 +824,7 @@ def _print_homepage() -> None:
     print(f"  {Theme.PRIMARY}firefly recent{Theme.RESET}               Show recent solve results")
     print(f"  {Theme.PRIMARY}firefly update{Theme.RESET}               Auto-update this executable to the newest version")
     print(f"  {Theme.PRIMARY}firefly version{Theme.RESET}              Show current engine version")
-    print(f"  {Theme.PRIMARY}firefly home{Theme.RESET}                 Show this beautiful homepage")
+    print(f"  {Theme.PRIMARY}firefly home{Theme.RESET}                 Show this main menu")
     print()
     
     print(f"{Theme.ACCENT}▶ LINKS{Theme.RESET}")

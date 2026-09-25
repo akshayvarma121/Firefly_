@@ -94,12 +94,10 @@ Write-Host "  Installation Complete!" -ForegroundColor Green
 Write-Host ""
 Write-Host "  Firefly has been installed to: $installDir" -ForegroundColor Gray
 Write-Host ""
-Write-Host "  Opening Firefly homepage in a new terminal..." -ForegroundColor Yellow
-Start-Sleep -Seconds 1
-
-# Open a new terminal and show the homepage
-Start-Process "powershell" -ArgumentList "-NoExit", "-Command", "`$env:PATH += ';$installDir'; firefly home"
-
+Write-Host "  You can now run Firefly from any command prompt." -ForegroundColor White
+Write-Host "  Type the following command to see all available tools:" -ForegroundColor Gray
+Write-Host ""
+Write-Host "    firefly home" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "  Tip: Right-click any .mps file and select 'Solve with Firefly'." -ForegroundColor Gray
 Write-Host ""
