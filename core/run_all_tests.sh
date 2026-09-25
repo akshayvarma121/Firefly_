@@ -18,10 +18,10 @@ cmake ..
 echo "[2/3] Building core and tests..."
 cmake --build . --config Debug
 
-echo "[3/3] Running tests..."
+echo [3/3] Running tests...
 # Disable exit-on-error temporarily so we can format the output
 set +e
-ctest -C Debug --output-on-failure
+ctest -C Debug -V
 CTEST_EXIT_CODE=$?
 set -e
 

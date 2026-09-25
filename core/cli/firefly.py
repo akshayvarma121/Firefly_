@@ -88,7 +88,7 @@ _CORE_ROOT = os.path.abspath(os.path.join(_CLI_DIR, ".."))
 if _CORE_ROOT not in sys.path:
     sys.path.insert(0, _CORE_ROOT)
 
-from cli.bench import (              # noqa: E402
+from cli.bench import (              # type: ignore
     BatchSummary,
     ProblemResult,
     collect_mps_files,
