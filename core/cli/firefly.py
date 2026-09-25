@@ -624,11 +624,11 @@ Examples
     )
 
     # ------------------------------------------------------------------
-    # firefly help
+    # firefly home
     # ------------------------------------------------------------------
-    p_help = sub.add_parser(
-        "help",
-        help="Show this help message and all available commands",
+    p_home = sub.add_parser(
+        "home",
+        help="Show the Firefly homepage and command list",
     )
 
     return root
@@ -646,6 +646,28 @@ def _print_firefly_logo() -> None:
 {Theme.ACCENT}  /   | |   \\   {Theme.PRIMARY}                            |__/ 
 {Theme.ACCENT}      | |       
 {Theme.ACCENT}      | |       {Theme.MUTED}LP/MILP/QP Solver Engine - SIH 2026{Theme.RESET}""")
+
+def _print_homepage() -> None:
+    _print_firefly_logo()
+    print(f"\n{Theme.PRIMARY}Welcome to the Firefly Solver Engine!{Theme.RESET}\n")
+    
+    print(f"{Theme.ACCENT}▶ CORE COMMANDS{Theme.RESET}")
+    print(f"  {Theme.PRIMARY}firefly solve <file.mps>{Theme.RESET}    Solve a single LP/MILP/QP problem")
+    print(f"  {Theme.PRIMARY}firefly solve-batch <folder>{Theme.RESET} Solve all .mps files in a directory")
+    print()
+    
+    print(f"{Theme.ACCENT}▶ TESTING & BENCHMARKING{Theme.RESET}")
+    print(f"  {Theme.PRIMARY}firefly benchmark <folder>{Theme.RESET}   Run and compare against known optimums")
+    print(f"  {Theme.PRIMARY}firefly test-standard{Theme.RESET}        Download & solve Netlib standard problems")
+    print(f"  {Theme.PRIMARY}firefly test{Theme.RESET}                 Run the internal C++ test suite")
+    print()
+    
+    print(f"{Theme.ACCENT}▶ UTILITIES{Theme.RESET}")
+    print(f"  {Theme.PRIMARY}firefly update{Theme.RESET}               Auto-update this executable to the newest version")
+    print(f"  {Theme.PRIMARY}firefly home{Theme.RESET}                 Show this beautiful homepage")
+    print()
+    
+    print(f"{Theme.MUTED}Tip: Use any command with -h (e.g., `firefly solve -h`) to see its specific flags.{Theme.RESET}\n")
 
 # ---------------------------------------------------------------------------
 # Entry point
@@ -677,7 +699,7 @@ def main() -> None:
                     input("Press Enter to exit...")
                     sys.exit(4)
             else:
-                parser.print_help()
+                _print_homepage()
                 print("\n[Firefly CLI is designed to be run from the command prompt or terminal.]")
                 try:
                     input("Press Enter to exit...")
@@ -685,7 +707,7 @@ def main() -> None:
                     pass
                 sys.exit(0)
         else:
-            parser.print_help()
+            _print_homepage()
             sys.exit(0)
 
 
@@ -720,11 +742,11 @@ def main() -> None:
             code = _cmd_test_standard(args)
         elif args.command == "update":
             code = _cmd_update(args)
-        elif args.command == "help":
-            parser.print_help()
+        elif args.command in ["home", "help"]:
+            _print_homepage()
             code = 0
         else:
-            parser.print_help()
+            _print_homepage()
             code = 4
     except Exception as exc:
         if debug:
@@ -740,11 +762,9 @@ def main() -> None:
         except (EOFError, KeyboardInterrupt):
             pass
 
-    if not quiet and args.command != "help" and not interactive_mode:
+    if not quiet and args.command not in ["home", "help"] and not interactive_mode:
         print("\n" + "="*70)
-        _print_firefly_logo()
-        print()
-        parser.print_help()
+        _print_homepage()
 
     sys.exit(code)
 
