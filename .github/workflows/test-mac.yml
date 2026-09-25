@@ -1,0 +1,17 @@
+name: Test macOS Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Install Firefly natively
+        run: |
+          curl -sSL https://raw.githubusercontent.com/akshayvarma121/Firefly_solver/main/install.sh | bash
+          
+      - name: Add to PATH and run test-standard
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          firefly test-standard
