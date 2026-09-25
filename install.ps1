@@ -25,10 +25,11 @@ if (-not (Test-Path $installDir)) {
 # 2. Download latest executable
 $exeUrl = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly.exe"
 Write-Host "Downloading Firefly CLI from GitHub Releases..."
+Write-Host ""
 try {
-    $ProgressPreference = 'SilentlyContinue'
-    Invoke-WebRequest -Uri $exeUrl -OutFile $exePath -UseBasicParsing
-    $ProgressPreference = 'Continue'
+    # Using curl.exe natively provides a clean tabular tracker with percentage and time remaining
+    $process = Start-Process -FilePath "curl.exe" -ArgumentList "-L", "$exeUrl", "-o", "$exePath" -Wait -NoNewWindow -PassThru
+    if ($process.ExitCode -ne 0) { throw "curl failed with exit code $($process.ExitCode)" }
 } catch {
     Write-Host "Error downloading firefly.exe. Please ensure a GitHub Release exists with this asset." -ForegroundColor Red
     Write-Host "URL Attempted: $exeUrl" -ForegroundColor Red
