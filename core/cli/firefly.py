@@ -374,21 +374,27 @@ def _cmd_test_standard(args: argparse.Namespace) -> int:
 
 def _cmd_test(args: argparse.Namespace) -> int:
     import subprocess
-    script_name = "run_all_tests.bat" if os.name == "nt" else "run_all_tests.sh"
     cli_dir = os.path.dirname(os.path.abspath(__file__))
     core_dir = os.path.abspath(os.path.join(cli_dir, ".."))
-    script_path = os.path.join(core_dir, script_name)
+    root_dir = os.path.abspath(os.path.join(core_dir, ".."))
+    
+    if os.name == "nt":
+        script_path = os.path.join(root_dir, "run_audit.bat")
+        cwd = root_dir
+    else:
+        script_path = os.path.join(core_dir, "audit.sh")
+        cwd = core_dir
     
     if not os.path.isfile(script_path):
         print(f"firefly: error: test script not found: {script_path}", file=sys.stderr)
         return 4
         
     try:
-        print("Running Firefly solver test suite...")
+        print(f"\n{Theme.ACCENT}Running Firefly full audit suite...{Theme.RESET}")
         if os.name == "nt":
-            return subprocess.call([script_path], cwd=core_dir)
+            return subprocess.call([script_path], cwd=cwd)
         else:
-            return subprocess.call(["bash", script_path], cwd=core_dir)
+            return subprocess.call(["bash", script_path], cwd=cwd)
     except Exception as exc:
         if getattr(args, "debug", False):
             import traceback
@@ -577,6 +583,14 @@ Examples
         help="Suppress table output",
     )
 
+    # ------------------------------------------------------------------
+    # firefly help
+    # ------------------------------------------------------------------
+    p_help = sub.add_parser(
+        "help",
+        help="Show this help message and all available commands",
+    )
+
     return root
 
 
@@ -664,6 +678,9 @@ def main() -> None:
             code = _cmd_test(args)
         elif args.command == "test-standard":
             code = _cmd_test_standard(args)
+        elif args.command == "help":
+            parser.print_help()
+            code = 0
         else:
             parser.print_help()
             code = 4

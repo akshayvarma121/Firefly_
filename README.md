@@ -74,7 +74,7 @@ uvicorn api.main:app --host 0.0.0.0 --port 8000
 *Note on Windows*: Ensure `CUDA_PATH` is set and its `bin\x64` directory is accessible for DLL linking.
 
 ### Web (React & TypeScript)
-A telemetry interface engineered with a scientific instrumentation aesthetic.
+A telemetry interface engineered with a scientific instrumentation aesthetic (to be packaged as a Tauri desktop app).
 
 ```bash
 cd web
