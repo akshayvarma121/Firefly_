@@ -557,7 +557,7 @@ def _cmd_test(args: argparse.Namespace) -> int:
 # ---------------------------------------------------------------------------
 
 def _cmd_version(args: argparse.Namespace) -> int:
-    print(f"{Theme.ACCENT}Firefly Solver Engine{Theme.RESET} v0.1.0")
+    print(f"{Theme.ACCENT}Firefly Solver Engine{Theme.RESET} v0.2.0")
     print(f"{Theme.MUTED}Build: sm_89 CUDA-accelerated{Theme.RESET}")
     return 0
 
@@ -958,7 +958,7 @@ def _print_firefly_logo() -> None:
 
 def _print_homepage() -> None:
     _print_firefly_logo()
-    print(f"\n{Theme.PRIMARY}Firefly Solver Engine v0.1.0{Theme.RESET}\n")
+    print(f"\n{Theme.PRIMARY}Firefly Solver Engine v0.2.0{Theme.RESET}\n")
     
     print(f"{Theme.ACCENT}▶ CORE COMMANDS{Theme.RESET}")
     print(f"  {Theme.PRIMARY}firefly solve <file.mps>{Theme.RESET}    Solve a single LP/MILP/QP file")
@@ -1106,10 +1106,6 @@ def main() -> None:
             input("Press Enter to exit...")
         except (EOFError, KeyboardInterrupt):
             pass
-
-    if not quiet and args.command not in ["home", "help", "update"] and not interactive_mode:
-        print("\n" + "="*70)
-        _print_homepage()
 
     sys.exit(code)
 
