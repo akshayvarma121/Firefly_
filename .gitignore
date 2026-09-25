@@ -16,7 +16,7 @@ CMakeFiles/
 *.log
 
 # Ignore local audit reports
-core/audit_reports/
+/audit_reports/
 
 # PyInstaller
 core/build/

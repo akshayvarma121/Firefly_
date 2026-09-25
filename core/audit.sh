@@ -2,7 +2,8 @@
 
 # Define paths and create directories
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPORT_DIR="${SCRIPT_DIR}/audit_reports"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+REPORT_DIR="${ROOT_DIR}/audit_reports"
 mkdir -p "$REPORT_DIR"
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
