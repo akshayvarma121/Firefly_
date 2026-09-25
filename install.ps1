@@ -61,6 +61,12 @@ try {
 
 Write-Host ""
 Write-Host "Installation Complete!" -ForegroundColor Green
+Write-Host "  ___  _            __  _       " -ForegroundColor Yellow
+Write-Host " | __|(_) _ _  ___ / _|| | _  _ " -ForegroundColor Yellow
+Write-Host " | _| | || '_|/ -_)|  _|| || || |" -ForegroundColor Yellow
+Write-Host " |_|  |_||_|  \___||_|  |_| \_, |" -ForegroundColor Yellow
+Write-Host "                            |__/ " -ForegroundColor Yellow
+Write-Host ""
 Write-Host "You can now open a new Command Prompt or PowerShell window and type:" -ForegroundColor White
 Write-Host "  firefly solve my_problem.mps" -ForegroundColor Cyan
 Write-Host "Or just right-click any .mps file and select 'Solve with Firefly'." -ForegroundColor Cyan

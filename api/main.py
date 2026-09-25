@@ -372,4 +372,7 @@ async def websocket_solve(websocket: WebSocket):
 if __name__ == "__main__":
     import uvicorn
     is_frozen = getattr(sys, 'frozen', False)
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=not is_frozen)
+    if is_frozen:
+        uvicorn.run(app, host="0.0.0.0", port=8000)
+    else:
+        uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
