@@ -1,5 +1,5 @@
 # Firefly Solver - Quick Installer for Windows
-# Run via: irm https://raw.githubusercontent.com/akshayvarma121/Firefly_solver/main/install.ps1 | iex
+# Run via: irm https://bit.ly/install-firefly | iex
 
 $ErrorActionPreference = "Stop"
 

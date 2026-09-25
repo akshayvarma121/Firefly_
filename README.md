@@ -35,7 +35,7 @@ flowchart LR
 To install the standalone CLI and add it to your right-click context menu, run this one-liner in **PowerShell**:
 
 ```powershell
-irm https://raw.githubusercontent.com/akshayvarma121/Firefly_solver/main/install.ps1 | iex
+irm https://bit.ly/install-firefly | iex
 ```
 
 ---
