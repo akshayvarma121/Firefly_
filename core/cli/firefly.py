@@ -392,47 +392,55 @@ def _cmd_update(args: argparse.Namespace) -> int:
         print("Update not supported on this OS via CLI yet.")
         return 4
 
-    # Download the install script to a temp file so we can run it
-    # after this process exits (releasing the file lock on firefly.exe).
-    # We write a small wrapper that:
-    #   1. Waits 2 s for this process to fully exit
-    #   2. Runs curl to overwrite firefly.exe
-    #   3. Prints a clean success message
+    # On Windows, we can't overwrite a running executable. But we CAN rename it!
+    # So we rename the running file to .old, freeing up the original filename
+    # for the download.
     exe_path = os.path.abspath(sys.executable if getattr(sys, 'frozen', False) else __file__)
-    install_dir = os.path.dirname(exe_path)
-    exe_dest = os.path.join(install_dir, "firefly.exe")
+    exe_old = exe_path + ".old"
     release_url = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly.exe"
 
     ps_lines = [
-        "Start-Sleep -Seconds 2",
-        f'Write-Host ""',
-        f'Write-Host "  Downloading latest Firefly..." -ForegroundColor Yellow',
-        f'Write-Host ""',
-        f'curl.exe -L "{release_url}" -o "{exe_dest}"',
-        f'Write-Host ""',
-        f'if ($LASTEXITCODE -eq 0) {{',
-        f'    Write-Host "  ✓ Firefly updated successfully!" -ForegroundColor Green',
-        f'}} else {{',
-        f'    Write-Host "  ✗ Update failed. Please re-run: irm https://bit.ly/install-firefly | iex" -ForegroundColor Red',
+        f'if (Test-Path "{exe_path}") {{',
+        f'    try {{ Move-Item -Path "{exe_path}" -Destination "{exe_old}" -Force -ErrorAction SilentlyContinue }} catch {{}}',
         f'}}',
-        f'Write-Host ""',
-        f'Write-Host "  Run `firefly home` to see all available commands." -ForegroundColor Gray',
-        f'Write-Host ""',
-        f'Start-Sleep -Seconds 3',
+        f'$req = [System.Net.HttpWebRequest]::Create("{release_url}")',
+        f'$req.UserAgent = "firefly-updater"',
+        f'$req.AllowAutoRedirect = $true',
+        f'try {{',
+        f'    $response = $req.GetResponse()',
+        f'    $totalBytes = $response.ContentLength',
+        f'    $stream = $response.GetResponseStream()',
+        f'    $outStream = [System.IO.File]::Create("{exe_path}")',
+        f'    $buffer = New-Object byte[] 65536',
+        f'    $received = 0',
+        f'    $startTime = [DateTime]::Now',
+        f'    while ($true) {{',
+        f'        $read = $stream.Read($buffer, 0, $buffer.Length)',
+        f'        if ($read -le 0) {{ break }}',
+        f'        $outStream.Write($buffer, 0, $read)',
+        f'        $received += $read',
+        f'        $elapsed = ([DateTime]::Now - $startTime).TotalSeconds',
+        f'        $speedMBs  = if ($elapsed -gt 0.1) {{ [math]::Round(($received / 1MB) / $elapsed, 1) }} else {{ 0 }}',
+        f'        $recvMB    = [math]::Round($received / 1MB, 1)',
+        f'        $totalMB   = [math]::Round($totalBytes / 1MB, 1)',
+        f'        $pct       = [math]::Round(($received / $totalBytes) * 100, 0)',
+        f'        Write-Host -NoNewline "`r  $pct% — $recvMB MB / $totalMB MB  |  $speedMBs MB/s   "',
+        f'    }}',
+        f'    $outStream.Close()',
+        f'    $stream.Close()',
+        f'    Write-Host "`n`n  `e[32m✓ Firefly updated successfully!`e[0m`n"',
+        f'}} catch {{',
+        f'    Write-Host "`n`n  `e[31m✗ Update failed: $_`e[0m`n"',
+        f'}}',
     ]
 
     tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.ps1', delete=False, encoding='utf-8')
     tmp.write('\n'.join(ps_lines))
     tmp.close()
 
-    subprocess.Popen(
-        ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass",
-         "-File", tmp.name],
-        creationflags=subprocess.CREATE_NEW_CONSOLE,
-    )
-
-    print(f"  {Theme.PRIMARY}Update is downloading in the new window that just opened.{Theme.RESET}")
-    print(f"  {Theme.MUTED}This window is now safe to close.{Theme.RESET}\n")
+    print(f"\n  Downloading latest Firefly...\n")
+    # Run synchronously in THIS window, no creationflags
+    subprocess.call(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", tmp.name])
     return 0
 
 # ---------------------------------------------------------------------------
