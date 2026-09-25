@@ -239,6 +239,52 @@ def _cmd_solve(args: argparse.Namespace) -> int:
 
 
 # ---------------------------------------------------------------------------
+# Sub-command: compare
+# ---------------------------------------------------------------------------
+
+def _cmd_compare(args: argparse.Namespace) -> int:
+    f1 = args.file1
+    f2 = args.file2
+    
+    if not os.path.isfile(f1):
+        print(f"firefly: error: file not found: {f1!r}", file=sys.stderr)
+        return 4
+    if not os.path.isfile(f2):
+        print(f"firefly: error: file not found: {f2!r}", file=sys.stderr)
+        return 4
+        
+    print(f"\n{Theme.ACCENT}▶ SOLVER COMPARISON{Theme.RESET}")
+    print(f"  {Theme.PRIMARY}Model A:{Theme.RESET} {os.path.basename(f1)}")
+    print(f"  {Theme.PRIMARY}Model B:{Theme.RESET} {os.path.basename(f2)}\n")
+    
+    print(f"  Solving Model A...")
+    from .firefly import _fs, _solve_mock, _FS_AVAILABLE
+    
+    def solve_file(f):
+        if not _FS_AVAILABLE:
+            return _solve_mock(f, args.method, args.gpu, False)
+        else:
+            return _fs.solve_mps(f, args.method, args.gpu, False)
+            
+    res1 = solve_file(f1)
+    
+    print(f"  Solving Model B...")
+    res2 = solve_file(f2)
+    
+    print(f"\n{Theme.ACCENT}▶ RESULTS{Theme.RESET}")
+    
+    def fmt_obj(o): return f"{o:.6g}" if o is not None else "N/A"
+    def fmt_time(t): return f"{t:.1f}ms"
+    
+    print(f"  {'Metric':<15} | {'Model A':<20} | {'Model B':<20}")
+    print(f"  {'-'*15}-+-{'-'*20}-+-{'-'*20}")
+    print(f"  {'Status':<15} | {res1.status:<20} | {res2.status:<20}")
+    print(f"  {'Objective':<15} | {fmt_obj(res1.objective):<20} | {fmt_obj(res2.objective):<20}")
+    print(f"  {'Solve Time':<15} | {fmt_time(res1.wall_time_ms):<20} | {fmt_time(res2.wall_time_ms):<20}")
+    print()
+    return _exit_code_for(res1.status) if res1.status != "OPTIMAL" else _exit_code_for(res2.status)
+
+# ---------------------------------------------------------------------------
 # Sub-command: benchmark
 # ---------------------------------------------------------------------------
 
@@ -487,6 +533,56 @@ def _cmd_version(args: argparse.Namespace) -> int:
     print(f"{Theme.MUTED}Build: sm_89 CUDA-accelerated{Theme.RESET}")
     return 0
 
+def _cmd_top(args: argparse.Namespace) -> int:
+    import psutil
+    import subprocess
+    import time
+    
+    print(f"\n{Theme.MUTED}Starting Firefly Resource Monitor (Press Ctrl+C to stop)...{Theme.RESET}")
+    time.sleep(1)
+    
+    def _bar(pct: float, length: int = 30) -> str:
+        filled = int((pct / 100.0) * length)
+        empty = length - filled
+        return f"{Theme.ACCENT}{'=' * filled}{Theme.MUTED}{'-' * empty}{Theme.RESET}"
+    
+    try:
+        while True:
+            # Clear screen
+            print("\033[2J\033[H", end="")
+            _print_firefly_logo()
+            print(f"\n{Theme.ACCENT}▶ LIVE RESOURCE MONITOR{Theme.RESET}\n")
+            
+            cpu_pct = psutil.cpu_percent(interval=0.1)
+            ram = psutil.virtual_memory()
+            
+            print(f"  {Theme.PRIMARY}CPU Usage:{Theme.RESET} [{_bar(cpu_pct)}] {cpu_pct:5.1f}%")
+            print(f"  {Theme.PRIMARY}RAM Usage:{Theme.RESET} [{_bar(ram.percent)}] {ram.percent:5.1f}%  ({ram.used / (1024**3):.1f}GB / {ram.total / (1024**3):.1f}GB)")
+            print()
+            
+            try:
+                smi = subprocess.check_output(
+                    ["nvidia-smi", "--query-gpu=name,utilization.gpu,memory.used,memory.total", "--format=csv,noheader,nounits"],
+                    text=True, stderr=subprocess.DEVNULL
+                ).strip().split('\n')
+                for i, line in enumerate(smi):
+                    parts = [p.strip() for p in line.split(',')]
+                    if len(parts) == 4:
+                        name, util, mem_used, mem_total = parts
+                        util_float = float(util)
+                        print(f"  {Theme.PRIMARY}GPU {i} ({name}):{Theme.RESET}")
+                        print(f"    Usage: [{_bar(util_float)}] {util_float:5.1f}%")
+                        mem_pct = (float(mem_used) / float(mem_total)) * 100.0
+                        print(f"    VRAM:  [{_bar(mem_pct)}] {mem_pct:5.1f}%  ({mem_used}MB / {mem_total}MB)")
+            except Exception:
+                print(f"  {Theme.MUTED}GPU: No NVIDIA GPU detected.{Theme.RESET}")
+                
+            print(f"\n{Theme.MUTED}Press Ctrl+C to exit{Theme.RESET}")
+            time.sleep(1.0)
+    except KeyboardInterrupt:
+        print("\033[2J\033[H", end="")
+        return 0
+
 def _get_recent_file() -> str:
     app_data = os.path.join(os.environ.get("LOCALAPPDATA", os.path.expanduser("~")), "Firefly")
     os.makedirs(app_data, exist_ok=True)
@@ -666,6 +762,18 @@ Examples
         ),
     )
     _add_verbosity(p_solve)
+    
+    # ------------------------------------------------------------------
+    # firefly compare
+    # ------------------------------------------------------------------
+    p_compare = sub.add_parser(
+        "compare",
+        help="Compare solver performance on two .mps files",
+        description="Solve two .mps files and compare their objectives and times side-by-side.",
+    )
+    p_compare.add_argument("file1", metavar="<model_A.mps>", help="Path to the first MPS file")
+    p_compare.add_argument("file2", metavar="<model_B.mps>", help="Path to the second MPS file")
+    _add_method_gpu(p_compare)
 
     # ------------------------------------------------------------------
     # firefly benchmark
@@ -787,6 +895,14 @@ Examples
         help="Show current engine version",
     )
 
+    # ------------------------------------------------------------------
+    # firefly top
+    # ------------------------------------------------------------------
+    p_top = sub.add_parser(
+        "top",
+        help="Open live system resource monitor (CPU/RAM/GPU)",
+    )
+
     return root
 
 
@@ -810,6 +926,7 @@ def _print_homepage() -> None:
     print(f"{Theme.ACCENT}▶ CORE COMMANDS{Theme.RESET}")
     print(f"  {Theme.PRIMARY}firefly solve <file.mps>{Theme.RESET}    Solve a single LP/MILP/QP file")
     print(f"  {Theme.PRIMARY}firefly solve-batch <folder>{Theme.RESET} Solve all .mps files in a directory")
+    print(f"  {Theme.PRIMARY}firefly compare <f1> <f2>{Theme.RESET}    Compare time and objective between two models")
     print()
     
     print(f"{Theme.ACCENT}▶ TESTING & BENCHMARKING{Theme.RESET}")
@@ -819,6 +936,7 @@ def _print_homepage() -> None:
     print()
     
     print(f"{Theme.ACCENT}▶ UTILITIES{Theme.RESET}")
+    print(f"  {Theme.PRIMARY}firefly top{Theme.RESET}                  Open live system resource monitor (CPU/RAM/GPU)")
     print(f"  {Theme.PRIMARY}firefly audit{Theme.RESET}                Open the audit reports directory")
     print(f"  {Theme.PRIMARY}firefly recent{Theme.RESET}               Show recent solve results")
     print(f"  {Theme.PRIMARY}firefly update{Theme.RESET}               Update Firefly to the latest version")
@@ -912,6 +1030,8 @@ def main() -> None:
     try:
         if args.command == "solve":
             code = _cmd_solve(args)
+        elif args.command == "compare":
+            code = _cmd_compare(args)
         elif args.command == "benchmark":
             code = _cmd_benchmark(args)
         elif args.command == "solve-batch":
@@ -926,6 +1046,8 @@ def main() -> None:
             code = _cmd_audit(args)
         elif args.command == "recent":
             code = _cmd_recent(args)
+        elif args.command == "top":
+            code = _cmd_top(args)
         elif args.command == "version":
             code = _cmd_version(args)
         elif args.command in ["home", "help"]:
