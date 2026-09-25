@@ -29,7 +29,18 @@ flowchart LR
 
 ---
 
-## Build and Installation
+## Installation
+
+### Quick Install (Windows)
+To install the standalone CLI and add it to your right-click context menu, run this one-liner in **PowerShell**:
+
+```powershell
+irm https://raw.githubusercontent.com/akshayvarma121/Firefly_solver/main/install.ps1 | iex
+```
+
+---
+
+## Build from Source
 
 ### Core (C++20 & CUDA)
 Requires CMake 3.25+ and NVIDIA CUDA Toolkit 12.0+ (target sm_89).
