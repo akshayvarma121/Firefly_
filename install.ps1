@@ -90,16 +90,16 @@ try {
 }
 
 Write-Host ""
-Write-Host "Installation Complete!" -ForegroundColor Green
-Write-Host "      \ /         " -ForegroundColor Yellow -NoNewline; Write-Host "  ___ _            __ _       " -ForegroundColor White
-Write-Host "======= ======= " -ForegroundColor Yellow -NoNewline; Write-Host " | __|(_) _ _  ___ / _|| | _  _ " -ForegroundColor White
-Write-Host "  ====   ====   " -ForegroundColor Yellow -NoNewline; Write-Host " | _| | || '_|/ -_)|  _|| || || |" -ForegroundColor White
-Write-Host "   /  | |  \    " -ForegroundColor Yellow -NoNewline; Write-Host " |_|  |_||_|  \___||_|  |_| \_, |" -ForegroundColor White
-Write-Host "  /   | |   \   " -ForegroundColor Yellow -NoNewline; Write-Host "                            |__/ " -ForegroundColor White
-Write-Host "      | |       " -ForegroundColor Yellow
-Write-Host "      | |       " -ForegroundColor Yellow -NoNewline; Write-Host "LP/MILP/QP Solver Engine - SIH 2026" -ForegroundColor Gray
+Write-Host "  Installation Complete!" -ForegroundColor Green
 Write-Host ""
-Write-Host "You can now open a new Command Prompt or PowerShell window and type:" -ForegroundColor White
-Write-Host "  firefly solve my_problem.mps" -ForegroundColor Cyan
-Write-Host "Or just right-click any .mps file and select 'Solve with Firefly'." -ForegroundColor Cyan
+Write-Host "  Firefly has been installed to: $installDir" -ForegroundColor Gray
+Write-Host ""
+Write-Host "  Opening Firefly homepage in a new terminal..." -ForegroundColor Yellow
+Start-Sleep -Seconds 1
+
+# Open a new terminal and show the homepage
+Start-Process "powershell" -ArgumentList "-NoExit", "-Command", "`$env:PATH += ';$installDir'; firefly home"
+
+Write-Host ""
+Write-Host "  Tip: Right-click any .mps file and select 'Solve with Firefly'." -ForegroundColor Gray
 Write-Host ""

@@ -756,8 +756,8 @@ def main() -> None:
 
     quiet = getattr(args, "quiet", False)
     
-    # Print the logo for normal CLI runs (if not quiet and not already printed in interactive mode)
-    if not quiet and len(sys.argv) > 1 and not interactive_mode:
+    # Print the logo for normal CLI runs — skip for home/help since _print_homepage already prints it
+    if not quiet and len(sys.argv) > 1 and not interactive_mode and args.command not in ["home", "help"]:
         _print_firefly_logo()
 
     # Warn if the native solver is unavailable (unless --quiet)
