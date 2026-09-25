@@ -23,7 +23,7 @@ if (-not (Test-Path $installDir)) {
 }
 
 # 2. Download latest executable
-$exeUrl = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly.exe"
+$exeUrl = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.2.0/firefly.exe"
 Write-Host "Downloading Firefly CLI from GitHub Releases..."
 Write-Host ""
 try {
