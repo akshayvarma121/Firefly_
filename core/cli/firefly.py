@@ -707,6 +707,12 @@ def main() -> None:
         except (EOFError, KeyboardInterrupt):
             pass
 
+    if not quiet and args.command != "help" and not interactive_mode:
+        print("\n" + "="*70)
+        _print_firefly_logo()
+        print()
+        parser.print_help()
+
     sys.exit(code)
 
 
