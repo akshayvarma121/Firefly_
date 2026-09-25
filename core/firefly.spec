@@ -12,10 +12,11 @@ binaries = []
 if sys.platform == "win32":
     cuda_path = os.environ.get("CUDA_PATH", r"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.2")
     if os.path.exists(cuda_path):
-        cublas = glob.glob(os.path.join(cuda_path, "bin", "x64", "cublas64_*.dll"))
-        cusparse = glob.glob(os.path.join(cuda_path, "bin", "x64", "cusparse64_*.dll"))
-        for f in cublas + cusparse:
-            binaries.append((f, '.'))
+        for sub_dir in ["bin", os.path.join("bin", "x64")]:
+            cublas = glob.glob(os.path.join(cuda_path, sub_dir, "cublas64_*.dll"))
+            cusparse = glob.glob(os.path.join(cuda_path, sub_dir, "cusparse64_*.dll"))
+            for f in cublas + cusparse:
+                binaries.append((f, '.'))
 
 # Explicitly add the compiled extension to binaries
 site_pkgs = sysconfig.get_path("purelib")
