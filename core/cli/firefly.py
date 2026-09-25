@@ -377,6 +377,28 @@ def _cmd_test_standard(args: argparse.Namespace) -> int:
     return 0 if summary.all_passed else 4
 
 # ---------------------------------------------------------------------------
+# Sub-command: update
+# ---------------------------------------------------------------------------
+
+def _cmd_update(args: argparse.Namespace) -> int:
+    import subprocess
+    print(f"\n{Theme.ACCENT}Starting Firefly updater...{Theme.RESET}")
+    if os.name == "nt":
+        ps_command = (
+            "Start-Sleep -Seconds 2; "
+            "irm https://bit.ly/install-firefly | iex"
+        )
+        subprocess.Popen(
+            ["powershell", "-NoProfile", "-Command", ps_command],
+            creationflags=subprocess.CREATE_NEW_CONSOLE
+        )
+        print(f"{Theme.PRIMARY}Updater launched! This window will now close so the update can overwrite the executable.{Theme.RESET}")
+        return 0
+    else:
+        print("Update not supported on this OS via CLI yet.")
+        return 4
+
+# ---------------------------------------------------------------------------
 # Sub-command: test
 # ---------------------------------------------------------------------------
 
@@ -593,6 +615,15 @@ Examples
     )
 
     # ------------------------------------------------------------------
+    # firefly update
+    # ------------------------------------------------------------------
+    p_update = sub.add_parser(
+        "update",
+        help="Update Firefly CLI to the latest version from GitHub",
+        description="Downloads the latest executable and replaces the current one.",
+    )
+
+    # ------------------------------------------------------------------
     # firefly help
     # ------------------------------------------------------------------
     p_help = sub.add_parser(
@@ -687,6 +718,8 @@ def main() -> None:
             code = _cmd_test(args)
         elif args.command == "test-standard":
             code = _cmd_test_standard(args)
+        elif args.command == "update":
+            code = _cmd_update(args)
         elif args.command == "help":
             parser.print_help()
             code = 0
