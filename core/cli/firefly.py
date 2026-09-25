@@ -724,8 +724,8 @@ Examples
   firefly solve problem.mps --verbose --output result.json
   firefly benchmark  ./problems/
   firefly solve-batch ./problems/ --method pdlp
-  firefly test
   firefly test-standard
+  firefly test (Developer Only)
 """,
     )
 
@@ -969,7 +969,7 @@ def _print_homepage() -> None:
     print(f"{Theme.ACCENT}▶ TESTING & BENCHMARKING{Theme.RESET}")
     print(f"  {Theme.PRIMARY}firefly benchmark <folder>{Theme.RESET}   Run the benchmark suite against reference optimums")
     print(f"  {Theme.PRIMARY}firefly test-standard{Theme.RESET}        Download and solve standard Netlib problems")
-    print(f"  {Theme.PRIMARY}firefly test{Theme.RESET}                 Run the internal C++ test suite")
+    print(f"  {Theme.PRIMARY}firefly test{Theme.RESET}                 Run the internal C++ test suite {Theme.MUTED}(Developer Only){Theme.RESET}")
     print()
     
     print(f"{Theme.ACCENT}▶ UTILITIES{Theme.RESET}")
