@@ -667,6 +667,11 @@ def _print_homepage() -> None:
     print(f"  {Theme.PRIMARY}firefly home{Theme.RESET}                 Show this beautiful homepage")
     print()
     
+    print(f"{Theme.ACCENT}▶ LINKS{Theme.RESET}")
+    print(f"  {Theme.PRIMARY}GitHub Repository{Theme.RESET}            https://github.com/akshayvarma121/Firefly_solver")
+    print(f"  {Theme.PRIMARY}Official Website{Theme.RESET}             https://firefly-solver.vercel.app")
+    print()
+    
     print(f"{Theme.MUTED}Tip: Use any command with -h (e.g., `firefly solve -h`) to see its specific flags.{Theme.RESET}\n")
 
 # ---------------------------------------------------------------------------
