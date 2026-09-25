@@ -1,7 +1,9 @@
-import urllib.request
 import os
+import urllib.request
 
-os.makedirs("core/tests/netlib_miplib", exist_ok=True)
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT_DIR = os.path.join(ROOT_DIR, "core", "tests", "netlib_miplib")
+os.makedirs(OUT_DIR, exist_ok=True)
 
 # LPs from Netlib (present in HiGHS repo)
 lps = [
@@ -23,7 +25,7 @@ files = lps + mips
 
 for name in files:
     url = f"https://raw.githubusercontent.com/ERGO-Code/HiGHS/master/check/instances/{name}"
-    out = f"core/tests/netlib_miplib/{name}"
+    out = os.path.join(OUT_DIR, name)
     print(f"Downloading {name}...")
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})

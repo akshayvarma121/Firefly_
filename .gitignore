@@ -27,3 +27,7 @@ core/dist/
 __pycache__/
 *.pyd
 *.pyc
+
+# Agents
+AGENTS.md
+agents.md

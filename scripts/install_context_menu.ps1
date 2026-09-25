@@ -5,7 +5,8 @@ $ErrorActionPreference = "Stop"
 
 # Get the absolute path to the firefly.exe built by PyInstaller
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$exePath = Join-Path $scriptDir "core\dist\firefly.exe"
+$rootDir = Split-Path -Parent $scriptDir
+$exePath = Join-Path $rootDir "core\dist\firefly.exe"
 
 if (-not (Test-Path $exePath)) {
     Write-Host "Error: firefly.exe not found at $exePath" -ForegroundColor Red
