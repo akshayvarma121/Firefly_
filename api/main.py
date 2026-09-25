@@ -56,6 +56,13 @@ app.add_middleware(
 def log_request(problem_name: str, method: str, gpu: bool, status: str, wall_time_ms: float = 0.0, msg: str = ""):
     logger.info(f"[Problem: {problem_name}] [Method: {method}] [GPU: {gpu}] [Status: {status}] [Time: {wall_time_ms:.2f}ms] {msg}")
 
+@app.get("/health")
+def health_check():
+    mode = "GPU" if FIREFLY_SOLVER_AVAILABLE else "CPU (Mock Fallback)"
+    if FIREFLY_SOLVER_AVAILABLE and hasattr(firefly_solver, "cuda_is_available") and not firefly_solver.cuda_is_available():
+        mode = "CPU (Fallback)"
+    return {"status": "ok", "mode": mode, "solver_available": FIREFLY_SOLVER_AVAILABLE}
+
 @app.post("/inspect", response_model=InspectResponse)
 async def inspect_endpoint(
     request: Request,
@@ -364,4 +371,5 @@ async def websocket_solve(websocket: WebSocket):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    is_frozen = getattr(sys, 'frozen', False)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=not is_frozen)

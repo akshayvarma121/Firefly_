@@ -26,7 +26,9 @@ if (-not (Test-Path $installDir)) {
 $exeUrl = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0.1.0/firefly.exe"
 Write-Host "Downloading Firefly CLI from GitHub Releases..."
 try {
+    $ProgressPreference = 'SilentlyContinue'
     Invoke-WebRequest -Uri $exeUrl -OutFile $exePath -UseBasicParsing
+    $ProgressPreference = 'Continue'
 } catch {
     Write-Host "Error downloading firefly.exe. Please ensure a GitHub Release exists with this asset." -ForegroundColor Red
     Write-Host "URL Attempted: $exeUrl" -ForegroundColor Red

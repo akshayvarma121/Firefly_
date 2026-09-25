@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { useSolverStore } from '../store/solverStore';
 
-export type SolverState = 'idle' | 'running' | 'converged';
+type SolverState = 'idle' | 'solving' | 'converged' | 'error';
 
 interface SolverStatusLightProps {
   state: SolverState;
@@ -10,67 +9,62 @@ interface SolverStatusLightProps {
 
 export function SolverStatusLight({ state }: SolverStatusLightProps) {
   return (
-    <div
-      className={cn(
-        "w-2.5 h-2.5 rotate-45 transition-colors duration-200",
-        state === 'idle' ? "bg-text-muted" : "bg-signal",
-        state === 'running' && "animate-pulse"
-      )}
-    />
+    <div className="flex items-center gap-2">
+      <div className="text-text-muted text-xs font-mono uppercase tracking-wider">Solver</div>
+      <div
+        className={cn(
+          "w-2 h-2 rotate-45 border border-border transition-colors duration-300",
+          state === 'idle' && "bg-transparent",
+          state === 'solving' && "bg-signal animate-pulse border-signal",
+          state === 'converged' && "bg-signal border-signal"
+        )}
+      />
+    </div>
   );
 }
 
-interface AnnunciatorPanelProps {
+interface GPULaneIndicatorsProps {
   state: SolverState;
-  count: number;
+  lanes?: number;
 }
 
-export function AnnunciatorPanel({ state, count }: AnnunciatorPanelProps) {
-  const [lights, setLights] = useState<boolean[]>(Array(count).fill(false));
-  const tick = useSolverStore(s => s.iterationTick);
+export function GPULaneIndicators({ state, lanes = 8 }: GPULaneIndicatorsProps) {
+  const [activeLanes, setActiveLanes] = useState<boolean[]>(Array(lanes).fill(false));
 
   useEffect(() => {
     if (state === 'idle') {
-      setLights(Array(count).fill(false));
+      setActiveLanes(Array(lanes).fill(false));
+      return;
+    }
+    
+    if (state === 'converged') {
+      setActiveLanes(Array(lanes).fill(true));
       return;
     }
 
-    if (state === 'converged') {
-      // Initial sync state when entering converged
-      setLights(Array(count).fill(true));
-      
-      // All squares snap to the same on/off rhythm together
-      const interval = setInterval(() => {
-        setLights(prev => {
-          const isOn = !prev[0]; // just toggle based on the first element
-          return Array(count).fill(isOn);
+    // Solving state - async blinking
+    const intervals = Array.from({ length: lanes }).map((_, i) => {
+      const duration = 100 + Math.random() * 300;
+      return setInterval(() => {
+        setActiveLanes(prev => {
+          const next = [...prev];
+          next[i] = !next[i];
+          return next;
         });
-      }, 500);
-      
-      return () => clearInterval(interval);
-    }
+      }, duration);
+    });
 
-    // Running state is now driven purely by the iterationTick below,
-    // so we don't need a setInterval here for 'running' anymore.
-  }, [state, count]);
-
-  useEffect(() => {
-    if (state === 'running') {
-      // Toggle a random subset of lights on each tick
-      setLights(prev => 
-        prev.map(light => (Math.random() > 0.5 ? !light : light))
-      );
-    }
-  }, [tick, state]);
+    return () => intervals.forEach(clearInterval);
+  }, [state, lanes]);
 
   return (
-    <div className="flex items-center gap-[2px]">
-      {lights.map((isOn, i) => (
+    <div className="flex items-center gap-[2px] p-1 border border-border bg-background">
+      {activeLanes.map((isActive, i) => (
         <div
           key={i}
           className={cn(
-            "w-2 h-2 transition-colors duration-75",
-            isOn ? "bg-signal" : "bg-border"
+            "w-3 h-3 transition-colors duration-75 border border-border",
+            isActive ? "bg-signal border-signal" : "bg-panel"
           )}
         />
       ))}

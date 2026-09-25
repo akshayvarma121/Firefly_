@@ -32,7 +32,7 @@ flowchart LR
 ## Installation
 
 ### Quick Install (Windows)
-To install the standalone CLI and add it to your right-click context menu, run this one-liner in **PowerShell**:
+To install the standalone CLI , run this in **PowerShell**:
 
 ```powershell
 irm https://bit.ly/install-firefly | iex
