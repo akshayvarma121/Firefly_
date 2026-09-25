@@ -322,6 +322,81 @@ def _cmd_solve_batch(args: argparse.Namespace) -> int:
 
 
 # ---------------------------------------------------------------------------
+# Sub-command: test-standard
+# ---------------------------------------------------------------------------
+
+def _cmd_test_standard(args: argparse.Namespace) -> int:
+    import tempfile
+    import urllib.request
+    
+    # Standard small netlib problems
+    files = ["afiro.mps", "adlittle.mps", "israel.mps"]
+    
+    print(f"\n{Theme.ACCENT}Downloading standard test problems (Netlib)...{Theme.RESET}")
+    with tempfile.TemporaryDirectory() as tmpdir:
+        for name in files:
+            url = f"https://raw.githubusercontent.com/ERGO-Code/HiGHS/master/check/instances/{name}"
+            out_path = os.path.join(tmpdir, name)
+            print(f"  Fetching {name}...")
+            try:
+                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                with urllib.request.urlopen(req, timeout=10) as response:
+                    with open(out_path, 'wb') as f:
+                        f.write(response.read())
+            except Exception as e:
+                print(f"{Theme.MUTED}Failed to download {name}: {e}{Theme.RESET}")
+                return 4
+                
+        print(f"\n{Theme.ACCENT}Running Solver on Standard Problems...{Theme.RESET}\n")
+        print(summary_header())
+        
+        summary = run_batch(
+            tmpdir,
+            method=args.method,
+            gpu=args.gpu,
+            references=None,
+            on_result=lambda pr: _print_batch_result(pr, args.quiet),
+            firefly_solver=_fs,
+        )
+        
+        print()
+        if summary.errors == 0 and summary.failed == 0:
+            print(f"  {Theme.PRIMARY}All standard tests completed successfully!{Theme.RESET}")
+        else:
+            print(f"  {Theme.MUTED}Some tests encountered errors.{Theme.RESET}")
+        print()
+        
+    return 0 if summary.errors == 0 else 4
+
+# ---------------------------------------------------------------------------
+# Sub-command: test
+# ---------------------------------------------------------------------------
+
+def _cmd_test(args: argparse.Namespace) -> int:
+    import subprocess
+    script_name = "run_all_tests.bat" if os.name == "nt" else "run_all_tests.sh"
+    cli_dir = os.path.dirname(os.path.abspath(__file__))
+    core_dir = os.path.abspath(os.path.join(cli_dir, ".."))
+    script_path = os.path.join(core_dir, script_name)
+    
+    if not os.path.isfile(script_path):
+        print(f"firefly: error: test script not found: {script_path}", file=sys.stderr)
+        return 4
+        
+    try:
+        print("Running Firefly solver test suite...")
+        if os.name == "nt":
+            return subprocess.call([script_path], cwd=core_dir)
+        else:
+            return subprocess.call(["bash", script_path], cwd=core_dir)
+    except Exception as exc:
+        if getattr(args, "debug", False):
+            import traceback
+            traceback.print_exc()
+        print(f"firefly: error running tests: {exc}", file=sys.stderr)
+        return 4
+
+# ---------------------------------------------------------------------------
 # Argument parser
 # ---------------------------------------------------------------------------
 
@@ -346,6 +421,8 @@ Examples
   firefly solve problem.mps --verbose --output result.json
   firefly benchmark  ./problems/
   firefly solve-batch ./problems/ --method pdlp
+  firefly test
+  firefly test-standard
 """,
     )
 
@@ -469,8 +546,52 @@ Examples
         help="Show full traceback on error",
     )
 
+    # ------------------------------------------------------------------
+    # firefly test
+    # ------------------------------------------------------------------
+    p_test = sub.add_parser(
+        "test",
+        help="Run the internal solver test suite",
+        description="Run all internal C++ unit tests for the Firefly solver.",
+    )
+    p_test.add_argument(
+        "--debug",
+        action="store_true",
+        default=False,
+        help="Show full traceback on error",
+    )
+
+    # ------------------------------------------------------------------
+    # firefly test-standard
+    # ------------------------------------------------------------------
+    p_test_std = sub.add_parser(
+        "test-standard",
+        help="Test the solver against real, standard MPS problems (Netlib)",
+        description="Downloads a few standard Netlib MPS files and solves them visibly.",
+    )
+    _add_method_gpu(p_test_std)
+    p_test_std.add_argument(
+        "--quiet", "-q",
+        action="store_true",
+        default=False,
+        help="Suppress table output",
+    )
+
     return root
 
+
+# ---------------------------------------------------------------------------
+# ASCII Logo
+# ---------------------------------------------------------------------------
+def _print_firefly_logo() -> None:
+    print(f"""
+{Theme.ACCENT}      \\ /       {Theme.PRIMARY}  ___ _            __ _       
+{Theme.ACCENT}======= ======= {Theme.PRIMARY} | __|(_) _ _  ___ / _|| | _  _ 
+{Theme.ACCENT}  ====   ====   {Theme.PRIMARY} | _| | || '_|/ -_)|  _|| || || |
+{Theme.ACCENT}   /  | |  \\    {Theme.PRIMARY} |_|  |_||_|  \\___||_|  |_| \\_, |
+{Theme.ACCENT}  /   | |   \\   {Theme.PRIMARY}                            |__/ 
+{Theme.ACCENT}      | |       
+{Theme.ACCENT}      | |       {Theme.MUTED}LP/MILP/QP Solver Engine - SIH 2026{Theme.RESET}""")
 
 # ---------------------------------------------------------------------------
 # Entry point
@@ -482,15 +603,8 @@ def main() -> None:
     
     # If run without arguments (e.g. double-clicked in Windows Explorer)
     if len(sys.argv) == 1:
-        print(f"""
-{Theme.ACCENT}  ___ {Theme.PRIMARY}_            __ {Theme.PRIMARY}_       
-{Theme.ACCENT} | __|{Theme.PRIMARY}(_) _ _  ___ / _|| | _  _ 
-{Theme.ACCENT} | _| {Theme.PRIMARY}| || '_|/ -_)|  _|| || || |
-{Theme.ACCENT} |_|  {Theme.PRIMARY}|_||_|  \\___||_|  |_| \\_, |
-                            |__/ {Theme.RESET}
-
-       {Theme.MUTED}LP/MILP/QP Solver Engine - SIH 2026{Theme.RESET}
-""")
+        _print_firefly_logo()
+        print()
         if os.name == "nt":
             print("Welcome to Firefly! For advanced usage, run this tool from a command prompt.")
             print("To start a solve right now, you can drag and drop a .mps file here.")
@@ -523,8 +637,13 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    # Warn if the native solver is unavailable (unless --quiet)
     quiet = getattr(args, "quiet", False)
+    
+    # Print the logo for normal CLI runs (if not quiet and not already printed in interactive mode)
+    if not quiet and len(sys.argv) > 1 and not interactive_mode:
+        _print_firefly_logo()
+
+    # Warn if the native solver is unavailable (unless --quiet)
     if not _FS_AVAILABLE and not quiet:
         print(
             f"[WARNING] firefly_solver native extension not loaded: {_FS_IMPORT_ERR}\n"
@@ -541,6 +660,10 @@ def main() -> None:
             code = _cmd_benchmark(args)
         elif args.command == "solve-batch":
             code = _cmd_solve_batch(args)
+        elif args.command == "test":
+            code = _cmd_test(args)
+        elif args.command == "test-standard":
+            code = _cmd_test_standard(args)
         else:
             parser.print_help()
             code = 4
