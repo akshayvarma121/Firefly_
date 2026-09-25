@@ -27,47 +27,41 @@ $exeUrl = "https://github.com/akshayvarma121/Firefly_solver/releases/download/v0
 Write-Host "Downloading Firefly CLI from GitHub Releases..."
 Write-Host ""
 try {
-    $wc = New-Object System.Net.WebClient
-    $totalBytes = 0
-    $receivedBytes = 0
+    $req = [System.Net.HttpWebRequest]::Create($exeUrl)
+    $req.UserAgent = "firefly-installer"
+    $req.AllowAutoRedirect = $true
+    $response = $req.GetResponse()
+    $totalBytes = $response.ContentLength
+    $stream = $response.GetResponseStream()
+    $outStream = [System.IO.File]::Create($exePath)
+
+    $buffer = New-Object byte[] 65536   # 64 KB chunks
+    $received = 0
     $startTime = [DateTime]::Now
 
-    # Get total size via HEAD
-    $req = [System.Net.WebRequest]::Create($exeUrl)
-    $req.Method = "HEAD"
-    try {
-        $resp = $req.GetResponse()
-        $totalBytes = $resp.ContentLength
-        $resp.Close()
-    } catch {}
+    while ($true) {
+        $read = $stream.Read($buffer, 0, $buffer.Length)
+        if ($read -le 0) { break }
+        $outStream.Write($buffer, 0, $read)
+        $received += $read
 
-    $wc.Headers.Add("User-Agent", "firefly-installer")
-
-    $done = $false
-    $wc.DownloadFileCompleted += { $done = $true }
-    $wc.DownloadProgressChanged += {
-        param($s, $e)
-        $receivedBytes = $e.BytesReceived
         $elapsed = ([DateTime]::Now - $startTime).TotalSeconds
-        $speedMBs = if ($elapsed -gt 0) { ($receivedBytes / 1MB) / $elapsed } else { 0 }
-        $recvMB = [math]::Round($receivedBytes / 1MB, 1)
-        $totalMB = if ($totalBytes -gt 0) { [math]::Round($totalBytes / 1MB, 1) } else { "?" }
-        $pct = $e.ProgressPercentage
-        $line = "  $pct% — $recvMB MB / $totalMB MB  |  $([math]::Round($speedMBs,1)) MB/s"
-        Write-Host -NoNewline "`r$line                    "
+        $speedMBs  = if ($elapsed -gt 0.1) { [math]::Round(($received / 1MB) / $elapsed, 1) } else { 0 }
+        $recvMB    = [math]::Round($received / 1MB, 1)
+        $totalMB   = [math]::Round($totalBytes / 1MB, 1)
+        $pct       = [math]::Round(($received / $totalBytes) * 100, 0)
+        Write-Host -NoNewline "`r  $pct% — $recvMB MB / $totalMB MB  |  $speedMBs MB/s   "
     }
 
-    $wc.DownloadFileAsync([Uri]$exeUrl, $exePath)
-    while (-not $done) { Start-Sleep -Milliseconds 200 }
+    $outStream.Close()
+    $stream.Close()
     Write-Host ""
 
-    if (-not (Test-Path $exePath) -or (Get-Item $exePath).Length -lt 1MB) {
-        throw "Downloaded file is missing or too small."
-    }
+    if ((Get-Item $exePath).Length -lt 1MB) { throw "Downloaded file too small — may be corrupt." }
 } catch {
     Write-Host ""
     Write-Host "Error downloading firefly.exe: $_" -ForegroundColor Red
-    Write-Host "URL Attempted: $exeUrl" -ForegroundColor Red
+    Write-Host "URL: $exeUrl" -ForegroundColor Red
     exit 1
 }
 
